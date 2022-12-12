@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <title>all chart</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .chart_main {
+            background-color: black;
+            color: rgb(255, 255, 255);
+            /* border: 3px solid orange; */
+            margin: 100px;
+        }
+
+        .chart_main_title {
+            /* border: 3px solid blue; */
+            font-size: 40px;
+        }
+        
+        .chart_main_title p:nth-child(2){
+            font-size: 18px;
+            /* border: 2px solid red; */
+            margin-top: -20px;
+            color: rgb(185, 185, 185);
+        } 
+
+        .all_chart {
+            display: flex;
+            flex-direction: row;
+            /* border: 3px solid red; */
+            width: 100%;
+            margin-left: 35px;
+            margin-top: 50px;
+        }
+
+        .subTitle {
+            width: 30%;
+        }
+
+        .chart_title {
+            display: inline;
+            font-size: 28px;
+        }
+
+        .chart_img {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            width: 43px;
+            height: 43px;
+            left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chart_main">
+        <div class="chart_main_title">
+            <p>ALL Chart</p>
+            <p>실시간 차트모아보기</p>
+        </div>
+
+        <div class="all_chart">
+            <div class="subTitle melone">
+                <div><img class="chart_img" src="./melone.png">
+                    <p class="chart_title">Melon TOP 10</p>
+                </div>
+                <ul class="melon-list-group list-group-flush">
+                    <li class="list-group-item">1</li>
+                    <li class="list-group-item">2</li>
+                    <li class="list-group-item">3</li>
+                    <li class="list-group-item">4</li>
+                    <li class="list-group-item">5</li>
+                    <li class="list-group-item">6</li>
+                    <li class="list-group-item">7</li>
+                    <li class="list-group-item">8</li>
+                    <li class="list-group-item">9</li>
+                    <li class="list-group-item">10</li>
+                </ul>
+            </div>
+            <div class="subTitle genie">
+                <div><img class="chart_img" src="./ginie.png">
+                    <p class="chart_title">genie TOP 10</p>
+                </div>
+                <ul class="ginie-list-group list-group-flush">
+                    <li class="list-group-item">1</li>
+                    <li class="list-group-item">2</li>
+                    <li class="list-group-item">3</li>
+                    <li class="list-group-item">4</li>
+                    <li class="list-group-item">5</li>
+                    <li class="list-group-item">6</li>
+                    <li class="list-group-item">7</li>
+                    <li class="list-group-item">8</li>
+                    <li class="list-group-item">9</li>
+                    <li class="list-group-item">10</li>
+                </ul>
+            </div>
+            <div class="subTitle youtube">
+                <div><img class="chart_img" src="./yotube.png">
+                    <p class="chart_title">youtube TOP 10</p>
+                </div>
+                <ul class="youtube-list-group list-group-flush">
+                    <li class="list-group-item">1</li>
+                    <li class="list-group-item">2</li>
+                    <li class="list-group-item">3</li>
+                    <li class="list-group-item">4</li>
+                    <li class="list-group-item">5</li>
+                    <li class="list-group-item">6</li>
+                    <li class="list-group-item">7</li>
+                    <li class="list-group-item">8</li>
+                    <li class="list-group-item">9</li>
+                    <li class="list-group-item">10</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+
+</html>
