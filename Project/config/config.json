@@ -1,13 +1,13 @@
 {
     "development": {
-        "host": "localhost",
+        "host": "127.0.0.1",
         "database": "ksp",
         "username": "kimsampark",
         "password": "qwer1234",
         "dialect": "mysql"
     },
     "production": {
-        "host": "localhost",
+        "host": "127.0.0.1",
         "database": "ksp",
         "username": "kimsampark",
         "password": "qwer1234",
