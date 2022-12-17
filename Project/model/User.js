@@ -1,10 +1,10 @@
 // 샘플용
 const User = (Sequelize, DataTypes) => {
     return Sequelize.define(
-        'user2',
+        'user',
         {
             id: {
-                type: DataTypes.STRING(15),
+                type: DataTypes.STRING(20),
                 allowNull: false,
                 primaryKey: true
             },
@@ -13,11 +13,16 @@ const User = (Sequelize, DataTypes) => {
                 allowNull: false
             },
             name: {
-                type: DataTypes.STRING(20)
+                type: DataTypes.STRING(10),
+                allowNull : false
+            },
+            e_mail : {
+                type : DataTypes.STRING(20),
+                allowNull : false                
             }
         },
         {
-            tableName: 'USER2',
+            tableName: 'USER',
             freezeTableName: true,
             timestamps: false
         }
