@@ -25,11 +25,17 @@ tr {
     width: 300px;
 }
 
+td {
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; */
+}
 
 /* 랭킹 */
 tbody > tr:nth-child(2n-1) > td:nth-child(1){
     text-align: center;
     color: blueviolet;
+    width: 40px;
 }
 
 /* 앨범 이미지 */
@@ -42,15 +48,35 @@ tbody > tr > td:nth-child(2) > img {
 
 /* 가수 */
 tbody > tr > td:nth-child(3) {
-    text-align: left; color: aliceblue; padding-left: 12px;
+    width: 198px;
+    text-align: left;
+    color: aliceblue;
+    padding-left: 12px;
 }
 
 /* 곡 제목 */
 tbody > tr:nth-child(2n) > td {
     text-align: left;
     color: rgb(129, 126, 126);
-    padding-left: 12px
+    padding-left: 12px;
+
+    /* 글자 길이 제한 */
+    width: 198px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
 }
+
+/* 가수 */
+/* 글자 길이 제한 */
+tbody > tr:nth-child(2n-1) > td:nth-child(3) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+
 
 /* 페이지 번호 가운데 정렬 및 커서 포인터로 변경 */
 ul {

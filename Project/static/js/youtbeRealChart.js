@@ -153,7 +153,7 @@ window.addEventListener('DOMContentLoaded', function()
     // 외부 JS 파일에서 작성하면 ejs 파일의 태그에서 이벤트를 인식 못하는 에러가 발생한다.
     // 그러나 widnow를 이용하여 함수를 작성하면 정상적으로 작동한다.
     // 하단 페이지 버튼 클릭 시 실행되는 함수
-    window.pageBtnMove = function (btnId, viewCount) {
+    window.pageBtnMove = (btnId, viewCount) => {
         // console.log(btnId);
 
         // 페이지 번호 클릭 후 새로운 데이터 출력
@@ -168,7 +168,7 @@ window.addEventListener('DOMContentLoaded', function()
     // 그러나 widnow를 이용하여 함수를 작성하면 정상적으로 작동한다.
     // viewCount Change 함수
     // 페이지 몇 개 보기 변경 시 실행되는 함수
-    window.viewCountChange = function () {
+    window.viewCountChange = () => {
         viewCount = document.querySelectorAll('select')[1].value;
         // console.log(viewCount);
 
@@ -184,7 +184,7 @@ window.addEventListener('DOMContentLoaded', function()
 
 
     // 시간 변경 함수
-    window.dateHourChange = function () {
+    window.dateHourChange = () => {
         // console.log('dateHour Start');
         // 시간 가져오기
         const viewTime = document.querySelectorAll('select')[0].value;

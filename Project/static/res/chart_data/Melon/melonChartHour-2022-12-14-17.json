@@ -1,15 +1,6 @@
 {
 	"data": [
 		{
-			"title": "사건의 지평선",
-			"rank": "1",
-			"rankVariance": "순위 동일",
-			"albumImg": "https://cdnimg.melon.co.kr/cm2/album/images/109/03/868/10903868_20220330103544_500.jpg/melon/resize/120/quality/80/optimize",
-			"singer": "윤하 (YOUNHA)",
-			"albumTitle": "YOUNHA 6th Album Repackage 'END THEORY : Final Edition'",
-			"likeCount": "233,116"
-		},
-		{
 			"title": "Hype boy",
 			"rank": "2",
 			"rankVariance": "순위 동일",
@@ -17,6 +8,15 @@
 			"singer": "NewJeans",
 			"albumTitle": "NewJeans 1st EP 'New Jeans'",
 			"likeCount": "183,481"
+		},
+		{
+			"title": "사건의 지평선",
+			"rank": "1",
+			"rankVariance": "순위 동일",
+			"albumImg": "https://cdnimg.melon.co.kr/cm2/album/images/109/03/868/10903868_20220330103544_500.jpg/melon/resize/120/quality/80/optimize",
+			"singer": "윤하 (YOUNHA)",
+			"albumTitle": "YOUNHA 6th Album Repackage 'END THEORY : Final Edition'",
+			"likeCount": "233,116"
 		},
 		{
 			"title": "ANTIFRAGILE",

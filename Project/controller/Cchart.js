@@ -1,4 +1,6 @@
 const youtubeFileFunction = require('./youtubeFileFunction');
+const melonFileFunction = require('./melonFileFunction');
+// const genieFileFunction = require('./genieFileFunction');
 
 
 
@@ -10,7 +12,6 @@ exports.youtubeRealChartMain = (req, res) => {
             if(data) {
                 // 파일에서 읽어온 데이터를 전달
                 res.render('youtubeRealChart', {data: data, filelist: filelist, fileHour: req.params.num});
-                // res.render('test-menu', {data: data, filelist: filelist});
             } else {
                 res.send('false');
             }
@@ -29,7 +30,6 @@ exports.youtubeRealChartMainType = (req, res) => {
             if(data) {
                 // 파일에서 읽어온 데이터를 전달
                 res.render('youtubeRealChart', {data: data, filelist: filelist, fileHour: req.params.num});
-                // res.render('test-menu', {data: data, filelist: filelist});
             } else {
                 res.send('false');
             }
@@ -40,18 +40,104 @@ exports.youtubeRealChartMainType = (req, res) => {
 
 
 // 차트 모아보기
+// exports.allChartYoutube = (req, res) => {
+//     youtubeFileFunction.youtubeFileList((filelist) => {
+//         youtubeFileFunction.youtubeFileRead(filelist, (data) => {
+//             // console.log(data);
+//             if(data) {
+//                 // 파일에서 읽어온 데이터를 전달
+//                 // res.render('allchart', {data: data, filelist: filelist, fileHour: req.params.num});
+//                 // 모아보기 페이지에서는 시간 변경이 없으므로 fileHour 변수는 제외
+
+//                 const youtubedata = {data: data, filelist: filelist};
+//                 // return res.send({youtubedata: data, youtubefilelist: filelist});
+//                 // return res.send(youtubedata);
+//                 // next();
+//             } else {
+//                 res.send('false');
+//             }
+//         });
+//     });
+// }
+
+// exports.allChartMelmon = (req, res) => {
+//     melonFileFunction.melonFileList((filelist) => {
+//         melonFileFunction.melonFileRead(filelist, (data) => {
+//             // console.log(data);
+//             if(data) {
+//                 // 파일에서 읽어온 데이터를 전달
+//                 // res.render('allchart', {data: data, filelist: filelist, fileHour: req.params.num});
+//                 // 모아보기 페이지에서는 시간 변경이 없으므로 fileHour 변수는 제외
+                
+
+//                 const melondata = {data: data, filelist: filelist};
+//                 // return res.send({data: data, filelist: filelist});
+//                 // return res.send(melondata);
+//                 // next();
+//             } else {
+//                 res.send('false');
+//             }
+//         });
+//     });
+// }
+
+
+
 exports.allChart = (req, res) => {
-    youtubeFileFunction.youtubeFileList((filelist) => {
-        youtubeFileFunction.youtubeFileRead(filelist, (data) => {
+    let melondata = {};
+    let youtubedata = {};
+
+    // 1차 멜론 데이터 함수 실행
+    melonFileFunction.melonFileList( (melonfilelist) => {
+        melonFileFunction.melonFileRead(melonfilelist, (melondata) => {
             // console.log(data);
-            if(data) {
+            if(melondata) {
                 // 파일에서 읽어온 데이터를 전달
-                res.render('allchart', {data: data, filelist: filelist, fileHour: req.params.num});
-                // res.render('test-menu', {data: data, filelist: filelist});
+                // res.render('allchart', {data: data, filelist: filelist, fileHour: req.params.num});
+                // 모아보기 페이지에서는 시간 변경이 없으므로 fileHour 변수는 제외
+                
+                // console.log(melondata);
+
+                melondata = {data: melondata, filelist: melonfilelist};
+                // return res.send({data: data, filelist: filelist});
+                // return res.send(melondata);
+                // next();
+                // console.log(melondata);
+                // return melondata;
+
+
+
+                // 2차 멜론 함수 종료 후 유튜브 데이터 함수 실행
+    youtubeFileFunction.youtubeFileList( (youtubefilelist) => {
+        youtubeFileFunction.youtubeFileRead(youtubefilelist, (youtubedata) => {
+            // console.log(data);
+            if(youtubedata) {
+                // 파일에서 읽어온 데이터를 전달
+                // res.render('allchart', {data: data, filelist: filelist, fileHour: req.params.num});
+                // 모아보기 페이지에서는 시간 변경이 없으므로 fileHour 변수는 제외
+
+                youtubedata = {data: youtubedata, filelist: youtubefilelist};
+                // return res.send({youtubedata: data, youtubefilelist: filelist});
+                // return res.send(youtubedata);
+                // next();
+                // console.log(youtubedata);
+                // return youtubedata;
+
+                res.render('allchart', {melondata: melondata, youtubedata: youtubedata});
+                console.log('melondata: ' + melondata.data[0].title );
+                // console.log(' ');
+                // console.log('youtubedata: ' + youtubedata.data);
+
             } else {
                 res.send('false');
             }
         });
     });
-    // res.render('allchart');
+
+
+            } else {
+                res.send('false');
+            }
+        });
+    });
 }

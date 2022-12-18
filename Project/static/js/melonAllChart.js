@@ -8,8 +8,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const viewCount = 10;
 
     // 스크립트 데이터로 테이블 출력하는 함수
-    function tableDataYoutube(data, viewCount, btnId) {
-        const youtubeTable = document.querySelectorAll('tbody')[2];
+    function tableDataMelon (data, viewCount, btnId) {
+        const melonTable = document.querySelectorAll('tbody')[0];
         let temp = '';
         
 
@@ -43,16 +43,16 @@ window.addEventListener('DOMContentLoaded', () => {
                     </tr>`;
             }
         }
-        youtubeTable.innerHTML = temp;
+        melonTable.innerHTML = temp;
     }
 
     // ******처음 출력을 위한 초기 실행 함수******
     // 1번 실행해서 데이터 출력
     // 초기 실행이라서 btnId 변수 대신에 1값 고정
-    tableDataYoutube(ejsDataYoutube, viewCount, 1);
+    tableDataMelon(ejsDataMelon, viewCount, 1);
 
     // 페이지 버튼 출력을 위한 1차 작업 함수
-    function pageAlgoYoutube(total, bottomSize, listSize, cursor){
+    function pageAlgoMelon (total, bottomSize, listSize, cursor){
         // total = 총 갯수
         // bottomSize = 하단 버튼 개수
         // listSize = 화면에서 보여줄 크기
@@ -98,11 +98,11 @@ window.addEventListener('DOMContentLoaded', () => {
     // 280개의 데이터, 하단에는 20개씩, 1개화면에는 10개, 지금 나의페이지는 21
     // let info = pageAlgo(280, 10, 10, 1);
     // 페이지 버튼 작업을 위한 1차 작업 초기 실행행
-    let info = pageAlgoYoutube(ejsDataYoutube.length, 3, viewCount, 1);
+    let info = pageAlgoMelon(ejsDataMelon.length, 3, viewCount, 1);
 
     // 페이지 버튼 출력 함수
-    function pageBtnYoutube(info) {
-        const tfoot = document.querySelectorAll('tfoot')[2];
+    function pageBtnMelon(info) {
+        const tfoot = document.querySelectorAll('tfoot')[0];
         let temp ='';
 
         // 1번 페이지 인 경우 pre 버튼 dsabled 조건 걸기
@@ -113,7 +113,7 @@ window.addEventListener('DOMContentLoaded', () => {
             </li>`;
         } else {
             temp += `<td colspan='3'><ul class="pagination">
-            <li class="page-item" onclick="pageBtnMoveYoutube('1', ${viewCount})">
+            <li class="page-item" onclick="pageBtnMoveMelon('1', ${viewCount})">
                 <a class="page-link">pre</a>
             </li>`;
         }
@@ -121,9 +121,9 @@ window.addEventListener('DOMContentLoaded', () => {
         for (let i=info.firstBottomNumber; i <= info.lastBottomNumber; i++) {
             // 버튼 출력하다가 i가 현재 페이지랑 값이 같으면 현재 페이지 표시용 active 클래스 추가
             if (i == info.cursor) {
-                temp += `<li class='page-item active' onclick="pageBtnMoveYoutube('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
+                temp += `<li class='page-item active' onclick="pageBtnMoveMelon('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
             } else {
-                temp += `<li class='page-item' onclick="pageBtnMoveYoutube('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
+                temp += `<li class='page-item' onclick="pageBtnMoveMelon('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
             }
         }
         // 마지막 페이지 인 경우 next 버튼 disabled 조건 걸기
@@ -134,7 +134,7 @@ window.addEventListener('DOMContentLoaded', () => {
             </ul>
             </td>`;
         } else {
-            temp += `<li class="page-item" onclick="pageBtnMoveYoutube('${info.totalPageSize}', ${viewCount})">
+            temp += `<li class="page-item" onclick="pageBtnMoveMelon('${info.totalPageSize}', ${viewCount})">
                     <a class="page-link">next</a>
                 </li>
             </ul>
@@ -145,22 +145,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // ******처음 출력을 위한 초기 실행 함수******
     // 페이지 버튼 출력 함수
-    pageBtnYoutube(info);
+    pageBtnMelon(info);
 
 
 
     // 외부 JS 파일에서 작성하면 ejs 파일의 태그에서 이벤트를 인식 못하는 에러가 발생한다.
     // 그러나 widnow를 이용하여 함수를 작성하면 정상적으로 작동한다.
     // 하단 페이지 버튼 클릭 시 실행되는 함수
-    window.pageBtnMoveYoutube = (btnId, viewCount) => {
+    window.pageBtnMoveMelon = (btnId, viewCount) => {
         // console.log(btnId);
 
         // 페이지 번호 클릭 후 새로운 데이터 출력
-        tableDataYoutube(ejsDataYoutube, viewCount, btnId);
+        tableDataMelon(ejsDataMelon, viewCount, btnId);
 
         // 페이지 하단 번호 변경 작업
-        let info = pageAlgoYoutube(ejsDataYoutube.length, 3, viewCount, btnId);
-        pageBtnYoutube(info);
+        let info = pageAlgoMelon(ejsDataMelon.length, 3, viewCount, btnId);
+        pageBtnMelon(info);
     }
 
 });
