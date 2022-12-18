@@ -77,16 +77,47 @@
             return temp;
         }
 
+        function genieDataMove() {
+            let temp = [];
+            let obj = {};
+            let title, rank, rankVariance, albumImg, singer, albumTitle, likeCount;
+            '<% for(let i = 0; i < geniedata.data.length; i++) { %>'
+                title = '<%= geniedata.data[i].title %>';
+                rank = '<%= geniedata.data[i].rank %>';
+                rankVariance = '<%= geniedata.data[i].rankVariance %>';
+                albumImg = '<%= geniedata.data[i].albumImg %>';
+                singer = '<%= geniedata.data[i].singer %>';
+                albumTitle = '<%= geniedata.data[i].albumTitle %>';
+                totalNumPlay = '<%= geniedata.data[i].totalNumPlay %>';
+
+                obj = {
+                    "title": title,
+                    "rank": rank,
+                    "rankVariance": rankVariance,
+                    "albumImg": albumImg,
+                    "singer": singer,
+                    "albumTitle": albumTitle,
+                    "likeCount": likeCount
+                }
+                temp.push(obj);
+            '<% } %>'
+
+            // console.log(temp);
+            return temp;
+        }
+
         // ******처음 출력을 위한 초기 실행 함수******
         // 1번 실행해서 데이터 저장
         // tableData에서 사용하기 위한 변수
         const ejsDataYoutube = youtubeDataMove();
         const ejsDataMelon = melonDataMove();
+        const ejsDataGenie = genieDataMove();
 
     </script>
     <!-- 외부 JS 파일 가져오기 -->
     <script type="text/javascript" src="/static/js/youtubeAllChart.js"></script>
     <script type="text/javascript" src="/static/js/melonAllChart.js"></script>
+    <script type="text/javascript" src="/static/js/genieAllChart.js"></script>
 
 
 </head>

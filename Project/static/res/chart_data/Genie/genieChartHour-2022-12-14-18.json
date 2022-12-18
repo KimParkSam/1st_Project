@@ -1,56 +1,6 @@
 {
 	"data": [
 		{
-			"title": "사건의 지평선",
-			"rank": "1",
-			"rankVariance": "유지",
-			"albumImg": "//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/082/614/128/82614128_1648619377015_1_140x140.JPG/dims/resize/Q_80,0",
-			"singer": "윤하 (YOUNHA)",
-			"albumTitle": "YOUNHA 6th Album Repackage 'END THEORY : Final Edition'",
-			"detailLink": "https://www.genie.co.kr/detail/songInfo?xgnm=96424586",
-			"totalNumPlay": "22,082,446"
-		},
-		{
-			"title": "Hype boy",
-			"rank": "2",
-			"rankVariance": "유지",
-			"albumImg": "//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/082/842/800/82842800_1659340238924_1_140x140.JPG/dims/resize/Q_80,0",
-			"singer": "NewJeans",
-			"albumTitle": "NewJeans 1st EP 'New Jeans'",
-			"detailLink": "https://www.genie.co.kr/detail/songInfo?xgnm=97582507",
-			"totalNumPlay": "32,602,812"
-		},
-		{
-			"title": "ANTIFRAGILE",
-			"rank": "3",
-			"rankVariance": "유지",
-			"albumImg": "//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/083/082/184/83082184_1665969939180_1_140x140.JPG/dims/resize/Q_80,0",
-			"singer": "LE SSERAFIM (르세라핌)",
-			"albumTitle": "ANTIFRAGILE",
-			"detailLink": "https://www.genie.co.kr/detail/songInfo?xgnm=98661235",
-			"totalNumPlay": "13,829,894"
-		},
-		{
-			"title": "After LIKE",
-			"rank": "4",
-			"rankVariance": "유지",
-			"albumImg": "//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/082/912/984/82912984_1661135567760_1_140x140.JPG/dims/resize/Q_80,0",
-			"singer": "IVE (아이브)",
-			"albumTitle": "After LIKE",
-			"detailLink": "https://www.genie.co.kr/detail/songInfo?xgnm=97976355",
-			"totalNumPlay": "35,728,421"
-		},
-		{
-			"title": "마이웨이 (MY WAY) (Prod. by R.Tee)",
-			"rank": "5",
-			"rankVariance": "유지",
-			"albumImg": "//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/083/243/377/83243377_1669883362558_1_140x140.JPG/dims/resize/Q_80,0",
-			"singer": "저스디스 (JUSTHIS) & R.Tee & 던말릭 (DON MALIK) & 허성현 (Huh) & KHAN & 맥대디 (Mckdaddy) & Los",
-			"albumTitle": "쇼미더머니 11 Episode 1",
-			"detailLink": "https://www.genie.co.kr/detail/songInfo?xgnm=99266256",
-			"totalNumPlay": "1,768,166"
-		},
-		{
 			"title": "Nxde",
 			"rank": "6",
 			"rankVariance": "유지",
