@@ -30,6 +30,9 @@ router.delete('/user_delete', controllerUser.user_delete);
 router.get('/mypage', controllerUser.mypage);
 
 
+// 차트 모아보기 페이지
+router.get("/allChart", controllerChart.allChart);
+
 // 유튜브 차트 페이지
 router.get("/youtubeRealChart", controllerChart.youtubeRealChartMain);
 router.get("/youtubeRealChart/:num", controllerChart.youtubeRealChartMainType);
