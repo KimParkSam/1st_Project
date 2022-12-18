@@ -26,7 +26,7 @@
         <!-- Navbar Brand--> <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 ps-3" id="sidebarToggle" href="#!">
             <i class="fas fa-bars"></i></button>
-        <a class="navbar-brand ps-4" href="#">Home</a>
+        <a class="navbar-brand ps-4" href="/">Home</a>
 
 
         <!-- Navbar Search-->
@@ -37,12 +37,11 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    <li><a class="dropdown-item" href="/login">Login</a></li>
+                    <li><a class="dropdown-item" href="/signup">singUp</a></li>
+
+                    <li><a class="dropdown-item" href="/mypage">My Page</a></li>
+                    <li><a class="dropdown-item" href="#">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -53,12 +52,18 @@
                 <div class="sb-sidenav-menu bg-dark">
                     <div class="nav">
 
-                        <a class="nav-link" href="#">
-
+                        <a class="nav-link" href="/">
                             Main
                         </a>
                         <hr>
                         <div class="sb-sidenav-menu-heading">top100</div>
+                        <br>
+
+                        <a class="nav-link collapsed" href="/allChart">
+                            <!-- <img src="static/res/image/logo_youtube.png" width="35px"> -->
+                            &nbsp차트 모아보기
+                            <!-- <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div> -->
+                        </a>
                         <br>
 
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
@@ -216,7 +221,6 @@
                                 <td style="text-align: left; color: rgb(129, 126, 126); padding-left: 12px">lovedive</td>
                             </tr>
                         </table>
-                        
                     </div>
                     <div class="col-md col-lg">
                         <div> <img src="/static/res/image/logo_youtube.png" style="width:70%; display:block;
@@ -232,21 +236,14 @@
                             </tr>
                         </table>
                     </div>
-                    
-
-
-
                 </div>
-                
-                
-
             </main>
         </div>
 
     </div>
     </div>
 
-    <script> //뮤직비디오 랜덤재생 함수
+    <script type="text/javascript"> //뮤직비디오 랜덤재생 함수
         const musicData = [
             "afterLike",
             "attention",

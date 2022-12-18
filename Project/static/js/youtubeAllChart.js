@@ -5,14 +5,12 @@
 // html 파일이나 ejs 파일의 script 태그 안에 작성을 할 수는 있지만 분리해서 사용하는 것이 코드 관리 및 가독성에 좋다고 판단하였다.
 window.addEventListener('DOMContentLoaded', function()
 {
-    // select 태그에서 기본 설정 값 100 가져오기
-    // viewCount Change 함수는 밑에 생성
-    let viewCount = document.querySelectorAll('select')[1].value;
-    // console.log(viewCount);
+    // 차트 모아보기에서는 기본 설정 값 10 설정
+    const viewCount = 10;
 
     // 스크립트 데이터로 테이블 출력하는 함수
     function tableData(data, viewCount, btnId) {
-        const tbody = document.querySelector('tbody');
+        const youtubeTable = document.querySelectorAll('tbody')[2];
         let temp = '';
         
 
@@ -24,12 +22,12 @@ window.addEventListener('DOMContentLoaded', function()
             // btnId = 페이지 하단의 버튼에 따라서 페이지 데이터 호출,  스타트 번호 페이지번호 * 1페이지 표시 개수
             for(let i=btnId*viewCount-viewCount; i < data.length; i++) {
                 temp += `<tr>
-                    <td class="table-dark">${data[i].rank}</td>
-                    <td class="table-dark"><img src='${data[i].albumImg}'></td>
-                    <td class="table-dark">${data[i].title}</td>
-                    <td class="table-dark">${data[i].singer}</td>
-                    <td class="table-dark">${data[i].chartDuration}</td>
-                    <td class="table-dark">${data[i].views}</td>
+                    <td rowspan="2">${data[i].rank}</td>
+                    <td rowspan="2"><img src='${data[i].albumImg}'></td>
+                    <td>${data[i].singer}</td>
+                    </tr>
+                    <tr>
+                    <td>${data[i].title}</td>
                     </tr>`;
             }
         } else {
@@ -37,22 +35,22 @@ window.addEventListener('DOMContentLoaded', function()
             // btnId = 페이지 하단의 버튼에 따라서 페이지 데이터 호출,  스타트 번호 페이지번호 * 1페이지 표시 개수
             for(let i=btnId*viewCount-viewCount; i < btnId*viewCount; i++) {
                 temp += `<tr>
-                    <td class="table-dark">${data[i].rank}</td>
-                    <td class="table-dark"><img src='${data[i].albumImg}'></td>
-                    <td class="table-dark">${data[i].title}</td>
-                    <td class="table-dark">${data[i].singer}</td>
-                    <td class="table-dark">${data[i].chartDuration}</td>
-                    <td class="table-dark">${data[i].views}</td>
+                    <td rowspan="2">${data[i].rank}</td>
+                    <td rowspan="2"><img src='${data[i].albumImg}'></td>
+                    <td>${data[i].singer}</td>
+                    </tr>
+                    <tr>
+                    <td>${data[i].title}</td>
                     </tr>`;
             }
         }
-        tbody.innerHTML = temp;
+        youtubeTable.innerHTML = temp;
     }
 
     // ******처음 출력을 위한 초기 실행 함수******
     // 1번 실행해서 데이터 출력
     // 초기 실행이라서 btnId 변수 대신에 1값 고정
-    tableData(ejsData, viewCount, 1);
+    tableData(ejsDataYoutube, viewCount, 1);
 
     // 페이지 버튼 출력을 위한 1차 작업 함수
     function pageAlgo(total, bottomSize, listSize, cursor){
@@ -101,21 +99,21 @@ window.addEventListener('DOMContentLoaded', function()
     // 280개의 데이터, 하단에는 20개씩, 1개화면에는 10개, 지금 나의페이지는 21
     // let info = pageAlgo(280, 10, 10, 1);
     // 페이지 버튼 작업을 위한 1차 작업 초기 실행행
-    let info = pageAlgo(ejsData.length, 3, viewCount, 1);
+    let info = pageAlgo(ejsDataYoutube.length, 3, viewCount, 1);
 
     // 페이지 버튼 출력 함수
     function pageBtn(info) {
-        const tfoot = document.querySelector('tfoot');
+        const tfoot = document.querySelectorAll('tfoot')[2];
         let temp ='';
 
         // 1번 페이지 인 경우 pre 버튼 dsabled 조건 걸기
         if(info.cursor == 1) {
-            temp += `<td colspan='6'><ul class="pagination">
+            temp += `<td colspan='3'><ul class="pagination">
             <li class="page-item disabled" style="cursor: text";>
                 <a class="page-link">pre</a>
             </li>`;
         } else {
-            temp += `<td colspan='6'><ul class="pagination">
+            temp += `<td colspan='3'><ul class="pagination">
             <li class="page-item" onclick="pageBtnMove('1', ${viewCount})">
                 <a class="page-link">pre</a>
             </li>`;
@@ -134,12 +132,14 @@ window.addEventListener('DOMContentLoaded', function()
             temp += `<li class="page-item disabled" style="cursor: text";>
                     <a class="page-link">next</a>
                 </li>
-            </ul></td>`;
+            </ul>
+            </td>`;
         } else {
             temp += `<li class="page-item" onclick="pageBtnMove('${info.totalPageSize}', ${viewCount})">
                     <a class="page-link">next</a>
                 </li>
-            </ul></td>`;
+            </ul>
+            </td>`;
         }
         tfoot.innerHTML = temp;
     }
@@ -157,46 +157,11 @@ window.addEventListener('DOMContentLoaded', function()
         // console.log(btnId);
 
         // 페이지 번호 클릭 후 새로운 데이터 출력
-        tableData(ejsData, viewCount, btnId);
+        tableData(ejsDataYoutube, viewCount, btnId);
 
         // 페이지 하단 번호 변경 작업
-        let info = pageAlgo(ejsData.length, 3, viewCount, btnId);
+        let info = pageAlgo(ejsDataYoutube.length, 3, viewCount, btnId);
         pageBtn(info);
     }
 
-    // 외부 JS 파일에서 작성하면 ejs 파일의 태그에서 이벤트를 인식 못하는 에러가 발생한다.
-    // 그러나 widnow를 이용하여 함수를 작성하면 정상적으로 작동한다.
-    // viewCount Change 함수
-    // 페이지 몇 개 보기 변경 시 실행되는 함수
-    window.viewCountChange = function () {
-        viewCount = document.querySelectorAll('select')[1].value;
-        // console.log(viewCount);
-
-        // 페이지 출력 갯수 수정 후 새로운 데이터 출력
-        // btnId = 1은 데이터 갱신 이후 1페이지로 보여지기 위한 작업
-        tableData(ejsData, viewCount, 1);
-
-        // 페이지 하단 번호 변경 작업
-        // btnId = 1은 데이터 갱신 이후 1페이지로 보여지기 위한 작업
-        let info = pageAlgo(ejsData.length, 3, viewCount, 1);
-        pageBtn(info);
-    }
-
-
-    // 시간 변경 함수
-    window.dateHourChange = function () {
-        // console.log('dateHour Start');
-        // 시간 가져오기
-        const viewTime = document.querySelectorAll('select')[0].value;
-        // console.log(viewTime);
-        const url = '/youtubeRealChart/'+viewTime;
-        axios({
-            method: 'get',
-            url: url
-        })
-        .then((response) => {
-            // console.log('dateHourChange End');
-            document.location.href = url;
-        });
-    }
 });
