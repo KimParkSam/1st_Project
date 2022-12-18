@@ -1,11 +1,11 @@
 const fs = require('fs').promises;
 
-// function youtubeFileList(cb) {
-exports.youtubeFileList = function (cb) {
-    fs.readdir('./static/res/chart_data/Youtube')
+// function melonFileList(cb) {
+exports.melonFileList = function (cb) {
+    fs.readdir('./static/res/chart_data/Melon')
     .then((filelist) => {
         const lastFile = filelist.length - 1;
-        // 'youtubeChartHour-2022-12-16-17.json' => 2022-12-16-17
+        // 'melonChartHour-2022-12-16-17.json' => 2022-12-16-17
         // console.log(filelist[lastFile].slice(17, -5));
         // 2022-12-16
         // console.log(filelist[lastFile].slice(17, -8));
@@ -45,11 +45,11 @@ exports.youtubeFileList = function (cb) {
 
 
 // json 파일 데이터 읽어오는 함수
-// function youtubeFileRead(filelist, cb) {
-exports.youtubeFileRead = function (filelist, cb) {
+// function melonFileRead(filelist, cb) {
+exports.melonFileRead = function (filelist, cb) {
     const date = new Date();
-    // console.log(filelist[filelist.length-1]);
-    fs.readFile('./static/res/chart_data/Youtube/'+filelist[filelist.length-1], 'utf8')
+    console.log(filelist[filelist.length-1]);
+    fs.readFile('./static/res/chart_data/Melon/'+filelist[filelist.length-1], 'utf8')
     .then((response) => {
         // 불러온 파일의 데이터를 json으로 다시 parse 작업 해준다.
         response = JSON.parse(response);
@@ -64,11 +64,11 @@ exports.youtubeFileRead = function (filelist, cb) {
 
 
 // 시간 변경 함수를 위한 File List 함수 재생성 (동일 함수 변경해서 사용해도 되지만, 지금은 안정성을 위해 새로 생성)
-    exports.youtubeFileListHourChange = function (cb) {
-        fs.readdir('./static/res/chart_data/Youtube')
+    exports.melonFileListHourChange = function (cb) {
+        fs.readdir('./static/res/chart_data/Melon')
         .then((filelist) => {
             const lastFile = filelist.length - 1;
-            // 'youtubeChartHour-2022-12-16-17.json' => 2022-12-16-17
+            // 'melonChartHour-2022-12-16-17.json' => 2022-12-16-17
             // console.log(filelist[lastFile].slice(17, -5));
             // 2022-12-16
             // console.log(filelist[lastFile].slice(17, -8));
@@ -110,13 +110,10 @@ exports.youtubeFileRead = function (filelist, cb) {
 
 
 // json 파일 데이터 읽어오는 함수
-exports.youtubeFileReadHourChange = function (filelist, fileHour, cb) {
+exports.melonFileReadHourChange = function (filelist, fileHour, cb) {
     // console.log('fileHour', fileHour);
     const date = new Date();
-    // const fileName = './static/chart_data/Youtube/youtubeCharHour-' + date.getFullYear() + '-' + ('00' + (date.getMonth()+1)).slice(-2) + '-' + ('00' + date.getDate()).slice(-2) + '-' + ('00' + date.getHours()).slice(-2) + '.json';
-    // 나중에 사용예정, 지금은 파일 지정해서 사용
-    // fs.readFile('./static/chart_data/Youtube/youtubeChartHour-2022-12-14-17.json', 'utf8')
-    // console.log(filelist[filelist.length-1]);
+    console.log(filelist[filelist.length-1]);
 
     let fileName = '';
     for(let i = 0; i < filelist.length; i++) {
@@ -130,7 +127,7 @@ exports.youtubeFileReadHourChange = function (filelist, fileHour, cb) {
 
     console.log('fileName: ', fileName);
 
-    fs.readFile('./static/res/chart_data/Youtube/'+fileName, 'utf8')
+    fs.readFile('./static/res/chart_data/Melon/'+fileName, 'utf8')
     .then((response) => {
         // 불러온 파일의 데이터를 json으로 다시 parse 작업 해준다.
         response = JSON.parse(response);
