@@ -1,11 +1,11 @@
 const fs = require('fs').promises;
 
-// function melonFileList(cb) {
-exports.melonFileList = function (cb) {
-    fs.readdir('./static/res/chart_data/Melon')
+// function genieFileList(cb) {
+exports.genieFileList = function (cb) {
+    fs.readdir('./static/res/chart_data/Genie')
     .then((filelist) => {
         const lastFile = filelist.length - 1;
-        // 'melonChartHour-2022-12-16-17.json' => 2022-12-16-17
+        // 'genieChartHour-2022-12-16-17.json' => 2022-12-16-17
         // console.log(filelist[lastFile].slice(17, -5));
         // 2022-12-16
         // console.log(filelist[lastFile].slice(17, -8));
@@ -45,11 +45,11 @@ exports.melonFileList = function (cb) {
 
 
 // json 파일 데이터 읽어오는 함수
-// function melonFileRead(filelist, cb) {
-exports.melonFileRead = function (filelist, cb) {
+// function genieFileRead(filelist, cb) {
+exports.genieFileRead = function (filelist, cb) {
     const date = new Date();
     // console.log(filelist[filelist.length-1]);
-    fs.readFile('./static/res/chart_data/Melon/'+filelist[filelist.length-1], 'utf8')
+    fs.readFile('./static/res/chart_data/Genie/'+filelist[filelist.length-1], 'utf8')
     .then((response) => {
         // 불러온 파일의 데이터를 json으로 다시 parse 작업 해준다.
         response = JSON.parse(response);
@@ -64,11 +64,11 @@ exports.melonFileRead = function (filelist, cb) {
 
 
 // 시간 변경 함수를 위한 File List 함수 재생성 (동일 함수 변경해서 사용해도 되지만, 지금은 안정성을 위해 새로 생성)
-    exports.melonFileListHourChange = function (cb) {
-        fs.readdir('./static/res/chart_data/Melon')
+    exports.genieFileListHourChange = function (cb) {
+        fs.readdir('./static/res/chart_data/Genie')
         .then((filelist) => {
             const lastFile = filelist.length - 1;
-            // 'melonChartHour-2022-12-16-17.json' => 2022-12-16-17
+            // 'genieChartHour-2022-12-16-17.json' => 2022-12-16-17
             // console.log(filelist[lastFile].slice(17, -5));
             // 2022-12-16
             // console.log(filelist[lastFile].slice(17, -8));
@@ -110,7 +110,7 @@ exports.melonFileRead = function (filelist, cb) {
 
 
 // json 파일 데이터 읽어오는 함수
-exports.melonFileReadHourChange = function (filelist, fileHour, cb) {
+exports.genieFileReadHourChange = function (filelist, fileHour, cb) {
     // console.log('fileHour', fileHour);
     const date = new Date();
     console.log(filelist[filelist.length-1]);
@@ -127,7 +127,7 @@ exports.melonFileReadHourChange = function (filelist, fileHour, cb) {
 
     console.log('fileName: ', fileName);
 
-    fs.readFile('./static/res/chart_data/Melon/'+fileName, 'utf8')
+    fs.readFile('./static/res/chart_data/Genie/'+fileName, 'utf8')
     .then((response) => {
         // 불러온 파일의 데이터를 json으로 다시 parse 작업 해준다.
         response = JSON.parse(response);
