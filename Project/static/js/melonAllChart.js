@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     <td rowspan="2"><img src='${data[i].albumImg}'></td>
                     <td>${data[i].singer}</td>
                     </tr>
-                    <tr>
+                    <tr class='melon${i}'>
                     <td>${data[i].title}</td>
                     </tr>`;
             }
@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     <td rowspan="2"><img src='${data[i].albumImg}'></td>
                     <td>${data[i].singer}</td>
                     </tr>
-                    <tr>
+                    <tr class='melon${i}'>
                     <td>${data[i].title}</td>
                     </tr>`;
             }

@@ -28,10 +28,10 @@
     <script type="text/javascript" src="/static/js/youtubeAllChart.js"></script>
     <script type="text/javascript" src="/static/js/melonAllChart.js"></script>
     <script type="text/javascript" src="/static/js/genieAllChart.js"></script>
-
+    
 </head>
 
-<body class="sb-nav-fixed" style="background-color: rgb(0, 0, 0);">
+<body class="sb-nav-fixed" style="background-color: rgb(0, 0, 0);" >
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand--> <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 ps-3" id="sidebarToggle" href="#!">
@@ -145,8 +145,10 @@
             </nav>
         </div>
         <div id="layoutSidenav_content">
-            <main class="container">
-                <div class="videoContainer hide-for-small-only">
+            <section id="item-1" class="item">
+            <main class="container">               
+                
+                <div class="videoContainer hide-for-small-only" >
                     <div class="overlay"></div>
                     <div class="overlay2"></div>
                     <video autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto" id="myVideo">
@@ -154,21 +156,26 @@
                     </video>
                     <div class="videoText" style="color: aliceblue;">비디오중앙텍스트</div>
                 </div>
+                <br> <br> <br> <br>
+            </section>
+           
 
+          
+            <section>
                 <!-- <div class="container row"> -->
                     <!-- 배경 스타일 임시 설정 -->
                     <div class="containerChart row item" id="item-2" style="background: black">
                         <div class="col-12">
                             <!-- 마지막 파일의 날짜 출력 -->
-                            <span id="dayTag"><%= youtubedata.filelist[youtubedata.filelist.length-1].slice(17, -8); %></span>
+                            <span style="display: none;" id="dayTag"><%= youtubedata.filelist[youtubedata.filelist.length-1].slice(17, -8); %></span>
                         </div>
                         
-                        <div class="col-12 col-md-4 col-lg-4">
+                        <div class="col-12 col-md-12 col-lg-4">
                             <div>
-                                <img src="/static/res/image/logo_melon.png">
+                                <img src="/static/res/image/logo_melon.png" style="max-width: 150px;">
                             </div>
                             <table border="1" class="align-middle">
-                                <tbody>
+                                <tbody class="a1">
                                     <!-- 멜론 차트 데이터 -->
                                     <!-- 샘플, 해당 형식으로 출력 -->
                                     <!-- <tr>
@@ -182,7 +189,7 @@
                                         <td>lovedive</td>
                                     </tr> -->
                                 </tbody>
-                                <tfoot>
+                                <tfoot style="display: none;">
                                     <!-- 페이지 번호 -->
                                     <!-- 샘플, 해당 형식으로 출력 -->
                                     <!-- <tr>
@@ -200,35 +207,36 @@
                                 </tfoot>
                             </table>
                         </div>
-                        <div class="col-12 col-md-4 col-lg-4">
+                        <div class="col-12 col-md-12 col-lg-4">
                             <div>
-                                <img src="/static/res/image/logo_genie.png">
+                                <img src="/static/res/image/logo_genie.png" style="max-width: 150px;">
                             </div>
                             <table border="1" class="align-middle">
                                 <tbody>
                                     <!-- 지니 차트 데이터 -->
                                 </tbody>
-                                <tfoot>
+                                <tfoot style="display: none;">
                                     <!-- 페이지 번호 -->
                                 </tfoot>
                             </table>
                         </div>
-                        <div class="col-12 col-md-4 col-lg-4">
+                        <div class="col-12 col-md-12 col-lg-4">
                             <div>
-                                <img src="/static/res/image/logo_youtube.png">
+                                <img src="/static/res/image/logo_youtube.png" style="max-width: 150px;">
                             </div>
                             <table border="1" class="align-middle">
                                 <tbody>
                                     <!-- 유튜브 차트 데이터 -->
                                 </tbody>
-                                <tfoot>
+                                <tfoot style="display: none;">
                                     <!-- 페이지 번호 -->
                                 </tfoot>
                             </table>
                         </div>
                     </div>
+                <br><br><br><br><br><br>
 
-
+            </section>
             </main>
         </div>
     </div>
