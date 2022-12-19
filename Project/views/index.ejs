@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en, ko">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,18 +8,40 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>프로젝트</title>
-    <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.2.js"
+        integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" integrity="sha384-UW7nqtAfV9h93tGKb9+YoZynF74OcsOt5Irr6Ag4KEbqgcICQv46iB8soY/KJ+Yl" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+        integrity="sha384-UW7nqtAfV9h93tGKb9+YoZynF74OcsOt5Irr6Ag4KEbqgcICQv46iB8soY/KJ+Yl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
 
     <link href="/static/css/styles.css" rel="stylesheet" />
     <script type="text/javascript" src="/static/js/scripts.js"></script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
 </head>
 
 <body class="sb-nav-fixed" style="background-color: rgb(0, 0, 0);">
@@ -26,7 +49,7 @@
         <!-- Navbar Brand--> <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 ps-3" id="sidebarToggle" href="#!">
             <i class="fas fa-bars"></i></button>
-        <a class="navbar-brand ps-4" href="/">Home</a>
+        <a class="navbar-brand ps-4" href="#">하이</a>
 
 
         <!-- Navbar Search-->
@@ -37,11 +60,12 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/login">Login</a></li>
-                    <li><a class="dropdown-item" href="/signup">singUp</a></li>
-
-                    <li><a class="dropdown-item" href="/mypage">My Page</a></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li><a class="dropdown-item" href="#!">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -52,22 +76,16 @@
                 <div class="sb-sidenav-menu bg-dark">
                     <div class="nav">
 
-                        <a class="nav-link" href="/">
+                        <a class="nav-link" href="#">
+
                             Main
                         </a>
                         <hr>
                         <div class="sb-sidenav-menu-heading">top100</div>
                         <br>
 
-                        <a class="nav-link collapsed" href="/allChart">
-                            <!-- <img src="static/res/image/logo_youtube.png" width="35px"> -->
-                            &nbsp차트 모아보기
-                            <!-- <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div> -->
-                        </a>
-                        <br>
-
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
-                            aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <img src="static/res/image/logo_youtube.png" width="35px">
                             &nbspYouTube
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -140,98 +158,89 @@
             </nav>
         </div>
         <div id="layoutSidenav_content">
-            <section id="item-1" class="item"></section>
             <main class="container">
-                
-                
-                    <div class="videoContainer hide-for-small-only">
-                        <div class="overlay"></div>
-                        <div class="overlay2"></div>
+                <div class="videoContainer hide-for-small-only">
+                    <div class="overlay"></div>
+                    <div class="overlay2"></div>
+                    <video autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto" id="myVideo">
+                    <source src="" id="source" type="video/mp4">
+                    </video>
+                    <div class="videoText" style="color: aliceblue;">비디오중앙텍스트</div>
+                </div>
 
+                <style>
+                    .videoContainer {
+                        position: relative;
+                        width: 100%;
+                        overflow: hidden;
 
-                        <video autoplay="autoplay" loop="loop" muted defaultMuted playsinline
-                            oncontextmenu="return false;" preload="auto" id="myVideo">
-                            <source src="" id="source" type="video/mp4">
-                        </video>
-                        <div class="videoText" style="color: aliceblue;">비디오중앙텍스트</div>
-                    </div>
+                    }
 
-                    <style>
-                        .videoContainer {
-                            position: relative;
-                            width: 100%;
-                            overflow: hidden;
-
-                        }
-
-                        .videoContainer video {
-                            width: 100%;
-                            position: relative;
-                            z-index: 1;
-                        }
+                    .videoContainer video {
+                        width: 100%;
+                        position: relative;
+                        z-index: 1;
+                    }
 
 
 
-                        .videoText {
-                            height: 100%;
-                            width: 100%;
-                            position: absolute;
-                            top: 0px;
-                            left: 0px;
-                            z-index: 3;
-                            font-size: calc((100vw / 1240) * 72);
-                            text-align: center;
-                            background: linear-gradient(to bottom,
+                    .videoText {
+                        height: 100%;
+                        width: 100%;
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        z-index: 3;
+                        font-size: calc((100vw / 1240) * 72);
+                        text-align: center;
+                        background: linear-gradient(to bottom,
 
-                                    rgba(0, 0, 0, 0.60) 75%,
-                                    rgba(0, 0, 0, 0.95) 95%,
-                                    rgba(0, 0, 0, 0.966) 96%,
-                                    rgba(0, 0, 0, 0.977) 97%,
-                                    rgba(0, 0, 0, 0.988) 98%,
-                                    rgba(0, 0, 0, 0.999) 99%,
-                                    rgba(0, 0, 0, 1) 100%)
-                        }
-                    </style>
-                
-                
-                <div class="container row item" id="item-2">
+                                rgba(0, 0, 0, 0.60) 75%,
+                                rgba(0, 0, 0, 0.95) 95%,
+                                rgba(0, 0, 0, 0.966) 96%,
+                                rgba(0, 0, 0, 0.977) 97%,
+                                rgba(0, 0, 0, 0.988) 98%,
+                                rgba(0, 0, 0, 0.999) 99%,
+                                rgba(0, 0, 0, 1) 100%)
+                    }
+                </style>
+
+                <div class="container row">
                     <div class="col-md col-lg">
-                        <div> <img src="/static/res/image/logo_melon.png" style="width:70%;display:block; margin:auto " > </div>
-                        <table border="1"  style="width: 100%; border-left: none; border-right: none; border-top: none; margin-bottom: 1px;" >
+                        <div> <img src="/static/res/image/logo_melon.png" style="width:70%; display:block; margin:auto; max-width: 150px; "> </div>
+                        <table border="1" style="width: 100%; border-left: none; border-right: none; border-top: none; margin-bottom: 1px;">
                             <tr style="width:300px;">
                                 <td rowspan="2" style="text-align: center; color: blueviolet;">1</td>
                                 <td rowspan="2" style="width: 50px;"><img src="/static/res/image/12.jpg" style="width: 100%;"></td>
                                 <td style="text-align: left; color: aliceblue; padding-left: 12px;">아이브</td>
                             </tr>
-                            <tr style="width:300px;">                              
+                            <tr style="width:300px;">
                                 <td style="text-align: left; color: rgb(129, 126, 126); padding-left: 12px">lovedive</td>
                             </tr>
                         </table>
                     </div>
                     <div class="col-md col-lg">
-                        <div> <img src="/static/res/image/logo_genie.png" style="width:70%;  display:block;
-                            margin:auto;"> </div>
-                        <table border="1"  style="width: 100%; border-left: none; border-right: none; border-top: none; margin-bottom: 40px;" >
+                        <div> <img src="/static/res/image/logo_genie.png" style="width:70%;  display:block; margin:auto; max-width: 150px;"> </div>
+                        <table border="1" style="width: 100%; border-left: none; border-right: none; border-top: none; margin-bottom: 40px;">
                             <tr style="width:300px;">
                                 <td rowspan="2" style="text-align: center; color: blueviolet;">1</td>
                                 <td rowspan="2" style="width: 50px;"><img src="/static/res/image/12.jpg" style="width: 100%;"></td>
                                 <td style="text-align: left; color: aliceblue; padding-left: 12px;">아이브</td>
                             </tr>
-                            <tr style="width:300px;">                              
+                            <tr style="width:300px;">
                                 <td style="text-align: left; color: rgb(129, 126, 126); padding-left: 12px">lovedive</td>
                             </tr>
                         </table>
                     </div>
                     <div class="col-md col-lg">
-                        <div> <img src="/static/res/image/logo_youtube.png" style="width:70%; display:block;
-                            margin:auto;"> </div>
-                        <table border="1"  style="width: 100%; border-left: none; border-right: none; border-top: none; margin-bottom: 10px;" >
+                        <img src="/static/res/image/logo_youtube.png" style="width:70%; display:block; margin:auto; max-width: 150px;">
+                        <table border="1" style="width: 100%; border-left: none; border-right: none; border-top: none; margin-bottom: 10px;">
                             <tr style="width:300px;">
                                 <td rowspan="2" style="text-align: center; color: blueviolet;">1</td>
                                 <td rowspan="2" style="width: 50px;"><img src="/static/res/image/12.jpg" style="width: 100%;"></td>
                                 <td style="text-align: left; color: aliceblue; padding-left: 12px;">아이브</td>
                             </tr>
-                            <tr style="width:300px;">                              
+                            <tr style="width:300px;">
                                 <td style="text-align: left; color: rgb(129, 126, 126); padding-left: 12px">lovedive</td>
                             </tr>
                         </table>
@@ -243,7 +252,7 @@
     </div>
     </div>
 
-    <script type="text/javascript"> //뮤직비디오 랜덤재생 함수
+    <script> //뮤직비디오 랜덤재생 함수
         const musicData = [
             "afterLike",
             "attention",
