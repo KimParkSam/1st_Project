@@ -16,9 +16,9 @@
   height:100%;
 }
 
-html {
+/* html {
   scroll-snap-type:y mandatory;
-}
+} */
 
 .item {
   width:100%;
