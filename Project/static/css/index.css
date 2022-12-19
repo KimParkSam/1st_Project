@@ -1,0 +1,144 @@
+
+/* 스크롤바 관련 설정 */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+/* 비디오 관련 설정 */
+.videoContainer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+.videoContainer video {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+
+.videoText {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 3;
+    font-size: calc((100vw / 1240) * 72);
+    text-align: center;
+    background: linear-gradient(to bottom,
+
+            rgba(0, 0, 0, 0.60) 75%,
+            rgba(0, 0, 0, 0.95) 95%,
+            rgba(0, 0, 0, 0.966) 96%,
+            rgba(0, 0, 0, 0.977) 97%,
+            rgba(0, 0, 0, 0.988) 98%,
+            rgba(0, 0, 0, 0.999) 99%,
+            rgba(0, 0, 0, 1) 100%)
+}
+
+
+
+/* 모든 차트 관련 CSS 설정 */
+/* 파일 날짜 */
+.containerChart > div:nth-child(1) {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+/* 멜론, 유튜브, 지니 아이콘 */
+.containerChart > div > div > img {
+    width:70%;
+    display:block;
+    margin:auto;
+}
+
+table {
+    width: 100%;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin-bottom: 10px;
+}
+
+tr {
+    width: 300px;
+}
+
+td {
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; */
+}
+
+/* 랭킹 */
+tbody > tr:nth-child(2n-1) > td:nth-child(1){
+    text-align: center;
+    color: blueviolet;
+    /* width: 40px; */
+}
+
+/* 앨범 이미지 */
+tbody > tr > td:nth-child(2) {
+    width: 50px;
+}
+tbody > tr > td:nth-child(2) > img {
+    width: 100%;
+}
+
+/* 가수 */
+tbody > tr > td:nth-child(3) {
+    width: 198px;
+    text-align: left;
+    color: aliceblue;
+    padding-left: 12px;
+}
+
+/* 곡 제목 */
+tbody > tr:nth-child(2n) > td {
+    text-align: left;
+    color: rgb(129, 126, 126);
+    padding-left: 12px;
+
+    /* 글자 길이 제한 */
+    width: 198px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+/* 가수 */
+/* 글자 길이 제한 */
+tbody > tr:nth-child(2n-1) > td:nth-child(3) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+/* 페이지 번호 가운데 정렬 및 커서 포인터로 변경 */
+table > tfoot > tr > td > ul {
+    justify-content: center;
+}
+
+table > tfoot > tr > td > ul > li {
+    cursor: pointer;
+}
