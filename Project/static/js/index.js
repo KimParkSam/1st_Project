@@ -37,4 +37,58 @@ window.addEventListener('DOMContentLoaded', event => {
     var video = document.querySelector("#myVideo");
     video.load();
 
+
+
+
+
+
+    let head = document.getElementsByTagName("head")[0];
+        console.log(head.children.length);
+        console.log(head.children[14]);
+        console.log(head.children[18]);
+
+
+
+    
+    
+    
+    //     let melondata;
+    //     let youtubedata;
+    // function test() {
+    //     const layoutSidenav_content = document.getElementById('layoutSidenav_content');
+    //     axios({
+    //         method: 'get',
+    //         url: '/allChart'
+    //     }).then((response) => {
+    //         // console.log(response.data.youtubedata.data[0]);
+    //         melondata = response.data.melondata.data;
+    //         youtubedata = response.data.youtubedata.data;
+            
+    
+            
+    //         let script = document.createElement('script');
+    //         script.src = '/static/js/youtubeAllChart.js';
+    //         script.type = 'text/javascript';
+    //         document.head.appendChild(script);
+    
+    //         var head = document.getElementsByTagName("head")[0];
+    //         var link = document.createElement("link");
+    //         link.rel = "stylesheet";
+    //         link.type = "text/css";
+    //         link.href = "/static/css/allChart.css";
+    //         document.head.appendChild(link);
+    
+    //         setTimeout(() => {
+    //             console.log('스크립트 제거');
+    //             // 메인 페이지 head 태그 + nav 정보 포함일거라 판단
+    //             // 개수 16개 - 2022-12-18 기준
+    //             if(head.children.length > 16) {
+    //                 for(let ii = 16; ii < head.children.length; ii++) {
+    //                     head.children[ii].remove();
+    //                     console.log(ii);
+    //                 }
+    //             }
+    //         }, 5000);
+    //     });
+    // }
 });

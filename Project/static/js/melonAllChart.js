@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
             // viewCount에 따라 데이터 출력 실행
             // btnId = 페이지 하단의 버튼에 따라서 페이지 데이터 호출,  스타트 번호 페이지번호 * 1페이지 표시 개수
             for(let i=btnId*viewCount-viewCount; i < data.length; i++) {
-                temp += `<tr>
+                temp += `<tr class='test2'>
                     <td rowspan="2">${data[i].rank}</td>
                     <td rowspan="2"><img src='${data[i].albumImg}'></td>
                     <td>${data[i].singer}</td>
@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
             // viewCount에 따라 데이터 출력 실행
             // btnId = 페이지 하단의 버튼에 따라서 페이지 데이터 호출,  스타트 번호 페이지번호 * 1페이지 표시 개수
             for(let i=btnId*viewCount-viewCount; i < btnId*viewCount; i++) {
-                temp += `<tr>
+                temp += `<tr class='test2'>
                     <td rowspan="2">${data[i].rank}</td>
                     <td rowspan="2"><img src='${data[i].albumImg}'></td>
                     <td>${data[i].singer}</td>

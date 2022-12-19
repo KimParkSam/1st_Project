@@ -2,14 +2,18 @@ const youtubeFileFunction = require('./youtubeFileFunction');
 const melonFileFunction = require('./melonFileFunction');
 const genieFileFunction = require('./genieFileFunction');
 
-// exports.main = (req, res) => {
-//     if(req.session.user){
-//         res.render("index", { isLogin : true, id : req.session.user });
-//     }  else {
-//         res.render("index", { isLogin : false });
-//     }
-// }
+// const { User } = require('../model/indexUser');
 
+// main ejs 일단 사용 중지
+// // 메인 페이지
+// exports.main = (req, res) => {
+//     console.log('메인 페이지 세션 체크: ', req.session.user);
+//     if(req.session.user){
+//         res.render("main", { isLogin : true, id : req.session.user });
+//     }  else {
+//         res.render("main", { isLogin : false });
+//     }
+// };
 
 exports.main = (req, res) => {
     let melondata = {};
