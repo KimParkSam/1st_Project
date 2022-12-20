@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        html,body {
-            width:100%;
-            height:100%;
-        }
-        
-        html {
-            scroll-snap-type:y mandatory;
-        }
-        
-        .item {
-            width:100%;
-            height:100%;
-            
-            scroll-snap-align:center;
-            scroll-snap-stop:always;
-        }
-        
-        .item:nth-child(1){
-            background:green;
-        }
-        .item:nth-child(2){
-            background:blue;
-        }
-        .item:nth-child(3){
-            background:yellow;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
 </head>
 <body>
+  <style>
+    .slideinleft {
+      animation-delay: 2s;
+      margin-left:-100px;      
+      opacity: 0;
+      
+    }
+  </style>
+  <table border="1">
+    <tr style="margin-left: -20px;">
+      <td>123</td>
+    </tr>
+  </table>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>v
+  <div class="slideinleft" style="width: 100px;height:100px; background-color:black;" id="container">
     
-        <section id="item-1" class="item">첫번째 섹션</section>
-        <section id="item-2" class="item">두번째 섹션</section>
-        <section id="item-3" class="item">세번째 섹션</section>
-   
+
+</div>
+
+
+<script>
+  $(document).ready(function() {
+    $(window).scroll( function(){
+        $('.slideinleft').each( function(i){
+            
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            
+            if( bottom_of_window > bottom_of_element ){
+              //$(this).addClass('anim');
+                $(this).delay(500).animate({'margin-left':'0px','opacity': '1'},1000);
+            }
+            
+        }); 
+    });
+});
+
+
+</script>
 </body>
 </html>
