@@ -65,7 +65,7 @@ exports.main = (req, res) => {
                                             view = response.toString();
                                             result['view'] = 'main';
 
-                                            res.render("home", {result});
+                                            res.render("index", {result});
                                         });
 
                                     } else {
