@@ -32,6 +32,9 @@
     <script type="text/javascript" src="/static/js/youtubeAllChart.js"></script>
     <script type="text/javascript" src="/static/js/melonAllChart.js"></script>
     <script type="text/javascript" src="/static/js/genieAllChart.js"></script>
+    <!-- 차트 애니메이션 -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
     
 </head>
 
@@ -175,7 +178,7 @@
                         </div>
                         
                         <div class="col-12 col-md-12 col-lg-4">
-                            <div>
+                            <div data-aos="fade-right">
                                 <img src="/static/res/image/logo_melon.png" style="max-width: 150px;">
                             </div>
                             <table border="1" class="align-middle">
@@ -212,7 +215,7 @@
                             </table>
                         </div>
                         <div class="col-12 col-md-12 col-lg-4">
-                            <div>
+                            <div data-aos="fade-right" data-aos-delay="700">
                                 <img src="/static/res/image/logo_genie.png" style="max-width: 150px;">
                             </div>
                             <table border="1" class="align-middle">
@@ -225,7 +228,7 @@
                             </table>
                         </div>
                         <div class="col-12 col-md-12 col-lg-4">
-                            <div>
+                            <div data-aos="fade-right" data-aos-delay="1400">
                                 <img src="/static/res/image/logo_youtube.png" style="max-width: 150px;">
                             </div>
                             <table border="1" class="align-middle">
@@ -244,6 +247,12 @@
             </main>
         </div>
     </div>
+    <script>
+        AOS.init({
+            duration: 1000
+        });
+    </script>
+
 </body>
 </html>
 
