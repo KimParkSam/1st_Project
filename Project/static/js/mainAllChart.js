@@ -3,7 +3,7 @@
 // 바로 함수 및 태그 가져오는 이벤트를 실행하면 html 로드가 되지 않은 상태로 불러오기 때문에
 // 해당 이벤트를 추가해서 안에다가 코드를 작성한다.
 // html 파일이나 ejs 파일의 script 태그 안에 작성을 할 수는 있지만 분리해서 사용하는 것이 코드 관리 및 가독성에 좋다고 판단하였다.
-window.addEventListener('DOMContentLoaded', () => {
+// window.addEventListener('DOMContentLoaded', () => {
 
     // ***********멜론************
 
@@ -146,4 +146,4 @@ window.addEventListener('DOMContentLoaded', () => {
     // 초기 실행이라서 btnId 변수 대신에 1값 고정
     tableDataYoutube(ejsDataYoutube, viewCount, 1);
 
-});
+// });

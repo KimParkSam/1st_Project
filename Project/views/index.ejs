@@ -8,27 +8,26 @@
     <meta name="author" content="" />
     <title>프로젝트</title>
     <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
-    
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" integrity="sha384-UW7nqtAfV9h93tGKb9+YoZynF74OcsOt5Irr6Ag4KEbqgcICQv46iB8soY/KJ+Yl" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
     <link href="/static/css/bootstrap.css" rel="stylesheet" />
-    <link href="/static/css/nav.css" rel="stylesheet" />
     <script type="text/javascript" src="/static/js/index.js"></script>
-    <link href="/static/css/index.css" rel="stylesheet" />
+    <!-- 네비, 사이드바 CSS -->
+    <link href="/static/css/nav.css" rel="stylesheet" />
     <!-- 차트 애니메이션 -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
-    <!-- 해당 cdn까지는 유지 -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!--  서버에서 받은 데이터를 js 데이터로 변환 -->
-    "<%- include('allChart_data') %>"
-    <script type="text/javascript" src="/static/js/mainAllChart.js"></script>
+    <%- include('Chart_Data_Function') %>
+    <!-- 해당 cdn까지는 유지 -->
+    <!-- 메인 페이지 내용 부분 CSS -->
+    <link href="/static/css/index.css" rel="stylesheet" />
+    
 </head>
 
-<body class="sb-nav-fixed" style="background-color: rgb(0, 0, 0);" >
+<body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand--> <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 ps-3" id="sidebarToggle" href="#!">
@@ -66,7 +65,8 @@
                         <div class="sb-sidenav-menu-heading">top100</div>
                         <br>
 
-                        <a class="nav-link" href="#" onclick="allChartPage()">차트 모아보기</a>
+                        <!-- <a class="nav-link" href="#allChart" onclick="allChartPageFunction(allChartPage)">차트 모아보기</a> -->
+                        <a class="nav-link" href="#allChart" onclick="allChartPageFunction(allChartPage)">차트 모아보기</a>
                         <br>
 
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -138,25 +138,19 @@
                 <div class="sb-sidenav-footer">
                     <div class="small">music</div>
                     음악플레이어
+                    <!-- <audio id="player" controls>
+                        <source src="https://docs.google.com/uc?export=open&id=1kEdSvxdsS-kBaI2aPTmUXjbrG28kkhz_" type="audio/mp3">
+                    </audio> -->
                 </div>
             </nav>
         </div>
         
         <div id="layoutSidenav_content">
+
             <!-- 기존 main 데이터 -->
             
-
         </div>
     </div>
-    <script>
-        const container = document.getElementById('layoutSidenav_content');
-        let homehtml = '';
-        if("<%= result.view %>" === 'main') {
-            homehtml = `<%- include('main') %>`;
-            container.innerHTML = homehtml;
-        }
-
-    </script>
 
 <script type="text/javascript">
     AOS.init({
@@ -164,5 +158,6 @@
     });
 </script>
 </body>
+<%- include('All_Page_Function') %>
 </html>
 

@@ -1,7 +1,7 @@
-const youtubeFileFunction = require('./youtubeFileFunction');
-const melonFileFunction = require('./melonFileFunction');
-const genieFileFunction = require('./genieFileFunction');
-
+const youtubeFileFunction = require('./musicFileFunction/youtubeFileFunction');
+const melonFileFunction = require('./musicFileFunction/melonFileFunction');
+const genieFileFunction = require('./musicFileFunction/genieFileFunction');
+// const fs = require('fs').promises;
 
 
 // 유튜브 실시간 차트 - 1
@@ -40,12 +40,9 @@ exports.youtubeRealChartMainType = (req, res) => {
 }
 
 
-
 // 차트 모아보기
 exports.allChart = (req, res) => {
-    let melondata = {};
-    let geniedata = {};
-    let youtubedata = {};
+    let result = {id : req.session.user};
 
     // 1차 멜론 데이터 함수 실행
     melonFileFunction.melonFileList( (melonfilelist) => {
@@ -56,7 +53,7 @@ exports.allChart = (req, res) => {
                 // res.render('allchart', {data: data, filelist: filelist, fileHour: req.params.num});
                 // 모아보기 페이지에서는 시간 변경이 없으므로 fileHour 변수는 제외
                 // console.log(melondata);
-                melondata = {data: melondata, filelist: melonfilelist};
+                result["melondata"] = {data: melondata, filelist: melonfilelist};
 
                 // 2차 멜론 함수 종료 후 지니 데이터 함수 실행
                 genieFileFunction.genieFileList( (geniefilelist) => {
@@ -66,7 +63,7 @@ exports.allChart = (req, res) => {
                             // 파일에서 읽어온 데이터를 전달
                             // res.render('allchart', {data: data, filelist: filelist, fileHour: req.params.num});
                             // 모아보기 페이지에서는 시간 변경이 없으므로 fileHour 변수는 제외
-                            geniedata = {data: geniedata, filelist: geniefilelist};
+                            result["geniedata"] = {data: geniedata, filelist: geniefilelist};
 
 
                             // 3차 멜론 함수 종료 + 지니 함수 종료 후 유튜브 데이터 함수 실행
@@ -77,9 +74,29 @@ exports.allChart = (req, res) => {
                                         // 파일에서 읽어온 데이터를 전달
                                         // res.render('allchart', {data: data, filelist: filelist, fileHour: req.params.num});
                                         // 모아보기 페이지에서는 시간 변경이 없으므로 fileHour 변수는 제외
-                                        youtubedata = {data: youtubedata, filelist: youtubefilelist};
+                                        result["youtubedata"] = {data: youtubedata, filelist: youtubefilelist};
 
-                                        res.send({melondata: melondata, geniedata: geniedata, youtubedata: youtubedata});
+                                        // 세션 체크
+                                        if(req.session.user) {
+                                            result["isLogin"] = true;
+                                        } else {
+                                            result["isLogin"] = false;
+                                        }
+
+                                        // 모든 차트보기 페이지의 내용 출력
+                                        // let view = '';
+                                        // fs.readFile('./views/allChart.ejs')
+                                        // .then((response) => {
+                                        //     // console.log(response.toString());
+                                        //     // view = response.toString();
+                                        //     // result['view'] = 'allChart'
+                                        //     // result['viewdata'] = view;
+                                        //     // console.log(result.view);
+
+                                        //     res.send({result});
+                                        // });
+
+                                        res.send({result});
 
                                     } else {
                                         res.send('false');
@@ -97,3 +114,61 @@ exports.allChart = (req, res) => {
         });
     });
 }
+
+
+// // 차트 모아보기
+// exports.allChart = (req, res) => {
+//     let melondata = {};
+//     let geniedata = {};
+//     let youtubedata = {};
+
+//     // 1차 멜론 데이터 함수 실행
+//     melonFileFunction.melonFileList( (melonfilelist) => {
+//         melonFileFunction.melonFileRead(melonfilelist, (melondata) => {
+//             // console.log(data);
+//             if(melondata) {
+//                 // 파일에서 읽어온 데이터를 전달
+//                 // res.render('allchart', {data: data, filelist: filelist, fileHour: req.params.num});
+//                 // 모아보기 페이지에서는 시간 변경이 없으므로 fileHour 변수는 제외
+//                 // console.log(melondata);
+//                 melondata = {data: melondata, filelist: melonfilelist};
+
+//                 // 2차 멜론 함수 종료 후 지니 데이터 함수 실행
+//                 genieFileFunction.genieFileList( (geniefilelist) => {
+//                     genieFileFunction.genieFileRead(geniefilelist, (geniedata) => {
+//                         // console.log(data);
+//                         if(geniedata) {
+//                             // 파일에서 읽어온 데이터를 전달
+//                             // res.render('allchart', {data: data, filelist: filelist, fileHour: req.params.num});
+//                             // 모아보기 페이지에서는 시간 변경이 없으므로 fileHour 변수는 제외
+//                             geniedata = {data: geniedata, filelist: geniefilelist};
+
+
+//                             // 3차 멜론 함수 종료 + 지니 함수 종료 후 유튜브 데이터 함수 실행
+//                             youtubeFileFunction.youtubeFileList( (youtubefilelist) => {
+//                                 youtubeFileFunction.youtubeFileRead(youtubefilelist, (youtubedata) => {
+//                                     // console.log(data);
+//                                     if(youtubedata) {
+//                                         // 파일에서 읽어온 데이터를 전달
+//                                         // res.render('allchart', {data: data, filelist: filelist, fileHour: req.params.num});
+//                                         // 모아보기 페이지에서는 시간 변경이 없으므로 fileHour 변수는 제외
+//                                         youtubedata = {data: youtubedata, filelist: youtubefilelist};
+
+//                                         res.send({melondata: melondata, geniedata: geniedata, youtubedata: youtubedata});
+
+//                                     } else {
+//                                         res.send('false');
+//                                     }
+//                                 });
+//                             });
+//                         } else {
+//                             res.send('false');
+//                         }
+//                     });
+//                 });
+//             } else {
+//                 res.send('false');
+//             }
+//         });
+//     });
+// }
