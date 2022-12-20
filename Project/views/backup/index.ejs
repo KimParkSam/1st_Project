@@ -18,11 +18,24 @@
     <link href="/static/css/bootstrap.css" rel="stylesheet" />
     <link href="/static/css/nav.css" rel="stylesheet" />
     <script type="text/javascript" src="/static/js/index.js"></script>
+    <script type="text/javascript">
+        // 모든 차트보기 페이지 정보 가져오기
+        const allchartpage = `<%- include('allChart') %>`;
+        const youtubechartrealpage = `<%- include('youtubeRealChart') %>`;
+    </script>
+    <!-- 여기까지는 페이지 이동해도 고정으로 가져가야 되는 script -->
+
     <link href="/static/css/index.css" rel="stylesheet" />
     <!-- 모든 차트 보기를 위한 script -->
     <!--  서버에서 받은 데이터를 js 데이터로 변환 -->
-    "<%- include('allChart_data') %>"
-    <script type="text/javascript" src="/static/js/mainAllChart.js"></script>
+    <%- include('allChart_data') %>
+    <script type="text/javascript" src="/static/js/youtubeAllChart.js"></script>
+    <script type="text/javascript" src="/static/js/melonAllChart.js"></script>
+    <script type="text/javascript" src="/static/js/genieAllChart.js"></script>
+    <!-- 차트 애니메이션 -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+    
 </head>
 
 <body class="sb-nav-fixed" style="background-color: rgb(0, 0, 0);" >
@@ -63,7 +76,7 @@
                         <div class="sb-sidenav-menu-heading">top100</div>
                         <br>
 
-                        <a class="nav-link" href="#" onclick="allChartPage()">차트 모아보기</a>
+                        <a class="nav-link" href="#" onclick="allChartPage(allchartpage)">차트 모아보기</a>
                         <br>
 
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -75,7 +88,7 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="#" onclick="yotubueRealChartPage()">실시간 음원순위</a>
+                                <a class="nav-link" href="#" onclick="yotubueRealChartPage(youtubechartrealpage)">실시간 음원순위</a>
                                 <a class="nav-link" href="#">뮤직비디오 순위</a>
                             </nav>
                         </div>
@@ -138,21 +151,108 @@
                 </div>
             </nav>
         </div>
-        
         <div id="layoutSidenav_content">
-            <!-- 기존 main 데이터 -->
-            
+            <section id="item-1" class="item">
+            <main class="container">               
+                
+                <div class="videoContainer hide-for-small-only" >
+                    <div class="overlay"></div>
+                    <div class="overlay2"></div>
+                    <video autoplay="autoplay" loop="loop" muted defaultMuted playsinline oncontextmenu="return false;" preload="auto" id="myVideo">
+                    <source src="" id="source" type="video/mp4">
+                    </video>
+                    <div class="videoText" style="color: aliceblue;">비디오중앙텍스트</div>
+                </div>
+                <br> <br> <br> <br>
+            </section>
+           
 
+          
+            <section>
+                <!-- <div class="container row"> -->
+                    <!-- 배경 스타일 임시 설정 -->
+                    <div class="containerChart row item" id="item-2" style="background: black">
+                        <div class="col-12">
+                            <!-- 마지막 파일의 날짜 출력 -->
+                            <span style="display: none;" id="dayTag"><%= youtubedata.filelist[youtubedata.filelist.length-1].slice(17, -8); %></span>
+                        </div>
+                        
+                        <div class="col-12 col-md-12 col-lg-4">
+                            <div data-aos="fade-right">
+                                <img src="/static/res/image/logo_melon.png" style="max-width: 150px;">
+                            </div>
+                            <table border="1" class="align-middle">
+                                <tbody class="a1">
+                                    <!-- 멜론 차트 데이터 -->
+                                    <!-- 샘플, 해당 형식으로 출력 -->
+                                    <!-- <tr>
+                                        <td rowspan="2">1</td>
+                                        <td rowspan="2">
+                                            <img src="/static/res/image/12.jpg">
+                                        </td>
+                                        <td>아이브</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lovedive</td>
+                                    </tr> -->
+                                </tbody>
+                                <tfoot style="display: none;">
+                                    <!-- 페이지 번호 -->
+                                    <!-- 샘플, 해당 형식으로 출력 -->
+                                    <!-- <tr>
+                                        <td colspan='3'>
+                                            <ul class="pagination">
+                                                <li class="page-item disabled" style="cursor: text";>
+                                                    <a class="page-link">pre</a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a class="page-link">next</a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr> -->
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-4">
+                            <div data-aos="fade-right" data-aos-delay="700">
+                                <img src="/static/res/image/logo_genie.png" style="max-width: 150px;">
+                            </div>
+                            <table border="1" class="align-middle">
+                                <tbody>
+                                    <!-- 지니 차트 데이터 -->
+                                </tbody>
+                                <tfoot style="display: none;">
+                                    <!-- 페이지 번호 -->
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-4">
+                            <div data-aos="fade-right" data-aos-delay="1400">
+                                <img src="/static/res/image/logo_youtube.png" style="max-width: 150px;">
+                            </div>
+                            <table border="1" class="align-middle">
+                                <tbody>
+                                    <!-- 유튜브 차트 데이터 -->
+                                </tbody>
+                                <tfoot style="display: none;">
+                                    <!-- 페이지 번호 -->
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                <br><br><br><br><br><br>
+
+            </section>
+            </main>
         </div>
     </div>
     <script>
-        const container = document.getElementById('layoutSidenav_content');
-        let homehtml = '';
-        if("<%= result.view %>" === 'main') {
-            homehtml = `<%- include('main') %>`;
-            container.innerHTML = homehtml;
-        }
+        AOS.init({
+            duration: 1000
+        });
     </script>
+
 </body>
 </html>
 
