@@ -1,45 +1,45 @@
 const youtubeFileFunction = require('./youtubeFileFunction');
 const melonFileFunction = require('./melonFileFunction');
 const genieFileFunction = require('./genieFileFunction');
+const fs = require('fs').promises;
 
-// const { User } = require('../model/indexUser');
-
-// main ejs 일단 사용 중지
-// // 메인 페이지
-// exports.main = (req, res) => {
-//     console.log('메인 페이지 세션 체크: ', req.session.user);
-//     if(req.session.user){
-//         res.render("main", { isLogin : true, id : req.session.user });
-//     }  else {
-//         res.render("main", { isLogin : false });
+// exports.home = (req, res) => {
+//     let result = {id : req.session.user};
+//     if(req.session.user) {
+//         result["isLogin"] = true;
+//     } else {
+//         result["isLogin"] = false;
 //     }
-// };
+
+//     let view = '';
+//     fs.readFile('./views/main.ejs')
+//     .then((response) => {
+//         console.log(response.toString());
+//         view = response.toString();
+//         result['view'] = 'main';
+
+//         res.render("home", {result});
+//     });
+// }
 
 exports.main = (req, res) => {
-    let melondata = {};
-    let geniedata = {};
-    let youtubedata = {};
+    let result = {id : req.session.user};
 
     // 1차 멜론 데이터 함수 실행
     melonFileFunction.melonFileList( (melonfilelist) => {
         melonFileFunction.melonFileRead(melonfilelist, (melondata) => {
             // console.log(data);
             if(melondata) {
-                // 파일에서 읽어온 데이터를 전달
-                // res.render('allchart', {data: data, filelist: filelist, fileHour: req.params.num});
-                // 모아보기 페이지에서는 시간 변경이 없으므로 fileHour 변수는 제외
-                // console.log(melondata);
-                melondata = {data: melondata, filelist: melonfilelist};
+                // 파일에서 읽어온 멜론 데이터 저장
+                result["melondata"] = {data: melondata, filelist: melonfilelist};
 
                 // 2차 멜론 함수 종료 후 지니 데이터 함수 실행
                 genieFileFunction.genieFileList( (geniefilelist) => {
                     genieFileFunction.genieFileRead(geniefilelist, (geniedata) => {
                         // console.log(data);
                         if(geniedata) {
-                            // 파일에서 읽어온 데이터를 전달
-                            // res.render('allchart', {data: data, filelist: filelist, fileHour: req.params.num});
-                            // 모아보기 페이지에서는 시간 변경이 없으므로 fileHour 변수는 제외
-                            geniedata = {data: geniedata, filelist: geniefilelist};
+                            // 파일에서 읽어온 지니 데이터 저장
+                            result["geniedata"] = {data: geniedata, filelist: geniefilelist};
 
 
                             // 3차 멜론 함수 종료 + 지니 함수 종료 후 유튜브 데이터 함수 실행
@@ -47,17 +47,26 @@ exports.main = (req, res) => {
                                 youtubeFileFunction.youtubeFileRead(youtubefilelist, (youtubedata) => {
                                     // console.log(data);
                                     if(youtubedata) {
-                                        // 파일에서 읽어온 데이터를 전달
-                                        // res.render('allchart', {data: data, filelist: filelist, fileHour: req.params.num});
-                                        // 모아보기 페이지에서는 시간 변경이 없으므로 fileHour 변수는 제외
-                                        youtubedata = {data: youtubedata, filelist: youtubefilelist};
+                                        // 파일에서 읽어온 유튜브 데이터 저장
+                                        result["youtubedata"] = {data: youtubedata, filelist: youtubefilelist};
 
-                                        if(req.session.user){
-                                            res.render("index", { isLogin : true, id : req.session.user, melondata: melondata, geniedata: geniedata, youtubedata: youtubedata });
-                                            // res.render('allchart', {melondata: melondata, geniedata: geniedata, youtubedata: youtubedata});
-                                        }  else {
-                                            res.render("index", { isLogin : false, id : req.session.user, melondata: melondata, geniedata: geniedata, youtubedata: youtubedata });
+                                        // 세션 체크
+                                        if(req.session.user) {
+                                            result["isLogin"] = true;
+                                        } else {
+                                            result["isLogin"] = false;
                                         }
+
+                                        // 메인 페이지의 내용 출력
+                                        let view = '';
+                                        fs.readFile('./views/main.ejs')
+                                        .then((response) => {
+                                            // console.log(response.toString());
+                                            view = response.toString();
+                                            result['view'] = 'main';
+
+                                            res.render("home", {result});
+                                        });
 
                                     } else {
                                         res.send('false');

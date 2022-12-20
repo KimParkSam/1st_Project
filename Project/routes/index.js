@@ -5,7 +5,6 @@ const controllerChart = require("../controller/Cchart");
 const router = express.Router();
 
 // 메인 페이지 및 세션 체크
-// router.get("/", controllerUser.main);
 router.get("/", controllerMain.main);
 
 // 로그인 and 회원가입 페이지
