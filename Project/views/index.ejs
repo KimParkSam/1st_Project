@@ -18,7 +18,10 @@
     <link href="/static/css/bootstrap.css" rel="stylesheet" />
     <link href="/static/css/nav.css" rel="stylesheet" />
     <script type="text/javascript" src="/static/js/index.js"></script>
-
+    <script type="text/javascript">
+        // 모든 차트보기 페이지 정보 가져오기
+        const allchartpage = `<%- include('allChart') %>`;
+    </script>
     <!-- 여기까지는 페이지 이동해도 고정으로 가져가야 되는 script -->
 
     <link href="/static/css/index.css" rel="stylesheet" />
@@ -69,7 +72,8 @@
                         <div class="sb-sidenav-menu-heading">top100</div>
                         <br>
 
-                        <a class="nav-link" href="/allChart">차트 모아보기</a>
+                        <!-- <a class="nav-link" href="/allChart">차트 모아보기</a> -->
+                        <a class="nav-link" href="#" onclick="allChartPage(allchartpage)">차트 모아보기</a>
                         <br>
 
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -82,6 +86,7 @@
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="/youtubeRealChart">실시간 음원순위</a>
+                                <!-- <a class="nav-link" href="#" onclick="youtubeRealChartPage(allchartpage)">실시간 음원순위 - 테스트</a> -->
                                 <a class="nav-link" href="layout-sidenav-light.html">뮤직비디오 순위</a>
                             </nav>
                         </div>

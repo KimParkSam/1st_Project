@@ -42,53 +42,58 @@ window.addEventListener('DOMContentLoaded', event => {
 
 
 
-    let head = document.getElementsByTagName("head")[0];
-        console.log(head.children.length);
-        console.log(head.children[14]);
-        console.log(head.children[18]);
+
+    // 각 사이트 차트 데이터 저장용 및 페이지 이동 시 사용하는 변수
+    let ejsDataMelon, ejsDataGenie, ejsDataYoutube;
+    // 모든 차트보기 페이지
+    window.allChartPage = (allchartpage) => {
+        // 데이터 변경 부분
+        const container = document.getElementById('layoutSidenav_content');
+
+        axios({
+            method: 'get',
+            url: '/allChart'
+        }).then((response) => {
+            // console.log(response.data);
+            ejsDataMelon = response.data.melondata.data;
+            ejsDataGenie = response.data.geniedata.data;
+            ejsDataYoutube = response.data.youtubedata.data;
+
+            // head 태그 변수 설정
+            let head = document.getElementsByTagName("head")[0];
+
+            // head 태그 내의 css, cdn, script 개수 확인
+            // main 페이지에서 사용하는 기본 값 13개는 냅두고, 추가되는 14부터 변경 작업
+            if(head.children.length >= 16) {
+                let headlength = head.children.length;
+                // console.log(headlength);
+                for(let i = headlength-1; i > 15; i--) {
+                    head.children[i].remove();
+                }
+            }
+
+            // ejs 파일의 html 태그 가져오기
+            container.innerHTML = allchartpage;
+
+            // css 추가
+            let link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.type = "text/css";
+            link.href = "/static/css/allChart.css";
+            head.appendChild(link);
+
+            // script 추가
+            let script = document.createElement('script');
+            script.src = '/static/js/allChart.js';
+            script.type = 'text/javascript';
+            head.appendChild(script);
 
 
-
-    
-    
-    
-    //     let melondata;
-    //     let youtubedata;
-    // function test() {
-    //     const layoutSidenav_content = document.getElementById('layoutSidenav_content');
-    //     axios({
-    //         method: 'get',
-    //         url: '/allChart'
-    //     }).then((response) => {
-    //         // console.log(response.data.youtubedata.data[0]);
-    //         melondata = response.data.melondata.data;
-    //         youtubedata = response.data.youtubedata.data;
+            const dayTag = document.getElementById('dayTag');
+            const fileday = response.data.youtubedata.filelist[response.data.youtubedata.filelist.length-1].slice(17, -8);
+            dayTag.textContent = fileday;
             
-    
-            
-    //         let script = document.createElement('script');
-    //         script.src = '/static/js/youtubeAllChart.js';
-    //         script.type = 'text/javascript';
-    //         document.head.appendChild(script);
-    
-    //         var head = document.getElementsByTagName("head")[0];
-    //         var link = document.createElement("link");
-    //         link.rel = "stylesheet";
-    //         link.type = "text/css";
-    //         link.href = "/static/css/allChart.css";
-    //         document.head.appendChild(link);
-    
-    //         setTimeout(() => {
-    //             console.log('스크립트 제거');
-    //             // 메인 페이지 head 태그 + nav 정보 포함일거라 판단
-    //             // 개수 16개 - 2022-12-18 기준
-    //             if(head.children.length > 16) {
-    //                 for(let ii = 16; ii < head.children.length; ii++) {
-    //                     head.children[ii].remove();
-    //                     console.log(ii);
-    //                 }
-    //             }
-    //         }, 5000);
-    //     });
-    // }
+        });
+    }
+
 });
