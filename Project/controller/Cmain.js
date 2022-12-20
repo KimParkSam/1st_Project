@@ -1,7 +1,7 @@
-const youtubeFileFunction = require('./youtubeFileFunction');
-const melonFileFunction = require('./melonFileFunction');
-const genieFileFunction = require('./genieFileFunction');
-const fs = require('fs').promises;
+const youtubeFileFunction = require('./musicFileFunction/youtubeFileFunction');
+const melonFileFunction = require('./musicFileFunction/melonFileFunction');
+const genieFileFunction = require('./musicFileFunction/genieFileFunction');
+// const fs = require('fs').promises;
 
 // exports.home = (req, res) => {
 //     let result = {id : req.session.user};
@@ -58,15 +58,20 @@ exports.main = (req, res) => {
                                         }
 
                                         // 메인 페이지의 내용 출력
-                                        let view = '';
-                                        fs.readFile('./views/main.ejs')
-                                        .then((response) => {
-                                            // console.log(response.toString());
-                                            view = response.toString();
-                                            result['view'] = 'main';
+                                        // let view = '';
+                                        // fs.readFile('./views/main.ejs')
+                                        // .then((response) => {
+                                        //     // console.log(response.toString());
+                                        //     // view = response.toString();
+                                        //     // result['view'] = 'main';
+                                        //     // result['viewdata'] = view;
+                                        //     // console.log(result.view.main);
+                                        //     // console.log(result.view[0].main);
 
-                                            res.render("index", {result});
-                                        });
+                                        //     res.render("index", {result});
+                                        // });
+
+                                        res.render("index", {result});
 
                                     } else {
                                         res.send('false');
