@@ -34,18 +34,11 @@ router.get('/mypage', controllerUser.mypage);
 
 // 차트 모아보기 페이지
 // router.get("/allChart", controllerChart.allChart);
-// router.get("/allChart", controllerChart.allChartYoutube, controllerChart.allChartMelmon, controllerChart.allChart);
-// router.get("/allChart", [controllerChart.allChartYoutube, controllerChart.allChartMelmon], controllerChart.allChart);
-// router.get("/allChart", [controllerChart.allChartYoutube, controllerChart.allChartMelmon], (req, res) => {
-//     res.render('allchart', {youtubedata, melondata});
-// });
 router.get("/allChart", controllerChart.allChart);
 
 // 유튜브 차트 페이지
 router.get("/youtubeRealChart", controllerChart.youtubeRealChartMain);
 router.get("/youtubeRealChart/:num", controllerChart.youtubeRealChartMainType);
-
-
 
 
 module.exports = router;
