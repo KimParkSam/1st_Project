@@ -1,4 +1,10 @@
-window.youtubeRealChartLoad = () => {
+// JQuery의 document.ready와 거의 비슷한 기능의 함수
+// ie8 이하 버전에서는 지원하지 않는다.
+// 바로 함수 및 태그 가져오는 이벤트를 실행하면 html 로드가 되지 않은 상태로 불러오기 때문에
+// 해당 이벤트를 추가해서 안에다가 코드를 작성한다.
+// html 파일이나 ejs 파일의 script 태그 안에 작성을 할 수는 있지만 분리해서 사용하는 것이 코드 관리 및 가독성에 좋다고 판단하였다.
+window.addEventListener('DOMContentLoaded', function()
+{
     // select 태그에서 기본 설정 값 100 가져오기
     // viewCount Change 함수는 밑에 생성
     let viewCount = document.querySelectorAll('select')[1].value;
@@ -46,7 +52,7 @@ window.youtubeRealChartLoad = () => {
     // ******처음 출력을 위한 초기 실행 함수******
     // 1번 실행해서 데이터 출력
     // 초기 실행이라서 btnId 변수 대신에 1값 고정
-    tableData(ejsDataYoutube, viewCount, 1);
+    tableData(ejsData, viewCount, 1);
 
     // 페이지 버튼 출력을 위한 1차 작업 함수
     function pageAlgo(total, bottomSize, listSize, cursor){
@@ -95,7 +101,7 @@ window.youtubeRealChartLoad = () => {
     // 280개의 데이터, 하단에는 20개씩, 1개화면에는 10개, 지금 나의페이지는 21
     // let info = pageAlgo(280, 10, 10, 1);
     // 페이지 버튼 작업을 위한 1차 작업 초기 실행행
-    let info = pageAlgo(ejsDataYoutube.length, 3, viewCount, 1);
+    let info = pageAlgo(ejsData.length, 3, viewCount, 1);
 
     // 페이지 버튼 출력 함수
     function pageBtn(info) {
@@ -151,10 +157,10 @@ window.youtubeRealChartLoad = () => {
         // console.log(btnId);
 
         // 페이지 번호 클릭 후 새로운 데이터 출력
-        tableData(ejsDataYoutube, viewCount, btnId);
+        tableData(ejsData, viewCount, btnId);
 
         // 페이지 하단 번호 변경 작업
-        let info = pageAlgo(ejsDataYoutube.length, 3, viewCount, btnId);
+        let info = pageAlgo(ejsData.length, 3, viewCount, btnId);
         pageBtn(info);
     }
 
@@ -168,11 +174,11 @@ window.youtubeRealChartLoad = () => {
 
         // 페이지 출력 갯수 수정 후 새로운 데이터 출력
         // btnId = 1은 데이터 갱신 이후 1페이지로 보여지기 위한 작업
-        tableData(ejsDataYoutube, viewCount, 1);
+        tableData(ejsData, viewCount, 1);
 
         // 페이지 하단 번호 변경 작업
         // btnId = 1은 데이터 갱신 이후 1페이지로 보여지기 위한 작업
-        let info = pageAlgo(ejsDataYoutube.length, 3, viewCount, 1);
+        let info = pageAlgo(ejsData.length, 3, viewCount, 1);
         pageBtn(info);
     }
 
@@ -193,6 +199,4 @@ window.youtubeRealChartLoad = () => {
             document.location.href = url;
         });
     }
-}
-
-youtubeRealChartLoad();
+});

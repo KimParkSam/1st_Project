@@ -11,7 +11,8 @@ exports.youtubeRealChartMain = (req, res) => {
             // console.log(data);
             if(data) {
                 // 파일에서 읽어온 데이터를 전달
-                res.render('youtubeRealChart', {data: data, filelist: filelist, fileHour: req.params.num});
+                // res.render('youtubeRealChart', {data: data, filelist: filelist, fileHour: req.params.num});
+                res.send({data: data, filelist: filelist, fileHour: req.params.num});
             } else {
                 res.send('false');
             }
