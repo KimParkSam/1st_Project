@@ -19,6 +19,9 @@ const User = (Sequelize, DataTypes) => {
             e_mail : {
                 type : DataTypes.STRING(20),
                 allowNull : false                
+            },
+            user_img : { //user_img varchar(50) null
+                type : DataTypes.STRING(50),           
             }
         },
         {
