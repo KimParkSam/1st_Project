@@ -2,6 +2,7 @@ const express = require("express");
 const controllerMain = require("../controller/Cmain");
 const controllerUser = require("../controller/Cuser");
 const controllerChart = require("../controller/Cchart");
+const controllerCrawling = require("../controller/Ccrawling");
 const router = express.Router();
 
 // 메인 페이지 및 세션 체크
@@ -37,6 +38,16 @@ router.get("/allChart", controllerChart.allChart);
 // 유튜브 차트 페이지
 router.get("/youtubeRealChart", controllerChart.youtubeRealChartMain);
 router.get("/youtubeRealChart/:num", controllerChart.youtubeRealChartMainType);
+
+
+
+// 크롤링 요청 페이지
+router.get("/crawling/melon", controllerCrawling.melonCrawlingPage);
+router.get("/crawling/melonday", controllerCrawling.melonDayCrawlingPage);
+router.get("/crawling/genie", controllerCrawling.genieCrawlingPage);
+router.get("/crawling/geniemovie", controllerCrawling.genieMovieCrawlingPage);
+router.get("/crawling/youtube", controllerCrawling.youtubeCrawlingPage);
+router.get("/crawling/youtubemovie", controllerCrawling.youtubeMovieCrawlingPage);
 
 
 module.exports = router;
