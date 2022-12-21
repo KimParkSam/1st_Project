@@ -2,13 +2,12 @@ const youtubeFileFunction = require('./musicFileFunction/youtubeFileFunction');
 const melonFileFunction = require('./musicFileFunction/melonFileFunction');
 const genieFileFunction = require('./musicFileFunction/genieFileFunction');
 const ClikeSingFunction = require('./ClikeSing');
+const { LikeSing } = require('../model/indexLikeSing');
 
 // 유튜브 실시간 차트 - 1
 exports.youtubeRealChartMain = (req, res) => {
     let result = {id : req.session.user};
 
-    const { LikeSing } = require('../model/indexLikeSing');
-    
     youtubeFileFunction.youtubeFileList((filelist) => {
         youtubeFileFunction.youtubeFileRead(filelist, (data) => {
             // console.log(data);
