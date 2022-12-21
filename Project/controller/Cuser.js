@@ -127,8 +127,21 @@ exports.user_delete = async (req, res) => {
 };
 
 //마이페이지
-exports.mypage = (req, res) =>{
-    res.render('mypage');
+exports.mypage = async (req, res) =>{
+    let result = await User.findOne({
+        where : { id : `${req.session.user}`}
+    });
+    res.render('mypage', { data : result });
 };
 
 
+//마이페이지 업로드 기능
+exports.upload_file = (req, res) => {
+    console.log("마이페이지 업로드 : ", req.file );
+    User.update({
+        user_img : req.file.filename
+    },
+    { where :  { id : `${req.session.user}` } }
+    );
+    res.send({ path : req.file.filename });
+    };

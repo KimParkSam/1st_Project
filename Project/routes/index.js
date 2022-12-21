@@ -4,6 +4,10 @@ const controllerUser = require("../controller/Cuser");
 const controllerChart = require("../controller/Cchart");
 const router = express.Router();
 
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs')
+
 // 메인 페이지 및 세션 체크
 router.get("/", controllerMain.main);
 
@@ -30,6 +34,21 @@ router.delete('/user_delete', controllerUser.user_delete);
 // 마이 페이지
 router.get('/mypage', controllerUser.mypage);
 
+// 마이 페이지 업로드 설정
+const upload = multer({
+    storage: multer.diskStorage({
+      destination: function (req, file, cb) {
+        cb(null, 'static/uploads/');
+      },
+      filename: function (req, file, cb) {
+        const ext = path.extname(file.originalname);
+        cb(null, req.session.user + ext);
+      }
+    })
+  });
+
+// 마이 페이지 파일 업로드
+router.post('/upload_file', upload.single('img'), controllerUser.upload_file);
 
 // 차트 모아보기 페이지
 router.get("/allChart", controllerChart.allChart);
@@ -37,6 +56,7 @@ router.get("/allChart", controllerChart.allChart);
 // 유튜브 차트 페이지
 router.get("/youtubeRealChart", controllerChart.youtubeRealChartMain);
 router.get("/youtubeRealChart/:num", controllerChart.youtubeRealChartMainType);
+
 
 
 module.exports = router;
