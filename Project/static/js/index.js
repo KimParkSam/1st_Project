@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', event => {
     var video = document.querySelector("#myVideo");
     video.load();
 
-    
+
 
     // ***********멜론************
     // 차트 모아보기에서는 기본 설정 값 10 설정
@@ -31,14 +31,14 @@ window.addEventListener('DOMContentLoaded', event => {
     tableDataMelon = (data, viewCount, btnId) => {
         const melonTable = document.querySelectorAll('tbody')[0];
         let temp = '';
-        
-        for(let i = 0; i < 10; i++) {
+
+        for (let i = 0; i < 10; i++) {
             temp += `<tr class='melon${i}'>
                 <td rowspan="2">${data[i].rank}</td>
                 <td rowspan="2"><img src='${data[i].albumImg}'></td>
                 <td>${data[i].singer}</td>
                 </tr>
-                <tr>
+                <tr class='melon${i}'>
                 <td>${data[i].title}</td>
                 </tr>`;
         }
@@ -57,14 +57,14 @@ window.addEventListener('DOMContentLoaded', event => {
     tableDataGenie = (data, viewCount, btnId) => {
         const genieTable = document.querySelectorAll('tbody')[1];
         let temp = '';
-        
-        for(let i = 0; i < 10; i++) {
+
+        for (let i = 0; i < 10; i++) {
             temp += `<tr class='genie${i}'>
                 <td rowspan="2">${data[i].rank}</td>
                 <td rowspan="2"><img src='${data[i].albumImg}'></td>
                 <td>${data[i].singer}</td>
                 </tr>
-                <tr>
+                <tr <tr class='genie${i}'>
                 <td>${data[i].title}</td>
                 </tr>`;
         }
@@ -82,14 +82,14 @@ window.addEventListener('DOMContentLoaded', event => {
     tableDataYoutube = (data, viewCount, btnId) => {
         const youtubeTable = document.querySelectorAll('tbody')[2];
         let temp = '';
-    
-        for(let i = 0; i < 10; i++) {
+
+        for (let i = 0; i < 10; i++) {
             temp += `<tr class='youtube${i}'>
                 <td rowspan="2">${data[i].rank}</td>
                 <td rowspan="2"><img src='${data[i].albumImg}'></td>
                 <td>${data[i].singer}</td>
                 </tr>
-                <tr>
+                <tr class='youtube${i}'>
                 <td>${data[i].title}</td>
                 </tr>`;
         }
@@ -101,109 +101,315 @@ window.addEventListener('DOMContentLoaded', event => {
     // 초기 실행이라서 btnId 변수 대신에 1값 고정
     tableDataYoutube(ejsDataYoutube, viewCount, 1);
 
-    
+
 
     // 멜론 차트 딜레이
-    $(window).scroll(function(){
-        $('.melon0').each( function(){
+    $(window).scroll(function () {
+        $('.melon0').each(function () {
             var bottom_of_element = $(this).offset().top + $(this).outerHeight();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-            if( bottom_of_window > bottom_of_element ){
-              //$(this).addClass('anim');
-                $(this).delay(0).animate({'margin-left':'0px','opacity': '1'},1000);
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(50).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
             }
         });
 
-        $('.melon1').each( function(){
+        $('.melon1').each(function () {
             var bottom_of_element = $(this).offset().top + $(this).outerHeight();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-            if( bottom_of_window > bottom_of_element ){
+
+            if (bottom_of_window > bottom_of_element) {
                 //$(this).addClass('anim');
-                $(this).delay(50).animate({'margin-left':'0px', 'opacity': '1'},1000);
+                $(this).delay(100).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
             }
         });
 
-        $('.melon2').each( function(){
+        $('.melon2').each(function () {
             var bottom_of_element = $(this).offset().top + $(this).outerHeight();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-            if( bottom_of_window > bottom_of_element ){
+
+            if (bottom_of_window > bottom_of_element) {
                 //$(this).addClass('anim');
-                $(this).delay(100).animate({'margin-left':'0px', 'opacity': '1'},1000);
+                $(this).delay(150).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
             }
         });
 
-        $('.melon3').each( function(){
+        $('.melon3').each(function () {
             var bottom_of_element = $(this).offset().top + $(this).outerHeight();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-            if( bottom_of_window > bottom_of_element ){
+
+            if (bottom_of_window > bottom_of_element) {
                 //$(this).addClass('anim');
-                $(this).delay(150).animate({'margin-left':'0px', 'opacity': '1'},1000);
+                $(this).delay(200).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
             }
         });
 
-        $('.melon4').each( function(){
+        $('.melon4').each(function () {
             var bottom_of_element = $(this).offset().top + $(this).outerHeight();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-            if( bottom_of_window > bottom_of_element ){
+
+            if (bottom_of_window > bottom_of_element) {
                 //$(this).addClass('anim');
-                $(this).delay(200).animate({'margin-left':'0px', 'opacity': '1'},1000);
+                $(this).delay(250).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
             }
         });
 
-        $('.melon5').each( function(){
+        $('.melon5').each(function () {
             var bottom_of_element = $(this).offset().top + $(this).outerHeight();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-            if( bottom_of_window > bottom_of_element ){
+
+            if (bottom_of_window > bottom_of_element) {
                 //$(this).addClass('anim');
-                $(this).delay(250).animate({'margin-left':'0px', 'opacity': '1'},1000);
+                $(this).delay(300).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
             }
         });
 
-        $('.melon6').each( function(){
+        $('.melon6').each(function () {
             var bottom_of_element = $(this).offset().top + $(this).outerHeight();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-            if( bottom_of_window > bottom_of_element ){
+
+            if (bottom_of_window > bottom_of_element) {
                 //$(this).addClass('anim');
-                $(this).delay(300).animate({'margin-left':'0px', 'opacity': '1'},1000);
+                $(this).delay(350).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
             }
         });
 
-        $('.melon7').each( function(){
+        $('.melon7').each(function () {
             var bottom_of_element = $(this).offset().top + $(this).outerHeight();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-            if( bottom_of_window > bottom_of_element ){
+
+            if (bottom_of_window > bottom_of_element) {
                 //$(this).addClass('anim');
-                $(this).delay(350).animate({'margin-left':'0px', 'opacity': '1'},1000);
+                $(this).delay(400).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
             }
         });
 
-        $('.melon8').each( function(){
+        $('.melon8').each(function () {
             var bottom_of_element = $(this).offset().top + $(this).outerHeight();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-            if( bottom_of_window > bottom_of_element ){
+
+            if (bottom_of_window > bottom_of_element) {
                 //$(this).addClass('anim');
-                $(this).delay(400).animate({'margin-left':'0px', 'opacity': '1'},1000);
+                $(this).delay(450).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
             }
         });
 
-        $('.melon9').each( function(){
+        $('.melon9').each(function () {
             var bottom_of_element = $(this).offset().top + $(this).outerHeight();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-            if( bottom_of_window > bottom_of_element ){
+
+            if (bottom_of_window > bottom_of_element) {
                 //$(this).addClass('anim');
-                $(this).delay(450).animate({'margin-left':'0px', 'opacity': '1'},1000);
+                $(this).delay(500).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
             }
         });
     });
 
+    // 자니 차트 딜레이
+    $(window).scroll(function () {
+        $('.genie0').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(600).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.genie1').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(650).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.genie2').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(700).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.genie3').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(750).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.genie4').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(800).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.genie5').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(850).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.genie6').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(900).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.genie7').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(950).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.genie8').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(1000).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.genie9').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(1050).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+    });
+
+
+    // 유튜브 차트 딜레이
+    $(window).scroll(function () {
+        $('.youtube0').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(1150).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.youtube1').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(1200).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.youtube2').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(1250).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.youtube3').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(1300).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.youtube4').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(1350).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.youtube5').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(1400).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.youtube6').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(1450).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.youtube7').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(1500).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.youtube8').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(1550).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+
+        $('.youtube9').each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay(1600).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+    });
 });
