@@ -1,4 +1,5 @@
-window.youtubeRealChartLoad = () => {
+window.addEventListener('DOMContentLoaded', event => {
+// window.youtubeRealChartLoad = () => {
     // select 태그에서 기본 설정 값 100 가져오기
     // viewCount Change 함수는 밑에 생성
     let viewCount = document.querySelectorAll('select')[1].value;
@@ -174,6 +175,7 @@ window.youtubeRealChartLoad = () => {
         // btnId = 1은 데이터 갱신 이후 1페이지로 보여지기 위한 작업
         let info = pageAlgo(ejsDataYoutube.length, 3, viewCount, 1);
         pageBtn(info);
+        // console.log(ejsDataYoutube);
     }
 
 
@@ -241,9 +243,10 @@ window.youtubeRealChartLoad = () => {
     // }
 
 
+    
     // 유튜브 실시간 차트 시간 변경
     window.dateHourChange = () => {
-        console.log('tasd56as1d65aw', youtubechartrealpage);
+        // console.log('tasd56as1d65aw', youtubechartrealpage);
         // 데이터 변경 부분
         const container = document.getElementById('layoutSidenav_content');
         // 시간 가져오기
@@ -254,31 +257,31 @@ window.youtubeRealChartLoad = () => {
             method: 'get',
             url: url
         }).then((response) => {
-            // console.log(response.data);
+            // console.log(response.data.result.youtubedata.data);
             // console.log(response.data.fileHour);
             // console.log(response.data.data);
-            let ejsDataYoutube = response.data.data;
+            ejsDataYoutube = response.data.result.youtubedata.data;
 
             // ejs 파일의 html 태그 가져오기
-            container.innerHTML = youtubechartrealpage;
+            // container.innerHTML = youtubechartrealpage;
 
             const dayTag = document.getElementById('dayTag');
-            const fileday = response.data.filelist[response.data.filelist.length-1].slice(17, -8);
+            const fileday = response.data.result.youtubedata.filelist[response.data.result.youtubedata.filelist.length-1].slice(17, -8);
             dayTag.textContent = fileday;
 
-            let fileHour = response.data.fileHour;
+            let fileHour = response.data.result.youtubedata.fileHour;
             if (fileHour == undefined) {
-                fileHour = response.data.filelist[response.data.filelist.length-1].slice(28, -5);
+                fileHour = response.data.result.youtubedata.filelist[response.data.result.youtubedata.filelist.length-1].slice(28, -5);
             }
 
             // 메뉴 항목에 파일 리스트 출력
             let selectoption = '';
 
-            for (let i = 0; i < response.data.filelist.length; i++) {
-                if (fileHour == response.data.filelist[i].slice(28, -5)) {
-                    selectoption += `<option value="${response.data.filelist[i].slice(28, -5)}" selected>${response.data.filelist[i].slice(28, -5)}:00</option>`
+            for (let i = 0; i < response.data.result.youtubedata.filelist.length; i++) {
+                if (fileHour == response.data.result.youtubedata.filelist[i].slice(28, -5)) {
+                    selectoption += `<option value="${response.data.result.youtubedata.filelist[i].slice(28, -5)}" selected>${response.data.result.youtubedata.filelist[i].slice(28, -5)}:00</option>`
                 } else {
-                    selectoption += `<option value="${response.data.filelist[i].slice(28, -5)}">${response.data.filelist[i].slice(28, -5)}:00</option>`
+                    selectoption += `<option value="${response.data.result.youtubedata.filelist[i].slice(28, -5)}">${response.data.result.youtubedata.filelist[i].slice(28, -5)}:00</option>`
                 }
             }
             const selectDay = document.querySelectorAll('select')[0]
@@ -287,15 +290,16 @@ window.youtubeRealChartLoad = () => {
             // 데이저 재전송 및 html 로딩 이후
             // 서버 데이터 재출력 및 버튼 재수정 함수 다시 실행
             viewCount = document.querySelectorAll('select')[1].value;
-            tableData(ejsDataYoutube, viewCount, 1);
-            let info = pageAlgo(ejsDataYoutube.length, 3, viewCount, 1);
-            pageBtn(info);
+            // tableData(ejsDataYoutube, viewCount, 1);
+            // let info = pageAlgo(ejsDataYoutube.length, 3, viewCount, 1);
+            // pageBtn(info);
+            viewCountChange(ejsDataYoutube);
         });
     }
 
-}
+});
 
-youtubeRealChartLoad();
+// youtubeRealChartLoad();
 
 
 

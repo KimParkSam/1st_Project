@@ -1,0 +1,43 @@
+<div class="container row">
+    <div class="row">
+        <div class="col-12" style="margin: auto; text-align: center;">
+            <!-- 마지막 파일의 날짜 출력 -->
+            <span id="dayTag"></span>
+            <select class="form-select" aria-label="Default select example" style="display: inline; width: 10%; padding: 0px;" onchange="dateHourChange()">
+                
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">              
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" onchange="viewCountChange()">
+                <option value="10">10개 보기</option>
+                <option value="25">25개 보기</option>
+                <option value="50">50개 보기</option>
+                <option value="100" selected>100개 보기</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 table-responsiv">
+            <table class="table align-middle table-hover">
+                <thead>
+                    <tr class="table-dark">
+                        <th scope="col">rank</th>
+                        <th scope="col">img</th>
+                        <th scope="col">title</th>
+                        <th scope="col">singer</th>
+                        <th scope="col">duration</th>
+                        <th scope="col">view</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <!-- 차트 데이터 자리 -->
+                </tbody>
+                <tfoot>
+                    <!-- 페이지 번호 -->
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

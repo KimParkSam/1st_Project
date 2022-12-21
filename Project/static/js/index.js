@@ -1,20 +1,4 @@
 window.addEventListener('DOMContentLoaded', event => {
-
-    // Toggle the side navigation
-    const sidebarToggle = document.body.querySelector('#sidebarToggle');
-    if (sidebarToggle) {
-        // Uncomment Below to persist sidebar toggle between refreshes
-        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
-        //     document.body.classList.toggle('sb-sidenav-toggled');
-        // }
-        sidebarToggle.addEventListener('click', event => {
-            event.preventDefault();
-            document.body.classList.toggle('sb-sidenav-toggled');
-            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-        });
-    }
-
-
     //뮤직비디오 랜덤재생 함수 및 변수 설정
     const musicData = [
         "afterLike",
@@ -37,153 +21,89 @@ window.addEventListener('DOMContentLoaded', event => {
     var video = document.querySelector("#myVideo");
     video.load();
 
+    
 
+    // ***********멜론************
+    // 차트 모아보기에서는 기본 설정 값 10 설정
+    let viewCount = 10;
 
-
-
-
-
-    // 각 사이트 차트 데이터 저장용 및 페이지 이동 시 사용하는 변수
-    let ejsDataMelon, ejsDataGenie, ejsDataYoutube;
-    // 모든 차트보기 페이지
-    window.allChartPageFunction = (allChartPage) => {
-        // 데이터 변경 부분
-        const container = document.getElementById('layoutSidenav_content');
-
-        // console.log('a', allChartPage);
-        let html = allChartPage;
-        // let html = '';
-
-
-        axios({
-            method: 'get',
-            url: '/allChart'
-        }).then((response) => {
-            // console.log(response.data.result);
-            ejsDataMelon = response.data.result.melondata.data;
-            ejsDataGenie = response.data.result.geniedata.data;
-            ejsDataYoutube = response.data.result.youtubedata.data;
-
-            // head 태그 변수 설정
-            let head = document.getElementsByTagName("head")[0];
-
-            // head 태그 내의 css, cdn, script 개수 확인
-            // main 페이지에서 사용하는 기본 값 18개는 냅두고, 추가되는 19부터 변경 작업
-            // index 0부터라서 1개 차이
-            // console.log(head.children.length);
-            if(head.children.length > 17) {
-                let headlength = head.children.length;
-                // console.log(headlength);
-                for(let i = headlength-1; i > 17; i--) {
-                    head.children[i].remove();
-                }
-            }
-
-            // ejs 파일의 html 태그 가져오기
-            // let html = allchartpage;
-            // container.innerHTML = allchartpage;
-            container.innerHTML = html;
-
-            // css 추가
-            let link = document.createElement("link");
-            link.rel = "stylesheet";
-            link.type = "text/css";
-            link.href = "/static/css/allChart.css";
-            head.appendChild(link);
-
-            // script 추가
-            let script = document.createElement('script');
-            script.src = '/static/js/allChart.js';
-            script.type = 'text/javascript';
-            head.appendChild(script);
-
-
-            const dayTag = document.getElementById('dayTag');
-            const fileday = response.data.result.youtubedata.filelist[response.data.result.youtubedata.filelist.length-1].slice(17, -8);
-            dayTag.textContent = fileday;
-            
-        });
+    // 스크립트 데이터로 테이블 출력하는 함수
+    tableDataMelon = (data, viewCount, btnId) => {
+        const melonTable = document.querySelectorAll('tbody')[0];
+        let temp = '';
+        
+        for(let i = 0; i < 10; i++) {
+            temp += `<tr class='melon${i}'>
+                <td rowspan="2">${data[i].rank}</td>
+                <td rowspan="2"><img src='${data[i].albumImg}'></td>
+                <td>${data[i].singer}</td>
+                </tr>
+                <tr>
+                <td>${data[i].title}</td>
+                </tr>`;
+        }
+        melonTable.innerHTML = temp;
     }
 
-    // // 유튜브 실시간 차트 페이지
-    // window.yotubueRealChartPage = (youtubechartrealpage) => {
-    //     // 데이터 변경 부분
-    //     const container = document.getElementById('layoutSidenav_content');
+    // ******처음 출력을 위한 초기 실행 함수******
+    // 1번 실행해서 데이터 출력
+    // 초기 실행이라서 btnId 변수 대신에 1값 고정
+    tableDataMelon(ejsDataMelon, viewCount, 1);
 
-    //     axios({
-    //         method: 'get',
-    //         url: '/youtubeRealChart'
-    //     }).then((response) => {
-    //         // console.log(youtubechartrealpage);
-    //         // console.log(response.data.fileHour);
-    //         // console.log(response.data.data);
-    //         ejsDataYoutube = response.data.data;
+    //  ***********지니************
+    // 차트 모아보기에서는 기본 설정 값 10 설정
 
-    //         // head 태그 변수 설정
-    //         let head = document.getElementsByTagName("head")[0];
+    // 스크립트 데이터로 테이블 출력하는 함수
+    tableDataGenie = (data, viewCount, btnId) => {
+        const genieTable = document.querySelectorAll('tbody')[1];
+        let temp = '';
+        
+        for(let i = 0; i < 10; i++) {
+            temp += `<tr class='genie${i}'>
+                <td rowspan="2">${data[i].rank}</td>
+                <td rowspan="2"><img src='${data[i].albumImg}'></td>
+                <td>${data[i].singer}</td>
+                </tr>
+                <tr>
+                <td>${data[i].title}</td>
+                </tr>`;
+        }
+        genieTable.innerHTML = temp;
+    }
 
-    //         // head 태그 내의 css, cdn, script 개수 확인
-    //         // main 페이지에서 사용하는 기본 값 13개는 냅두고, 추가되는 14부터 변경 작업
-    //         if(head.children.length >= 16) {
-    //             let headlength = head.children.length;
-    //             // console.log(headlength);
-    //             for(let i = headlength-1; i > 15; i--) {
-    //                 head.children[i].remove();
-    //             }
-    //         }
-
-    //         // ejs 파일의 html 태그 가져오기
-    //         container.innerHTML = youtubechartrealpage;
-
-    //         // css 추가
-    //         let link = document.createElement("link");
-    //         link.rel = "stylesheet";
-    //         link.type = "text/css";
-    //         link.href = "/static/css/youtbeRealChart.css";
-    //         head.appendChild(link);
-
-    //         // script 추가
-    //         let script = document.createElement('script');
-    //         script.src = '/static/js/youtbeRealChart.js';
-    //         script.type = 'text/javascript';
-    //         head.appendChild(script);
+    // ******처음 출력을 위한 초기 실행 함수******
+    // 1번 실행해서 데이터 출력
+    // 초기 실행이라서 btnId 변수 대신에 1값 고정
+    tableDataGenie(ejsDataGenie, viewCount, 1);
 
 
-    //         const dayTag = document.getElementById('dayTag');
-    //         const fileday = response.data.filelist[response.data.filelist.length-1].slice(17, -8);
-    //         dayTag.textContent = fileday;
+    // ***********유튜브************
+    // 스크립트 데이터로 테이블 출력하는 함수
+    tableDataYoutube = (data, viewCount, btnId) => {
+        const youtubeTable = document.querySelectorAll('tbody')[2];
+        let temp = '';
+    
+        for(let i = 0; i < 10; i++) {
+            temp += `<tr class='youtube${i}'>
+                <td rowspan="2">${data[i].rank}</td>
+                <td rowspan="2"><img src='${data[i].albumImg}'></td>
+                <td>${data[i].singer}</td>
+                </tr>
+                <tr>
+                <td>${data[i].title}</td>
+                </tr>`;
+        }
+        youtubeTable.innerHTML = temp;
+    }
 
-    //         let fileHour = response.data.fileHour;
-    //         if (fileHour == undefined) {
-    //             fileHour = response.data.filelist[response.data.filelist.length-1].slice(28, -5);
-    //         }
-
-    //         // 메뉴 항목에 파일 리스트 출력
-    //         let selectoption = '';
-
-    //         for (let i = 0; i < response.data.filelist.length; i++) {
-    //             if (fileHour == response.data.filelist[i].slice(28, -5)) {
-    //                 selectoption += `<option value="${response.data.filelist[i].slice(28, -5)}" selected>${response.data.filelist[i].slice(28, -5)}:00</option>`
-    //             } else {
-    //                 selectoption += `<option value="${response.data.filelist[i].slice(28, -5)}">${response.data.filelist[i].slice(28, -5)}:00</option>`
-    //             }
-    //         }
-    //         const selectDay = document.querySelectorAll('select')[0]
-    //         selectDay.innerHTML = selectoption;
-
-    //     });
-    // }
-
+    // ******처음 출력을 위한 초기 실행 함수******
+    // 1번 실행해서 데이터 출력
+    // 초기 실행이라서 btnId 변수 대신에 1값 고정
+    tableDataYoutube(ejsDataYoutube, viewCount, 1);
 
     
 
-
-
-   
-
-
     // 멜론 차트 딜레이
-
     $(window).scroll(function(){
         $('.melon0').each( function(){
             var bottom_of_element = $(this).offset().top + $(this).outerHeight();
@@ -287,4 +207,3 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
-
