@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en, ko">
+
 <head>
     <%- include('Head_CDN') %>
     <script type="text/javascript" src="/static/js/index.js"></script>
     <link href="/static/css/index.css" rel="stylesheet" />
-    
+
 </head>
 
 <body class="sb-nav-fixed">
@@ -19,19 +20,35 @@
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/login">Login</a></li>
-                    <li><a class="dropdown-item" href="/signup">Sign Up</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" href="/mypage">My Page</a></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
-                </ul>
-            </li>
+
+            <!-- 로그아웃 때 보이는 버튼 -->
+            <div id="default-btn">
+                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href = '/login'">Login</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href = '/signup'">signup</button>
+            </div>
+
+            <!-- 로그인 때 보이는 버튼 -->
+            <!-- <ul id='loginCheck' class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+
+                    <li class="logout-btn d-none"><a class="dropdown-item" href="/mypage">My Page</a></li>
+                    <li class="logout-btn d-none"><a class="dropdown-item" href="/logout">Logout</a></li>
+                </li>
+            </ul> -->
+
+            <!-- 로그인 때 보이는 버튼 -->
+            <ul class="navbar-nav logout-btn d-none dropstart">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+
+                  <ul id='loginCheck' class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" href="/mypage">My page</a></li>
+                    <li><a class="dropdown-item" href="/Edit_info">Edit info</a></li>
+                    <li><a class="dropdown-item" onclick="user_logout()">Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
         </ul>
     </nav>
     <div id="layoutSidenav">
@@ -118,20 +135,41 @@
                 
             </nav>
         </div>
-        
+
         <div id="layoutSidenav_content">
 
             <!-- 본문 데이터 -->
             <%- include('indexContent') %>
-            
+
         </div>
     </div>
 
-<script type="text/javascript">
-    AOS.init({
-        duration: 1000
-    });
-</script>
-</body>
-</html>
+    <script type="text/javascript">
+        AOS.init({
+            duration: 1000
+        });
 
+        console.log("<%=result.isLogin%>");
+        // 로그인 값 true => 기본 버튼 가리고 / 로그 아웃 버튼 보임
+        if ("<%=result.isLogin%>" == "true") {
+            $('#default-btn').addClass("d-none");
+         
+            $(".logout-btn").removeClass("d-none");
+        };
+        
+        // 로그 아웃 버튼
+        function user_logout() {
+            var form = document.getElementById('form_info');
+            axios({
+                method: 'delete',
+                url: '/logout',
+            })
+                .then(() => {
+                    alert('로그아웃 하셨습니다.');
+                    window.location.href = "/";
+                });
+        }
+    </script>
+</body>
+
+</html>

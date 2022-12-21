@@ -15,8 +15,6 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 
-    
-
 
 
 
@@ -81,7 +79,7 @@ window.addEventListener('DOMContentLoaded', event => {
     //         const dayTag = document.getElementById('dayTag');
     //         const fileday = response.data.result.youtubedata.filelist[response.data.result.youtubedata.filelist.length-1].slice(17, -8);
     //         dayTag.textContent = fileday;
-            
+
     //     });
     // }
 
@@ -155,11 +153,11 @@ window.addEventListener('DOMContentLoaded', event => {
     // }
 
 
-    
 
 
 
-   
+
+
 
 
     // 멜론 차트 딜레이
@@ -168,7 +166,7 @@ window.addEventListener('DOMContentLoaded', event => {
     //     $('.melon0').each( function(){
     //         var bottom_of_element = $(this).offset().top + $(this).outerHeight();
     //         var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
+
     //         if( bottom_of_window > bottom_of_element ){
     //           //$(this).addClass('anim');
     //             $(this).delay(0).animate({'margin-left':'0px','opacity': '1'},1000);
@@ -178,7 +176,7 @@ window.addEventListener('DOMContentLoaded', event => {
     //     $('.melon1').each( function(){
     //         var bottom_of_element = $(this).offset().top + $(this).outerHeight();
     //         var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
+
     //         if( bottom_of_window > bottom_of_element ){
     //             //$(this).addClass('anim');
     //             $(this).delay(50).animate({'margin-left':'0px', 'opacity': '1'},1000);
@@ -188,7 +186,7 @@ window.addEventListener('DOMContentLoaded', event => {
     //     $('.melon2').each( function(){
     //         var bottom_of_element = $(this).offset().top + $(this).outerHeight();
     //         var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
+
     //         if( bottom_of_window > bottom_of_element ){
     //             //$(this).addClass('anim');
     //             $(this).delay(100).animate({'margin-left':'0px', 'opacity': '1'},1000);
@@ -198,7 +196,7 @@ window.addEventListener('DOMContentLoaded', event => {
     //     $('.melon3').each( function(){
     //         var bottom_of_element = $(this).offset().top + $(this).outerHeight();
     //         var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
+
     //         if( bottom_of_window > bottom_of_element ){
     //             //$(this).addClass('anim');
     //             $(this).delay(150).animate({'margin-left':'0px', 'opacity': '1'},1000);
@@ -208,7 +206,7 @@ window.addEventListener('DOMContentLoaded', event => {
     //     $('.melon4').each( function(){
     //         var bottom_of_element = $(this).offset().top + $(this).outerHeight();
     //         var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
+
     //         if( bottom_of_window > bottom_of_element ){
     //             //$(this).addClass('anim');
     //             $(this).delay(200).animate({'margin-left':'0px', 'opacity': '1'},1000);
@@ -218,7 +216,7 @@ window.addEventListener('DOMContentLoaded', event => {
     //     $('.melon5').each( function(){
     //         var bottom_of_element = $(this).offset().top + $(this).outerHeight();
     //         var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
+
     //         if( bottom_of_window > bottom_of_element ){
     //             //$(this).addClass('anim');
     //             $(this).delay(250).animate({'margin-left':'0px', 'opacity': '1'},1000);
@@ -228,7 +226,7 @@ window.addEventListener('DOMContentLoaded', event => {
     //     $('.melon6').each( function(){
     //         var bottom_of_element = $(this).offset().top + $(this).outerHeight();
     //         var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
+
     //         if( bottom_of_window > bottom_of_element ){
     //             //$(this).addClass('anim');
     //             $(this).delay(300).animate({'margin-left':'0px', 'opacity': '1'},1000);
@@ -238,7 +236,7 @@ window.addEventListener('DOMContentLoaded', event => {
     //     $('.melon7').each( function(){
     //         var bottom_of_element = $(this).offset().top + $(this).outerHeight();
     //         var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
+
     //         if( bottom_of_window > bottom_of_element ){
     //             //$(this).addClass('anim');
     //             $(this).delay(350).animate({'margin-left':'0px', 'opacity': '1'},1000);
@@ -248,7 +246,7 @@ window.addEventListener('DOMContentLoaded', event => {
     //     $('.melon8').each( function(){
     //         var bottom_of_element = $(this).offset().top + $(this).outerHeight();
     //         var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
+
     //         if( bottom_of_window > bottom_of_element ){
     //             //$(this).addClass('anim');
     //             $(this).delay(400).animate({'margin-left':'0px', 'opacity': '1'},1000);
@@ -258,7 +256,7 @@ window.addEventListener('DOMContentLoaded', event => {
     //     $('.melon9').each( function(){
     //         var bottom_of_element = $(this).offset().top + $(this).outerHeight();
     //         var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
+
     //         if( bottom_of_window > bottom_of_element ){
     //             //$(this).addClass('anim');
     //             $(this).delay(450).animate({'margin-left':'0px', 'opacity': '1'},1000);
