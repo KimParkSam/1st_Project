@@ -68,7 +68,6 @@ window.addEventListener('DOMContentLoaded', event => {
                     if(heart_falg[i] == '1') {
                         temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
                         </tr>`;
-                        console.log('같다' + i);
                     } else {
                         temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0)'></td>
                         </tr>`;
@@ -116,7 +115,6 @@ window.addEventListener('DOMContentLoaded', event => {
                     if(heart_falg[i] == '1') {
                         temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
                         </tr>`;
-                        console.log('같다' + i);
                     } else {
                         temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0)'></td>
                         </tr>`;
@@ -332,9 +330,6 @@ window.addEventListener('DOMContentLoaded', event => {
     window.likeSingEvent = (e, flag) => {
         // console.log(e.src);
         // console.log(flag);
-        // like td
-        // console.log(e.parentElement);
-        // // like tr
         // console.log(e.parentElement.parentElement);
         const likeParent = e.parentElement.parentElement;
         // console.log(likeParent);
