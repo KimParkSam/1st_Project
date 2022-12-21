@@ -1,16 +1,19 @@
 /* index, home 페이지 본문 데이터 CSS */
 
+main {
+    max-width: 100% !important;
+}
+
 /* 비디오 관련 설정 */
 .videoContainer {
-    position: relative;
+    position:relative ;    
     width: 100%;
-    overflow: hidden;
-
+    height: 100%;
 }
 
 .videoContainer video {
     width: 100%;
-    position: relative;
+    position: fixed;
     z-index: 1;
 }
 
@@ -18,10 +21,10 @@
 .videoText {
     height: 100%;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
-    z-index: 3;
+    z-index: 2;
     font-size: calc((100vw / 1240) * 72);
     text-align: center;
     background: linear-gradient(to bottom,
@@ -68,7 +71,7 @@ tr {
 /* 랭킹 */
 tbody > tr:nth-child(2n-1) > td:nth-child(1){
     text-align: center;
-    color: blueviolet;
+    color: rgb(254, 41,131 );
     /* width: 40px; */
 }
 
@@ -91,7 +94,7 @@ tbody > tr > td:nth-child(3) {
 /* 곡 제목 */
 tbody > tr:nth-child(2n) > td {
     text-align: left;
-    color: rgb(129, 126, 126);
+    color: rgb(167, 164, 164);
     padding-left: 12px;
 
     /* 글자 길이 제한 */
@@ -122,6 +125,7 @@ table > tfoot > tr > td > ul > li {
 
 
 /* 스크롤 스냅 미디어쿼리  */
+/*
 @media (min-width: 992px) {
     html {
         scroll-snap-type:y mandatory;
@@ -132,14 +136,8 @@ table > tfoot > tr > td > ul > li {
         scroll-snap-align:center;
         scroll-snap-stop:always;
     }
-    .item:nth-child(1){
-        background:rgb(0, 0, 0);
-    }
-    .item:nth-child(2){
-        background:rgb(0, 0, 0);
-    }
-
-
+}
+*/
 /* 차트 애니메이션 */
 
 /* 멜론 */
@@ -244,7 +242,7 @@ table > tfoot > tr > td > ul > li {
 .youtube9{
     opacity: 0;
 }
-}
+
 
 /* 부트스트랩 아이콘 메인컬러 */
 .main-color, .main-color {
