@@ -19,23 +19,42 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <title>마이페이지</title>
     <style>
-        /* * {
-            background-color: black;
-        } */
+
         body {
-            background-color: black;
-        }
-        .mypage_all {
-            background-color: black;
-            color: white;
-            /* border: 3px solid orange; */
-            margin: 100px ;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+            background-image: linear-gradient(to bottom, rgba(98, 23, 146, 0) 0%, rgba(92, 23, 146, 0.2) 50%, rgba(92, 23, 146, 0.4) 100%);
+            height: 100vh;
         }
 
-        .mypage_title {
-            font-size: 40px;
-            margin-bottom: 20px;
+        /* 마이페이지 바디 */
+        .outline_line.mypage {
+            color: white;
+            border: 3px solid orange;
+            margin: 100px ;
+            width: 690px;
+            height: 1000px;
         }
+
+        /* 마이페이지 전체 */
+        .center {
+            /* position: absolute;
+            transform: translate(-50%, -50%); */
+            width: 400px;
+        }
+
+        .center h1 {
+            color: white;
+            text-align: center;
+            font-weight: 400;
+            padding: 0 0 20px 0;
+            /* font-size: calc((100vw / 1240) * 72); */
+        }
+
 
         .my_container {
             /* border: 3px solid blueviolet; */
@@ -137,32 +156,59 @@
             margin-left: 950px;
             margin-bottom: 150px;
         }
+        .img {
+            position: static;
+        }
     </style>
 </head>
 
 <body>
-    <div class="form_outline"></div>
-    <div class="mypage_all">
-        <div class="mypage_title">
-            <p>My page</p>
-        </div>
+    <div class="outline_line mypage">
+        <div class="center">
+            <h1>My h1age</h1>
 
-        <div class="my_container">
-            <div class=>
-                <form class="mypage Information">
-                    <div class="user_poto"><img src="../static/img/1.jpg"></div>
-                    <div class="nickname">
-                        <p>음악좋아</p>
-                        <button type="button" class="btn btn-primary btn-sm">프로필 변경</button>
-            </div>
+            <form class="mypage Information"  id="profile_info">
+                        
+                <input type="file" name="img" style="display:none;" id="userfile" >
+                <button type="button" class="btn btn-primary btn-sm" id="upload_file">프로필 변경</button>
+    
+                <div class="nickname">
+                    <div><%=data.name%></div>
+                <div class="user_poto"><img src="../static/img/1.jpg"></div>
+                
             </form>
+        </div>
+    </div>
+
         
 </body>
 <script>
-    // var likeBox = document.getElementById('like_box');
-    // <% for( var i = 1; i <= 4 ; i++ ){ %>
-    //     <img src="/i.jpg">
-    // <% }; %>
+    $('#upload_file').on('click', function(){
+        $('#userfile').trigger('click');
+
+        $('#userfile').change(function(){
+            var form = document.getElementById('profile_info');
+            var formData = new FormData(form);
+
+            console.log('요청은 가는데 :');
+            axios({
+            method : 'post',
+            url : '/upload_file',
+            data :  formData,
+            headers : {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        //무조건 data로 받는다.
+        .then((a) => { return a.data ; })
+        //이미지경로 + path(req.file.filename)
+        .then((reuslt) => {
+            document.querySelector('img').src = "static/uploads/" + reuslt.path;
+        });
+      });
+            
+     });
+
 </script>
 
 </html>
