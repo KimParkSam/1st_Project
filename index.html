@@ -6,8 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <img src="justify.svg" style="color: rgb(173, 173, 173);">
-    <i class="bi bi-justify"></i>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            overflow: auto;
+            scroll-snap-type: y mandatory;
+        }
+        .item {
+            width: 100%;
+            height: 100vh;
+            scroll-snap-align: center;
+        }
+        .item4 {
+            background: #80cbc4;
+        }
+        .item5 {
+            background: #e6ee9c;
+        }
+    </style>
+
+    <div class="container">
+        <div class="item item4">4</div>
+        <div class="item item5">5</div>
+    </div>
+</div>
 </body>
 </html>
