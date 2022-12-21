@@ -32,7 +32,6 @@ router.get('/mypage', controllerUser.mypage);
 
 
 // 차트 모아보기 페이지
-// router.get("/allChart", controllerChart.allChart);
 router.get("/allChart", controllerChart.allChart);
 
 // 유튜브 차트 페이지
