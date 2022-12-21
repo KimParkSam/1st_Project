@@ -2,6 +2,7 @@ const express = require("express");
 const controllerMain = require("../controller/Cmain");
 const controllerUser = require("../controller/Cuser");
 const controllerChart = require("../controller/Cchart");
+const controllerLikeSing = require("../controller/ClikeSing");
 const controllerCrawling = require("../controller/Ccrawling");
 const router = express.Router();
 const multer = require('multer');
@@ -51,6 +52,10 @@ router.get("/allChart", controllerChart.allChart);
 // 유튜브 차트 페이지
 router.get("/youtubeRealChart", controllerChart.youtubeRealChartMain);
 router.get("/youtubeRealChart/:num", controllerChart.youtubeRealChartMainType);
+
+// 유튜브 차트 페이지 - 좋아요 기능
+router.post("/youtubeRealChart/likeSingRegister", controllerLikeSing.LikeSingRegister);
+router.post("/youtubeRealChart/likeSingDelete", controllerLikeSing.LikeSingDelete);
 
 
 // 크롤링 요청 페이지

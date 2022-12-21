@@ -1,11 +1,14 @@
 const youtubeFileFunction = require('./musicFileFunction/youtubeFileFunction');
 const melonFileFunction = require('./musicFileFunction/melonFileFunction');
 const genieFileFunction = require('./musicFileFunction/genieFileFunction');
-
+const ClikeSingFunction = require('./ClikeSing');
 
 // 유튜브 실시간 차트 - 1
 exports.youtubeRealChartMain = (req, res) => {
     let result = {id : req.session.user};
+
+    const { LikeSing } = require('../model/indexLikeSing');
+    
     youtubeFileFunction.youtubeFileList((filelist) => {
         youtubeFileFunction.youtubeFileRead(filelist, (data) => {
             // console.log(data);
@@ -14,7 +17,10 @@ exports.youtubeRealChartMain = (req, res) => {
                 result['youtubedata'] = {data: data, filelist: filelist, fileHour: req.params.num};
                 result['geniedata'] = {data: ''};
                 result['melondata'] = {data: ''};
-                res.render('youtubeRealChart', {result});
+                ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                    result['likeSing'] = {data: rows};
+                    res.render('youtubeRealChart', {result});
+                });
             } else {
                 res.send('false');
             }
@@ -109,3 +115,4 @@ exports.allChart = (req, res) => {
         });
     });
 }
+

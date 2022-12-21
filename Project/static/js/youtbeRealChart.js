@@ -10,11 +10,47 @@ window.addEventListener('DOMContentLoaded', event => {
         const tbody = document.querySelector('tbody');
         let temp = '';
         
+        let heart_falg = [];
+        if(btnId*viewCount > data.length) { 
+            likeSingData.forEach((el, index) => {
+                for(let i = 0; i < data.length; i++) {
+                    if(heart_falg[i] == '1') {
+                        continue;
+                    } else {
+                        heart_falg[i] = '0';
+                    }
+                    
+                    if(likeSingData[index].title == data[i].title && likeSingData[index].singer == data[i].singer) {
+                        heart_falg[i] = '1';
+                    } else {
+                        heart_falg[i] = '0';
+                    }
+                    // console.log(i + '하트 ' + heart_falg[i]);
+                }
+            });
+        } else {
+            likeSingData.forEach((el, index) => {
+                for(let i = 0; i < btnId*viewCount; i++) {
+                    if(heart_falg[i] == '1') {
+                        continue;
+                    } else {
+                        heart_falg[i] = '0';
+                    }
+                    
+                    if(likeSingData[index].title == data[i].title && likeSingData[index].singer == data[i].singer) {
+                        heart_falg[i] = '1';
+                    } else {
+                        heart_falg[i] = '0';
+                    }
+                    // console.log(i + '하트 ' + heart_falg[i]);
+                }
+            });
+        }
 
         // 데이터가 딱 맞게 viewCount에 나눠지는 데이터면 정상 출력이 되지만
         // 99개 처럼 나머지가 생기는 경우에는 데이터 부족으로 에러 호출 확인
         // if문 설정하여 btnId*viewCount가 data.length 보다 크면 조건문을 다르게 실행하도록 분기
-        if(btnId*viewCount > data.length) {
+        if(btnId*viewCount > data.length) {                
             // viewCount에 따라 데이터 출력 실행
             // btnId = 페이지 하단의 버튼에 따라서 페이지 데이터 호출,  스타트 번호 페이지번호 * 1페이지 표시 개수
             for(let i=btnId*viewCount-viewCount; i < data.length; i++) {
@@ -24,9 +60,35 @@ window.addEventListener('DOMContentLoaded', event => {
                     <td class="table-dark">${data[i].title}</td>
                     <td class="table-dark">${data[i].singer}</td>
                     <td class="table-dark">${data[i].chartDuration}</td>
-                    <td class="table-dark">${data[i].views}</td>
-                    </tr>`;
+                    <td class="table-dark">${data[i].views}</td>`;
+                    // <td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, ${i})'></td>
+                    // </tr>`;
+
+                    
+                    if(heart_falg[i] == '1') {
+                        temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
+                        </tr>`;
+                        console.log('같다' + i);
+                    } else {
+                        temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0)'></td>
+                        </tr>`;
+                    }
             }
+            // likeSingData.forEach((el, index) => {
+            //     for(let i=btnId*viewCount-viewCount; i < data.length; i++) {
+            //         console.log(likeSingData[index].title);
+            //         if(likeSingData[index].title == data[i].title && likeSingData[index].singer == data[i].singer) {
+            //             temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
+            //             </tr>`;
+            //             // console.log('같다', i);
+            //         } else {
+            //             temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0)'></td>
+            //             </tr>`;
+            //             // console.log('다르다.', i);
+            //         }
+            //     }
+            // });
+
         } else {
             // viewCount에 따라 데이터 출력 실행
             // btnId = 페이지 하단의 버튼에 따라서 페이지 데이터 호출,  스타트 번호 페이지번호 * 1페이지 표시 개수
@@ -37,9 +99,43 @@ window.addEventListener('DOMContentLoaded', event => {
                     <td class="table-dark">${data[i].title}</td>
                     <td class="table-dark">${data[i].singer}</td>
                     <td class="table-dark">${data[i].chartDuration}</td>
-                    <td class="table-dark">${data[i].views}</td>
-                    </tr>`;
+                    <td class="table-dark">${data[i].views}</td>`;
+                    // <td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, ${i})'></td>
+                    // </tr>`;
+
+                    // if(likeSingData[i].title === data[i].title && likeSingData[i].singer === data[i].singer) {
+                    //     temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
+                    //     </tr>`;
+                    //     console.log('같다', i);
+                    // } else {
+                    //     temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0)'></td>
+                    //     </tr>`;
+                    //     console.log('다르다.', i);
+                    // }
+
+                    if(heart_falg[i] == '1') {
+                        temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
+                        </tr>`;
+                        console.log('같다' + i);
+                    } else {
+                        temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0)'></td>
+                        </tr>`;
+                    }
             }
+
+            // likeSingData.forEach((el, index) => {
+            //     for(let i=btnId*viewCount-viewCount; i < btnId*viewCount; i++) {
+            //         if(likeSingData[index].title == data[i].title && likeSingData[index].singer == data[i].singer) {
+            //             temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
+            //             </tr>`;
+            //             // console.log('같다', i);
+            //         } else {
+            //             temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0)'></td>
+            //             </tr>`;
+            //             // console.log('다르다.', i);
+            //         }
+            //     }
+            // });
         }
         tbody.innerHTML = temp;
     }
@@ -105,12 +201,12 @@ window.addEventListener('DOMContentLoaded', event => {
 
         // 1번 페이지 인 경우 pre 버튼 dsabled 조건 걸기
         if(info.cursor == 1) {
-            temp += `<td colspan='6'><ul class="pagination">
+            temp += `<td colspan='7'><ul class="pagination">
             <li class="page-item disabled" style="cursor: text";>
                 <a class="page-link">pre</a>
             </li>`;
         } else {
-            temp += `<td colspan='6'><ul class="pagination">
+            temp += `<td colspan='7'><ul class="pagination">
             <li class="page-item" onclick="pageBtnMove('1', ${viewCount})">
                 <a class="page-link">pre</a>
             </li>`;
@@ -178,8 +274,138 @@ window.addEventListener('DOMContentLoaded', event => {
         // console.log(ejsDataYoutube);
     }
 
+    // 유튜브 실시간 차트 시간 변경
+    window.dateHourChange = () => {
+        // console.log('tasd56as1d65aw', youtubechartrealpage);
+        // 데이터 변경 부분
+        const container = document.getElementById('layoutSidenav_content');
+        // 시간 가져오기
+        const viewTime = document.querySelectorAll('select')[0].value;
+        const url = '/youtubeRealChart/'+viewTime;
 
-    // 시간 변경 함수
+        axios({
+            method: 'get',
+            url: url
+        }).then((response) => {
+            // console.log(response.data.result.youtubedata.data);
+            // console.log(response.data.fileHour);
+            // console.log(response.data.data);
+            ejsDataYoutube = response.data.result.youtubedata.data;
+
+            // ejs 파일의 html 태그 가져오기
+            // container.innerHTML = youtubechartrealpage;
+
+            const dayTag = document.getElementById('dayTag');
+            const fileday = response.data.result.youtubedata.filelist[response.data.result.youtubedata.filelist.length-1].slice(17, -8);
+            dayTag.textContent = fileday;
+
+            let fileHour = response.data.result.youtubedata.fileHour;
+            if (fileHour == undefined) {
+                fileHour = response.data.result.youtubedata.filelist[response.data.result.youtubedata.filelist.length-1].slice(28, -5);
+            }
+
+            // 메뉴 항목에 파일 리스트 출력
+            let selectoption = '';
+
+            for (let i = 0; i < response.data.result.youtubedata.filelist.length; i++) {
+                if (fileHour == response.data.result.youtubedata.filelist[i].slice(28, -5)) {
+                    selectoption += `<option value="${response.data.result.youtubedata.filelist[i].slice(28, -5)}" selected>${response.data.result.youtubedata.filelist[i].slice(28, -5)}:00</option>`
+                } else {
+                    selectoption += `<option value="${response.data.result.youtubedata.filelist[i].slice(28, -5)}">${response.data.result.youtubedata.filelist[i].slice(28, -5)}:00</option>`
+                }
+            }
+            const selectDay = document.querySelectorAll('select')[0]
+            selectDay.innerHTML = selectoption;
+
+            // 데이저 재전송 및 html 로딩 이후
+            // 서버 데이터 재출력 및 버튼 재수정 함수 다시 실행
+            viewCount = document.querySelectorAll('select')[1].value;
+            // tableData(ejsDataYoutube, viewCount, 1);
+            // let info = pageAlgo(ejsDataYoutube.length, 3, viewCount, 1);
+            // pageBtn(info);
+            viewCountChange(ejsDataYoutube);
+        });
+    }
+
+
+
+    window.likeSingEvent = (e, flag) => {
+        // console.log(e.src);
+        // console.log(flag);
+        // like td
+        // console.log(e.parentElement);
+        // // like tr
+        // console.log(e.parentElement.parentElement);
+        const likeParent = e.parentElement.parentElement;
+        // console.log(likeParent);
+        // console.log(likeParent.children[1]);
+        // 타이틀
+        // console.log(likeParent.children[2].textContent);
+        // 가수
+        // console.log(likeParent.children[3].textContent);
+        // console.log(likeParent.children[1].children);
+        // 앨범 이미지
+        // console.log(likeParent.children[1].querySelector('img').src);
+
+        const img = document.createElement('img');
+
+        let chooseMsg;
+        if(flag) {
+            chooseMsg = confirm('좋아요를 삭제하시겠습니까?');
+            // 좋아요 삭제
+            axios({
+                method: 'post',
+                url: '/youtubeRealChart/likeSingDelete',
+                data: {
+                    likeTitle: likeParent.children[2].textContent,
+                    likeSinger: likeParent.children[3].textContent,
+                    likeImg: likeParent.children[1].querySelector('img').src,
+                    flag: flag
+                }
+            }).then((response) => {
+                // console.log('b', response);
+                img.src='./static/res/image/empty_heart.png';
+                img.style='width: 30px; cursor: pointer;';
+                img.setAttribute("onclick","likeSingEvent(this, 0)");
+                e.parentElement.append(img);
+                e.remove();
+            });
+
+        } else {
+            chooseMsg = confirm('좋아요를 등록하시겠습니까?');
+            // OK 버튼 클릭
+            if(chooseMsg) {    
+                // 좋아요 등록
+                axios({
+                    method: 'post',
+                    url: '/youtubeRealChart/likeSingRegister',
+                    data: {
+                        likeTitle: likeParent.children[2].textContent,
+                        likeSinger: likeParent.children[3].textContent,
+                        likeImg: likeParent.children[1].querySelector('img').src,
+                        flag: flag
+                    }
+                }).then((response) => {
+                    // console.log('a', response);
+                    img.src='./static/res/image/full_heart.png';
+                    img.style='width: 30px; cursor: pointer;';
+                    img.setAttribute("onclick","likeSingEvent(this, 1)");
+                    e.parentElement.append(img);
+                    e.remove();
+                });
+            }
+        }
+    }
+
+});
+
+
+
+
+// youtubeRealChartLoad();
+
+
+// 시간 변경 함수
     // window.dateHourChange = () => {
     //     // console.log('dateHour Start');
     //     // 시간 가져오기
@@ -241,65 +467,3 @@ window.addEventListener('DOMContentLoaded', event => {
 
     //     });
     // }
-
-
-    
-    // 유튜브 실시간 차트 시간 변경
-    window.dateHourChange = () => {
-        // console.log('tasd56as1d65aw', youtubechartrealpage);
-        // 데이터 변경 부분
-        const container = document.getElementById('layoutSidenav_content');
-        // 시간 가져오기
-        const viewTime = document.querySelectorAll('select')[0].value;
-        const url = '/youtubeRealChart/'+viewTime;
-
-        axios({
-            method: 'get',
-            url: url
-        }).then((response) => {
-            // console.log(response.data.result.youtubedata.data);
-            // console.log(response.data.fileHour);
-            // console.log(response.data.data);
-            ejsDataYoutube = response.data.result.youtubedata.data;
-
-            // ejs 파일의 html 태그 가져오기
-            // container.innerHTML = youtubechartrealpage;
-
-            const dayTag = document.getElementById('dayTag');
-            const fileday = response.data.result.youtubedata.filelist[response.data.result.youtubedata.filelist.length-1].slice(17, -8);
-            dayTag.textContent = fileday;
-
-            let fileHour = response.data.result.youtubedata.fileHour;
-            if (fileHour == undefined) {
-                fileHour = response.data.result.youtubedata.filelist[response.data.result.youtubedata.filelist.length-1].slice(28, -5);
-            }
-
-            // 메뉴 항목에 파일 리스트 출력
-            let selectoption = '';
-
-            for (let i = 0; i < response.data.result.youtubedata.filelist.length; i++) {
-                if (fileHour == response.data.result.youtubedata.filelist[i].slice(28, -5)) {
-                    selectoption += `<option value="${response.data.result.youtubedata.filelist[i].slice(28, -5)}" selected>${response.data.result.youtubedata.filelist[i].slice(28, -5)}:00</option>`
-                } else {
-                    selectoption += `<option value="${response.data.result.youtubedata.filelist[i].slice(28, -5)}">${response.data.result.youtubedata.filelist[i].slice(28, -5)}:00</option>`
-                }
-            }
-            const selectDay = document.querySelectorAll('select')[0]
-            selectDay.innerHTML = selectoption;
-
-            // 데이저 재전송 및 html 로딩 이후
-            // 서버 데이터 재출력 및 버튼 재수정 함수 다시 실행
-            viewCount = document.querySelectorAll('select')[1].value;
-            // tableData(ejsDataYoutube, viewCount, 1);
-            // let info = pageAlgo(ejsDataYoutube.length, 3, viewCount, 1);
-            // pageBtn(info);
-            viewCountChange(ejsDataYoutube);
-        });
-    }
-
-});
-
-// youtubeRealChartLoad();
-
-
-
