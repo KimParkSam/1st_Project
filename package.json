@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/KimParkSam/1st_Project/issues"
   },
-  "homepage": "https://github.com/KimParkSam/1st_Project#readme"
+  "homepage": "https://github.com/KimParkSam/1st_Project#readme",
+  "dependencies": {
+    "bootstrap-icons": "^1.10.2"
+  }
 }
