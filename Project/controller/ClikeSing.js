@@ -2,7 +2,6 @@ const { LikeSing } = require('../model/indexLikeSing');
 
 exports.LikeSingSearch = (userSession, cb) => {
     if(userSession === undefined) {
-        // result['likeSing'] = {data: ''};
         cb('');
     } else {
         LikeSing.findAll({
@@ -10,13 +9,8 @@ exports.LikeSingSearch = (userSession, cb) => {
                 user_id: userSession
             }
         }).then((rows) => {
-            console.log(rows);
-            console.log(rows[0].title);
-            // result['likeSing'] = {data: rows};
-            console.log('------------------------');
-            // console.log(result.likeSing);
-            console.log('------------------------');
-            // console.log(result.likeSing.data[1]);
+            // console.log(rows);
+            // console.log(rows[0].title);
             cb(rows);
         });
     }
@@ -24,8 +18,8 @@ exports.LikeSingSearch = (userSession, cb) => {
 
 // 좋아요 등록
 exports.LikeSingRegister = (req, res) => {
-    console.log(req.body);
-    console.log(req.session.user);
+    // console.log(req.body);
+    // console.log(req.session.user);
 
     LikeSing.create({
         user_id: req.session.user,
@@ -46,8 +40,8 @@ exports.LikeSingRegister = (req, res) => {
 
 // 좋아요 삭제
 exports.LikeSingDelete = (req, res) => {
-    console.log(req.body);
-    console.log(req.session.user);
+    // console.log(req.body);
+    // console.log(req.session.user);
 
     LikeSing.destroy({
         where: {

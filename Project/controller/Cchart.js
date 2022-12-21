@@ -44,7 +44,12 @@ exports.youtubeRealChartMainType = (req, res) => {
                 // res.render('youtubeRealChart', {result});
                 // res.render('youtubeRealChart', {data: data, filelist: filelist, fileHour: req.params.num});
                 // res.send({data: data, filelist: filelist, fileHour: req.params.num});
-                res.send({result});
+                // res.send({result});
+                ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                    result['likeSing'] = {data: rows};
+                    res.send({result});
+                    // res.render('youtubeRealChart', {result});
+                });
             } else {
                 res.send('false');
             }
