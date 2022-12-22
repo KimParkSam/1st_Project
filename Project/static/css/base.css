@@ -1,4 +1,15 @@
 /* 모든 페이지에 적용되는 CSS */
+@font-face {
+    font-family: 'KOTRA_GOTHIC';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/KOTRA_GOTHIC.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'KOTRA_GOTHIC';
+}
+
 body {
     background-color: black;
 }
@@ -26,4 +37,3 @@ body {
 
     color: rgb(254, 41, 131);
 }
-
