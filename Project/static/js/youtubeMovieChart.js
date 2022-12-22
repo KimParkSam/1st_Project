@@ -100,7 +100,7 @@ window.addEventListener('DOMContentLoaded', event => {
     // ******처음 출력을 위한 초기 실행 함수******
     // 1번 실행해서 데이터 출력
     // 초기 실행이라서 btnId 변수 대신에 1값 고정
-    tableData(ejsDataYoutube, viewCount, 1);
+    tableData(ejsDataYoutubeMovie, viewCount, 1);
 
     // 페이지 버튼 출력을 위한 1차 작업 함수
     function pageAlgo(total, bottomSize, listSize, cursor){
@@ -149,7 +149,7 @@ window.addEventListener('DOMContentLoaded', event => {
     // 280개의 데이터, 하단에는 20개씩, 1개화면에는 10개, 지금 나의페이지는 21
     // let info = pageAlgo(280, 10, 10, 1);
     // 페이지 버튼 작업을 위한 1차 작업 초기 실행행
-    let info = pageAlgo(ejsDataYoutube.length, 3, viewCount, 1);
+    let info = pageAlgo(ejsDataYoutubeMovie.length, 3, viewCount, 1);
 
     // 페이지 버튼 출력 함수
     function pageBtn(info) {
@@ -205,10 +205,10 @@ window.addEventListener('DOMContentLoaded', event => {
         // console.log(btnId);
 
         // 페이지 번호 클릭 후 새로운 데이터 출력
-        tableData(ejsDataYoutube, viewCount, btnId);
+        tableData(ejsDataYoutubeMovie, viewCount, btnId);
 
         // 페이지 하단 번호 변경 작업
-        let info = pageAlgo(ejsDataYoutube.length, 3, viewCount, btnId);
+        let info = pageAlgo(ejsDataYoutubeMovie.length, 3, viewCount, btnId);
         pageBtn(info);
     }
 
@@ -222,13 +222,13 @@ window.addEventListener('DOMContentLoaded', event => {
 
         // 페이지 출력 갯수 수정 후 새로운 데이터 출력
         // btnId = 1은 데이터 갱신 이후 1페이지로 보여지기 위한 작업
-        tableData(ejsDataYoutube, viewCount, 1);
+        tableData(ejsDataYoutubeMovie, viewCount, 1);
 
         // 페이지 하단 번호 변경 작업
         // btnId = 1은 데이터 갱신 이후 1페이지로 보여지기 위한 작업
-        let info = pageAlgo(ejsDataYoutube.length, 3, viewCount, 1);
+        let info = pageAlgo(ejsDataYoutubeMovie.length, 3, viewCount, 1);
         pageBtn(info);
-        // console.log(ejsDataYoutube);
+        // console.log(ejsDataYoutubeMovie);
     }
 
     // 유튜브 실시간 차트 시간 변경
@@ -238,37 +238,35 @@ window.addEventListener('DOMContentLoaded', event => {
         const container = document.getElementById('layoutSidenav_content');
         // 시간 가져오기
         const viewTime = document.querySelectorAll('select')[0].value;
-        const url = '/youtubeRealChart/'+viewTime;
+        const url = '/youtubeMovieChart/'+viewTime;
 
         axios({
             method: 'get',
             url: url
         }).then((response) => {
-            // console.log(response.data.result.youtubedata.data);
-            // console.log(response.data.fileHour);
-            // console.log(response.data.data);
-            ejsDataYoutube = response.data.result.youtubedata.data;
+            // console.log(response.data.result.youtubeMoviedata.data);
+            ejsDataYoutubeMovie = response.data.result.youtubeMoviedata.data;
 
             // ejs 파일의 html 태그 가져오기
             // container.innerHTML = youtubechartrealpage;
 
             const dayTag = document.getElementById('dayTag');
-            const fileday = response.data.result.youtubedata.filelist[response.data.result.youtubedata.filelist.length-1].slice(17, -8);
+            const fileday = response.data.result.youtubeMoviedata.filelist[response.data.result.youtubeMoviedata.filelist.length-1].slice(18, -8);
             dayTag.textContent = fileday;
 
-            let fileHour = response.data.result.youtubedata.fileHour;
+            let fileHour = response.data.result.youtubeMoviedata.fileHour;
             if (fileHour == undefined) {
-                fileHour = response.data.result.youtubedata.filelist[response.data.result.youtubedata.filelist.length-1].slice(28, -5);
+                fileHour = response.data.result.youtubeMoviedata.filelist[response.data.result.youtubeMoviedata.filelist.length-1].slice(29, -5);
             }
 
             // 메뉴 항목에 파일 리스트 출력
             let selectoption = '';
 
-            for (let i = 0; i < response.data.result.youtubedata.filelist.length; i++) {
-                if (fileHour == response.data.result.youtubedata.filelist[i].slice(28, -5)) {
-                    selectoption += `<option value="${response.data.result.youtubedata.filelist[i].slice(28, -5)}" selected>${response.data.result.youtubedata.filelist[i].slice(28, -5)}:00</option>`
+            for (let i = 0; i < response.data.result.youtubeMoviedata.filelist.length; i++) {
+                if (fileHour == response.data.result.youtubeMoviedata.filelist[i].slice(29, -5)) {
+                    selectoption += `<option value="${response.data.result.youtubeMoviedata.filelist[i].slice(29, -5)}" selected>${response.data.result.youtubeMoviedata.filelist[i].slice(29, -5)}:00</option>`
                 } else {
-                    selectoption += `<option value="${response.data.result.youtubedata.filelist[i].slice(28, -5)}">${response.data.result.youtubedata.filelist[i].slice(28, -5)}:00</option>`
+                    selectoption += `<option value="${response.data.result.youtubeMoviedata.filelist[i].slice(29, -5)}">${response.data.result.youtubeMoviedata.filelist[i].slice(29, -5)}:00</option>`
                 }
             }
             const selectDay = document.querySelectorAll('select')[0]
@@ -278,9 +276,9 @@ window.addEventListener('DOMContentLoaded', event => {
             // 서버 데이터 재출력 및 버튼 재수정 함수 다시 실행
             viewCount = document.querySelectorAll('select')[1].value;
             // tableData(ejsDataYoutube, viewCount, 1);
-            // let info = pageAlgo(ejsDataYoutube.length, 3, viewCount, 1);
+            // let info = pageAlgo(ejsDataYoutubeMovie.length, 3, viewCount, 1);
             // pageBtn(info);
-            viewCountChange(ejsDataYoutube);
+            viewCountChange(ejsDataYoutubeMovie);
         });
     }
 

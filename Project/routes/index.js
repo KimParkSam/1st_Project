@@ -79,12 +79,16 @@ router.delete("/board/delete", controllerBoard.delete);
 // 차트 모아보기 페이지
 router.get("/allChart", controllerChart.allChart);
 // 유튜브 차트 페이지
+// 유튜브 - top 100
 router.get("/youtubeRealChart", controllerChart.youtubeRealChartMain);
 router.get("/youtubeRealChart/:num", controllerChart.youtubeRealChartMainType);
+// 유튜브 - 뮤직비디오
+router.get("/youtubeMovieChart", controllerChart.youtubeMovieChart);
+router.get("/youtubeMovieChart/:num", controllerChart.youtubeMovieChartType);
 
 // 유튜브 차트 페이지 - 좋아요 기능
-router.post("/youtubeRealChart/likeSingRegister", controllerLikeSing.LikeSingRegister);
-router.post("/youtubeRealChart/likeSingDelete", controllerLikeSing.LikeSingDelete);
+router.post("/youtubeChart/likeSingRegister", controllerLikeSing.LikeSingRegister);
+router.post("/youtubeChart/likeSingDelete", controllerLikeSing.LikeSingDelete);
 
 
 // 크롤링 요청 페이지

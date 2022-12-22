@@ -11,6 +11,13 @@ exports.youtubeRealChartMain = (req, res) => {
     youtubeFileFunction.youtubeFileList((filelist) => {
         youtubeFileFunction.youtubeFileRead(filelist, (data) => {
             // console.log(data);
+            // 세션 체크
+            if(req.session.user) {
+                result["isLogin"] = true;
+            } else {
+                result["isLogin"] = false;
+            }
+
             if(data) {
                 // 파일에서 읽어온 데이터를 전달
                 result['youtubedata'] = {data: data, filelist: filelist, fileHour: req.params.num};
@@ -27,7 +34,7 @@ exports.youtubeRealChartMain = (req, res) => {
     });
 }
 
-// 유튜브 실시간 차트 - 2
+// 유튜브 실시간 차트 - 2 - 시간변경
 exports.youtubeRealChartMainType = (req, res) => {
     let result = {id : req.session.user};
     // console.log('num: ', req.params.num);
@@ -45,6 +52,13 @@ exports.youtubeRealChartMainType = (req, res) => {
                 // res.render('youtubeRealChart', {data: data, filelist: filelist, fileHour: req.params.num});
                 // res.send({data: data, filelist: filelist, fileHour: req.params.num});
                 // res.send({result});
+                // 세션 체크
+                if(req.session.user) {
+                    result["isLogin"] = true;
+                } else {
+                    result["isLogin"] = false;
+                }
+                
                 ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                     result['likeSing'] = {data: rows};
                     res.send({result});
@@ -56,6 +70,77 @@ exports.youtubeRealChartMainType = (req, res) => {
         });
     });
 }
+
+
+// 유튜브 뮤직비디오 차트 - 1
+exports.youtubeMovieChart = (req, res) => {
+    let result = {id : req.session.user};
+
+    youtubeFileFunction.youtubeMovieFileList((filelist) => {
+        youtubeFileFunction.youtubeMovieFileRead(filelist, (data) => {
+            // console.log(data);
+            if(data) {
+                // 파일에서 읽어온 데이터를 전달
+                result['youtubeMoviedata'] = {data: data, filelist: filelist, fileHour: req.params.num};
+                // result['geniedata'] = {data: ''};
+                // result['melondata'] = {data: ''};
+                // 세션 체크
+                if(req.session.user) {
+                    result["isLogin"] = true;
+                } else {
+                    result["isLogin"] = false;
+                }
+
+                console.log('asd', filelist);
+
+                ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                    result['likeSing'] = {data: rows};
+                    res.render('youtubeMovieChart', {result});
+                });
+            } else {
+                res.send('false');
+            }
+        });
+    });
+}
+
+// 유튜브 뮤직비디오 차트 - 2 - 시간변경
+exports.youtubeMovieChartType = (req, res) => {
+    let result = {id : req.session.user};
+    // console.log('num: ', req.params.num);
+    youtubeFileFunction.youtubeMovieFileListHourChange((filelist) => {
+        // console.log(filelist[1].slice(28, -5));
+        // console.log(filelist[0]);
+        youtubeFileFunction.youtubeMovieFileReadHourChange(filelist, req.params.num, (data) => {
+            // console.log(data);
+            if(data) {
+                // 파일에서 읽어온 데이터를 전달
+                result['youtubeMoviedata'] = {data: data, filelist: filelist, fileHour: req.params.num};
+                // result['geniedata'] = {data: ''};
+                // result['melondata'] = {data: ''};
+                // res.render('youtubeRealChart', {result});
+                // res.render('youtubeRealChart', {data: data, filelist: filelist, fileHour: req.params.num});
+                // res.send({data: data, filelist: filelist, fileHour: req.params.num});
+                // res.send({result});
+                // 세션 체크
+                if(req.session.user) {
+                    result["isLogin"] = true;
+                } else {
+                    result["isLogin"] = false;
+                }
+
+                ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                    result['likeSing'] = {data: rows};
+                    res.send({result});
+                    // res.render('youtubeRealChart', {result});
+                });
+            } else {
+                res.send('false');
+            }
+        });
+    });
+}
+
 
 
 // 차트 모아보기
