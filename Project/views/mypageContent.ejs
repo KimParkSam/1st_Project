@@ -1,0 +1,48 @@
+
+    <div class="outline_line mypage container row">
+        <h1>My h1age</h1>
+        <!-- <div class="center"> -->
+            
+            <form class="mypage Information col-12 col-md-6"  id="profile_info">
+                <!-- 프로필 변경 버튼 -->
+                <div class="row" class="co1-md-6">
+                    <input type="file" name="img" style="display:none;" id="userfile" >
+                    <button type="button" class="btn btn-primary btn-sm" id="upload_file">프로필 변경</button>
+                
+
+                <!-- 유저 닉네임, 사진 -->
+                <div class="nickname">
+                    <div><%=data.name%></div>
+                <div class="user_poto" ><img id="profile_img" src="../static/profile_img/<%= data.user_img %>"></div>
+                </div>
+            </form>
+
+            <!-- 좋아요 -->
+            <div class="like co1-12 co1-md-6">
+                <p>Like</p>
+                <p>나의 좋아요 리스트</p>
+            </div>
+
+            <!-- 내 게시글 -->
+            <div class="comment co1-12 co1-md-6">
+                <p>My post</p>
+                <p>나의 게시글</p>
+            </div>
+        <!-- </div> -->
+    </div>
+
+    <!-- <div class="container row" style="margin: auto;">
+        <div class="col-12 col-md-6">
+            프로필 이미지
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="row">
+                <div class="col-12">
+                    라이크
+                </div>
+                <div class="col-12">
+                    내 게시판
+                </div>
+            </div>
+        </div>
+    </div> -->
