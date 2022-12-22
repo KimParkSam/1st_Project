@@ -119,20 +119,29 @@ tbody > tr > td:nth-child(5) > span {
 /* Table Foot */
 
 /* 페이지 하단 버튼 */
-ul {
+table > tfoot > tr > td > ul {
     justify-content: center;
 }
 
-li {
+table > tfoot > tr > td > ul > li {
     cursor: pointer;
+}
+
+.pagination > .disabled > a {
+    border-color: black !important;
+    background-color: black !important;
+}
+
+.pagination > li:not(.disabled) > a {
+    border-color: black;
+    background-color: black !important;
+    color: white !important;
 }
 
 .pagination > .active >.page-link {
     background-color: #ED3023 !important;
     border-color: #ED3023 !important;
 }
-
-
 
 
 
