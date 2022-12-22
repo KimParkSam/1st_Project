@@ -128,10 +128,26 @@ exports.user_delete = async (req, res) => {
 
 //마이페이지
 exports.mypage = async (req, res) =>{
-    let result = await User.findOne({
+    let result = {id : req.session.user};
+    // 세션 체크
+    if(req.session.user) {
+        result["isLogin"] = true;
+    } else {
+        result["isLogin"] = false;
+    }
+
+    // 유저 name 체크
+    let result2 = await User.findOne({
         where : { id : `${req.session.user}`}
     });
-    res.render('mypage', { data : result });
+    // console.log(result2.user_img);
+
+    // 프로필 이미지 파일이 없으면 기본 이미지 설정
+    if(!result2.user_img) {
+        result2.user_img = 'd_img.png';
+    }
+
+    res.render('mypage', { data : result2, result});
 };
 
 
@@ -145,3 +161,5 @@ exports.upload_file = (req, res) => {
     );
     res.send({ path : req.file.filename });
     };
+
+    

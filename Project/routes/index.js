@@ -35,7 +35,7 @@ router.get('/mypage', controllerUser.mypage);
 const upload = multer({
     storage: multer.diskStorage({
       destination: function (req, file, cb) {
-        cb(null, 'static/uploads/');
+        cb(null, 'static/profile_img/');
       },
       filename: function (req, file, cb) {
         const ext = path.extname(file.originalname);

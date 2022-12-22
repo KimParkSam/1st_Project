@@ -1,4 +1,14 @@
 /* index, home 페이지 본문 데이터 CSS */
+@font-face {
+    font-family: 'KOTRA_GOTHIC';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/KOTRA_GOTHIC.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'KOTRA_GOTHIC';
+}
 
 main {
     max-width: 100% !important;
@@ -249,3 +259,4 @@ table > tfoot > tr > td > ul > li {
 
     color: rgb(254, 41, 131);
 }
+
