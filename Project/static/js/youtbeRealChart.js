@@ -294,11 +294,11 @@ window.addEventListener('DOMContentLoaded', event => {
         // console.log(likeParent);
 
         // 타이틀
-        console.log(likeParent.children[3].textContent);
+        // console.log(likeParent.children[3].textContent);
         // 가수
-        console.log(likeParent.children[4].textContent);
+        // console.log(likeParent.children[4].textContent);
         // 앨범 이미지
-        console.log(likeParent.children[2].querySelector('img').src);
+        // console.log(likeParent.children[2].querySelector('img').src);
 
         const img = document.createElement('img');
 
@@ -333,9 +333,9 @@ window.addEventListener('DOMContentLoaded', event => {
                     method: 'post',
                     url: '/youtubeRealChart/likeSingRegister',
                     data: {
-                        likeTitle: likeParent.children[2].textContent,
-                        likeSinger: likeParent.children[3].textContent,
-                        likeImg: likeParent.children[1].querySelector('img').src,
+                        likeTitle: likeParent.children[3].textContent,
+                        likeSinger: likeParent.children[4].textContent,
+                        likeImg: likeParent.children[2].querySelector('img').src,
                         flag: flag
                     }
                 }).then((response) => {
