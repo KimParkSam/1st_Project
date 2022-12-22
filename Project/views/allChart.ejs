@@ -24,18 +24,15 @@
 
                 <!-- 로그아웃 때 보이는 버튼 -->
                 <div id="default-btn">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"
-                        onclick="location.href = '/login'">Login</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href = '/login'">Login</button>
                 </div>
 
                 <!-- 로그인 때 보이는 버x튼 -->
                 <ul class="navbar-nav logout-btn d-none dropstart">
                     <li class="nav-item dropdown">
-                        <a  href="#" id="navbarDarkDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical main-color"></i></a>
+                        <a  href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical main-color"></i></a>
 
-                        <ul id='loginCheck' class="dropdown-menu dropdown-menu-dark"
-                            aria-labelledby="navbarDarkDropdownMenuLink">
+                        <ul id='loginCheck' class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="/mypage">마이페이지</a></li>
                             <li><a class="dropdown-item" href="/Edit_info">회원정보 수정</a></li>
                             <li><a class="dropdown-item" onclick="user_logout()">로그아웃</a></li>
@@ -56,8 +53,7 @@
                         <a class="nav-link active" href="/allChart">&nbsp&nbsp<i class="bi bi-disc-fill main-color"></i>&nbsp&nbsp&nbsp차트 모아보기</a>
                         <br>
 
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <img src="static/res/image/logo_youtube.png" width="35px">
                             &nbspYouTube
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -66,19 +62,17 @@
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="/youtubeRealChart">실시간 음원순위</a>
-                                <a class="nav-link" href="#">뮤직비디오 순위</a>
+                                <a class="nav-link" href="/youtubeMovieChart">뮤직비디오 순위</a>
                             </nav>
                         </div>
 
                         <br>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
-                            aria-expanded="false" aria-controls="collapsePages">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                             <img src="static/res/image/logo_melon.png" width="35px">
                             &nbspMelon
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
-                            data-bs-parent="#sidenavAccordion">
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                                     data-bs-target="#pagesCollapseAuth" aria-expanded="false"
@@ -86,17 +80,14 @@
                                     Top 100
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                                    data-bs-target="#pagesCollapseAuth" aria-expanded="false"
-                                    aria-controls="pagesCollapseAuth">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
                                     일간 차트
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
                             </nav>
                         </div>
                         <br>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
                             <img src="static/res/image/logo_genie.png" width="35px">
                             &nbspGenie
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -111,13 +102,13 @@
                         <br>
                         <hr>
 
+                        <a class="nav-link" href="/board">&nbsp&nbsp<i class="bi bi-disc-fill main-color"></i>&nbsp&nbsp&nbsp게시판</a>
 
                         <div class="sb-sidenav-menu-heading">FFFF</div>
                         <a class="nav-link" href="#">
                             GGGG
                         </a>
                         <a class="nav-link" href="#">
-                            <!-- <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>  아이콘-->
                             HHHH
                         </a>
                     </div>
@@ -131,9 +122,7 @@
         </div>
 
         <div id="layoutSidenav_content">
-
             <!-- 본문 데이터 -->
-
             <%- include('allChartContent') %>
         </div>
     </div>

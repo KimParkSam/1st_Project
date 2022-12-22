@@ -89,7 +89,7 @@ tbody > tr > td:nth-child(2) > span {
 }
 
 /* 이미지 */
-tbody > tr > td:nth-child(3) > img {
+tbody > tr > td:nth-child(3) > a > img {
     /* width: 150px; */
     max-width: 200px;
     width: 100%;
@@ -104,6 +104,11 @@ tbody > tr > td:nth-child(4) > span {
     display: inline-block;
     max-width: 300px;
     width: 100%;
+}
+
+tbody > tr > td:nth-child(4) > span > a {
+    text-decoration: none;
+    color: white;
 }
 
 /* 가수 */
@@ -163,11 +168,11 @@ table > tfoot > tr > td > ul > li {
     thead > tr > td:nth-child(6) {
         width: 160px;
     }
+
     /* 조회수 */
     thead > tr > td:nth-child(7) {
         width: 100px;
     }
-
     thead > tr > td:nth-child(7) > span {
         width: 100px;
     }
