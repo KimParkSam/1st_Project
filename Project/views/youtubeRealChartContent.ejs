@@ -1,25 +1,23 @@
 <div class="container row">
-    <div class="row">
-        <div class="col-12" style="margin: auto; text-align: center;">
-            <!-- 마지막 파일의 날짜 출력 -->
-            <span id="dayTag"><%= result.youtubedata.filelist[result.youtubedata.filelist.length-1].slice(17, -8) %></span>
-            <select class="form-select" aria-label="Default select example" style="display: inline; width: 10%; padding: 0px;" onchange="dateHourChange()">
-                <% if (result.youtubedata.fileHour == undefined) { %>
-                    <% result.youtubedata.fileHour = result.youtubedata.filelist[result.youtubedata.filelist.length-1].slice(28, -5); %>
+    <div class="col-12">
+        <!-- 마지막 파일의 날짜 출력 -->
+        <span id="dayTag"><%= result.youtubedata.filelist[result.youtubedata.filelist.length-1].slice(17, -8) %></span>
+        <select class="form-select" aria-label="Default select example" style="display: inline; width: 10%; padding: 0px;" onchange="dateHourChange()">
+            <% if (result.youtubedata.fileHour == undefined) { %>
+                <% result.youtubedata.fileHour = result.youtubedata.filelist[result.youtubedata.filelist.length-1].slice(28, -5); %>
+            <% } %>
+            <!-- 메뉴 항목에 파일 리스트 출력 -->
+            <% for (let i = 0; i < result.youtubedata.filelist.length; i++) { %>
+                <% if (result.youtubedata.fileHour == result.youtubedata.filelist[i].slice(28, -5)) { %>
+                    <option value="<%= result.youtubedata.filelist[i].slice(28, -5); %>" selected><%= result.youtubedata.filelist[i].slice(28, -5); %>:00</option>
+                <% } else { %>
+                    <option value="<%= result.youtubedata.filelist[i].slice(28, -5); %>"><%= result.youtubedata.filelist[i].slice(28, -5); %>:00</option>
                 <% } %>
-                <!-- 메뉴 항목에 파일 리스트 출력 -->
-                <% for (let i = 0; i < result.youtubedata.filelist.length; i++) { %>
-                    <% if (result.youtubedata.fileHour == result.youtubedata.filelist[i].slice(28, -5)) { %>
-                        <option value="<%= result.youtubedata.filelist[i].slice(28, -5); %>" selected><%= result.youtubedata.filelist[i].slice(28, -5); %>:00</option>
-                    <% } else { %>
-                        <option value="<%= result.youtubedata.filelist[i].slice(28, -5); %>"><%= result.youtubedata.filelist[i].slice(28, -5); %>:00</option>
-                    <% } %>
-                <% } %>
-            </select>
-        </div>
+            <% } %>
+        </select>
     </div>
     <div class="row">
-        <div class="col-2">              
+        <div class="col-3 col-sm-3 col-md-2">              
             <select class="form-select form-select-sm" aria-label=".form-select-sm example" onchange="viewCountChange()">
                 <option value="10">10개 보기</option>
                 <option value="25">25개 보기</option>
@@ -28,18 +26,22 @@
             </select>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 table-responsiv">
+    
+
+    <div class="col-12">
+        <div class="table-responsiv">
             <table class="table align-middle table-hover">
                 <thead>
                     <tr class="table-dark">
-                        <th scope="col">rank</th>
-                        <th scope="col">img</th>
-                        <th scope="col">title</th>
-                        <th scope="col">singer</th>
-                        <th scope="col">duration</th>
-                        <th scope="col">view</th>
-                        <th scope="col"></th>
+                        <!-- <td scope="col" colspan="2"><span>순위</span></td> -->
+                        <td scope="col"><span>순위</span></td>
+                        <td scope="col"><span></span></td>
+                        <td scope="col"></td>
+                        <td scope="col"><span>노래</span></td>
+                        <td scope="col"><span>가수</span></td>
+                        <td scope="col"><span>차트 지속기간</span></td>
+                        <td scope="col"><span>조회수</span></td>
+                        <td scope="col"></td>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">

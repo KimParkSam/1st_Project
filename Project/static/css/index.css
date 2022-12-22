@@ -19,6 +19,7 @@ main {
     position:relative ;    
     width: 100%;
     height: 100%;
+    z-index: 1;
 }
 
 .videoContainer video {
@@ -135,19 +136,12 @@ table > tfoot > tr > td > ul > li {
 
 
 /* 스크롤 스냅 미디어쿼리  */
-/*
+
 @media (min-width: 992px) {
-    html {
-        scroll-snap-type:y mandatory;
-    }
-    .item {
-        width:100%;
-        height: 100%;
-        scroll-snap-align:center;
-        scroll-snap-stop:always;
-    }
-}
-*/
+   
+
+
+
 /* 차트 애니메이션 */
 
 /* 멜론 */
@@ -251,12 +245,5 @@ table > tfoot > tr > td > ul > li {
 }
 .youtube9{
     opacity: 0;
-}
-
-
-/* 부트스트랩 아이콘 메인컬러 */
-.main-color, .main-color {
-
-    color: rgb(254, 41, 131);
 }
 
