@@ -1,12 +1,12 @@
 <div class="container row">
     <div class="col-12">
         <!-- 마지막 파일의 날짜 출력 -->
-        <span id="dayTag"></span>
+        <span id="dayTag"><%= result.youtubedata.filelist[result.youtubedata.filelist.length-1].slice(17, -8) %></span>
     </div>
     
     <div class="col-12 col-md-4 col-lg-4">
         <div>
-            <img src="/static/res/image/logo_melon.png">
+            <img src="/static/res/image/melon.png" style="margin-bottom:40px; max-width: 150px;" data-aos="fade-right" data-aos-delay="50">
         </div>
         <table border="1" class="align-middle">
             <tbody>
@@ -19,7 +19,7 @@
     </div>
     <div class="col-12 col-md-4 col-lg-4">
         <div>
-            <img src="/static/res/image/logo_genie.png">
+            <img src="/static/res/image/genie.png" style="margin-bottom:9px ; width: 140px; position:relative; bottom:20px;" data-aos="fade-right" data-aos-delay="550">
         </div>
         <table border="1" class="align-middle">
             <tbody>
@@ -32,7 +32,7 @@
     </div>
     <div class="col-12 col-md-4 col-lg-4">
         <div>
-            <img src="/static/res/image/logo_youtube.png">
+            <img src="/static/res/image/youtube.png" style="width: 220px; margin-bottom:38px" data-aos="fade-right" data-aos-delay="1100">
         </div>
         <table border="1" class="align-middle">
             <tbody>
@@ -44,3 +44,5 @@
         </table>
     </div>
 </div>
+
+

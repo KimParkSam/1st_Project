@@ -1,41 +1,38 @@
+.container {
+    padding: 0px !important;
+    margin: auto;
+}
+
 /* 파일 날짜 */
 .container > div:nth-child(1) {
     text-align: center;
     color: white;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 3rem;
+    margin-bottom: 3rem;
 }
 
 /* 멜론, 유튜브, 지니 아이콘 */
 .container > div > div > img {
-    width:70%;
-    display:block;
-    margin:auto;
+    width: 70%;
+    display: block;
+    margin: auto;
 }
 
 table {
     width: 100%;
-    border-left: none;
-    border-right: none;
-    border-top: none;
     margin-bottom: 10px;
+    border: none;
 }
 
 tr {
     width: 300px;
 }
 
-td {
-    /* overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; */
-}
-
 /* 랭킹 */
 tbody > tr:nth-child(2n-1) > td:nth-child(1){
     text-align: center;
-    color: blueviolet;
-    width: 40px;
+    color: rgb(254, 41,131 );
 }
 
 /* 앨범 이미지 */
@@ -57,7 +54,7 @@ tbody > tr > td:nth-child(3) {
 /* 곡 제목 */
 tbody > tr:nth-child(2n) > td {
     text-align: left;
-    color: rgb(129, 126, 126);
+    color: rgb(167, 164, 164);
     padding-left: 12px;
 
     /* 글자 길이 제한 */
@@ -77,12 +74,51 @@ tbody > tr:nth-child(2n-1) > td:nth-child(3) {
     display: inline-block;
 }
 
-
+/* table foot */
 /* 페이지 번호 가운데 정렬 및 커서 포인터로 변경 */
-ul {
+table > tfoot > tr > td > ul {
     justify-content: center;
+    margin: 0px;
+    margin-top: 0.5rem;
 }
 
-li {
+table > tfoot > tr > td > ul > li {
     cursor: pointer;
+}
+
+.pagination > .disabled > a {
+    border-color: black !important;
+    background-color: black !important;
+}
+
+.pagination > li:not(.disabled) > a {
+    border-color: black;
+    background-color: black !important;
+    color: white !important;
+}
+
+/* 멜론 페이지 버튼 */
+.container > div:nth-child(2) > table > tfoot > tr > td > .pagination > .active >.page-link {
+    background-color: #00CD3C !important;
+    border-color: #00CD3C !important;
+}
+
+/* 지니 페이지 버튼 */
+.container > div:nth-child(3) > table > tfoot > tr > td > .pagination > .active >.page-link {
+    background-color: #0096FF !important;
+    border-color: #0096FF !important;
+}
+
+/* 유튜브 페이지 버튼 */
+.container > div:nth-child(4) > table > tfoot > tr > td > .pagination > .active >.page-link {
+    background-color: #ED3023 !important;
+    border-color: #ED3023 !important;
+}
+
+/* 멜론, 지니, 유튜브 이미지 */
+@media (max-width: 768px) {
+    .container > div > div > img {
+        margin-top: 2rem !important;
+        margin-bottom: 0px !important;
+    }
 }
