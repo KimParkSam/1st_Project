@@ -41,14 +41,14 @@
                 <!-- 로그인 때 보이는 버튼 -->
                 <ul class="navbar-nav logout-btn d-none dropstart">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"></a>
+                        <a  href="#" id="navbarDarkDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical main-color"></i></a>
 
                         <ul id='loginCheck' class="dropdown-menu dropdown-menu-dark"
                             aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/mypage">My page</a></li>
-                            <li><a class="dropdown-item" href="/Edit_info">Edit info</a></li>
-                            <li><a class="dropdown-item" onclick="user_logout()">Logout</a></li>
+                            <li><a class="dropdown-item" href="/mypage">마이페이지</a></li>
+                            <li><a class="dropdown-item" href="/Edit_info">회원정보 수정</a></li>
+                            <li><a class="dropdown-item" onclick="user_logout()">로그아웃</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -63,7 +63,7 @@
                         <div class="sb-sidenav-menu-heading">top100</div>
                         <br>
 
-                        <a class="nav-link" href="/allChart">차트 모아보기</a>
+                        <a class="nav-link" href="/allChart">&nbsp&nbsp<i class="bi bi-disc-fill main-color"></i>&nbsp&nbsp&nbsp차트 모아보기</a>
                         <br>
 
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -145,9 +145,6 @@
             <!-- 본문 데이터 -->
 
             <%- include('indexContent') %>
-
-
-
         </div>
     </div>
 
