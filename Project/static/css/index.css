@@ -237,9 +237,3 @@ table > tfoot > tr > td > ul > li {
     opacity: 0;
 }
 }
-
-/* 부트스트랩 아이콘 메인컬러 */
-.main-color, .main-color {
-
-    color: rgb(254, 41, 131);
-}
