@@ -1,5 +1,4 @@
 window.addEventListener('DOMContentLoaded', event => {
-// window.youtubeRealChartLoad = () => {
     // select 태그에서 기본 설정 값 100 가져오기
     // viewCount Change 함수는 밑에 생성
     let viewCount = document.querySelectorAll('select')[1].value;
@@ -56,15 +55,13 @@ window.addEventListener('DOMContentLoaded', event => {
             for(let i=btnId*viewCount-viewCount; i < data.length; i++) {
                 temp += `<tr>
                     <td class="table-dark">${data[i].rank}</td>
+                    <td class="table-dark"><span>${data[i].lastWeekRank}</span></td>
                     <td class="table-dark"><img src='${data[i].albumImg}'></td>
-                    <td class="table-dark">${data[i].title}</td>
-                    <td class="table-dark">${data[i].singer}</td>
+                    <td class="table-dark"><span>${data[i].title}</span></td>
+                    <td class="table-dark"><span>${data[i].singer}</span></td>
                     <td class="table-dark">${data[i].chartDuration}</td>
                     <td class="table-dark">${data[i].views}</td>`;
-                    // <td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, ${i})'></td>
-                    // </tr>`;
 
-                    
                     if(heart_falg[i] == '1') {
                         temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
                         </tr>`;
@@ -73,20 +70,6 @@ window.addEventListener('DOMContentLoaded', event => {
                         </tr>`;
                     }
             }
-            // likeSingData.forEach((el, index) => {
-            //     for(let i=btnId*viewCount-viewCount; i < data.length; i++) {
-            //         console.log(likeSingData[index].title);
-            //         if(likeSingData[index].title == data[i].title && likeSingData[index].singer == data[i].singer) {
-            //             temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
-            //             </tr>`;
-            //             // console.log('같다', i);
-            //         } else {
-            //             temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0)'></td>
-            //             </tr>`;
-            //             // console.log('다르다.', i);
-            //         }
-            //     }
-            // });
 
         } else {
             // viewCount에 따라 데이터 출력 실행
@@ -94,23 +77,12 @@ window.addEventListener('DOMContentLoaded', event => {
             for(let i=btnId*viewCount-viewCount; i < btnId*viewCount; i++) {
                 temp += `<tr>
                     <td class="table-dark">${data[i].rank}</td>
+                    <td class="table-dark"><span>${data[i].lastWeekRank}</span></td>
                     <td class="table-dark"><img src='${data[i].albumImg}'></td>
-                    <td class="table-dark">${data[i].title}</td>
-                    <td class="table-dark">${data[i].singer}</td>
+                    <td class="table-dark"><span>${data[i].title}</span></td>
+                    <td class="table-dark"><span>${data[i].singer}</span></td>
                     <td class="table-dark">${data[i].chartDuration}</td>
                     <td class="table-dark">${data[i].views}</td>`;
-                    // <td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, ${i})'></td>
-                    // </tr>`;
-
-                    // if(likeSingData[i].title === data[i].title && likeSingData[i].singer === data[i].singer) {
-                    //     temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
-                    //     </tr>`;
-                    //     console.log('같다', i);
-                    // } else {
-                    //     temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0)'></td>
-                    //     </tr>`;
-                    //     console.log('다르다.', i);
-                    // }
 
                     if(heart_falg[i] == '1') {
                         temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
@@ -121,19 +93,6 @@ window.addEventListener('DOMContentLoaded', event => {
                     }
             }
 
-            // likeSingData.forEach((el, index) => {
-            //     for(let i=btnId*viewCount-viewCount; i < btnId*viewCount; i++) {
-            //         if(likeSingData[index].title == data[i].title && likeSingData[index].singer == data[i].singer) {
-            //             temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
-            //             </tr>`;
-            //             // console.log('같다', i);
-            //         } else {
-            //             temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0)'></td>
-            //             </tr>`;
-            //             // console.log('다르다.', i);
-            //         }
-            //     }
-            // });
         }
         tbody.innerHTML = temp;
     }
@@ -199,7 +158,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
         // 1번 페이지 인 경우 pre 버튼 dsabled 조건 걸기
         if(info.cursor == 1) {
-            temp += `<td colspan='7'><ul class="pagination">
+            temp += `<td colspan='8'><ul class="pagination">
             <li class="page-item disabled" style="cursor: text";>
                 <a class="page-link">pre</a>
             </li>`;
@@ -333,14 +292,13 @@ window.addEventListener('DOMContentLoaded', event => {
         // console.log(e.parentElement.parentElement);
         const likeParent = e.parentElement.parentElement;
         // console.log(likeParent);
-        // console.log(likeParent.children[1]);
+
         // 타이틀
-        // console.log(likeParent.children[2].textContent);
+        console.log(likeParent.children[3].textContent);
         // 가수
-        // console.log(likeParent.children[3].textContent);
-        // console.log(likeParent.children[1].children);
+        console.log(likeParent.children[4].textContent);
         // 앨범 이미지
-        // console.log(likeParent.children[1].querySelector('img').src);
+        console.log(likeParent.children[2].querySelector('img').src);
 
         const img = document.createElement('img');
 
@@ -352,9 +310,9 @@ window.addEventListener('DOMContentLoaded', event => {
                 method: 'post',
                 url: '/youtubeRealChart/likeSingDelete',
                 data: {
-                    likeTitle: likeParent.children[2].textContent,
-                    likeSinger: likeParent.children[3].textContent,
-                    likeImg: likeParent.children[1].querySelector('img').src,
+                    likeTitle: likeParent.children[3].textContent,
+                    likeSinger: likeParent.children[4].textContent,
+                    likeImg: likeParent.children[2].querySelector('img').src,
                     flag: flag
                 }
             }).then((response) => {
@@ -393,72 +351,3 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
-
-
-
-
-// youtubeRealChartLoad();
-
-
-// 시간 변경 함수
-    // window.dateHourChange = () => {
-    //     // console.log('dateHour Start');
-    //     // 시간 가져오기
-    //     const viewTime = document.querySelectorAll('select')[0].value;
-    //     // console.log(viewTime);
-    //     const url = '/youtubeRealChart/'+viewTime;
-    //     axios({
-    //         method: 'get',
-    //         url: url
-    //     })
-    //     .then((response) => {
-    //         // console.log('dateHourChange End');
-    //         document.location.href = url;
-    //     });
-    // }
-
-    // // 유튜브 실시간 차트 시간 변경
-    // window.dateHourChange = () => {
-    //     // 데이터 변경 부분
-    //     const container = document.getElementById('layoutSidenav_content');
-    //     // 시간 가져오기
-    //     const viewTime = document.querySelectorAll('select')[0].value;
-    //     const url = '/youtubeRealChart/'+viewTime;
-
-    //     axios({
-    //         method: 'get',
-    //         url: url
-    //     }).then((response) => {
-    //         console.log(youtubechartrealpage);
-    //         console.log(response.data);
-    //         console.log(response.data.fileHour);
-    //         console.log(response.data.data);
-    //         let ejsDataYoutube = response.data.data;
-
-    //         // ejs 파일의 html 태그 가져오기
-    //         container.innerHTML = youtubechartrealpage;
-
-    //         // const dayTag = document.getElementById('dayTag');
-    //         // const fileday = response.data.filelist[response.data.filelist.length-1].slice(17, -8);
-    //         // dayTag.textContent = fileday;
-
-    //         let fileHour = response.data.fileHour;
-    //         if (fileHour == undefined) {
-    //             fileHour = response.data.filelist[response.data.filelist.length-1].slice(28, -5);
-    //         }
-
-    //         // 메뉴 항목에 파일 리스트 출력
-    //         let selectoption = '';
-
-    //         for (let i = 0; i < response.data.filelist.length; i++) {
-    //             if (fileHour == response.data.filelist[i].slice(28, -5)) {
-    //                 selectoption += `<option value="${response.data.filelist[i].slice(28, -5)}" selected>${response.data.filelist[i].slice(28, -5)}:00</option>`
-    //             } else {
-    //                 selectoption += `<option value="${response.data.filelist[i].slice(28, -5)}">${response.data.filelist[i].slice(28, -5)}:00</option>`
-    //             }
-    //         }
-    //         const selectDay = document.querySelectorAll('select')[0]
-    //         selectDay.innerHTML = selectoption;
-
-    //     });
-    // }
