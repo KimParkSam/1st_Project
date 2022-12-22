@@ -6,44 +6,45 @@
     <%- include('All_Chart_Data_Function') %>
     <script type="text/javascript" src="/static/js/allChartPage.js"></script>
     <link href="/static/css/allChartPage.css" rel="stylesheet" />
-
 </head>
 
 <body class="sb-nav-fixed">
     <section>
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand--> <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-lg-0  ps-3" id="sidebarToggle" href="#!">
-            <i class="bi bi-justify main-color"></i></button>
-        <a class="navbar-brand ps-4" href="/">홈버튼</a>
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand--> <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-lg-0  ps-3" id="sidebarToggle" href="#!">
+                <i class="bi bi-justify main-color"></i></button>
+            <a class="navbar-brand ps-4" href="/">홈버튼</a>
 
 
-        <!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
-        <!-- Navbar-->
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
 
-            <!-- 로그아웃 때 보이는 버튼 -->
-            <div id="default-btn">
-                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href = '/login'">Login</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href = '/signup'">signup</button>
-            </div>
+                <!-- 로그아웃 때 보이는 버튼 -->
+                <div id="default-btn">
+                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                        onclick="location.href = '/login'">Login</button>
+                </div>
 
-            <!-- 로그인 때 보이는 버튼 -->
-            <ul class="navbar-nav logout-btn d-none dropstart">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                <!-- 로그인 때 보이는 버x튼 -->
+                <ul class="navbar-nav logout-btn d-none dropstart">
+                    <li class="nav-item dropdown">
+                        <a  href="#" id="navbarDarkDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical main-color"></i></a>
 
-                  <ul id='loginCheck' class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><a class="dropdown-item" href="/mypage">My page</a></li>
-                    <li><a class="dropdown-item" href="/Edit_info">Edit info</a></li>
-                    <li><a class="dropdown-item" onclick="user_logout()">Logout</a></li>
-                  </ul>
-                </li>
-              </ul>
-        </ul>
-    </nav>
-</section>
+                        <ul id='loginCheck' class="dropdown-menu dropdown-menu-dark"
+                            aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/mypage">마이페이지</a></li>
+                            <li><a class="dropdown-item" href="/Edit_info">회원정보 수정</a></li>
+                            <li><a class="dropdown-item" onclick="user_logout()">로그아웃</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </ul>
+        </nav>
+    </section>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark">
@@ -123,17 +124,17 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">music</div>
-                    음악플레이어 
+                    음악플레이어
                 </div>
-                
+
             </nav>
         </div>
 
         <div id="layoutSidenav_content">
 
             <!-- 본문 데이터 -->
-            <%- include('allChartContent') %>
 
+            <%- include('allChartContent') %>
         </div>
     </div>
 
@@ -145,10 +146,10 @@
         // 로그인 값 true => 기본 버튼 가리고 / 로그 아웃 버튼 보임
         if ("<%=result.isLogin%>" == "true") {
             $('#default-btn').addClass("d-none");
-         
+
             $(".logout-btn").removeClass("d-none");
         };
-        
+
         // 로그 아웃 버튼
         function user_logout() {
             var form = document.getElementById('form_info');
@@ -163,5 +164,4 @@
         }
     </script>
 </body>
-
 </html>
