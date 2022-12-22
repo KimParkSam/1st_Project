@@ -26,7 +26,7 @@ const LikeSing = (Sequelize, DataTypes) => {
             }
         },
         {
-            tableName: 'LIKESING',
+            tableName: 'likesing',
             freezeTableName: true,
             timestamps: false
         }

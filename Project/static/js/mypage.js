@@ -1,6 +1,4 @@
 window.addEventListener('DOMContentLoaded', event => {
-    
-
     $('#upload_file').on('click', function(){
         $('#userfile').trigger('click');
 

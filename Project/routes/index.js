@@ -3,6 +3,7 @@ const controllerMain = require("../controller/Cmain");
 const controllerUser = require("../controller/Cuser");
 const controllerChart = require("../controller/Cchart");
 const controllerLikeSing = require("../controller/ClikeSing");
+const controllerBoard = require("../controller/Cboard");
 const controllerCrawling = require("../controller/Ccrawling");
 const router = express.Router();
 const multer = require('multer');
@@ -33,19 +34,47 @@ router.get('/mypage', controllerUser.mypage);
 
 // 마이 페이지 업로드 설정
 const upload = multer({
-    storage: multer.diskStorage({
-      destination: function (req, file, cb) {
-        cb(null, 'static/profile_img/');
-      },
-      filename: function (req, file, cb) {
-        const ext = path.extname(file.originalname);
-        cb(null, req.session.user + ext);
-      }
-    })
-  });
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'static/profile_img/');
+    },
+    filename: function (req, file, cb) {
+      const ext = path.extname(file.originalname);
+      cb(null, req.session.user + ext);
+    }
+  })
+});
+
+// 게시판 파일 업로드 설정
+const upload_board = multer({
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'static/board/');
+    },
+    filename: function (req, file, cb) {
+      var ext = path.extname(file.originalname);  //ext확장자명을 오리지널 파일이름으로 올라오도록 바굼!
+      cb(null, file.originalname);
+      // if(ext !== '.mp3' ) cb(new Error('PNG, JPG만 업로드하세요')) //확장자ext가 mp3가 아니면 png,jpg만 업로드하세요 라고 띄우고
+    //  else cb(null, file.originalname); //그게 아니면~~ 확장자가 mp3인 경우 파일의 원래이름을 띄운다!
+    }
+  })
+});
 
 // 마이 페이지 파일 업로드
 router.post('/upload_file', upload.single('img'), controllerUser.upload_file);
+
+// 게시판 페이지
+router.get("/board", controllerBoard.index);
+router.get("/board/write", controllerBoard.write);
+router.post("/board/write", upload_board.single('boardfile'), controllerBoard.write_data);
+router.get("/board/read", controllerBoard.read);
+
+router.get("/board/update", controllerBoard.update_number);
+//첨에 /update?number=<%=data.number%>넣어서 안됐었는데 ?뒤에있는건 쿼리스트링이라서.....컨트롤러에서 쿼리로 받아야됨.
+//이건 리드보드에서 업데이트보드로 url number쿼리 넘겨주는 라우터임!
+router.patch("/board/update", upload_board.single('boardfile'), controllerBoard.update);
+router.delete("/board/delete", controllerBoard.delete);
+
 
 // 차트 모아보기 페이지
 router.get("/allChart", controllerChart.allChart);
