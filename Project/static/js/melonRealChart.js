@@ -244,6 +244,7 @@ window.addEventListener('DOMContentLoaded', event => {
             method: 'get',
             url: url
         }).then((response) => {
+            // console.log(response.data.result);
             // console.log(response.data.result.melondata.data);
             // console.log(response.data.fileHour);
             // console.log(response.data.data);
@@ -357,5 +358,26 @@ window.addEventListener('DOMContentLoaded', event => {
         }
 
     }
+
+    
+    // up, down, new, = 따라서 색 변경
+    rankColorChange = () => {
+        const tbody = document.querySelector('tbody');
+        const tr_list = tbody.children;
+
+        for (let i = 0; i < tr_list.length; i++) {
+
+            if(tr_list[i].children[1].children[0].textContent.includes('UP') === true) {
+                tr_list[i].children[1].children[0].style.color = '#ED3023';
+            } else if(tr_list[i].children[1].children[0].textContent.includes('DN') === true) {
+                tr_list[i].children[1].children[0].style.color = '#0096FF';
+            } else if(tr_list[i].children[1].children[0].textContent.includes('NEW') === true) {
+                tr_list[i].children[1].children[0].style.color = '#00CD3C';
+            } else {
+                tr_list[i].children[1].children[0].style.color = 'grey';
+            }
+        }
+    }
+    rankColorChange();
 
 });
