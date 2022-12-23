@@ -10,10 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
-    <!-- 서버에서 받은 Data를 js 함수에서 사용하기 번거로워서 변환하는 작업 파일 -->
-    <%- include('basicBoard_Data') %>
     <script type="text/javascript" src="/static/js/basicBoard.js"></script>
-
 <style>    
   .background_all {
       display: flex;
@@ -154,33 +151,49 @@
              <col width="20%" />
              <col width="10%" />
           </colgroup>
-          <thead>
-            <tr>
-              <th>번호</th>
-              <th>제목</th>
-              <th>글쓴이</th>
-              <th>등록일</th>
-              <th>조회수</th>
-            </tr>
-          </thead>
+          <tr>
+             <th>번호</th>
+             <th>제목</th>
+             <th>글쓴이</th>
+             <th>등록일</th>
+             <th>조회수</th>
+          </tr>
           <tbody>
-            <!-- basicBoard.js 에서 data 생성 후 innerHTML로 붙여넣기기 -->
+
+            <!-- 날짜 비교용 변수 -->
+            <% let date = new Date(); %>
+            <% for (let i=data.length-1; i >= 0; i--) { %>
+            <tr>
+              <td><%= i+1 %></td></a>
+              <td><a href="/board/read?number=<%= data[i].number %>"><%= data[i].title %></a></td>
+              <td><%= data[i].id %></td>
+
+              <% if(date.toLocaleDateString() === data[i].date.toLocaleDateString()) { %>
+                <td><%= data[i].date.toString().slice(16, 21) %></td>
+              <% } else { %>
+                <td><%= data[i].date.toLocaleDateString() %></td>
+              <% } %>
+
+              <td><%= data[i].hit %></td>
+            </tr> 
+            <% } %>
+
           </tbody>
+          <tfoot>
+            
+          </tfoot>
        </table>
     </form>    
    
-    <div class="page" id="pageBtn">
+    <div class="page">
        <nav aria-label="Page navigation example">
-
-        <!-- basicBoard.js 에서 data 생성 후 innerHTML로 붙여넣기기 -->
-
-         <!-- <ul class="pagination justify-content-center" >
+         <ul class="pagination justify-content-center " >
            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
            <li class="page-item"><a class="page-link" href="#">1</a></li>
            <li class="page-item"><a class="page-link" href="#">2</a></li>
            <li class="page-item"><a class="page-link" href="#">3</a></li>
            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-         </ul> -->
+         </ul>
        </nav>
     </div>
     <div class="bt_wrap">
