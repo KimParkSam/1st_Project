@@ -163,7 +163,7 @@ window.addEventListener('DOMContentLoaded', event => {
                 <a class="page-link">pre</a>
             </li>`;
         } else {
-            temp += `<td colspan='7'><ul class="pagination">
+            temp += `<td colspan='8'><ul class="pagination">
             <li class="page-item" onclick="pageBtnMove('1', ${viewCount})">
                 <a class="page-link">pre</a>
             </li>`;
