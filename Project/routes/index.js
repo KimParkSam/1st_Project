@@ -86,10 +86,25 @@ router.get("/youtubeRealChart/:num", controllerChart.youtubeRealChartMainType);
 router.get("/youtubeMovieChart", controllerChart.youtubeMovieChart);
 router.get("/youtubeMovieChart/:num", controllerChart.youtubeMovieChartType);
 
-// 유튜브 차트 페이지 - 좋아요 기능
-router.post("/youtubeChart/likeSingRegister", controllerLikeSing.LikeSingRegister);
-router.post("/youtubeChart/likeSingDelete", controllerLikeSing.LikeSingDelete);
+// 멜론 차트 페이지
+// 멜론 - top 100
+router.get("/melonRealChart", controllerChart.melonRealChartMain);
+router.get("/melonRealChart/:num", controllerChart.melonRealChartMainType);
+// 멜론 - 일간
+// router.get("/melonDayChart", controllerChart.youtubeMovieChart);
+// router.get("/melonDayChart/:num", controllerChart.youtubeMovieChartType);
 
+// 지니 차트 페이지
+// 지니 - top 100
+// router.get("/genieRealChart", controllerChart.youtubeRealChartMain);
+// router.get("/genieRealChart/:num", controllerChart.youtubeRealChartMainType);
+// 지니 - 뮤직비디오
+// router.get("/genieMovieChart", controllerChart.youtubeMovieChart);
+// router.get("/genieMovieChart/:num", controllerChart.youtubeMovieChartType);
+
+// 차트 페이지 - 좋아요 기능 (모든 차트보기 제외)
+router.post("/Chart/likeSingRegister", controllerLikeSing.LikeSingRegister);
+router.post("/Chart/likeSingDelete", controllerLikeSing.LikeSingDelete);
 
 // 크롤링 요청 페이지
 router.get("/crawling/melon", controllerCrawling.melonCrawlingPage);

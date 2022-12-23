@@ -5,7 +5,7 @@
     <%- include('Head_CDN') %>
     <%- include('youtubeMovieChart_Data') %>
     <script type="text/javascript" src="/static/js/youtubeMovieChart.js"></script>
-    <link href="/static/css/youtbeRealChart.css" rel="stylesheet" />
+    <link href="/static/css/youtubeMovieChart.css" rel="stylesheet" />
     <%- include('LikeSing_Data_Function') %>
 </head>
 
@@ -65,25 +65,16 @@
                                 <a class="nav-link active" href="/youtubeMovieChart">뮤직비디오 순위</a>
                             </nav>
                         </div>
-
                         <br>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
                             <img src="static/res/image/logo_melon.png" width="35px">
                             &nbspMelon
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                                    data-bs-target="#pagesCollapseAuth" aria-expanded="false"
-                                    aria-controls="pagesCollapseAuth">
-                                    Top 100
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                    일간 차트
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
+                        <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/melonRealChart">실시간 음원순위</a>
+                                <a class="nav-link" href="/melonDayChart">일간 순위</a>
                             </nav>
                         </div>
                         <br>
@@ -92,17 +83,16 @@
                             &nbspGenie
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne"
-                            data-bs-parent="#sidenavAccordion">
+                        <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="#">실시간 음원순위</a>
-                                <a class="nav-link" href="#">뮤직비디오 순위</a>
+                                <a class="nav-link" href="/genieRealChart">실시간 음원순위</a>
+                                <a class="nav-link" href="/genieMovieChart">뮤직비디오 순위</a>
                             </nav>
                         </div>
                         <br>
                         <hr>
 
-                        <a class="nav-link" href="/board">&nbsp&nbsp<i class="bi bi-disc-fill main-color"></i>&nbsp&nbsp&nbsp게시판</a>
+                        <a class="nav-link" href="/board">&nbsp&nbsp<i class="bi bi-disc-fill main-color"></i>&nbsp&nbsp&nbsp자유 게시판</a>
 
                         <div class="sb-sidenav-menu-heading">FFFF</div>
                         <a class="nav-link" href="#">
@@ -152,5 +142,6 @@
                 });
         }
     </script>
+
 </body>
 </html>

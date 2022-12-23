@@ -11,6 +11,16 @@ exports.LikeSingSearch = (userSession, cb) => {
         }).then((rows) => {
             // console.log(rows);
             // console.log(rows[0].title);
+            // 처음 사용자는 좋아요 등록이 없으므로 Error 발생확인
+            // 초기 값으로 데이터 저장
+            if(rows[0] === undefined) {
+                const data = {
+                    "albumImg": '',
+                    "title": '',
+                    "singer": '',
+                }
+                rows.push(data);
+            }
             cb(rows);
         });
     }
