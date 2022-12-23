@@ -179,7 +179,6 @@ exports.youtubeMovieFileList = (cb) => {
                 i--; 
             }
         }
-        console.log('aqwesd', temp);
         cb(temp);
     })
     .catch((err) => {

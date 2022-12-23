@@ -412,5 +412,70 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         });
     });
+
+
+    // fullpage 호출
+    // 메인 페이지 전체 화면
+    $('#fullpage').fullpage({
+        //options here
+        autoScrolling: true,
+        scrollHorizontally: true,
+        onLeave: function(o,d) {
+            if ( d != 2 ) {
+                $("#fullpage .section").find(".aos-animate").each(function(){
+                    $(this).removeClass("aos-animate");
+                })
+            } else {
+                $("#fullpage .section").find(".aos-init").each(function(){
+                    $(this).addClass("aos-animate");
+                });
+            }
+        },
+        afterLoad: function(n, i) {
+            loadContent(i);
+        }
+    });
+
+    $("#fullpage .section").find(".aos-animate").each(function(){
+        $(this).removeClass("aos-animate");
+    });
+
+
 });
+
+// fullpage 호출
+// 메인 페이지 멜론, 지니, 유튜브 애니메이션 함수
+function loadContent(index) {
+    if ( index != 2 ) return false;
+
+    for ( let i = 0; i < 10; i++ ) {
+        $(`.melon${i}`).each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay( (i+1) * 50).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+        $(`.genie${i}`).each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay( ((i+1) * 50)+500 ).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+        $(`.youtube${i}`).each(function () {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                //$(this).addClass('anim');
+                $(this).delay( ((i+1) * 50)+1000).animate({ 'margin-left': '0px', 'opacity': '1' }, 1000);
+            }
+        });
+    }
+}
 

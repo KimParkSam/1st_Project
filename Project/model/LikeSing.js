@@ -17,11 +17,11 @@ const LikeSing = (Sequelize, DataTypes) => {
                 allowNull : false
             },
             title : {
-                type : DataTypes.STRING(50),
+                type : DataTypes.STRING(100),
                 allowNull : false
             },
             singer : {
-                type : DataTypes.STRING(30),
+                type : DataTypes.STRING(100),
                 allowNull : false
             }
         },

@@ -6,9 +6,9 @@ exports.melonFileList = function (cb) {
     .then((filelist) => {
         const lastFile = filelist.length - 1;
         // 'melonChartHour-2022-12-16-17.json' => 2022-12-16-17
-        // console.log(filelist[lastFile].slice(17, -5));
+        // console.log(filelist[lastFile].slice(15, -8));
         // 2022-12-16
-        // console.log(filelist[lastFile].slice(17, -8));
+        // console.log(filelist[lastFile].slice(15, -8));
 
         const date = new Date();
         // 비교용 날짜, ex) 2022-12-17
@@ -19,8 +19,8 @@ exports.melonFileList = function (cb) {
 
         // 리스트에서 현재 날짜 파일만 추출
         filelist.forEach((file, index) => {
-            if(compareDate == file.slice(17, -8)) {
-                // console.log('b: ', file.slice(17, -8));
+            if(compareDate == file.slice(15, -8)) {
+                // console.log('b: ', file.slice(15, -8));
                 temp[index] = file;
             }
         });
@@ -69,9 +69,9 @@ exports.melonFileRead = function (filelist, cb) {
         .then((filelist) => {
             const lastFile = filelist.length - 1;
             // 'melonChartHour-2022-12-16-17.json' => 2022-12-16-17
-            // console.log(filelist[lastFile].slice(17, -5));
+            // console.log(filelist[lastFile].slice(15, -5));
             // 2022-12-16
-            // console.log(filelist[lastFile].slice(17, -8));
+            // console.log(filelist[lastFile].slice(15, -8));
     
             const date = new Date();
             // 비교용 날짜, ex) 2022-12-17
@@ -82,7 +82,7 @@ exports.melonFileRead = function (filelist, cb) {
     
             // 리스트에서 현재 날짜 파일만 추출
             filelist.forEach((file, index) => {
-                if(compareDate == file.slice(17, -8)) {
+                if(compareDate == file.slice(15, -8)) {
                     // console.log('b: ', file.slice(17, -8));
                     temp[index] = file;
                 }
@@ -114,10 +114,11 @@ exports.melonFileReadHourChange = function (filelist, fileHour, cb) {
     // console.log('fileHour', fileHour);
     const date = new Date();
     console.log(filelist[filelist.length-1]);
+    // console.log(filelist[0].slice(26, -5));
 
     let fileName = '';
     for(let i = 0; i < filelist.length; i++) {
-        if(fileHour == filelist[i].slice(28, -5)) {
+        if(fileHour == filelist[i].slice(26, -5)) {
             fileName = filelist[i];
         }
     }

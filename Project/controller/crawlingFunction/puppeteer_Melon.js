@@ -53,7 +53,7 @@ exports.melonCrawlingFunction = (cb) => {
             await lists.each((index, list) => {
                 // 각 리스트의 하위 노드중 호텔 이름에 해당하는 요소를 Selector로 가져와 텍스트값을 가져온다.
                 const rank = $(list).find("td:nth-child(2) > div > span.rank").text();
-                const rankVariance = $(list).find("td:nth-child(3) > div > span").attr('title');
+                let rankVariance = $(list).find("td:nth-child(3) > div > span").attr('title');
                 const albumImg = $(list).find("td:nth-child(4) > div > a > img").attr('src');
                 const title = $(list).find("td:nth-child(6) > div > div > div.ellipsis.rank01 > span > a").text();
                 const singer = $(list).find("td:nth-child(6) > div > div > div.ellipsis.rank02 > a").text();
@@ -65,6 +65,17 @@ exports.melonCrawlingFunction = (cb) => {
                 // console.log({
                 //    index, title, rank, rankVariance, albumImg, title, singer, albumTitle, likeCount
                 // });
+
+                // 랭크 변동에 대한 텍스트를 간단한 표시로 변경
+                if(rankVariance.includes("순위 동일") === true) {
+                    rankVariance = '=';
+                } else if(rankVariance.includes("상승") === true) {
+                    rankVariance = rankVariance.replace("단계 상승", " UP");
+                } else if(rankVariance.includes("하락") === true) {
+                    rankVariance = rankVariance.replace("단계 하락", " DN");
+                } else if(rankVariance.includes("순위 진입") === true) {
+                    rankVariance = rankVariance.replace("순위 진입", "NEW");
+                }
 
                 // 데이터 저장 변수 설정 및 데이터 저장
                 let obj = {
@@ -157,13 +168,24 @@ exports.melonDayCrawlingFunction = (cb) => {
             await lists.each((index, list) => {
                 // 각 리스트의 하위 노드중 호텔 이름에 해당하는 요소를 Selector로 가져와 텍스트값을 가져온다.
                 const rank = $(list).find("td:nth-child(2) > div > span.rank").text();
-                const rankVariance = $(list).find("td:nth-child(3) > div > span").attr('title');
+                let rankVariance = $(list).find("td:nth-child(3) > div > span").attr('title');
                 const albumImg = $(list).find("td:nth-child(4) > div > a > img").attr('src');
                 const title = $(list).find("td:nth-child(6) > div > div > div.ellipsis.rank01 > span > a").text();
                 const singer = $(list).find("td:nth-child(6) > div > div > div.ellipsis.rank02 > a").text();
                 const albumTitle = $(list).find("td:nth-child(7) > div > div > div > a").text();
                 // 좋아요 수를 불러오는데 앞에 불필요한 텍스트를 자르고 숫자만 가져온다.  \n총 건수\n123,451 => slic함수로 123,451만 가져온다.
                 const likeCount = $(list).find("td:nth-child(8) > div > button > span.cnt").text().slice(5);
+
+                // 랭크 변동에 대한 텍스트를 간단한 표시로 변경
+                if(rankVariance.includes("순위 동일") === true) {
+                    rankVariance = '=';
+                } else if(rankVariance.includes("상승") === true) {
+                    rankVariance = rankVariance.replace("단계 상승", " UP");
+                } else if(rankVariance.includes("하락") === true) {
+                    rankVariance = rankVariance.replace("단계 하락", " DN");
+                } else if(rankVariance.includes("순위 진입") === true) {
+                    rankVariance = rankVariance.replace("순위 진입", "NEW");
+                }
 
                 // 인덱스와 함께 로그를 찍는다.
                 // console.log({

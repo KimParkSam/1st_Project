@@ -63,10 +63,10 @@ window.addEventListener('DOMContentLoaded', event => {
                     <td class="table-dark">${data[i].views}</td>`;
 
                     if(heart_falg[i] == '1') {
-                        temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
+                        temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1, ${likeSingData[0].statusLogin})'></td>
                         </tr>`;
                     } else {
-                        temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0)'></td>
+                        temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0, ${likeSingData[0].statusLogin})'></td>
                         </tr>`;
                     }
             }
@@ -85,10 +85,10 @@ window.addEventListener('DOMContentLoaded', event => {
                     <td class="table-dark">${data[i].views}</td>`;
 
                     if(heart_falg[i] == '1') {
-                        temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
+                        temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1, ${likeSingData[0].statusLogin})'></td>
                         </tr>`;
                     } else {
-                        temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0)'></td>
+                        temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0, ${likeSingData[0].statusLogin})'></td>
                         </tr>`;
                     }
             }
@@ -284,52 +284,34 @@ window.addEventListener('DOMContentLoaded', event => {
 
 
 
-    window.likeSingEvent = (e, flag) => {
-        // console.log(e.src);
-        // console.log(flag);
-        // console.log(e.parentElement.parentElement);
-        const likeParent = e.parentElement.parentElement;
-        // console.log(likeParent);
+    window.likeSingEvent = (e, flag, status) => {
+        // e 이벤트 대상
+        // flag 좋아요 등록 / 삭제 체크
+        // status 세션 유무 체크
+        
+        if(status === true) {
+            // console.log(e.src);
+            // console.log(flag);
+            // console.log(e.parentElement.parentElement);
+            const likeParent = e.parentElement.parentElement;
+            // console.log(likeParent);
 
-        // 타이틀
-        // console.log(likeParent.children[3].textContent);
-        // 가수
-        // console.log(likeParent.children[4].textContent);
-        // 앨범 이미지
-        // console.log(likeParent.children[2].querySelector('img').src);
+            // 타이틀
+            // console.log(likeParent.children[3].textContent);
+            // 가수
+            // console.log(likeParent.children[4].textContent);
+            // 앨범 이미지
+            // console.log(likeParent.children[2].querySelector('img').src);
 
-        const img = document.createElement('img');
+            const img = document.createElement('img');
 
-        let chooseMsg;
-        if(flag) {
-            chooseMsg = confirm('좋아요를 삭제하시겠습니까?');
-            // 좋아요 삭제
-            axios({
-                method: 'post',
-                url: '/youtubeChart/likeSingDelete',
-                data: {
-                    likeTitle: likeParent.children[3].textContent,
-                    likeSinger: likeParent.children[4].textContent,
-                    likeImg: likeParent.children[2].querySelector('img').src,
-                    flag: flag
-                }
-            }).then((response) => {
-                // console.log('b', response);
-                img.src='./static/res/image/empty_heart.png';
-                img.style='width: 30px; cursor: pointer;';
-                img.setAttribute("onclick","likeSingEvent(this, 0)");
-                e.parentElement.append(img);
-                e.remove();
-            });
-
-        } else {
-            chooseMsg = confirm('좋아요를 등록하시겠습니까?');
-            // OK 버튼 클릭
-            if(chooseMsg) {    
-                // 좋아요 등록
+            let chooseMsg;
+            if(flag) {
+                chooseMsg = confirm('좋아요를 삭제하시겠습니까?');
+                // 좋아요 삭제
                 axios({
                     method: 'post',
-                    url: '/youtubeChart/likeSingRegister',
+                    url: '/Chart/likeSingDelete',
                     data: {
                         likeTitle: likeParent.children[3].textContent,
                         likeSinger: likeParent.children[4].textContent,
@@ -337,14 +319,41 @@ window.addEventListener('DOMContentLoaded', event => {
                         flag: flag
                     }
                 }).then((response) => {
-                    // console.log('a', response);
-                    img.src='./static/res/image/full_heart.png';
+                    // console.log('b', response);
+                    img.src='./static/res/image/empty_heart.png';
                     img.style='width: 30px; cursor: pointer;';
-                    img.setAttribute("onclick","likeSingEvent(this, 1)");
+                    img.setAttribute("onclick",`likeSingEvent(this, 0, ${status})`);
                     e.parentElement.append(img);
                     e.remove();
                 });
+
+            } else {
+                chooseMsg = confirm('좋아요를 등록하시겠습니까?');
+                // OK 버튼 클릭
+                if(chooseMsg) {    
+                    // 좋아요 등록
+                    axios({
+                        method: 'post',
+                        url: '/Chart/likeSingRegister',
+                        data: {
+                            likeTitle: likeParent.children[3].textContent,
+                            likeSinger: likeParent.children[4].textContent,
+                            likeImg: likeParent.children[2].querySelector('img').src,
+                            flag: flag
+                        }
+                    }).then((response) => {
+                        // console.log('a', response);
+                        img.src='./static/res/image/full_heart.png';
+                        img.style='width: 30px; cursor: pointer;';
+                        img.setAttribute("onclick",`likeSingEvent(this, 1, ${status})`);
+                        e.parentElement.append(img);
+                        e.remove();
+                    });
+                }
             }
+        } else {
+            alert('로그인 후 이용가능합니다.');
+            document.location.href='/login';
         }
     }
 
