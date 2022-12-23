@@ -129,7 +129,7 @@ exports.youtubeRealChartMainType = (req, res) => {
                     result["isLogin"] = true;
                     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                         result['likeSing'] = {data: rows};
-                        res.render('youtubeRealChart', {result});
+                        res.send({result});
                     });
                 } else {
                     result["isLogin"] = false;
@@ -201,7 +201,7 @@ exports.youtubeMovieChartType = (req, res) => {
                     result["isLogin"] = true;
                     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                         result['likeSing'] = {data: rows};
-                        res.render('youtubeMovieChart', {result});
+                        res.send({result});
                     });
                 } else {
                     result["isLogin"] = false;
@@ -273,7 +273,7 @@ exports.melonRealChartMainType = (req, res) => {
                     result["isLogin"] = true;
                     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                         result['likeSing'] = {data: rows};
-                        res.render('melonRealChart', {result});
+                        res.send({result});
                     });
                 } else {
                     result["isLogin"] = false;
