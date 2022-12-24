@@ -125,8 +125,11 @@ table > tfoot > tr > td > ul > li {
 }
 
 
-/* 스크롤 스냅 미디어쿼리  */
-@media (min-width: 992px) {
+/* 반응형 미디어쿼리  */
+@media (min-width: 991px) {
+
+
+
     /* 차트 애니메이션 */
 
     /* 멜론 */
@@ -230,4 +233,15 @@ table > tfoot > tr > td > ul > li {
         opacity: 0;
     }
 
+    .aa{
+        display: none;
+    }
+}
+
+
+@media (max-width: 570px) {
+    .videoContainer{
+        display: none;
+        
+    }
 }
