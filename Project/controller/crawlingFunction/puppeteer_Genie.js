@@ -214,7 +214,7 @@ exports.genieMovieCrawlingFunction = (cb) => {
                 const rankVariance = $(list).find("td.number > span > span > span").text();
                 const albumImg = $(list).find("td:nth-child(2) > a > img").attr('src');
                 // title의 경우 더미 값이 추가 되지만 rank랑은 조금 다르게 가져와진다. trim 함수로 띄어쓰기를 제거하여 원하는 값만 가져온다.
-                const title = $(list).find("td.info > a.title.ellipsis").text().trim();
+                const title = $(list).find("td.info > a.title.ellipsis").attr('title');
                 const singer = $(list).find("td.info > a.artist.ellipsis").text();
                 const albumTitle = $(list).find("td.info > a.albumtitle.ellipsis").text();
                 let detailLink = $(list).find("td.info > a.title.ellipsis").attr('onclick');
