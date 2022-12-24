@@ -114,5 +114,4 @@ router.get("/crawling/geniemovie", controllerCrawling.genieMovieCrawlingPage);
 router.get("/crawling/youtube", controllerCrawling.youtubeCrawlingPage);
 router.get("/crawling/youtubemovie", controllerCrawling.youtubeMovieCrawlingPage);
 
-
 module.exports = router;
