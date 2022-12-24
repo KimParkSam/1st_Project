@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     <td class="table-dark"><span>${data[i].title}</span></td>
                     <td class="table-dark"><span>${data[i].singer}</span></td>
                     <td class="table-dark"><span>${data[i].albumTitle}</span></td>
-                    <td class="table-dark">${data[i].likeCount}</td>`;
+                    <td class="table-dark">${data[i].totalNumPlay}</td>`;
 
                     if(heart_falg[i] == '1') {
                         temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1, ${likeSingData[0].statusLogin})'></td>
@@ -82,7 +82,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     <td class="table-dark"><span>${data[i].title}</span></td>
                     <td class="table-dark"><span>${data[i].singer}</span></td>
                     <td class="table-dark"><span>${data[i].albumTitle}</span></td>
-                    <td class="table-dark">${data[i].likeCount}</td>`;
+                    <td class="table-dark">${data[i].totalNumPlay}</td>`;
 
                     if(heart_falg[i] == '1') {
                         temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1, ${likeSingData[0].statusLogin})'></td>
@@ -100,7 +100,7 @@ window.addEventListener('DOMContentLoaded', event => {
     // ******처음 출력을 위한 초기 실행 함수******
     // 1번 실행해서 데이터 출력
     // 초기 실행이라서 btnId 변수 대신에 1값 고정
-    tableData(ejsDataMelon, viewCount, 1);
+    tableData(ejsDataGenie, viewCount, 1);
 
     // 페이지 버튼 출력을 위한 1차 작업 함수
     function pageAlgo(total, bottomSize, listSize, cursor){
@@ -149,7 +149,7 @@ window.addEventListener('DOMContentLoaded', event => {
     // 280개의 데이터, 하단에는 20개씩, 1개화면에는 10개, 지금 나의페이지는 21
     // let info = pageAlgo(280, 10, 10, 1);
     // 페이지 버튼 작업을 위한 1차 작업 초기 실행행
-    let info = pageAlgo(ejsDataMelon.length, 3, viewCount, 1);
+    let info = pageAlgo(ejsDataGenie.length, 3, viewCount, 1);
 
     // 페이지 버튼 출력 함수
     function pageBtn(info) {
@@ -205,10 +205,10 @@ window.addEventListener('DOMContentLoaded', event => {
         // console.log(btnId);
 
         // 페이지 번호 클릭 후 새로운 데이터 출력
-        tableData(ejsDataMelon, viewCount, btnId);
+        tableData(ejsDataGenie, viewCount, btnId);
 
         // 페이지 하단 번호 변경 작업
-        let info = pageAlgo(ejsDataMelon.length, 3, viewCount, btnId);
+        let info = pageAlgo(ejsDataGenie.length, 3, viewCount, btnId);
         pageBtn(info);
         rankColorChange();
     }
@@ -223,55 +223,55 @@ window.addEventListener('DOMContentLoaded', event => {
 
         // 페이지 출력 갯수 수정 후 새로운 데이터 출력
         // btnId = 1은 데이터 갱신 이후 1페이지로 보여지기 위한 작업
-        tableData(ejsDataMelon, viewCount, 1);
+        tableData(ejsDataGenie, viewCount, 1);
 
         // 페이지 하단 번호 변경 작업
         // btnId = 1은 데이터 갱신 이후 1페이지로 보여지기 위한 작업
-        let info = pageAlgo(ejsDataMelon.length, 3, viewCount, 1);
+        let info = pageAlgo(ejsDataGenie.length, 3, viewCount, 1);
         pageBtn(info);
-        // console.log(ejsDataMelon);
+        // console.log(ejsDataGenie);
         rankColorChange();
     }
 
     // 유튜브 실시간 차트 시간 변경
     window.dateHourChange = () => {
-        // console.log('tasd56as1d65aw', melonchartrealpage);
+        // console.log('tasd56as1d65aw', geniechartrealpage);
         // 데이터 변경 부분
         const container = document.getElementById('layoutSidenav_content');
         // 시간 가져오기
         const viewTime = document.querySelectorAll('select')[0].value;
-        const url = '/melonDayChart/'+viewTime;
+        const url = '/genieRealChart/'+viewTime;
 
         axios({
             method: 'get',
             url: url
         }).then((response) => {
             // console.log(response.data.result);
-            // console.log(response.data.result.melondata.data);
+            // console.log(response.data.result.geniedata.data);
             // console.log(response.data.fileHour);
             // console.log(response.data.data);
-            ejsDataMelon = response.data.result.melondata.data;
+            ejsDataGenie = response.data.result.geniedata.data;
 
             // ejs 파일의 html 태그 가져오기
-            // container.innerHTML = melonchartrealpage;
+            // container.innerHTML = geniechartrealpage;
 
             const dayTag = document.getElementById('dayTag');
-            const fileday = response.data.result.melondata.filelist[response.data.result.melondata.filelist.length-1].slice(14, -8);
+            const fileday = response.data.result.geniedata.filelist[response.data.result.geniedata.filelist.length-1].slice(15, -8);
             dayTag.textContent = fileday;
 
-            let fileHour = response.data.result.melondata.fileHour;
+            let fileHour = response.data.result.geniedata.fileHour;
             if (fileHour == undefined) {
-                fileHour = response.data.result.melondata.filelist[response.data.result.melondata.filelist.length-1].slice(25, -5);
+                fileHour = response.data.result.geniedata.filelist[response.data.result.geniedata.filelist.length-1].slice(26, -5);
             }
 
             // 메뉴 항목에 파일 리스트 출력
             let selectoption = '';
 
-            for (let i = 0; i < response.data.result.melondata.filelist.length; i++) {
-                if (fileHour == response.data.result.melondata.filelist[i].slice(25, -5)) {
-                    selectoption += `<option value="${response.data.result.melondata.filelist[i].slice(25, -5)}" selected>${response.data.result.melondata.filelist[i].slice(25, -5)}:00</option>`
+            for (let i = 0; i < response.data.result.geniedata.filelist.length; i++) {
+                if (fileHour == response.data.result.geniedata.filelist[i].slice(26, -5)) {
+                    selectoption += `<option value="${response.data.result.geniedata.filelist[i].slice(26, -5)}" selected>${response.data.result.geniedata.filelist[i].slice(26, -5)}:00</option>`
                 } else {
-                    selectoption += `<option value="${response.data.result.melondata.filelist[i].slice(25, -5)}">${response.data.result.melondata.filelist[i].slice(25, -5)}:00</option>`
+                    selectoption += `<option value="${response.data.result.geniedata.filelist[i].slice(26, -5)}">${response.data.result.geniedata.filelist[i].slice(26, -5)}:00</option>`
                 }
             }
             const selectDay = document.querySelectorAll('select')[0]
@@ -280,10 +280,10 @@ window.addEventListener('DOMContentLoaded', event => {
             // 데이저 재전송 및 html 로딩 이후
             // 서버 데이터 재출력 및 버튼 재수정 함수 다시 실행
             viewCount = document.querySelectorAll('select')[1].value;
-            // tableData(ejsDataMelon, viewCount, 1);
-            // let info = pageAlgo(ejsDataMelon.length, 3, viewCount, 1);
+            // tableData(ejsDataGenie, viewCount, 1);
+            // let info = pageAlgo(ejsDataGenie.length, 3, viewCount, 1);
             // pageBtn(info);
-            viewCountChange(ejsDataMelon);
+            viewCountChange(ejsDataGenie);
             rankColorChange();
         });
     }
@@ -370,12 +370,10 @@ window.addEventListener('DOMContentLoaded', event => {
 
         for (let i = 0; i < tr_list.length; i++) {
 
-            if(tr_list[i].children[1].children[0].textContent.includes('UP') === true) {
+            if(tr_list[i].children[1].children[0].textContent.includes('상승') === true) {
                 tr_list[i].children[1].children[0].style.color = '#ED3023';
-            } else if(tr_list[i].children[1].children[0].textContent.includes('DN') === true) {
+            } else if(tr_list[i].children[1].children[0].textContent.includes('하강') === true) {
                 tr_list[i].children[1].children[0].style.color = '#0096FF';
-            } else if(tr_list[i].children[1].children[0].textContent.includes('NEW') === true) {
-                tr_list[i].children[1].children[0].style.color = '#00CD3C';
             } else {
                 tr_list[i].children[1].children[0].style.color = 'grey';
             }

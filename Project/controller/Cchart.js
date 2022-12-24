@@ -359,3 +359,154 @@ exports.melonDayChartMainType = (req, res) => {
         });
     });
 }
+
+
+
+
+
+
+// 지니 실시간 차트
+exports.genieRealChartMain = (req, res) => {
+    let result = {id : req.session.user};
+
+    genieFileFunction.genieFileList((filelist) => {
+        genieFileFunction.genieFileRead(filelist, (data) => {
+            // console.log(data);
+            
+            if(data) {
+                // 파일에서 읽어온 데이터를 전달
+                result['youtubedata'] = {data: ''};
+                result['geniedata'] = {data: data, filelist: filelist, fileHour: req.params.num};
+                result['melondata'] = {data: ''};
+
+                // 세션 체크
+                if(req.session.user) {
+                    result["isLogin"] = true;
+                    ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                        result['likeSing'] = {data: rows};
+                        res.render('genieRealChart', {result});
+                    });
+                } else {
+                    result["isLogin"] = false;
+                    res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+                }
+
+            } else {
+                res.send('false');
+            }
+        });
+    });
+}
+
+
+// 지니 실시간 차트 - 시간 변경
+exports.genieRealChartMainType = (req, res) => {
+    let result = {id : req.session.user};
+    // console.log('num: ', req.params.num);
+    genieFileFunction.genieFileListHourChange((filelist) => {
+
+        genieFileFunction.genieFileReadHourChange(filelist, req.params.num, (data) => {
+            // console.log(data);
+            if(data) {
+                // 파일에서 읽어온 데이터를 전달
+                result['youtubedata'] = {data: ''};
+                result['geniedata'] = {data: data, filelist: filelist, fileHour: req.params.num};
+                result['melondata'] = {data: ''};
+                // res.render('youtubeRealChart', {result});
+                // res.render('youtubeRealChart', {data: data, filelist: filelist, fileHour: req.params.num});
+                // res.send({data: data, filelist: filelist, fileHour: req.params.num});
+                // res.send({result});
+
+                // 세션 체크
+                if(req.session.user) {
+                    result["isLogin"] = true;
+                    ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                        result['likeSing'] = {data: rows};
+                        res.send({result});
+                    });
+                } else {
+                    result["isLogin"] = false;
+                    res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+                }
+
+            } else {
+                res.send('false');
+            }
+        });
+    });
+}
+
+
+
+
+
+// 지니 뮤직 비디오 차트
+exports.genieMovieChartMain = (req, res) => {
+    let result = {id : req.session.user};
+
+    genieFileFunction.genieMovieFileList((filelist) => {
+        genieFileFunction.genieMovieFileRead(filelist, (data) => {
+            // console.log(data);
+            
+            if(data) {
+                // 파일에서 읽어온 데이터를 전달
+                // result['youtubedata'] = {data: ''};
+                result['genieMoviedata'] = {data: data, filelist: filelist, fileHour: req.params.num};
+                // result['melondata'] = {data: ''};
+
+                // 세션 체크
+                if(req.session.user) {
+                    result["isLogin"] = true;
+                    ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                        result['likeSing'] = {data: rows};
+                        res.render('genieMovieChart', {result});
+                    });
+                } else {
+                    result["isLogin"] = false;
+                    res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+                }
+
+            } else {
+                res.send('false');
+            }
+        });
+    });
+}
+
+
+// 지니 뮤직 비디오 차트 - 시간 변경
+exports.genieMovieChartMainType = (req, res) => {
+    let result = {id : req.session.user};
+    // console.log('num: ', req.params.num);
+    genieFileFunction.genieMovieFileListHourChange((filelist) => {
+
+        genieFileFunction.genieMovieFileReadHourChange(filelist, req.params.num, (data) => {
+            // console.log(data);
+            if(data) {
+                // 파일에서 읽어온 데이터를 전달
+                // result['youtubedata'] = {data: ''};
+                result['genieMoviedata'] = {data: data, filelist: filelist, fileHour: req.params.num};
+                // result['melondata'] = {data: ''};
+                // res.render('youtubeRealChart', {result});
+                // res.render('youtubeRealChart', {data: data, filelist: filelist, fileHour: req.params.num});
+                // res.send({data: data, filelist: filelist, fileHour: req.params.num});
+                // res.send({result});
+
+                // 세션 체크
+                if(req.session.user) {
+                    result["isLogin"] = true;
+                    ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                        result['likeSing'] = {data: rows};
+                        res.send({result});
+                    });
+                } else {
+                    result["isLogin"] = false;
+                    res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+                }
+
+            } else {
+                res.send('false');
+            }
+        });
+    });
+}

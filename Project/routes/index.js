@@ -96,11 +96,11 @@ router.get("/melonDayChart/:num", controllerChart.melonDayChartMainType);
 
 // 지니 차트 페이지
 // 지니 - top 100
-// router.get("/genieRealChart", controllerChart.youtubeRealChartMain);
-// router.get("/genieRealChart/:num", controllerChart.youtubeRealChartMainType);
+router.get("/genieRealChart", controllerChart.genieRealChartMain);
+router.get("/genieRealChart/:num", controllerChart.genieRealChartMainType);
 // 지니 - 뮤직비디오
-// router.get("/genieMovieChart", controllerChart.youtubeMovieChart);
-// router.get("/genieMovieChart/:num", controllerChart.youtubeMovieChartType);
+router.get("/genieMovieChart", controllerChart.genieMovieChartMain);
+router.get("/genieMovieChart/:num", controllerChart.genieMovieChartMainType);
 
 // 차트 페이지 - 좋아요 기능 (모든 차트보기 제외)
 router.post("/Chart/likeSingRegister", controllerLikeSing.LikeSingRegister);

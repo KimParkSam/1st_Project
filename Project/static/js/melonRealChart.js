@@ -210,6 +210,7 @@ window.addEventListener('DOMContentLoaded', event => {
         // 페이지 하단 번호 변경 작업
         let info = pageAlgo(ejsDataMelon.length, 3, viewCount, btnId);
         pageBtn(info);
+        rankColorChange();
     }
 
     // 외부 JS 파일에서 작성하면 ejs 파일의 태그에서 이벤트를 인식 못하는 에러가 발생한다.
@@ -229,6 +230,7 @@ window.addEventListener('DOMContentLoaded', event => {
         let info = pageAlgo(ejsDataMelon.length, 3, viewCount, 1);
         pageBtn(info);
         // console.log(ejsDataMelon);
+        rankColorChange();
     }
 
     // 유튜브 실시간 차트 시간 변경
@@ -282,6 +284,7 @@ window.addEventListener('DOMContentLoaded', event => {
             // let info = pageAlgo(ejsDataMelon.length, 3, viewCount, 1);
             // pageBtn(info);
             viewCountChange(ejsDataMelon);
+            rankColorChange();
         });
     }
 
