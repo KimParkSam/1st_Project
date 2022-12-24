@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .main {
+      text-align:center;
+    }
+    .link {
+      display:inline-block; 
+    }
+    .addText {
+      display:inline-block; /* inline-block so we can set a width */
+      width:0;
+      white-space:nowrap; /* keep text one line */
+      direction:rtl; /* change direction so the text overflow on the left */
+      color: rgba(255,255,255,0);
+      transition: .5s;
+      transform: translateX(20px); /* put the value you want here */
+      pointer-events:none; /* to avoid the hover on the text, remove to see the difference */
+    }
+    
+    .link:hover .addText {
+      color: red;
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="link">
+        <span class="addText">Along came </span>
+        the wolf
+    </div>
+  </div>
+</body>
+</html>
