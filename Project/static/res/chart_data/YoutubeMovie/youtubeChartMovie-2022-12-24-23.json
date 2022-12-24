@@ -1,6 +1,16 @@
 {
 	"data": [
 		{
+			"title": "Beautiful Christmas",
+			"rank": "1",
+			"lastWeekRank": "--",
+			"albumImg": "https://i.ytimg.com/vi/iTgcp1oDk2M/mqdefault.jpg",
+			"singer": "Red Velvet & aespa",
+			"chartDuration": "1주",
+			"views": "821K",
+			"link": "https://www.youtube.com/watch?v=iTgcp1oDk2M"
+		},
+		{
 			"title": "정국 (Jung Kook) 'Dreamers' @ FIFA World Cup Qatar 2022 Opening Ceremony",
 			"rank": "2",
 			"lastWeekRank": "지난주 #1",
@@ -29,16 +39,6 @@
 			"chartDuration": "5주",
 			"views": "616K",
 			"link": "https://www.youtube.com/watch?v=TMfvkhkALbU"
-		},
-		{
-			"title": "Beautiful Christmas",
-			"rank": "1",
-			"lastWeekRank": "--",
-			"albumImg": "https://i.ytimg.com/vi/iTgcp1oDk2M/mqdefault.jpg",
-			"singer": "aespa & Red Velvet",
-			"chartDuration": "1주",
-			"views": "821K",
-			"link": "https://www.youtube.com/watch?v=iTgcp1oDk2M"
 		},
 		{
 			"title": "Polaroid",
@@ -335,7 +335,7 @@
 			"rank": "34",
 			"lastWeekRank": "--",
 			"albumImg": "https://i.ytimg.com/vi/PjGvvGBIsZM/mqdefault.jpg",
-			"singer": "오혜빈, 영탁, 강대웅, 하동근, 광석 & 송근안",
+			"singer": "영탁, 오혜빈, 강대웅, 하동근, 광석 & 송근안",
 			"chartDuration": "1주",
 			"views": "152K",
 			"link": "https://www.youtube.com/watch?v=PjGvvGBIsZM"
@@ -351,11 +351,11 @@
 			"link": "https://www.youtube.com/watch?v=lHTiJt-Z2hk"
 		},
 		{
-			"title": "뱃놀이",
+			"title": "[MV] JEONG DONG WON(정동원) _ Baennori(뱃놀이)",
 			"rank": "36",
 			"lastWeekRank": "지난주 #16",
 			"albumImg": "https://i.ytimg.com/vi/MReLmgu_qzk/mqdefault.jpg",
-			"singer": "정동원",
+			"singer": "1theK (원더케이)",
 			"chartDuration": "2주",
 			"views": "146K",
 			"link": "https://www.youtube.com/watch?v=MReLmgu_qzk"
@@ -835,7 +835,7 @@
 			"rank": "84",
 			"lastWeekRank": "지난주 #88",
 			"albumImg": "https://i.ytimg.com/vi/H08YWE4CIFQ/mqdefault.jpg",
-			"singer": "なとり",
+			"singer": "Natori",
 			"chartDuration": "6주",
 			"views": "62.8K",
 			"link": "https://www.youtube.com/watch?v=H08YWE4CIFQ"

@@ -1,18 +1,18 @@
-// JQuery의 document.ready와 거의 비슷한 기능의 함수
-// ie8 이하 버전에서는 지원하지 않는다.
-// 바로 함수 및 태그 가져오는 이벤트를 실행하면 html 로드가 되지 않은 상태로 불러오기 때문에
-// 해당 이벤트를 추가해서 안에다가 코드를 작성한다.
-// html 파일이나 ejs 파일의 script 태그 안에 작성을 할 수는 있지만 분리해서 사용하는 것이 코드 관리 및 가독성에 좋다고 판단하였다.
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', event => {
 
-    // ***********멜론************
+    // const dayTag = document.getElementById('dayTag');
+    // const date = new Date();
+    // dayTag.textContent = date.getFullYear() + '-' + ('00' + (date.getMonth()+1)).slice(-2) + '-' + ('00' + date.getDate()).slice(-2);
+
+
+    // ***********멜론 일간************
 
     // 차트 모아보기에서는 기본 설정 값 10 설정
     let viewCount = 10;
 
     // 스크립트 데이터로 테이블 출력하는 함수
-    function tableDataMelon (data, viewCount, btnId) {
-        const melonTable = document.querySelectorAll('tbody')[0];
+    function tableDataMelonDay (data, viewCount, btnId) {
+        const melonTable = document.querySelectorAll('tbody')[3];
         let temp = '';
         
         // 데이터가 딱 맞게 viewCount에 나눠지는 데이터면 정상 출력이 되지만
@@ -51,10 +51,10 @@ window.addEventListener('DOMContentLoaded', () => {
     // ******처음 출력을 위한 초기 실행 함수******
     // 1번 실행해서 데이터 출력
     // 초기 실행이라서 btnId 변수 대신에 1값 고정
-    tableDataMelon(ejsDataMelon, viewCount, 1);
+    tableDataMelonDay(ejsDataMelonDay, viewCount, 1);
 
     // 페이지 버튼 출력을 위한 1차 작업 함수
-    function pageAlgoMelon (total, bottomSize, listSize, cursor){
+    function pageAlgoMelonDay (total, bottomSize, listSize, cursor){
         // total = 총 갯수
         // bottomSize = 하단 버튼 개수
         // listSize = 화면에서 보여줄 크기
@@ -100,43 +100,43 @@ window.addEventListener('DOMContentLoaded', () => {
     // 280개의 데이터, 하단에는 20개씩, 1개화면에는 10개, 지금 나의페이지는 21
     // let info = pageAlgo(280, 10, 10, 1);
     // 페이지 버튼 작업을 위한 1차 작업 초기 실행행
-    let infoMelon = pageAlgoMelon(ejsDataMelon.length, 3, viewCount, 1);
+    let infoMelonDay = pageAlgoMelonDay(ejsDataMelonDay.length, 3, viewCount, 1);
 
     // 페이지 버튼 출력 함수
-    function pageBtnMelon(infoMelon) {
-        const tfoot = document.querySelectorAll('tfoot')[0];
+    function pageBtnMelonDay(infoMelonDay) {
+        const tfoot = document.querySelectorAll('tfoot')[3];
         let temp ='';
 
         // 1번 페이지 인 경우 pre 버튼 dsabled 조건 걸기
-        if(infoMelon.cursor == 1) {
+        if(infoMelonDay.cursor == 1) {
             temp += `<td colspan='3'><ul class="pagination">
             <li class="page-item disabled" style="cursor: text";>
                 <a class="page-link">pre</a>
             </li>`;
         } else {
             temp += `<td colspan='3'><ul class="pagination">
-            <li class="page-item" onclick="pageBtnMoveMelon('1', ${viewCount})">
+            <li class="page-item" onclick="pageBtnMoveMelonDay('1', ${viewCount})">
                 <a class="page-link">pre</a>
             </li>`;
         }
 
-        for (let i=infoMelon.firstBottomNumber; i <= infoMelon.lastBottomNumber; i++) {
+        for (let i=infoMelonDay.firstBottomNumber; i <= infoMelonDay.lastBottomNumber; i++) {
             // 버튼 출력하다가 i가 현재 페이지랑 값이 같으면 현재 페이지 표시용 active 클래스 추가
-            if (i == infoMelon.cursor) {
-                temp += `<li class='page-item active' onclick="pageBtnMoveMelon('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
+            if (i == infoMelonDay.cursor) {
+                temp += `<li class='page-item active' onclick="pageBtnMoveMelonDay('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
             } else {
-                temp += `<li class='page-item' onclick="pageBtnMoveMelon('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
+                temp += `<li class='page-item' onclick="pageBtnMoveMelonDay('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
             }
         }
         // 마지막 페이지 인 경우 next 버튼 disabled 조건 걸기
-        if(infoMelon.cursor == infoMelon.totalPageSize) {
+        if(infoMelonDay.cursor == infoMelonDay.totalPageSize) {
             temp += `<li class="page-item disabled" style="cursor: text";>
                     <a class="page-link">next</a>
                 </li>
             </ul>
             </td>`;
         } else {
-            temp += `<li class="page-item" onclick="pageBtnMoveMelon('${infoMelon.totalPageSize}', ${viewCount})">
+            temp += `<li class="page-item" onclick="pageBtnMoveMelonDay('${infoMelonDay.totalPageSize}', ${viewCount})">
                     <a class="page-link">next</a>
                 </li>
             </ul>
@@ -147,33 +147,33 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // ******처음 출력을 위한 초기 실행 함수******
     // 페이지 버튼 출력 함수
-    pageBtnMelon(infoMelon);
+    pageBtnMelonDay(infoMelonDay);
 
 
 
     // 외부 JS 파일에서 작성하면 ejs 파일의 태그에서 이벤트를 인식 못하는 에러가 발생한다.
     // 그러나 widnow를 이용하여 함수를 작성하면 정상적으로 작동한다.
     // 하단 페이지 버튼 클릭 시 실행되는 함수
-    window.pageBtnMoveMelon = (btnId, viewCount) => {
+    window.pageBtnMoveMelonDay = (btnId, viewCount) => {
         // console.log(btnId);
 
         // 페이지 번호 클릭 후 새로운 데이터 출력
-        tableDataMelon(ejsDataMelon, viewCount, btnId);
+        tableDataMelonDay(ejsDataMelonDay, viewCount, btnId);
 
         // 페이지 하단 번호 변경 작업
-        let info = pageAlgoMelon(ejsDataMelon.length, 3, viewCount, btnId);
-        pageBtnMelon(info);
+        let info = pageAlgoMelonDay(ejsDataMelonDay.length, 3, viewCount, btnId);
+        pageBtnMelonDay(info);
     }
 
 
 
 
-    //  ***********지니************
+    //  ***********지니 뮤직비디오************
     // 차트 모아보기에서는 기본 설정 값 10 설정
 
     // 스크립트 데이터로 테이블 출력하는 함수
-    function tableDataGenie (data, viewCount, btnId) {
-        const genieTable = document.querySelectorAll('tbody')[1];
+    function tableDataGenieMovie (data, viewCount, btnId) {
+        const genieTable = document.querySelectorAll('tbody')[4];
         let temp = '';
         
 
@@ -213,10 +213,10 @@ window.addEventListener('DOMContentLoaded', () => {
     // ******처음 출력을 위한 초기 실행 함수******
     // 1번 실행해서 데이터 출력
     // 초기 실행이라서 btnId 변수 대신에 1값 고정
-    tableDataGenie(ejsDataGenie, viewCount, 1);
+    tableDataGenieMovie(ejsDataGenieMovie, viewCount, 1);
 
     // 페이지 버튼 출력을 위한 1차 작업 함수
-    function pageAlgoGenie (total, bottomSize, listSize, cursor){
+    function pageAlgoGenieMovie (total, bottomSize, listSize, cursor){
         // total = 총 갯수
         // bottomSize = 하단 버튼 개수
         // listSize = 화면에서 보여줄 크기
@@ -262,43 +262,43 @@ window.addEventListener('DOMContentLoaded', () => {
     // 280개의 데이터, 하단에는 20개씩, 1개화면에는 10개, 지금 나의페이지는 21
     // let info = pageAlgo(280, 10, 10, 1);
     // 페이지 버튼 작업을 위한 1차 작업 초기 실행행
-    let infoGenie = pageAlgoGenie(ejsDataGenie.length, 3, viewCount, 1);
+    let infoGenieMovie = pageAlgoGenieMovie(ejsDataGenieMovie.length, 3, viewCount, 1);
 
     // 페이지 버튼 출력 함수
-    function pageBtnGenie(infoGenie) {
-        const tfoot = document.querySelectorAll('tfoot')[1];
+    function pageBtnGenieMovie(infoGenieMovie) {
+        const tfoot = document.querySelectorAll('tfoot')[4];
         let temp ='';
 
         // 1번 페이지 인 경우 pre 버튼 dsabled 조건 걸기
-        if(infoGenie.cursor == 1) {
+        if(infoGenieMovie.cursor == 1) {
             temp += `<td colspan='3'><ul class="pagination">
             <li class="page-item disabled" style="cursor: text";>
                 <a class="page-link">pre</a>
             </li>`;
         } else {
             temp += `<td colspan='3'><ul class="pagination">
-            <li class="page-item" onclick="pageBtnMoveGenie('1', ${viewCount})">
+            <li class="page-item" onclick="pageBtnMoveGenieMovie('1', ${viewCount})">
                 <a class="page-link">pre</a>
             </li>`;
         }
 
-        for (let i=infoGenie.firstBottomNumber; i <= infoGenie.lastBottomNumber; i++) {
+        for (let i=infoGenieMovie.firstBottomNumber; i <= infoGenieMovie.lastBottomNumber; i++) {
             // 버튼 출력하다가 i가 현재 페이지랑 값이 같으면 현재 페이지 표시용 active 클래스 추가
-            if (i == infoGenie.cursor) {
-                temp += `<li class='page-item active' onclick="pageBtnMoveGenie('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
+            if (i == infoGenieMovie.cursor) {
+                temp += `<li class='page-item active' onclick="pageBtnMoveGenieMovie('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
             } else {
-                temp += `<li class='page-item' onclick="pageBtnMoveGenie('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
+                temp += `<li class='page-item' onclick="pageBtnMoveGenieMovie('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
             }
         }
         // 마지막 페이지 인 경우 next 버튼 disabled 조건 걸기
-        if(infoGenie.cursor == infoGenie.totalPageSize) {
+        if(infoGenieMovie.cursor == infoGenieMovie.totalPageSize) {
             temp += `<li class="page-item disabled" style="cursor: text";>
                     <a class="page-link">next</a>
                 </li>
             </ul>
             </td>`;
         } else {
-            temp += `<li class="page-item" onclick="pageBtnMoveGenie('${infoGenie.totalPageSize}', ${viewCount})">
+            temp += `<li class="page-item" onclick="pageBtnMoveGenieMovie('${infoGenieMovie.totalPageSize}', ${viewCount})">
                     <a class="page-link">next</a>
                 </li>
             </ul>
@@ -309,29 +309,29 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // ******처음 출력을 위한 초기 실행 함수******
     // 페이지 버튼 출력 함수
-    pageBtnGenie(infoGenie);
+    pageBtnGenieMovie(infoGenieMovie);
 
 
 
     // 외부 JS 파일에서 작성하면 ejs 파일의 태그에서 이벤트를 인식 못하는 에러가 발생한다.
     // 그러나 widnow를 이용하여 함수를 작성하면 정상적으로 작동한다.
     // 하단 페이지 버튼 클릭 시 실행되는 함수
-    window.pageBtnMoveGenie = (btnId, viewCount) => {
+    window.pageBtnMoveGenieMovie = (btnId, viewCount) => {
         // console.log(btnId);
 
         // 페이지 번호 클릭 후 새로운 데이터 출력
-        tableDataGenie(ejsDataGenie, viewCount, btnId);
+        tableDataGenieMovie(ejsDataGenieMovie, viewCount, btnId);
 
         // 페이지 하단 번호 변경 작업
-        let info = pageAlgoGenie(ejsDataGenie.length, 3, viewCount, btnId);
-        pageBtnGenie(info);
+        let info = pageAlgoGenieMovie(ejsDataGenieMovie.length, 3, viewCount, btnId);
+        pageBtnGenieMovie(info);
     }
 
 
     // ***********유튜브************
     // 스크립트 데이터로 테이블 출력하는 함수
-    function tableDataYoutube(data, viewCount, btnId) {
-        const youtubeTable = document.querySelectorAll('tbody')[2];
+    function tableDataYoutubeMovie(data, viewCount, btnId) {
+        const youtubeTable = document.querySelectorAll('tbody')[5];
         let temp = '';
         
 
@@ -371,10 +371,10 @@ window.addEventListener('DOMContentLoaded', () => {
     // ******처음 출력을 위한 초기 실행 함수******
     // 1번 실행해서 데이터 출력
     // 초기 실행이라서 btnId 변수 대신에 1값 고정
-    tableDataYoutube(ejsDataYoutube, viewCount, 1);
+    tableDataYoutubeMovie(ejsDataYoutubeMovie, viewCount, 1);
 
     // 페이지 버튼 출력을 위한 1차 작업 함수
-    function pageAlgoYoutube(total, bottomSize, listSize, cursor){
+    function pageAlgoYoutubeMovie(total, bottomSize, listSize, cursor){
         // total = 총 갯수
         // bottomSize = 하단 버튼 개수
         // listSize = 화면에서 보여줄 크기
@@ -420,43 +420,43 @@ window.addEventListener('DOMContentLoaded', () => {
     // 280개의 데이터, 하단에는 20개씩, 1개화면에는 10개, 지금 나의페이지는 21
     // let info = pageAlgo(280, 10, 10, 1);
     // 페이지 버튼 작업을 위한 1차 작업 초기 실행행
-    let infoYoutube = pageAlgoYoutube(ejsDataYoutube.length, 3, viewCount, 1);
+    let infoYoutubeMovie = pageAlgoYoutubeMovie(ejsDataYoutubeMovie.length, 3, viewCount, 1);
 
     // 페이지 버튼 출력 함수
-    function pageBtnYoutube(infoYoutube) {
-        const tfoot = document.querySelectorAll('tfoot')[2];
+    function pageBtnYoutubeMovie(infoYoutubeMovie) {
+        const tfoot = document.querySelectorAll('tfoot')[5];
         let temp ='';
 
         // 1번 페이지 인 경우 pre 버튼 dsabled 조건 걸기
-        if(infoYoutube.cursor == 1) {
+        if(infoYoutubeMovie.cursor == 1) {
             temp += `<td colspan='3'><ul class="pagination">
             <li class="page-item disabled" style="cursor: text";>
                 <a class="page-link">pre</a>
             </li>`;
         } else {
             temp += `<td colspan='3'><ul class="pagination">
-            <li class="page-item" onclick="pageBtnMoveYoutube('1', ${viewCount})">
+            <li class="page-item" onclick="pageBtnMoveYoutubeMovie('1', ${viewCount})">
                 <a class="page-link">pre</a>
             </li>`;
         }
 
-        for (let i=infoYoutube.firstBottomNumber; i <= infoYoutube.lastBottomNumber; i++) {
+        for (let i=infoYoutubeMovie.firstBottomNumber; i <= infoYoutubeMovie.lastBottomNumber; i++) {
             // 버튼 출력하다가 i가 현재 페이지랑 값이 같으면 현재 페이지 표시용 active 클래스 추가
-            if (i == infoYoutube.cursor) {
-                temp += `<li class='page-item active' onclick="pageBtnMoveYoutube('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
+            if (i == infoYoutubeMovie.cursor) {
+                temp += `<li class='page-item active' onclick="pageBtnMoveYoutubeMovie('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
             } else {
-                temp += `<li class='page-item' onclick="pageBtnMoveYoutube('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
+                temp += `<li class='page-item' onclick="pageBtnMoveYoutubeMovie('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
             }
         }
         // 마지막 페이지 인 경우 next 버튼 disabled 조건 걸기
-        if(infoYoutube.cursor == infoYoutube.totalPageSize) {
+        if(infoYoutubeMovie.cursor == infoYoutubeMovie.totalPageSize) {
             temp += `<li class="page-item disabled" style="cursor: text";>
                     <a class="page-link">next</a>
                 </li>
             </ul>
             </td>`;
         } else {
-            temp += `<li class="page-item" onclick="pageBtnMoveYoutube('${infoYoutube.totalPageSize}', ${viewCount})">
+            temp += `<li class="page-item" onclick="pageBtnMoveYoutubeMovie('${infoYoutubeMovie.totalPageSize}', ${viewCount})">
                     <a class="page-link">next</a>
                 </li>
             </ul>
@@ -467,22 +467,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // ******처음 출력을 위한 초기 실행 함수******
     // 페이지 버튼 출력 함수
-    pageBtnYoutube(infoYoutube);
+    pageBtnYoutubeMovie(infoYoutubeMovie);
 
 
 
     // 외부 JS 파일에서 작성하면 ejs 파일의 태그에서 이벤트를 인식 못하는 에러가 발생한다.
     // 그러나 widnow를 이용하여 함수를 작성하면 정상적으로 작동한다.
     // 하단 페이지 버튼 클릭 시 실행되는 함수
-    window.pageBtnMoveYoutube = (btnId, viewCount) => {
+    window.pageBtnMoveYoutubeMovie = (btnId, viewCount) => {
         // console.log(btnId);
 
         // 페이지 번호 클릭 후 새로운 데이터 출력
-        tableDataYoutube(ejsDataYoutube, viewCount, btnId);
+        tableDataYoutubeMovie(ejsDataYoutubeMovie, viewCount, btnId);
 
         // 페이지 하단 번호 변경 작업
-        let info = pageAlgoYoutube(ejsDataYoutube.length, 3, viewCount, btnId);
-        pageBtnYoutube(info);
+        let info = pageAlgoYoutubeMovie(ejsDataYoutubeMovie.length, 3, viewCount, btnId);
+        pageBtnYoutubeMovie(info);
     }
 
 });
+
