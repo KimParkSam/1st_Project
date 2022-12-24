@@ -2,13 +2,20 @@ const { Board } = require("../model/indexBoard");
 const fs =require("fs").promises;
 
 exports.index = (req,res) => {
+    let result = {id : req.session.user};
     // res.render("list", {data: result });
 
     Board.findAll({
         order: [["number", "ASC"]],
     })
-    .then((result) => {
-        res.render("basicBoard", {data: result });
+    .then((result2) => {
+        // 세션 체크용
+        if(req.session.user) {
+            result["isLogin"] = true;
+        } else {
+            result["isLogin"] = false;
+        }
+        res.render("basicBoard", {data: result2, result });
     })
     
 }
@@ -16,14 +23,23 @@ exports.index = (req,res) => {
 
 
 exports.write = (req,res) => {
-    res.render("writeBoard");
+    let result = {id : req.session.user};
+
+    // 세션 체크용
+    if(req.session.user) {
+        result["isLogin"] = true;
+    } else {
+        result["isLogin"] = false;
+    }
+
+    res.render("writeBoard", {result});
 }
 
 exports.write_data = (req, res) => {
     console.log( req.file );
     let data = {
        title: req.body.title,
-       id: 'user',
+       id: req.session.user,
        // id: req.session.user //세션 req.session.user = req.body.id;  이런식으로 나중에 넣기!
        content: req.body.content,
        hit: 0
@@ -39,14 +55,23 @@ exports.write_data = (req, res) => {
    })
 }
 exports.read = (req,res) => {
+    let result = {id : req.session.user};
+
     Board.increment({hit: 1}, {where: {number: req.query.number}}); //조회수 증가시키는 코드 
     Board.findOne({
         where : { 
             number: req.query.number
         } 
     })
-    .then((result) => {
-        res.render("readBoard", {data: result });
+    .then((result3) => {
+        if(req.session.user) {
+            result["isLogin"] = true;
+        } else {
+            result["isLogin"] = false;
+        }
+        console.log( result );
+
+        res.render("readBoard", {data: result3, result });
     })
 }
 
@@ -63,15 +88,21 @@ exports.delete = (req, res) => {
 //리드보드에서 업데이트보드로 /user/update?number=<%=data.number%>에서 ?뒤에있는 부분 넘겨주는 방법임.
 exports.update_number = (req,res) => {
     console.log( req.query.number );
+    let result = {id : req.session.user};
     Board.findOne({
         where : { 
             number: req.query.number
             //튜플에 있는 number에 맞는 게시글을 하나 가져온다
         } 
     })
-    .then((result) => {
+    .then((result4) => {
+        if(req.session.user) {
+            result["isLogin"] = true;
+        } else {
+            result["isLogin"] = false;
+        }
         console.log(result)
-        res.render("updateBoard", {data: result });
+        res.render("updateBoard", {data: result4, result });
         //업데이트보드에 데이터를 결과로 뿌려준다
     })
 }

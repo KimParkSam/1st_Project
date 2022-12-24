@@ -1,193 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<html lang="en, ko">
 
-    <!-- 서버에서 받은 Data를 js 함수에서 사용하기 번거로워서 변환하는 작업 파일 -->
+<head>
+    <!-- 기본 Head 태그 CDN 참조 파일 -->
+    <%- include('Head_CDN') %>
+
+    <!-- basicBoard 데이터 변환용 파일 - 게시판 리스트 출력 용 -->
     <%- include('basicBoard_Data') %>
+
+    <!-- basicBoard 전용 스크립트 파일 -->
     <script type="text/javascript" src="/static/js/basicBoard.js"></script>
 
-<style>    
-  .background_all {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      
-      position: absolute;
-      width: 100%;
-      height: 1080px;
-      height: 100vh;
-      
-      background-image: url(../static/img/bg_img.jpg) 0 0 no-repeat;
-      background-size: 100% 100%;
-      overflow: hidden;
-  }
-
-  .background_all::before {
-      content: "";
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      top: -10%;
-      left: -50%;
-      z-index: -3;
-      background: url(../static/img/bg_img.jpg) 0 0 repeat;
-      transform: rotate(-270deg);
-      background-size: 100% 100%;
-      opacity: 0.2;
-  }
-        
-
-    *{ margin: 100;
-       padding: 50;
-    }
-
-    body{
-      background: black;
-      background-image: linear-gradient(to bottom, rgba(98, 23, 146, 0) 0%, rgba(92, 23, 146, 0.2) 50%, rgba(92, 23, 146, 0.4) 100%);
-      height: 100vh;
-      text-align: center;
-    }
-
-     .board_wrap {
-      width: 800px;
-      margin: 100px auto;
-      
-    }
-    
-     .board_title { 
-         margin-bottom:70px;
-         margin:100px;
-      
-     }
-     .board_title strong {
-         font-size:3rems;
-     }
-    
-     .bt_wrap {
-       margin-top: 60px;
-       text-align: center;
-       font-size:30px;
-      
-       
-     }
-    
-    .page{
-       margin-top: 60px;
-       text-align: center;
-
-    }
-
-    a{
-      text-decoration-line:none;
-      color:grey;
-
-    }
-
-    #btn {
-      background: #FE2983;
-      color:white;
-    }
-     
-    .board {
-      
-      justify-content: center;
-      margin-left:auto;
-      margin-right:auto;
-      width:100%;
-      height:200%;
-      border-top: 1px solid #444444;
-      border-collapse: collapse;
-    }
-    
-    th, td {
-      border-bottom: 1px solid #444444;
-      padding: 10px;
-    }
-   
-    .page-link {
-       color: #999; 
-       background-color: transparent;
-       border-color: #444;
-      }
-
-    .page-item.active .page-link {
-      z-index: 1;
-      color: #ccc;
-      font-weight:bold;
-      background-color: #333;
-      border-color: #444;
- 
-      }
-
-    .page-link:focus, .page-link:hover {
-      color: #ccc;
-      background-color: #FE2983; 
-      border-color: #444;
-    }
-
-</style>
+    <!-- basicBoard 전용 CSS -->
+    <link href="/static/css/basicBoard.css" rel="stylesheet" />
 </head>
 
-<body>
+<body class="sb-nav-fixed">
+    <section>
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand--> <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-lg-0  ps-3" id="sidebarToggle" href="#!">
+                <i class="bi bi-justify main-color"></i></button>
+            <a class="navbar-brand ps-4" href="/">홈버튼</a>
 
-  <div class="background_all">
-    <div class="board_wrap">
-      <div class="board_title" style="color:white;" >
-        <strong>자유게시판</strong>
-      </div>
 
-     <form id="form_main">
-      <table class="board table table-hover" style="color:grey;" cellspacing="2" cellpadding="10"  >
-          <colgroup>
-             <col width="10%" />
-             <col width="30%" />
-             <col width="20%" />
-             <col width="20%" />
-             <col width="10%" />
-          </colgroup>
-          <thead>
-            <tr>
-              <th>번호</th>
-              <th>제목</th>
-              <th>글쓴이</th>
-              <th>등록일</th>
-              <th>조회수</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- basicBoard.js 에서 data 생성 후 innerHTML로 붙여넣기기 -->
-          </tbody>
-       </table>
-    </form>    
-   
-    <div class="page" id="pageBtn">
-       <nav aria-label="Page navigation example">
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
 
-        <!-- basicBoard.js 에서 data 생성 후 innerHTML로 붙여넣기기 -->
+                <!-- 로그아웃 때 보이는 버튼 -->
+                <div id="default-btn">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href = '/login'">Login</button>
+                </div>
 
-         <!-- <ul class="pagination justify-content-center" >
-           <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-           <li class="page-item"><a class="page-link" href="#">1</a></li>
-           <li class="page-item"><a class="page-link" href="#">2</a></li>
-           <li class="page-item"><a class="page-link" href="#">3</a></li>
-           <li class="page-item"><a class="page-link" href="#">Next</a></li>
-         </ul> -->
-       </nav>
+                <!-- 로그인 때 보이는 버x튼 -->
+                <ul class="navbar-nav logout-btn d-none dropstart">
+                    <li class="nav-item dropdown">
+                        <a  href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical main-color"></i></a>
+
+                        <ul id='loginCheck' class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/mypage">마이페이지</a></li>
+                            <li><a class="dropdown-item" href="/Edit_info">회원정보 수정</a></li>
+                            <li><a class="dropdown-item" onclick="user_logout()">로그아웃</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </ul>
+        </nav>
+    </section>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark">
+                <div class="sb-sidenav-menu bg-dark">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">top100</div>
+                        <br>
+
+                        <a class="nav-link" href="/allChart">&nbsp&nbsp<i class="bi bi-disc-fill main-color"></i>&nbsp&nbsp&nbsp차트 모아보기</a>
+                        <br>
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <img src="static/res/image/logo_youtube.png" width="35px">
+                            &nbspYouTube
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/youtubeRealChart">실시간 음원순위</a>
+                                <a class="nav-link" href="/youtubeMovieChart">뮤직비디오 순위</a>
+                            </nav>
+                        </div>
+
+                        <br>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
+                            <img src="static/res/image/logo_melon.png" width="35px">
+                            &nbspMelon
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/melonRealChart">실시간 음원순위</a>
+                                <a class="nav-link" href="/melonDayChart">일간 순위</a>
+                            </nav>
+                        </div>
+                        <br>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
+                            <img src="static/res/image/logo_genie.png" width="35px">
+                            &nbspGenie
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/genieRealChart">실시간 음원순위</a>
+                                <a class="nav-link" href="/genieMovieChart">뮤직비디오 순위</a>
+                            </nav>
+                        </div>
+                        <br>
+                        <hr>
+
+                        <a class="nav-link active" href="/board">&nbsp&nbsp<i class="bi bi-disc-fill main-color"></i>&nbsp&nbsp&nbsp자유 게시판</a>
+
+                        <div class="sb-sidenav-menu-heading">FFFF</div>
+                        <a class="nav-link" href="#">
+                            GGGG
+                        </a>
+                        <a class="nav-link" href="#">
+                            HHHH
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">music</div>
+                    음악플레이어
+                </div>
+
+            </nav>
+        </div>
+
+        <div id="layoutSidenav_content">
+            <!-- 본문 데이터 -->
+            <%- include('basicBoardContent') %>
+        </div>
     </div>
-    <div class="bt_wrap">
-      <button type="button" class="btn btn-secondary-lg" title="글작성" id="btn" onclick="document.location.href='/board/write'">글작성</button>
-    </div> 
-  </div>
-</div>  
+
+    <script type="text/javascript">
+        AOS.init({
+            duration: 1000
+        });
+
+        // 로그인 값 true => 기본 버튼 가리고 / 로그 아웃 버튼 보임
+        if ("<%=result.isLogin%>" == "true") {
+            $('#default-btn').addClass("d-none");
+
+            $(".logout-btn").removeClass("d-none");
+        };
+
+        // 로그 아웃 버튼
+        function user_logout() {
+            var form = document.getElementById('form_info');
+            axios({
+                method: 'delete',
+                url: '/logout',
+            })
+                .then(() => {
+                    alert('로그아웃 하셨습니다.');
+                    window.location.href = "/";
+                });
+        }
+
+
+        
+        // // 글작성 버튼 클릭시 onclick 실행 함수
+        // function test() {
+        //   console.log("<%= result.isLogin %>");
+        //   // if문
+        //   // 세션 있으면 글작성 페이지로 이동
+        //   // 아니면 alert 띄운 후 로그인 창 이동
+        // }
+
+
+        function board_test(){
+            console.log("<%=result.isLogin%>");
+
+            var form = document.getElementById("form_main"); 
+
+            if ("<%=result.isLogin%>" == "true") {
+                // 로그인한 상태
+                axios({
+                    method: "get",
+                    url: "/board/write",
+                    data:{ id: form.id.value,
+                        }
+                }).then((rep) => {return rep.data;} )
+                .then((data) => {
+                    if( data ) {
+                        console.log('테스트');
+
+                        // alert( "작성 하러 가는중" );
+                        // document.location.href='/board';
+                        document.location.href='/board/write';
+                    }
+                });
+            } else {
+                // 로그인 안한 상태
+                alert( "로그인 하십시오" ); 
+                document.location.href='/login';
+            }
+
+
+
+
+                // axios({
+                //     method: "post",
+                //     url: "/board/read", 
+                //     data:{ id: form.id.value,
+                //            }
+                // }).then((rep) => {return rep.data;} )
+                //  .then((data) => {
+                //     if( data ) {
+                //         // alert( "작성 하러 가는중" );
+                //         // document.location.href='/board';
+                //         document.location.href='/board/write';
+                //     }                                 
+                // })
+                
+                // .catch((err) => {
+                //     alert( "로그인 하십시오" ); 
+                //     document.location.href='/login';
+                // })
+        }
+    </script>
 
 </body>
 </html>

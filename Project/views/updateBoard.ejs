@@ -82,6 +82,9 @@
        text-align: center;
        font-size:30px;
      }
+    .d-none {
+       display:none;
+    }
 </style>
 </head>
 <body>
@@ -101,7 +104,8 @@
                 <div class="info">
                     <dl>
                         <dt>글쓴이</dt>
-                        <dd><input name="id" type="id" placeholder="글쓴이 입력"  value="<%=data.id%>"></dd>
+                        <dd><input name="id" type="id" placeholder="글쓴이 입력"  value="<%=result.id%>"></dd> 
+                        <!-- 컨트롤러에서  let result = {id : req.session.user};라고 보내주고있기때문에 result.id를 쓰면 원래 들어있던 아이디 정보가 입력되어나온다 -->
                     </dl>
                 </div>
                  <div class="cont">
@@ -135,24 +139,31 @@
             formData.append("id", form.id.value);      
             formData.append("boardfile", file.files[0]);
 
-            axios({
-                method: 'patch',
-                url : "/board/update",
-                data: formData,
-                headers : {
-                    'Content-Type': 'multipart/form-data'
-                }
-            }).then((rep) => {return rep.data;} ) //밑에거 작동하게 해주는 코드 (?)
-            .then((data) => {
-                    if( data ) {
-                        alert( "수정 완료" );
-                        // document.querySelector("img").src = data.path;//동적으로 이미지 업로드해서 보여주는게 아니라, 업로드보드에서 올린 이미지가 리드보드로 렌더되는 형식(일반사진전송실습때 했던거)이라서 이런 코드는 필요없음.
-                        document.location.href='/board';
-                    } else {
-                        alert( "알 수 없는 문제가 발생했습니다." );
+            if ("<%=result.isLogin%>" == "true") {
+                axios({
+                    method: 'patch',
+                    url : "/board/update",
+                    data: formData,
+                    headers : {
+                        'Content-Type': 'multipart/form-data'
                     }
-                });
+
+                }).then((rep) => {return rep.data;} ) //밑에거 작동하게 해주는 코드 (?)
+                .then((data) => {
+                        if( data ) {
+                            alert( "수정 완료" );
+                            // document.querySelector("img").src = data.path;//동적으로 이미지 업로드해서 보여주는게 아니라, 업로드보드에서 올린 이미지가 리드보드로 렌더되는 형식(일반사진전송실습때 했던거)이라서 이런 코드는 필요없음.
+                            document.location.href='/board';
+                        } else {
+                            alert( "알 수 없는 문제가 발생했습니다." );
+                        }
+                    });
+            }  else {
+                // 로그인 안한 상태
+                alert( "로그인 하십시오" ); 
+                document.location.href='/login';
             }
+        }
     </script>
 </body>
 </html>
