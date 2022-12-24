@@ -1,5 +1,10 @@
 <div class="container row">
     <div class="col-12">
+        <img src="/static/res/image/youtube.png" data-aos="fade-right">
+        <div data-aos="fade-right" data-aos-delay="600">실시간 음원순위</div>
+    </div>
+
+    <div class="col-12" data-aos="fade-right" data-aos-delay="1100">
         <!-- 마지막 파일의 날짜 출력 -->
         <span id="dayTag"><%= result.youtubedata.filelist[result.youtubedata.filelist.length-1].slice(17, -8) %></span>
         <select class="form-select" aria-label="Default select example" style="display: inline; width: 10%; padding: 0px;" onchange="dateHourChange()">
@@ -17,7 +22,7 @@
         </select>
     </div>
     <div class="row">
-        <div class="col-3 col-sm-3 col-md-2">              
+        <div class="col-3 col-sm-3 col-md-2" data-aos="fade-right" data-aos-delay="1600">              
             <select class="form-select form-select-sm" aria-label=".form-select-sm example" onchange="viewCountChange()">
                 <option value="10">10개 보기</option>
                 <option value="25">25개 보기</option>
@@ -30,7 +35,7 @@
 
     <div class="col-12">
         <div class="table-responsiv">
-            <table class="table align-middle table-hover">
+            <table class="table align-middle table-hover" data-aos="fade-right" data-aos-delay="2100">
                 <thead>
                     <tr class="table-dark">
                         <!-- <td scope="col" colspan="2"><span>순위</span></td> -->

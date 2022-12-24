@@ -286,3 +286,76 @@ exports.melonRealChartMainType = (req, res) => {
         });
     });
 }
+
+
+// 멜론 일간 차트
+
+exports.melonDayChartMain = (req, res) => {
+    let result = {id : req.session.user};
+
+    melonFileFunction.melonDayFileList((filelist) => {
+        melonFileFunction.melonDayFileRead(filelist, (data) => {
+            // console.log(data);
+            
+            if(data) {
+                // 파일에서 읽어온 데이터를 전달
+                result['youtubedata'] = {data: ''};
+                result['geniedata'] = {data: ''};
+                result['melondata'] = {data: data, filelist: filelist, fileHour: req.params.num};
+
+                // 세션 체크
+                if(req.session.user) {
+                    result["isLogin"] = true;
+                    ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                        result['likeSing'] = {data: rows};
+                        res.render('melonDayChart', {result});
+                    });
+                } else {
+                    result["isLogin"] = false;
+                    res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+                }
+
+            } else {
+                res.send('false');
+            }
+        });
+    });
+}
+
+
+// 멜론 일간 차트 - 2 - 시간변경
+exports.melonDayChartMainType = (req, res) => {
+    let result = {id : req.session.user};
+    // console.log('num: ', req.params.num);
+    melonFileFunction.melonDayFileListHourChange((filelist) => {
+
+        melonFileFunction.melonDayFileReadHourChange(filelist, req.params.num, (data) => {
+            // console.log(data);
+            if(data) {
+                // 파일에서 읽어온 데이터를 전달
+                result['youtubedata'] = {data: ''};
+                result['geniedata'] = {data: ''};
+                result['melondata'] = {data: data, filelist: filelist, fileHour: req.params.num};
+                // res.render('youtubeRealChart', {result});
+                // res.render('youtubeRealChart', {data: data, filelist: filelist, fileHour: req.params.num});
+                // res.send({data: data, filelist: filelist, fileHour: req.params.num});
+                // res.send({result});
+
+                // 세션 체크
+                if(req.session.user) {
+                    result["isLogin"] = true;
+                    ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                        result['likeSing'] = {data: rows};
+                        res.send({result});
+                    });
+                } else {
+                    result["isLogin"] = false;
+                    res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+                }
+
+            } else {
+                res.send('false');
+            }
+        });
+    });
+}

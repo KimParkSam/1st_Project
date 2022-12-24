@@ -11,8 +11,23 @@
     padding: 0px;
 }
 
+/* 상단 유튜브 아이콘 */
+.container > div:nth-child(1) > img {
+    width: 220px;
+    display: block;
+    margin: 1rem;
+}
+
+/* 실시간 음원 순위 텍스트 */
+.container > div:nth-child(1) > div {
+    color: white;
+    padding-left: 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
 /* 날짜, 시간 선택 div */
-.container > div:nth-child(1) {
+.container > div:nth-child(2) {
     text-align: center;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -25,14 +40,28 @@
 
 /* 시간 선택 */
 @media (max-width: 768px) {
-    .container > div:nth-child(1) > select {
+    /* 상단 유튜브 아이콘 */
+    .container > div:nth-child(1) > img {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* 실시간 음원 순위 텍스트 */
+    .container > div:nth-child(1) {
+        text-align: center;
+        padding-left: 0px;
+        padding-bottom: 1rem;
+    }
+
+    /* 시간 표 크기 */
+    .container > div:nth-child(2) > select {
         width: 20% !important;
     }
 }
 
 
 /* 표 div */
-.container > div:nth-child(2) {
+.container > div:nth-child(3) {
     padding: 0px;
     margin-bottom: 0.5rem;
 }
@@ -124,6 +153,10 @@ tbody > tr > td:nth-child(5) > span {
 /* Table Foot */
 
 /* 페이지 하단 버튼 */
+table > tfoot > tr > td {
+    border-bottom: none;
+}
+
 table > tfoot > tr > td > ul {
     justify-content: center;
 }
