@@ -1,46 +1,105 @@
 <div class="container row">
-    <div class="col-12">
+    <div class="col-12" data-aos="fade-right" data-aos-delay="300">
         <!-- 마지막 파일의 날짜 출력 -->
-        <span id="dayTag"><%= result.youtubedata.filelist[result.youtubedata.filelist.length-1].slice(17, -8) %></span>
+        <span id="dayTag"></span>
     </div>
     
     <div class="col-12 col-md-4 col-lg-4">
         <div>
-            <img src="/static/res/image/melon.png" style="margin-bottom:40px; max-width: 150px;" data-aos="fade-right" data-aos-delay="50">
+            <img src="/static/res/image/melon.png" style="margin-bottom:40px; max-width: 150px;" data-aos="fade-right" data-aos-delay="600">
         </div>
-        <table border="1" class="align-middle">
-            <tbody>
-
-            </tbody>
-            <tfoot>
-
-            </tfoot>
-        </table>
+        <div class="table-responsiv">
+            <table border="1" class="align-middle table-hover" data-aos="fade-right" data-aos-delay="750">
+                <caption align="top">실시간 음원순위</caption>
+                <tbody>
+                    <!-- 멜론 차트 데이터 -->
+                </tbody>
+                <tfoot>
+                    <!-- 페이지 번호 -->
+                </tfoot>
+            </table>
+        </div>
     </div>
     <div class="col-12 col-md-4 col-lg-4">
         <div>
-            <img src="/static/res/image/genie.png" style="margin-bottom:9px ; width: 140px; position:relative; bottom:20px;" data-aos="fade-right" data-aos-delay="550">
+            <img src="/static/res/image/genie.png" style="margin-bottom:9px ; width: 140px; position:relative; bottom:20px;" data-aos="fade-right" data-aos-delay="900">
         </div>
-        <table border="1" class="align-middle">
-            <tbody>
-                <!-- 지니 차트 데이터 -->
-            </tbody>
-            <tfoot>
-                <!-- 페이지 번호 -->
-            </tfoot>
-        </table>
+        <div class="table-responsiv">
+            <table border="1" class="align-middle table-hover" data-aos="fade-right" data-aos-delay="1050">
+                <caption align="top">실시간 음원순위</caption>
+                <tbody>
+                    <!-- 지니 차트 데이터 -->
+                </tbody>
+                <tfoot>
+                    <!-- 페이지 번호 -->
+                </tfoot>
+            </table>
+        </div>
     </div>
     <div class="col-12 col-md-4 col-lg-4">
         <div>
-            <img src="/static/res/image/youtube.png" style="width: 220px; margin-bottom:38px" data-aos="fade-right" data-aos-delay="1100">
+            <img src="/static/res/image/youtube.png" style="width: 220px; margin-bottom:38px" data-aos="fade-right" data-aos-delay="1200">
         </div>
-        <table border="1" class="align-middle">
-            <tbody>
-                <!-- 유튜브 차트 데이터 -->
-            </tbody>
-            <tfoot>
-                <!-- 페이지 번호 -->
-            </tfoot>
-        </table>
+        <div class="table-responsiv">
+            <table border="1" class="align-middle table-hover" data-aos="fade-right" data-aos-delay="1350">
+                <caption align="top">실시간 음원순위</caption>
+                <tbody>
+                    <!-- 유튜브 차트 데이터 -->
+                </tbody>
+                <tfoot>
+                    <!-- 페이지 번호 -->
+                </tfoot>
+            </table>
+        </div>
     </div>
+
+    <div class="col-12 col-md-4 col-lg-4">
+        <div>
+            <img src="/static/res/image/melon.png" style="margin-bottom:40px; max-width: 150px;" data-aos="fade-right" data-aos-delay="1500">
+        </div>
+        <div class="table-responsiv">
+            <table border="1" class="align-middle table-hover" data-aos="fade-right" data-aos-delay="1650">
+                <caption align="top">일간 음원순위</caption>
+                <tbody>
+                    <!-- 멜론 일간 차트 데이터 -->
+                </tbody>
+                <tfoot>
+                    <!-- 페이지 번호 -->
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-4">
+        <div>
+            <img src="/static/res/image/genie.png" style="margin-bottom:9px ; width: 140px; position:relative; bottom:20px;" data-aos="fade-right" data-aos-delay="1800">
+        </div>
+        <div class="table-responsiv">
+            <table border="1" class="align-middle table-hover" data-aos="fade-right" data-aos-delay="1950">
+                <caption align="top">뮤직비디오 순위</caption>
+                <tbody>
+                    <!-- 지니 뮤직비디오 차트 데이터 -->
+                </tbody>
+                <tfoot>
+                    <!-- 페이지 번호 -->
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-4">
+        <div>
+            <img src="/static/res/image/youtube.png" style="width: 220px; margin-bottom:38px" data-aos="fade-right" data-aos-delay="2100">
+        </div>
+        <div class="table-responsiv">
+            <table border="1" class="align-middle table-hover" data-aos="fade-right" data-aos-delay="2250">
+                <caption align="top">뮤직비디오 순위</caption>
+                <tbody>
+                    <!-- 유튜브 뮤직비디오 차트 데이터 -->
+                </tbody>
+                <tfoot>
+                    <!-- 페이지 번호 -->
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
 </div>

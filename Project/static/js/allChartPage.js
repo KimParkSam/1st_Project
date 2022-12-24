@@ -1,5 +1,9 @@
 window.addEventListener('DOMContentLoaded', event => {
-// window.allChartLoad = () => {
+
+    const dayTag = document.getElementById('dayTag');
+    const date = new Date();
+    dayTag.textContent = date.getFullYear() + '-' + ('00' + (date.getMonth()+1)).slice(-2) + '-' + ('00' + date.getDate()).slice(-2);
+
 
     // ***********멜론************
 
@@ -483,4 +487,3 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-// allChartLoad();

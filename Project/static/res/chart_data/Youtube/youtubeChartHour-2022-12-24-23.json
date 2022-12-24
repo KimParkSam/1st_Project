@@ -1,16 +1,6 @@
 {
 	"data": [
 		{
-			"title": "Attention",
-			"rank": "5",
-			"lastWeekRank": "지난주 #5",
-			"albumImg": "https://i.ytimg.com/vi/js1CtxSY38I/mqdefault.jpg",
-			"singer": "NewJeans",
-			"chartDuration": "21주",
-			"views": "2.54M",
-			"link": "https://www.youtube.com/watch?v=js1CtxSY38I"
-		},
-		{
 			"title": "Event Horizon (사건의 지평선)",
 			"rank": "1",
 			"lastWeekRank": "지난주 #1",
@@ -49,6 +39,16 @@
 			"chartDuration": "17주",
 			"views": "2.57M",
 			"link": "https://www.youtube.com/watch?v=F0B7HDiY-10"
+		},
+		{
+			"title": "Attention",
+			"rank": "5",
+			"lastWeekRank": "지난주 #5",
+			"albumImg": "https://i.ytimg.com/vi/js1CtxSY38I/mqdefault.jpg",
+			"singer": "NewJeans",
+			"chartDuration": "21주",
+			"views": "2.54M",
+			"link": "https://www.youtube.com/watch?v=js1CtxSY38I"
 		},
 		{
 			"title": "KICK BACK",
@@ -254,11 +254,11 @@
 			"title": "Bloody Mary",
 			"rank": "26",
 			"lastWeekRank": "--",
-			"albumImg": "https://i.ytimg.com/vi/AazKH8mRYng/mqdefault.jpg",
+			"albumImg": "https://i.ytimg.com/vi/VFwmKL5OL-Q/mqdefault.jpg",
 			"singer": "Lady Gaga",
 			"chartDuration": "1주",
 			"views": "846K",
-			"link": "https://www.youtube.com/watch?v=AazKH8mRYng"
+			"link": "https://www.youtube.com/watch?v=VFwmKL5OL-Q"
 		},
 		{
 			"title": "All I Want For Christmas Is You",
@@ -385,7 +385,7 @@
 			"rank": "39",
 			"lastWeekRank": "지난주 #40",
 			"albumImg": "https://i.ytimg.com/vi/Uq9gPaIzbe8/mqdefault.jpg",
-			"singer": "킴 페트라스 & Sam Smith(샘 스미스)",
+			"singer": "Sam Smith(샘 스미스) & 킴 페트라스",
 			"chartDuration": "10주",
 			"views": "643K",
 			"link": "https://www.youtube.com/watch?v=Uq9gPaIzbe8"
@@ -454,11 +454,11 @@
 			"title": "흩어지지 않게",
 			"rank": "46",
 			"lastWeekRank": "지난주 #76",
-			"albumImg": "https://i.ytimg.com/vi/XJ-RR4T3IUo/mqdefault.jpg",
+			"albumImg": "https://i.ytimg.com/vi/MzKOG1vwj2Y/mqdefault.jpg",
 			"singer": "M.C the MAX",
 			"chartDuration": "2주",
 			"views": "604K",
-			"link": "https://www.youtube.com/watch?v=XJ-RR4T3IUo"
+			"link": "https://www.youtube.com/watch?v=MzKOG1vwj2Y"
 		},
 		{
 			"title": "死ぬのがいいわ",
@@ -985,7 +985,7 @@
 			"rank": "99",
 			"lastWeekRank": "--",
 			"albumImg": "https://i.ytimg.com/vi/HHLL9qiE2L4/mqdefault.jpg",
-			"singer": "강민경 & 최정훈",
+			"singer": "강민경 & 잔나비 최정훈",
 			"chartDuration": "11주",
 			"views": "275K",
 			"link": "https://www.youtube.com/watch?v=HHLL9qiE2L4"

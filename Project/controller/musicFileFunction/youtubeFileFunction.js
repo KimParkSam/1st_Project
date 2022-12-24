@@ -203,25 +203,6 @@ exports.youtubeMovieFileRead = (filelist, cb) => {
     });
 }
 
-
-// json 파일 데이터 읽어오는 함수
-exports.youtubeMovieFileRead = function (filelist, cb) {
-    const date = new Date();
-    // console.log(filelist[filelist.length-1]);
-    fs.readFile('./static/res/chart_data/YoutubeMovie/'+filelist[filelist.length-1], 'utf8')
-    .then((response) => {
-        // 불러온 파일의 데이터를 json으로 다시 parse 작업 해준다.
-        response = JSON.parse(response);
-        // console.log(response.data);
-        cb(response.data);
-    })
-    .catch((err) => {
-        // res.send('에러 발생');
-        throw err;
-    });
-}
-
-
 // 시간 변경 함수를 위한 File List 함수 재생성 (동일 함수 변경해서 사용해도 되지만, 지금은 안정성을 위해 새로 생성)
 exports.youtubeMovieFileListHourChange = function (cb) {
     fs.readdir('./static/res/chart_data/YoutubeMovie')
