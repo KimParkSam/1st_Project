@@ -3,6 +3,7 @@ const youtubeFileFunction = require('./musicFileFunction/youtubeFileFunction');
 const melonFileFunction = require('./musicFileFunction/melonFileFunction');
 const genieFileFunction = require('./musicFileFunction/genieFileFunction');
 const ClikeSingFunction = require('./ClikeSing');
+const CgraphFunction = require('./Cgraph');
 const { LikeSing } = require('../model/indexLikeSing');
 
 
@@ -35,14 +36,19 @@ exports.allChart = (req, res) => {
                                                 if(youtubeMoviedata) {
                                                     result["youtubeMoviedata"] = {data: youtubeMoviedata};
 
-                                                    // 세션 체크
-                                                    if(req.session.user) {
-                                                        result["isLogin"] = true;
-                                                        res.render('allChart', {result});
-                                                    } else {
-                                                        result["isLogin"] = false;
-                                                        res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
-                                                    }
+                                                    CgraphFunction.comparative_graph((filedata) => {
+                                                        result["graph"] = filedata;
+
+                                                        // 세션 체크
+                                                        if(req.session.user) {
+                                                            result["isLogin"] = true;
+                                                            res.render('allChart', {result});
+                                                        } else {
+                                                            result["isLogin"] = false;
+                                                            res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+                                                        }
+
+                                                    });
                                                 } else {
                                                     res.status(503).render('503');
                                                 }
