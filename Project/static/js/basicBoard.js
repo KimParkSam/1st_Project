@@ -9,6 +9,7 @@
             const tbody = document.querySelector('tbody');
 
             // 표 데이터 임시 저장 변수
+            
             let temp = '';
 
             // 비교용 날짜 변수
