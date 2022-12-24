@@ -1,4 +1,5 @@
 const { User } = require('../model/indexUser');
+const { LikeSing } = require('../model/indexLikeSing');
 
 //로그인 페이지
 exports.login_main = (req, res) => {
@@ -147,7 +148,42 @@ exports.mypage = async (req, res) =>{
         result2.user_img = 'd_img.png';
     }
 
-    res.render('mypage', { data : result2, result});
+    LikeSing.findAll({
+        where: {
+            user_id: `${req.session.user}`
+        },
+        order: [['no', 'DESC']]
+    }).then((rows) => {
+        // console.log(rows);
+        // console.log(rows[0].album_img);
+
+        if(rows.length < 4) {
+            // console.log('4개이하');
+            for(let i = 0; i < 4; i++) {
+                if(rows[i] === undefined) {
+                    let likeData = {
+                        user_id : '*정보 없음',
+                        title : '*정보 없음',
+                        singer : '*정보 없음',
+                        album_img : '/static/res/image/empty_list.jpg'
+                    };
+
+                    rows.push(likeData);
+                    console.log('test', rows);
+                }
+            }
+
+            result["likesing"] = rows;
+            // console.log(result.likesing[0].title);
+            res.render('mypage', { data : result2, result});
+        } else {
+            // 좋아요 4개 이상인 경우
+            result["likesing"] = rows;
+            // console.log(result.likesing[0].title);
+            res.render('mypage', { data : result2, result});
+        }
+    });
+  
 };
 
 
