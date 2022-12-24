@@ -23,5 +23,13 @@ window.addEventListener('DOMContentLoaded', event => {
         });
       });        
      });
+
+     const like_modal = new bootstrap.Modal('#like_modal');
+     $('#love_img').click(function(){
+        $('#like_modal').removeClass("d-none");
+        like_modal.show();
+     });
+
 });
+
 
