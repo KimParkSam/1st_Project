@@ -137,18 +137,19 @@
             const pageBtn = document.getElementById('pageBtn');
             let temp ='';
 
+            // disabled 조건 해제 - 2022-12-24 1300
             // 1번 페이지 인 경우 pre 버튼 dsabled 조건 걸기
-            if(info.cursor == 1) {
-                temp += `<ul class="pagination justify-content-center">
-                <li class="page-item disabled" style="cursor: text";>
-                    <a class="page-link">pre</a>
-                </li>`;
-            } else {
+            // if(info.cursor == 1) {
+            //     temp += `<ul class="pagination justify-content-center">
+            //     <li class="page-item disabled" style="cursor: text";>
+            //         <a class="page-link">pre</a>
+            //     </li>`;
+            // } else {
                 temp += `<ul class="pagination justify-content-center">
                 <li class="page-item" onclick="pageBtnMove('1', ${viewCount})">
                     <a class="page-link">pre</a>
                 </li>`;
-            }
+            // }
 
             for (let i=info.firstBottomNumber; i <= info.lastBottomNumber; i++) {
                 // 버튼 출력하다가 i가 현재 페이지랑 값이 같으면 현재 페이지 표시용 active 클래스 추가
@@ -158,18 +159,20 @@
                     temp += `<li class='page-item' onclick="pageBtnMove('${i}', ${viewCount})"><a class="page-link">${i}</a></li>`;
                 }
             }
+
+            // disabled 조건 해제 - 2022-12-24 1300
             // 마지막 페이지 인 경우 next 버튼 disabled 조건 걸기
-            if(info.cursor == info.totalPageSize) {
-                temp += `<li class="page-item disabled" style="cursor: text";>
-                        <a class="page-link">next</a>
-                    </li>
-                </ul>`;
-            } else {
+            // if(info.cursor == info.totalPageSize) {
+            //     temp += `<li class="page-item disabled" style="cursor: text";>
+            //             <a class="page-link">next</a>
+            //         </li>
+            //     </ul>`;
+            // } else {
                 temp += `<li class="page-item" onclick="pageBtnMove('${info.totalPageSize}', ${viewCount})">
                         <a class="page-link">next</a>
                     </li>
                 </ul>`;
-            }
+            // }
             pageBtn.innerHTML = temp;
         }
 
