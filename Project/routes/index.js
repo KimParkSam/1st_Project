@@ -91,8 +91,8 @@ router.get("/youtubeMovieChart/:num", controllerChart.youtubeMovieChartType);
 router.get("/melonRealChart", controllerChart.melonRealChartMain);
 router.get("/melonRealChart/:num", controllerChart.melonRealChartMainType);
 // 멜론 - 일간
-// router.get("/melonDayChart", controllerChart.youtubeMovieChart);
-// router.get("/melonDayChart/:num", controllerChart.youtubeMovieChartType);
+router.get("/melonDayChart", controllerChart.melonDayChartMain);
+router.get("/melonDayChart/:num", controllerChart.melonDayChartMainType);
 
 // 지니 차트 페이지
 // 지니 - top 100
