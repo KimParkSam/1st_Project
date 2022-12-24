@@ -129,8 +129,6 @@ window.addEventListener('DOMContentLoaded', event => {
         $(this).removeClass("aos-animate");
     });
    
-
-
 });
 
 // fullpage 호출
