@@ -1,5 +1,6 @@
 const { User } = require('../model/indexUser');
 const { LikeSing } = require('../model/indexLikeSing');
+const { Board } = require("../model/indexBoard");
 
 //로그인 페이지
 exports.login_main = (req, res) => {
@@ -162,9 +163,9 @@ exports.mypage = async (req, res) =>{
             for(let i = 0; i < 4; i++) {
                 if(rows[i] === undefined) {
                     let likeData = {
-                        user_id : '*정보 없음',
-                        title : '*정보 없음',
-                        singer : '*정보 없음',
+                        user_id : '정보 없음',
+                        title : '정보 없음',
+                        singer : '정보 없음',
                         album_img : '/static/res/image/empty_list.jpg'
                     };
 
@@ -173,16 +174,84 @@ exports.mypage = async (req, res) =>{
                 }
             }
 
+
             result["likesing"] = rows;
             // console.log(result.likesing[0].title);
-            res.render('mypage', { data : result2, result});
+            // res.render('mypage', { data : result2, result});
+           
         } else {
             // 좋아요 4개 이상인 경우
             result["likesing"] = rows;
             // console.log(result.likesing[0].title);
-            res.render('mypage', { data : result2, result});
+            // res.render('mypage', { data : result2, result});
+
         }
+
+    }).then(() => {
+        Board.findAll({
+            where: {
+                id: `${req.session.user}`
+            },
+            order: [["number", "DESC"]],
+        }).then((rows)=>{
+            if(rows.length < 5) {
+                for(let i=0; i < 5; i++ ){
+                    if((rows[i] === undefined)){
+                        let boardData = {
+                            number : '정보 없음',
+                            title : '정보 없음',
+                            id : '정보 없음',
+                            content : '정보 없음',
+                            filename : '정보 없음',
+                            date : '정보 없음',
+                            hit : '정보 없음'
+                        };
+                        rows.push(boardData);
+                        console.log('boardData : ', boardData);
+                    }
+                }
+    
+                result["Board"] = rows;
+                res.render('mypage', { data : result2, result});
+            }
+            else {
+                result["Board"] = rows;
+                res.render('mypage', { data : result2, result});
+            }
+        });
     });
+
+    // Board.findAll({
+    //     where: {
+    //         id: `${req.session.user}`
+    //     },
+    //     order: [["number", "DESC"]],
+    // }).then((rows)=>{
+    //     if(rows.length < 5) {
+    //         for(let i=0; i < 5; i++ ){
+    //             if((rows[i] === undefined)){
+    //                 let boardData = {
+    //                     number : '정보 없음',
+    //                     title : '정보 없음',
+    //                     id : '정보 없음',
+    //                     content : '정보 없음',
+    //                     filename : '정보 없음',
+    //                     date : '정보 없음',
+    //                     hit : '정보 없음'
+    //                 };
+    //                 rows.push(boardData);
+    //                 console.log('boardData : ', boardData);
+    //             }
+    //         }
+
+    //         result["Board"] = rows;
+    //         res.render('mypage', { data : result2, result});
+    //     }
+    //     else {
+    //         result["Board"] = rows;
+    //         res.render('mypage', { data : result2, result});
+    //     }
+    // });
   
 };
 

@@ -78,13 +78,12 @@
         <p>My post</p>
         <p>나의 게시글</p>
         <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                The current link item
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+            <% for(var i=0; i < result.Board.length ; i++) { %>
+                <a href="/board/read?number=<%=result.Board[i].number%>" class="list-group-item list-group-item-action">
+                    <span><%=result.Board[i].title%></span>
+                    <span><%=result.Board[i].date%></span>
+                </a>
+            <% } %>
         </div>
     </div>
 </div>
