@@ -1,0 +1,1004 @@
+{
+	"data": [
+		{
+			"title": "Ditto",
+			"rank": "1",
+			"rankVariance": "유지",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/233/266/233266_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "NewJeans",
+			"albumTitle": "Ditto",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=233266",
+			"totalNumPlay": "17,020"
+		},
+		{
+			"title": "After LIKE",
+			"rank": "2",
+			"rankVariance": "1상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/228/324/228324_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "IVE (아이브)",
+			"albumTitle": "After LIKE",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=228324",
+			"totalNumPlay": "135,071"
+		},
+		{
+			"title": "Nxde",
+			"rank": "3",
+			"rankVariance": "2상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/230/573/230573_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "(여자)아이들",
+			"albumTitle": "I love",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=230573",
+			"totalNumPlay": "74,577"
+		},
+		{
+			"title": "Dreamers (Music from the FIFA World Cup Qatar 2022 Official Soundtrack) (Feat. FIFA Sound)",
+			"rank": "4",
+			"rankVariance": "유지",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/233/367/233367_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "정국 & 방탄소년단",
+			"albumTitle": "Dreamers (Music from the FIFA World Cup Qatar 2022 Official Soundtrack)",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=233367",
+			"totalNumPlay": "1,144"
+		},
+		{
+			"title": "LOVE DIVE",
+			"rank": "5",
+			"rankVariance": "2상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/223/032/223032_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "IVE (아이브)",
+			"albumTitle": "LOVE DIVE",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=223032",
+			"totalNumPlay": "159,420"
+		},
+		{
+			"title": "ANTIFRAGILE",
+			"rank": "6",
+			"rankVariance": "2상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/230/569/230569_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "LE SSERAFIM (르세라핌)",
+			"albumTitle": "ANTIFRAGILE",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=230569",
+			"totalNumPlay": "33,329"
+		},
+		{
+			"title": "Candy",
+			"rank": "7",
+			"rankVariance": "1하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/233/207/233207_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "NCT DREAM",
+			"albumTitle": "Candy - Winter Special Mini Album",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=233207",
+			"totalNumPlay": "3,936"
+		},
+		{
+			"title": "ELEVEN",
+			"rank": "8",
+			"rankVariance": "1상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/218/726/218726_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "IVE (아이브)",
+			"albumTitle": "ELEVEN",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=218726",
+			"totalNumPlay": "92,549"
+		},
+		{
+			"title": "사건의 지평선",
+			"rank": "9",
+			"rankVariance": "3상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/222/818/222818_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "윤하 (YOUNHA)",
+			"albumTitle": "YOUNHA 6th Album Repackage 'END THEORY : Final Edition'",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=222818",
+			"totalNumPlay": "14,106"
+		},
+		{
+			"title": "Attention",
+			"rank": "10",
+			"rankVariance": "1상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/227/348/227348_2_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "NewJeans",
+			"albumTitle": "NewJeans 1st EP 'New Jeans'",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=227348",
+			"totalNumPlay": "61,042"
+		},
+		{
+			"title": "TOMBOY",
+			"rank": "11",
+			"rankVariance": "4상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/222/168/222168_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "(여자)아이들",
+			"albumTitle": "I NEVER DIE",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=222168",
+			"totalNumPlay": "94,716"
+		},
+		{
+			"title": "Beautiful",
+			"rank": "12",
+			"rankVariance": "new",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/233/431/233431_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "양준일",
+			"albumTitle": "Beautiful",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=233431",
+			"totalNumPlay": "182"
+		},
+		{
+			"title": "Snowman",
+			"rank": "13",
+			"rankVariance": "1상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/201/049/201049_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "Sia",
+			"albumTitle": "Everyday Is Christmas (Snowman Deluxe Edition)",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=201049",
+			"totalNumPlay": "8,721"
+		},
+		{
+			"title": "That That (Prod. & Feat. SUGA of BTS)",
+			"rank": "14",
+			"rankVariance": "4상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/224/138/224138_2_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "싸이 (Psy)",
+			"albumTitle": "싸다9",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=224138",
+			"totalNumPlay": "118,940"
+		},
+		{
+			"title": "Cookie",
+			"rank": "15",
+			"rankVariance": "11상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/227/624/227624_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "NewJeans",
+			"albumTitle": "NewJeans 1st EP 'New Jeans'",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=227624",
+			"totalNumPlay": "25,517"
+		},
+		{
+			"title": "WHEN I MOVE",
+			"rank": "16",
+			"rankVariance": "1상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/232/385/232385_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "카라 (KARA)",
+			"albumTitle": "MOVE AGAIN",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=232385",
+			"totalNumPlay": "7,824"
+		},
+		{
+			"title": "All I Want for Christmas Is You",
+			"rank": "17",
+			"rankVariance": "16상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/185/926/185926_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "Mariah Carey",
+			"albumTitle": "Merry Christmas (Deluxe Anniversary Edition)",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=185926",
+			"totalNumPlay": "8,101"
+		},
+		{
+			"title": "Santa Tell Me",
+			"rank": "18",
+			"rankVariance": "7상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/124/843/124843_2_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "Ariana Grande",
+			"albumTitle": "Santa Tell Me",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=124843",
+			"totalNumPlay": "21,354"
+		},
+		{
+			"title": "Shut Down",
+			"rank": "19",
+			"rankVariance": "유지",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/229/322/229322_2_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "BLACKPINK",
+			"albumTitle": "BORN PINK",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=229322",
+			"totalNumPlay": "42,304"
+		},
+		{
+			"title": "Cheshire",
+			"rank": "20",
+			"rankVariance": "4하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/232/448/232448_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "ITZY (있지)",
+			"albumTitle": "CHESHIRE",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=232448",
+			"totalNumPlay": "4,530"
+		},
+		{
+			"title": "FEARLESS",
+			"rank": "21",
+			"rankVariance": "1상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/224/233/224233_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "LE SSERAFIM (르세라핌)",
+			"albumTitle": "FEARLESS",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=224233",
+			"totalNumPlay": "35,360"
+		},
+		{
+			"title": "Beautiful Christmas",
+			"rank": "22",
+			"rankVariance": "2하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/233/139/233139_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "Red Velvet (레드벨벳) & aespa",
+			"albumTitle": "2022 Winter SMTOWN : SMCU PALACE",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=233139",
+			"totalNumPlay": "2,012"
+		},
+		{
+			"title": "Pink Venom",
+			"rank": "23",
+			"rankVariance": "2하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/228/280/228280_2_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "BLACKPINK",
+			"albumTitle": "BORN PINK",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=228280",
+			"totalNumPlay": "78,710"
+		},
+		{
+			"title": "나쁜X",
+			"rank": "24",
+			"rankVariance": "3상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/231/921/231921_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "비비 (BIBI)",
+			"albumTitle": "Lowlife Princess : Noir",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=231921",
+			"totalNumPlay": "6,523"
+		},
+		{
+			"title": "알고 있나요",
+			"rank": "25",
+			"rankVariance": "new",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/233/389/233389_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "은하 (EUNHA)",
+			"albumTitle": "금혼령, 조선 혼인 금지령 OST Part 2",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=233389",
+			"totalNumPlay": "108"
+		},
+		{
+			"title": "Groove Back (Feat. 개코)",
+			"rank": "26",
+			"rankVariance": "3상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/231/972/231972_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "박진영",
+			"albumTitle": "Groove Missing",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=231972",
+			"totalNumPlay": "3,463"
+		},
+		{
+			"title": "Panorama",
+			"rank": "27",
+			"rankVariance": "3상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/202/639/202639_2_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "IZ*ONE (아이즈원)",
+			"albumTitle": "One-reeler / Act IV",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=202639",
+			"totalNumPlay": "29,015"
+		},
+		{
+			"title": "DICE",
+			"rank": "28",
+			"rankVariance": "23상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/229/361/229361_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "NMIXX",
+			"albumTitle": "ENTWURF",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=229361",
+			"totalNumPlay": "6,844"
+		},
+		{
+			"title": "푸른꽃",
+			"rank": "29",
+			"rankVariance": "1하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/233/224/233224_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "리아 (ITZY)",
+			"albumTitle": "환혼 : 빛과 그림자 OST Part 1",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=233224",
+			"totalNumPlay": "972"
+		},
+		{
+			"title": "SNEAKERS",
+			"rank": "30",
+			"rankVariance": "6상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/227/117/227117_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "ITZY (있지)",
+			"albumTitle": "CHECKMATE",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=227117",
+			"totalNumPlay": "24,647"
+		},
+		{
+			"title": "strawberry moon",
+			"rank": "31",
+			"rankVariance": "39상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/216/875/216875_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "아이유 (IU)",
+			"albumTitle": "strawberry moon",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=216875",
+			"totalNumPlay": "61,318"
+		},
+		{
+			"title": "Permission to Dance",
+			"rank": "32",
+			"rankVariance": "11상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/211/986/211986_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "방탄소년단",
+			"albumTitle": "Butter / Permission to Dance",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=211986",
+			"totalNumPlay": "94,469"
+		},
+		{
+			"title": "Butter",
+			"rank": "33",
+			"rankVariance": "13상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/210/095/210095_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "방탄소년단",
+			"albumTitle": "Butter",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=210095",
+			"totalNumPlay": "121,155"
+		},
+		{
+			"title": "신호등",
+			"rank": "34",
+			"rankVariance": "28상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/209/682/209682_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "이무진",
+			"albumTitle": "신호등",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=209682",
+			"totalNumPlay": "73,890"
+		},
+		{
+			"title": "Hurt",
+			"rank": "35",
+			"rankVariance": "4하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/227/418/227418_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "NewJeans",
+			"albumTitle": "NewJeans 1st EP 'New Jeans'",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=227418",
+			"totalNumPlay": "7,918"
+		},
+		{
+			"title": "스티커 사진",
+			"rank": "36",
+			"rankVariance": "3상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/226/931/226931_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "21학번",
+			"albumTitle": "스티커 사진",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=226931",
+			"totalNumPlay": "9,654"
+		},
+		{
+			"title": "나의 X에게",
+			"rank": "37",
+			"rankVariance": "16상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/223/834/223834_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "경서",
+			"albumTitle": "나의 X에게",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=223834",
+			"totalNumPlay": "19,051"
+		},
+		{
+			"title": "영웅",
+			"rank": "38",
+			"rankVariance": "19상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/232/543/232543_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "정성화",
+			"albumTitle": "영웅",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=232543",
+			"totalNumPlay": "1,148"
+		},
+		{
+			"title": "크리스마스니까",
+			"rank": "39",
+			"rankVariance": "61상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/098/279/98279_3_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "성시경 & 박효신 & 이석훈 & 서인국 & VIXX (빅스)",
+			"albumTitle": "Jelly Christmas 2012 HEART PROJECT",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=98279",
+			"totalNumPlay": "6,609"
+		},
+		{
+			"title": "자격지심 (Feat. ZICO)",
+			"rank": "40",
+			"rankVariance": "2하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/229/843/229843_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "BE'O (비오)",
+			"albumTitle": "FIVE SENSES",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=229843",
+			"totalNumPlay": "7,443"
+		},
+		{
+			"title": "Girls",
+			"rank": "41",
+			"rankVariance": "11상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/226/851/226851_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "aespa",
+			"albumTitle": "Girls - The 2nd Mini Album",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=226851",
+			"totalNumPlay": "22,474"
+		},
+		{
+			"title": "보석 티니핑송",
+			"rank": "42",
+			"rankVariance": "3상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/221/322/221322_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "캐치! 티니핑",
+			"albumTitle": "반짝반짝 캐치! 티니핑 : 보석 티니핑송",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=221322",
+			"totalNumPlay": "37,525"
+		},
+		{
+			"title": "SMILEY (Feat. BIBI)",
+			"rank": "43",
+			"rankVariance": "2하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/220/459/220459_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "YENA (최예나)",
+			"albumTitle": "ˣ‿ˣ (SMiLEY)",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=220459",
+			"totalNumPlay": "26,610"
+		},
+		{
+			"title": "뱃놀이",
+			"rank": "44",
+			"rankVariance": "12하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/232/511/232511_2_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "정동원 (Jeong Dong Won)",
+			"albumTitle": "사내 ［MAN］",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=232511",
+			"totalNumPlay": "1,516"
+		},
+		{
+			"title": "고백연습",
+			"rank": "45",
+			"rankVariance": "5하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/231/194/231194_2_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "경서",
+			"albumTitle": "고백연습",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=231194",
+			"totalNumPlay": "3,636"
+		},
+		{
+			"title": "FOREVER 1",
+			"rank": "46",
+			"rankVariance": "22상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/227/820/227820_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "소녀시대 (GIRLS' GENERATION)",
+			"albumTitle": "FOREVER 1 - The 7th Album",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=227820",
+			"totalNumPlay": "38,875"
+		},
+		{
+			"title": "POP!",
+			"rank": "47",
+			"rankVariance": "2상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/226/285/226285_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "나연 (TWICE)",
+			"albumTitle": "IM NAYEON",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=226285",
+			"totalNumPlay": "38,915"
+		},
+		{
+			"title": "티니핑마스",
+			"rank": "48",
+			"rankVariance": "6하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/219/040/219040_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "캐치! 티니핑",
+			"albumTitle": "반짝반짝 캐치! 티니핑 캐롤송",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=219040",
+			"totalNumPlay": "16,460"
+		},
+		{
+			"title": "Dynamite",
+			"rank": "49",
+			"rankVariance": "15하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/197/794/197794_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "방탄소년단",
+			"albumTitle": "Dynamite (DayTime Ver.)",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=197794",
+			"totalNumPlay": "212,916"
+		},
+		{
+			"title": "Next Level",
+			"rank": "50",
+			"rankVariance": "11상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/209/905/209905_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "aespa",
+			"albumTitle": "Next Level",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=209905",
+			"totalNumPlay": "130,382"
+		},
+		{
+			"title": "Selfish",
+			"rank": "51",
+			"rankVariance": "16상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/231/727/231727_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "유아 (오마이걸)",
+			"albumTitle": "SELFISH",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=231727",
+			"totalNumPlay": "2,507"
+		},
+		{
+			"title": "Celebrity",
+			"rank": "52",
+			"rankVariance": "11상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/204/968/204968_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "아이유 (IU)",
+			"albumTitle": "IU 5th Album 'LILAC'",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=204968",
+			"totalNumPlay": "124,153"
+		},
+		{
+			"title": "Impurities",
+			"rank": "53",
+			"rankVariance": "18하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/231/705/231705_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "LE SSERAFIM (르세라핌)",
+			"albumTitle": "ANTIFRAGILE",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=231705",
+			"totalNumPlay": "2,187"
+		},
+		{
+			"title": "Talk that Talk",
+			"rank": "54",
+			"rankVariance": "6하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/228/536/228536_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "TWICE (트와이스)",
+			"albumTitle": "BETWEEN 1&2",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=228536",
+			"totalNumPlay": "12,623"
+		},
+		{
+			"title": "Candy",
+			"rank": "55",
+			"rankVariance": "3상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/000/880/880_1_120x72.jpg/dims/resize/Q_80,0",
+			"singer": "H.O.T.",
+			"albumTitle": "We Hate All Kinds Of Violence",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=880",
+			"totalNumPlay": "7,185"
+		},
+		{
+			"title": "Celeb",
+			"rank": "56",
+			"rankVariance": "1하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/224/263/224263_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "싸이 (Psy)",
+			"albumTitle": "싸다9",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=224263",
+			"totalNumPlay": "39,222"
+		},
+		{
+			"title": "Dreams Come True",
+			"rank": "57",
+			"rankVariance": "56상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/219/470/219470_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "aespa",
+			"albumTitle": "Dreams Come True - SM STATION",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=219470",
+			"totalNumPlay": "30,589"
+		},
+		{
+			"title": "LOVE me",
+			"rank": "58",
+			"rankVariance": "2상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/223/292/223292_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "BE'O (비오)",
+			"albumTitle": "LOVE me",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=223292",
+			"totalNumPlay": "15,896"
+		},
+		{
+			"title": "들꽃놀이 (With 조유진)",
+			"rank": "59",
+			"rankVariance": "유지",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/232/652/232652_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "RM",
+			"albumTitle": "Indigo",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=232652",
+			"totalNumPlay": "1,337"
+		},
+		{
+			"title": "Rush Hour (Feat. j-hope of BTS)",
+			"rank": "60",
+			"rankVariance": "16하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/229/534/229534_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "Crush",
+			"albumTitle": "Rush Hour",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=229534",
+			"totalNumPlay": "16,738"
+		},
+		{
+			"title": "이러면 안 될 거 아는데 너 앞에만 서면 나락 (Feat. 10CM)",
+			"rank": "61",
+			"rankVariance": "14상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/216/625/216625_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "딘딘 (DINDIN)",
+			"albumTitle": "이러면 안 될 거 아는데 너 앞에만 서면 나락",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=216625",
+			"totalNumPlay": "15,429"
+		},
+		{
+			"title": "Savage",
+			"rank": "62",
+			"rankVariance": "29상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/216/104/216104_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "aespa",
+			"albumTitle": "Savage - The 1st Mini Album",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=216104",
+			"totalNumPlay": "57,642"
+		},
+		{
+			"title": "Lovesick Girls",
+			"rank": "63",
+			"rankVariance": "13상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/199/328/199328_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "BLACKPINK",
+			"albumTitle": "THE ALBUM",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=199328",
+			"totalNumPlay": "107,531"
+		},
+		{
+			"title": "괴짜 (Freak)",
+			"rank": "64",
+			"rankVariance": "5상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/227/502/227502_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "지코 (ZICO)",
+			"albumTitle": "Grown Ass Kid",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=227502",
+			"totalNumPlay": "8,616"
+		},
+		{
+			"title": "INVU",
+			"rank": "65",
+			"rankVariance": "9하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/221/245/221245_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "태연 (TAEYEON)",
+			"albumTitle": "INVU - The 3rd Album",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=221245",
+			"totalNumPlay": "35,885"
+		},
+		{
+			"title": "덤디덤디 (DUMDi DUMDi)",
+			"rank": "66",
+			"rankVariance": "33상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/196/992/196992_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "(여자)아이들",
+			"albumTitle": "덤디덤디 (DUMDi DUMDi)",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=196992",
+			"totalNumPlay": "35,986"
+		},
+		{
+			"title": "달라달라",
+			"rank": "67",
+			"rankVariance": "28상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/152/201/152201_2_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "ITZY (있지)",
+			"albumTitle": "IT'z Different",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=152201",
+			"totalNumPlay": "153,047"
+		},
+		{
+			"title": "강남스타일",
+			"rank": "68",
+			"rankVariance": "14하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/091/472/91472_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "싸이 (Psy)",
+			"albumTitle": "싸이6甲 Part.1",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=91472",
+			"totalNumPlay": "34,678"
+		},
+		{
+			"title": "O Christmas Tree",
+			"rank": "69",
+			"rankVariance": "98상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/233/398/233398_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "뽀로로",
+			"albumTitle": "뽀로로 노래해요 크리스마스",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=233398",
+			"totalNumPlay": "58"
+		},
+		{
+			"title": "We wish you a merry christmas",
+			"rank": "70",
+			"rankVariance": "108상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/233/397/233397_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "뽀로로",
+			"albumTitle": "뽀로로 노래해요 크리스마스",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=233397",
+			"totalNumPlay": "107"
+		},
+		{
+			"title": "크리스마스에는",
+			"rank": "71",
+			"rankVariance": "13상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/233/196/233196_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "이보람 (씨야) & 펀치 (Punch) & 백예빈",
+			"albumTitle": "크리스마스에는",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=233196",
+			"totalNumPlay": "320"
+		},
+		{
+			"title": "열이올라요 (Heart Burn)",
+			"rank": "72",
+			"rankVariance": "14상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/226/396/226396_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "선미",
+			"albumTitle": "열이올라요 (Heart Burn)",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=226396",
+			"totalNumPlay": "18,782"
+		},
+		{
+			"title": "Yet To Come",
+			"rank": "73",
+			"rankVariance": "8하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/225/856/225856_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "방탄소년단",
+			"albumTitle": "Proof",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=225856",
+			"totalNumPlay": "22,645"
+		},
+		{
+			"title": "World's Smallest Violin",
+			"rank": "74",
+			"rankVariance": "24하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/207/810/207810_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "AJR",
+			"albumTitle": "OK ORCHESTRA",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=207810",
+			"totalNumPlay": "10,308"
+		},
+		{
+			"title": "라일락",
+			"rank": "75",
+			"rankVariance": "29상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/207/255/207255_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "아이유 (IU)",
+			"albumTitle": "IU 5th Album 'LILAC'",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=207255",
+			"totalNumPlay": "102,723"
+		},
+		{
+			"title": "아무노래",
+			"rank": "76",
+			"rankVariance": "4상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/187/478/187478_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "지코 (ZICO)",
+			"albumTitle": "아무노래",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=187478",
+			"totalNumPlay": "149,329"
+		},
+		{
+			"title": "Jingle Bells",
+			"rank": "77",
+			"rankVariance": "19상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/233/392/233392_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "뽀로로",
+			"albumTitle": "뽀로로 노래해요 크리스마스",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=233392",
+			"totalNumPlay": "98"
+		},
+		{
+			"title": "반짝반짝 캐치! 티니핑 주제곡",
+			"rank": "78",
+			"rankVariance": "14상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/215/151/215151_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "캐치! 티니핑",
+			"albumTitle": "반짝반짝 캐치! 티니핑 OST",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=215151",
+			"totalNumPlay": "28,168"
+		},
+		{
+			"title": "Good Boy Gone Bad",
+			"rank": "79",
+			"rankVariance": "19상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/224/460/224460_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "투모로우바이투게더",
+			"albumTitle": "minisode 2 : Thursday's Child",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=224460",
+			"totalNumPlay": "5,128"
+		},
+		{
+			"title": "티니핑 할로윈송",
+			"rank": "80",
+			"rankVariance": "10상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/216/690/216690_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "캐치! 티니핑",
+			"albumTitle": "반짝반짝 캐치! 티니핑 할로윈송",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=216690",
+			"totalNumPlay": "11,668"
+		},
+		{
+			"title": "뚜두뚜두 (DDU-DU DDU-DU)",
+			"rank": "81",
+			"rankVariance": "7상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/145/249/145249_2_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "BLACKPINK",
+			"albumTitle": "SQUARE UP",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=145249",
+			"totalNumPlay": "176,077"
+		},
+		{
+			"title": "Dun Dun Dance",
+			"rank": "82",
+			"rankVariance": "36상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/209/544/209544_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "오마이걸 (OH MY GIRL)",
+			"albumTitle": "Dear OHMYGIRL",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=209544",
+			"totalNumPlay": "63,446"
+		},
+		{
+			"title": "크리스마스 쿠키 가족",
+			"rank": "83",
+			"rankVariance": "121상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/233/391/233391_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "뽀로로",
+			"albumTitle": "뽀로로 노래해요 크리스마스",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=233391",
+			"totalNumPlay": "84"
+		},
+		{
+			"title": "DUMB DUMB",
+			"rank": "84",
+			"rankVariance": "13하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/213/019/213019_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "전소미",
+			"albumTitle": "DUMB DUMB",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=213019",
+			"totalNumPlay": "54,793"
+		},
+		{
+			"title": "돼지토끼",
+			"rank": "85",
+			"rankVariance": "77상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/201/445/201445_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "장윤정",
+			"albumTitle": "돼지토끼",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=201445",
+			"totalNumPlay": "59,526"
+		},
+		{
+			"title": "FACE",
+			"rank": "86",
+			"rankVariance": "15상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/083/982/83982_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "뉴이스트",
+			"albumTitle": "FACE",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=83982",
+			"totalNumPlay": "2,019"
+		},
+		{
+			"title": "가면무도회",
+			"rank": "87",
+			"rankVariance": "2상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/229/701/229701_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "비비 (BIBI)",
+			"albumTitle": "Lowlife Princess : Noir",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=229701",
+			"totalNumPlay": "9,242"
+		},
+		{
+			"title": "Coin",
+			"rank": "88",
+			"rankVariance": "31상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/207/363/207363_2_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "아이유 (IU)",
+			"albumTitle": "IU 5th Album 'LILAC'",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=207363",
+			"totalNumPlay": "43,364"
+		},
+		{
+			"title": "밤하늘의 별을 (2020)",
+			"rank": "89",
+			"rankVariance": "17하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/201/242/201242_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "경서",
+			"albumTitle": "밤하늘의 별을 (2020)",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=201242",
+			"totalNumPlay": "32,008"
+		},
+		{
+			"title": "Blueming",
+			"rank": "90",
+			"rankVariance": "3하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/184/960/184960_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "아이유 (IU)",
+			"albumTitle": "Love poem",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=184960",
+			"totalNumPlay": "138,097"
+		},
+		{
+			"title": "Bring your soft scent",
+			"rank": "91",
+			"rankVariance": "new",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/233/406/233406_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "도하늘",
+			"albumTitle": "Bring your soft scent",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=233406",
+			"totalNumPlay": "52"
+		},
+		{
+			"title": "Joy to the world",
+			"rank": "92",
+			"rankVariance": "new",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/233/396/233396_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "뽀로로",
+			"albumTitle": "뽀로로 노래해요 크리스마스",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=233396",
+			"totalNumPlay": "45"
+		},
+		{
+			"title": "SMARTPHONE",
+			"rank": "93",
+			"rankVariance": "13상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/227/689/227689_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "YENA (최예나)",
+			"albumTitle": "SMARTPHONE",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=227689",
+			"totalNumPlay": "6,045"
+		},
+		{
+			"title": "Feel My Rhythm",
+			"rank": "94",
+			"rankVariance": "11하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/222/448/222448_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "Red Velvet (레드벨벳)",
+			"albumTitle": "'The ReVe Festival 2022 - Feel My Rhythm'",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=222448",
+			"totalNumPlay": "33,103"
+		},
+		{
+			"title": "크리스마스에는 축복을",
+			"rank": "95",
+			"rankVariance": "77상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/219/305/219305_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "임서원 & 이소원 & 김지율",
+			"albumTitle": "2021 LeanBranding Christmas Carol",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=219305",
+			"totalNumPlay": "1,152"
+		},
+		{
+			"title": "문어의 꿈 (안예은, 뽀로로 Ver.)",
+			"rank": "96",
+			"rankVariance": "14상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/218/343/218343_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "안예은 & 뽀로로",
+			"albumTitle": "문어의 꿈 안예은X뽀로로",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=218343",
+			"totalNumPlay": "19,072"
+		},
+		{
+			"title": "How You Like That",
+			"rank": "97",
+			"rankVariance": "4하강",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/195/412/195412_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "BLACKPINK",
+			"albumTitle": "How You Like That",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=195412",
+			"totalNumPlay": "131,620"
+		},
+		{
+			"title": "바나나차차",
+			"rank": "98",
+			"rankVariance": "33상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/153/799/153799_1_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "뽀로로",
+			"albumTitle": "바나나차차",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=153799",
+			"totalNumPlay": "56,750"
+		},
+		{
+			"title": "우리는 모두 친구 (20th Anniversary Ver.)",
+			"rank": "99",
+			"rankVariance": "23상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/140/620/140620_2_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "Various Artists",
+			"albumTitle": "극장판 포켓몬스터 '너로 정했다!'",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=140620",
+			"totalNumPlay": "30,904"
+		},
+		{
+			"title": "Let It Go",
+			"rank": "100",
+			"rankVariance": "34상승",
+			"albumImg": "//image.genie.co.kr//Y/IMAGE/IMG_MUSICVIDEO/000/102/904/102904_3_120x72.JPG/dims/resize/Q_80,0",
+			"singer": "Idina Menzel",
+			"albumTitle": "겨울왕국 OST (Frozen OST) (33 Trks Ver.)",
+			"detailLink": "https://www.genie.co.kr/detail/mediaInfo?xvnm=102904",
+			"totalNumPlay": "52,580"
+		}
+	]
+}

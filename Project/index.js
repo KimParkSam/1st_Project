@@ -1,5 +1,6 @@
 const express = require("express");
 const session = require('express-session');
+const controllerCrawling = require("./controller/Ccrawling");
 const app = express();
 const port = 8080;
 
@@ -27,4 +28,6 @@ app.get('*', (req, res)=>{
 
 app.listen(port, ()=>{
     console.log("server open: ", port);
+    // 크롤링 자동 스케줄
+    controllerCrawling.crawling_schedule();
 });
