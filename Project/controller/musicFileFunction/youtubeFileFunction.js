@@ -127,7 +127,7 @@ exports.youtubeFileReadHourChange = function (filelist, fileHour, cb) {
         fileName = filelist[filelist.length-1];
     }
 
-    console.log('fileName: ', fileName);
+    // console.log('fileName: ', fileName);
 
     fs.readFile('./static/res/chart_data/Youtube/'+fileName, 'utf8')
     .then((response) => {
@@ -163,7 +163,7 @@ exports.youtubeMovieFileList = (cb) => {
         // 리스트에서 현재 날짜 파일만 추출
         filelist.forEach((file, index) => {
             if(compareDate == file.slice(18, -8)) {
-                console.log('b: ', file.slice(18, -8));
+                // console.log('b: ', file.slice(18, -8));
                 temp[index] = file;
             }
         });
@@ -262,7 +262,7 @@ exports.youtubeMovieFileReadHourChange = function (filelist, fileHour, cb) {
         fileName = filelist[filelist.length-1];
     }
 
-    console.log('fileName: ', fileName);
+    // console.log('fileName: ', fileName);
 
     fs.readFile('./static/res/chart_data/YoutubeMovie/'+fileName, 'utf8')
     .then((response) => {

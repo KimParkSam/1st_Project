@@ -291,7 +291,7 @@ exports.youtubeMovie_All_File = (cb) => {
         // 리스트에서 현재 날짜 파일만 추출
         filelist.forEach((file, index) => {
             if(compareDate == file.slice(18, -8)) {
-                console.log('b: ', file.slice(18, -8));
+                // console.log('b: ', file.slice(18, -8));
                 temp[index] = file;
             }
         });

@@ -158,12 +158,12 @@ window.addEventListener('DOMContentLoaded', event => {
 
         // 1번 페이지 인 경우 pre 버튼 dsabled 조건 걸기
         if(info.cursor == 1) {
-            temp += `<td colspan='8'><ul class="pagination">
+            temp += `<td></td><td></td><td colspan='6'><ul class="pagination">
             <li class="page-item disabled" style="cursor: text";>
                 <a class="page-link">pre</a>
             </li>`;
         } else {
-            temp += `<td colspan='8'><ul class="pagination">
+            temp += `<td></td><td></td><td colspan='6'><ul class="pagination">
             <li class="page-item" onclick="pageBtnMove('1', ${viewCount})">
                 <a class="page-link">pre</a>
             </li>`;

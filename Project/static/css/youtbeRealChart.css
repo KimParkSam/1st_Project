@@ -219,8 +219,30 @@ table > tfoot > tr > td > ul > li {
     /* Table Body */
 
     /* 지난주 순위 */
-    tbody > tr > td:nth-child(2) > span {
+    thead > tr > td:nth-child(2) > span {
         width: 100%;
     }
 
+
+    /* 페이지 번호 */
+    tfoot > tr > td:nth-child(3) {
+        padding-right: 150px;
+    } 
 }
+
+
+@media (max-width: 768px) {
+    thead > tr > td:nth-child(2) {
+        display: none !important;
+    }
+    tbody > tr > td:nth-child(2) {
+        display: none !important;
+    }
+    tfoot > tr > td:nth-child(2) {
+        display: none !important;
+    }
+    tfoot > tr > td:nth-child(3) {
+        padding-right: 30px !important;
+    } 
+}
+

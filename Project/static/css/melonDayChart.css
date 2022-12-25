@@ -206,6 +206,11 @@ table > tfoot > tr > td > ul > li {
         width: 30px;
     }
 
+    /* 페이지 번호 */
+    tfoot > tr > td:nth-child(3) {
+        padding-right: 100px;
+    } 
+
 }
 
 /* 표 컬럼 크기 */
@@ -237,3 +242,19 @@ table > tfoot > tr > td > ul > li {
         width: 300px;
     }
 }
+
+@media (max-width: 768px) {
+    thead > tr > td:nth-child(2) {
+        display: none !important;
+    }
+    tbody > tr > td:nth-child(2) {
+        display: none !important;
+    }
+    tfoot > tr > td:nth-child(2) {
+        display: none !important;
+    }
+    tfoot > tr > td:nth-child(3) {
+        padding-right: 50px !important;
+    } 
+}
+

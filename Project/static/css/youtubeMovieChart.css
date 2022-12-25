@@ -225,4 +225,27 @@ table > tfoot > tr > td > ul > li {
         width: 100%;
     }
 
+     /* 페이지 번호 */
+     tfoot > tr > td:nth-child(3) {
+        padding-right: 150px;
+    } 
+
 }
+
+
+
+@media (max-width: 768px) {
+    thead > tr > td:nth-child(2) {
+        display: none !important;
+    }
+    tbody > tr > td:nth-child(2) {
+        display: none !important;
+    }
+    tfoot > tr > td:nth-child(2) {
+        display: none !important;
+    }
+    tfoot > tr > td:nth-child(3) {
+        padding-right: 30px !important;
+    } 
+}
+
