@@ -107,11 +107,11 @@ router.post("/Chart/likeSingRegister", controllerLikeSing.LikeSingRegister);
 router.post("/Chart/likeSingDelete", controllerLikeSing.LikeSingDelete);
 
 // 크롤링 요청 페이지
-router.get("/crawling/melon", controllerCrawling.melonCrawlingPage);
-router.get("/crawling/melonday", controllerCrawling.melonDayCrawlingPage);
-router.get("/crawling/genie", controllerCrawling.genieCrawlingPage);
-router.get("/crawling/geniemovie", controllerCrawling.genieMovieCrawlingPage);
-router.get("/crawling/youtube", controllerCrawling.youtubeCrawlingPage);
-router.get("/crawling/youtubemovie", controllerCrawling.youtubeMovieCrawlingPage);
+// router.get("/crawling/melon", controllerCrawling.melonCrawlingPage);
+// router.get("/crawling/melonday", controllerCrawling.melonDayCrawlingPage);
+// router.get("/crawling/genie", controllerCrawling.genieCrawlingPage);
+// router.get("/crawling/geniemovie", controllerCrawling.genieMovieCrawlingPage);
+// router.get("/crawling/youtube", controllerCrawling.youtubeCrawlingPage);
+// router.get("/crawling/youtubemovie", controllerCrawling.youtubeMovieCrawlingPage);
 
 module.exports = router;
