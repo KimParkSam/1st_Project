@@ -113,7 +113,7 @@ exports.melonFileListHourChange = function (cb) {
 exports.melonFileReadHourChange = function (filelist, fileHour, cb) {
     // console.log('fileHour', fileHour);
     const date = new Date();
-    console.log(filelist[filelist.length-1]);
+    // console.log(filelist[filelist.length-1]);
     // console.log(filelist[0].slice(26, -5));
 
     let fileName = '';
@@ -126,7 +126,7 @@ exports.melonFileReadHourChange = function (filelist, fileHour, cb) {
         fileName = filelist[filelist.length-1];
     }
 
-    console.log('fileName: ', fileName);
+    // console.log('fileName: ', fileName);
 
     fs.readFile('./static/res/chart_data/Melon/'+fileName, 'utf8')
     .then((response) => {
@@ -264,8 +264,8 @@ exports.melonDayFileListHourChange = function (cb) {
 exports.melonDayFileReadHourChange = function (filelist, fileHour, cb) {
     // console.log('fileHour', fileHour);
     const date = new Date();
-    console.log(filelist[filelist.length-1]);
-    console.log('asd123 ', filelist[0].slice(25, -5));
+    // console.log(filelist[filelist.length-1]);
+    // console.log('asd123 ', filelist[0].slice(25, -5));
 
     let fileName = '';
     for(let i = 0; i < filelist.length; i++) {
@@ -277,7 +277,7 @@ exports.melonDayFileReadHourChange = function (filelist, fileHour, cb) {
         fileName = filelist[filelist.length-1];
     }
 
-    console.log('fileName: ', fileName);
+    // console.log('fileName: ', fileName);
 
     fs.readFile('./static/res/chart_data/MelonDay/'+fileName, 'utf8')
     .then((response) => {

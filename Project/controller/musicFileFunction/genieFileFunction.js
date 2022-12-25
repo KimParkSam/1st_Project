@@ -75,7 +75,7 @@ exports.genieFileListHourChange = function (cb) {
         // 'genieChartHour-2022-12-16-17.json' => 2022-12-16-17
         // console.log(filelist[lastFile].slice(17, -5));
         // 2022-12-16
-        console.log(filelist[lastFile].slice(15, -8));
+        // console.log(filelist[lastFile].slice(15, -8));
 
         const date = new Date();
         // 비교용 날짜, ex) 2022-12-17
@@ -116,7 +116,7 @@ exports.genieFileListHourChange = function (cb) {
 exports.genieFileReadHourChange = function (filelist, fileHour, cb) {
     // console.log('fileHour', fileHour);
     const date = new Date();
-    console.log(filelist[filelist.length-1]);
+    // console.log(filelist[filelist.length-1]);
     // console.log('hour: ', filelist[0].slice(26, -5));
 
     let fileName = '';
@@ -129,7 +129,7 @@ exports.genieFileReadHourChange = function (filelist, fileHour, cb) {
         fileName = filelist[filelist.length-1];
     }
 
-    console.log('fileName: ', fileName);
+    // console.log('fileName: ', fileName);
 
     fs.readFile('./static/res/chart_data/Genie/'+fileName, 'utf8')
     .then((response) => {
@@ -222,7 +222,7 @@ exports.genieMovieFileListHourChange = function (cb) {
         // 'genieChartHour-2022-12-16-17.json' => 2022-12-16-17
         // console.log(filelist[lastFile].slice(17, -5));
         // 2022-12-16
-        console.log(filelist[lastFile].slice(16, -8));
+        // console.log(filelist[lastFile].slice(16, -8));
 
         const date = new Date();
         // 비교용 날짜, ex) 2022-12-17
@@ -276,7 +276,7 @@ exports.genieMovieFileReadHourChange = function (filelist, fileHour, cb) {
         fileName = filelist[filelist.length-1];
     }
 
-    console.log('fileName: ', fileName);
+    // console.log('fileName: ', fileName);
 
     fs.readFile('./static/res/chart_data/GenieMovie/'+fileName, 'utf8')
     .then((response) => {
