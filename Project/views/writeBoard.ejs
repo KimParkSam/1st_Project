@@ -6,10 +6,14 @@
     <link href="/static/css/writeBoard.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="board_wrap">
-        <div class="board_title">
-            <strong>자유게시판</strong>
-        </div>
+    
+ <div class="board_title" style="color:white;" > 자유게시판</div>
+      
+
+    
+   <div class="background_all row "  >
+      <div class="board_wrap ">
+    
         <form id="form_write"> 
             <div class="board_write_wrap">
                 <div class="board_write">
@@ -22,7 +26,7 @@
                     <div class="info">
                         <dl>
                             <dt>글쓴이</dt>
-                            <dd><input name="id" type="id" placeholder="글쓴이 입력"  value="<%=result.id%>" ></dd>
+                            <dd><input name="id" type="id" placeholder="글쓴이 입력" style="background-color:transparent;  border:0 solid black; color:white;" value="<%=result.id%>" readonly></dd>
                         </dl>
                     </div>
                     <div class="cont">
@@ -38,6 +42,7 @@
             <button type="button" class="btn btn-outline-secondary"  id="btn_w" onclick="register();">등록</button>
             <button type="button" class="btn btn-outline-secondary"  id="btn_c" onclick="document.location.href='/board'">취소</button>
         </div>
+      </div>
     </div>
 </body>
 </html>

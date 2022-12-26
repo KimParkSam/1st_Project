@@ -10,22 +10,75 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 <style>
-/* ddd */
+       .background_all {
+        
+        justify-content: center;
+        align-items: center;
+        position: static;
+        width: 100%;
+        height: 100%;
+
+    }
+
+        
+    body {
+   
+   background-image: linear-gradient(to bottom, rgb(0 0 0) 0%, rgb(1 2 24) 50%, rgb(8 0 14 / 83%) 100%);
+   height: 100%;
+   background-attachment:fixed;
+
+
+
+ }
+   .row {
+     --bs-gutter-x: 0rem;
+   }
+
+   .board_wrap {
+    width: 1100px;
+    margin: auto;
+    
+    
+  }
+  
+   .board_title { 
+      
+       padding:50px;
+    
+       color: white;
+       /* padding-right: 100rem; */
+       font-weight: bold;
+       font-size: 1.5rem;
+       text-align:left !important;
+    
+    
+   }
+      
+      
+        div.board_view{
+            border-top: 1px solid white;
+        }
+
+        div.title ,dl,dd {
+            color:white;
+        }
         .board_view {
             width: 100%;
             border-top: 2px solid #000;
         }
 
         .board_view .title {
-            padding: 20px 15px;
+            padding: 20px 50px;
             border-bottom: 1px dashed #ddd;
             font-size: 2rem;
         }
 
         .board_view .info {
-            padding: 15px;
+            padding: 50px;
             border-bottom: 1px solid #999;
-            font-size: 0;
+            font-size: 1px;
+            padding-top:20px;
+            padding-bottom:0px;
         }
 
         .board_view .info dl {
@@ -45,7 +98,7 @@
             left: 0;
             display: block;
             width: 1px;
-            height: 13px;
+            height: 30px;
             background: #ddd;
         }
 
@@ -57,6 +110,7 @@
         .board_view .info dl dd {
             display: inline-block;
             font-size: 1.4rem;
+           
         }
 
         .board_view .info dl dd {
@@ -65,26 +119,108 @@
         }
 
         .board_view .cont {
-            padding: 15px;
-            border-bottom: 1px solid #000;
+            padding: 60px;
+            border-bottom: 1px solid white;
             line-height: 160%;
-            font-size: 1.4rem;
+            font-size: 2rem;
+            color:white;
         }
 
         .bt_wrap {
             margin-top: 30px;
             text-align: center;
             font-size:30px;
-             background: url(/static/img/bg_img.jpg) repeat;
+           
         }
-        
+        .btn-outline-secondary {
+            --bs-btn-color: white;
+            --bs-btn-border-color:#FE2983;
+            --bs-btn-hover-bg:#FE2983;
+            --bs-btn-hover-border-color:#FE2983;
+        }
+
+        #lv-ad-57 {
+            min-width: 70%;
+        }
+        #container {
+            width: 60%;
+        }
+        div.reaction-items.counts-visible
+        {width:50%;
+         height: 20px;
+        }
+        div.reactions__container{
+            margin-top:100px;
+        }
+        /* #reactions .reaction-items .reaction-item .reaction-item__button--refresh, #reactions-promotion .reaction-items .reaction-item .reaction-item__button--refresh
+         {
+            background-color: transparent;} */
+         .form-refresh .textarea-wrapper {
+             border-radius: 20px;
+             background-color: transparent;
+            }
+
+            @media (max-width: 540px) {
+                /* .board_wrap {
+                width: 100%;
+                min-width: 320px;
+                padding: 0 30px;
+                box-sizing: border-box;
+            }
+
+
+             .board_view .info dl {
+                padding: 0;
+                width: 50%;
+            }
+
+            .board_view .info dl:nth-child(-n+2) {
+                margin-bottom: 5px;
+            } */
+
+            .board_view .info dl::before {
+                display: none;
+            }
+
+            /* .board_view .info dl dt,
+            .board_view .info dl dd {
+                font-size: 1.2rem;
+            } */
+             .board_view .info dl {
+                padding: 0;
+                
+            }
+
+            .board_view .info  {
+                padding-left: 15px;
+                padding-top: 20px;
+                padding-bottom:0px;
+                padding-right:0px;
+            }
+            
+            /* dl{
+                margin-left:20px;
+            } */
+            .board_view .info dl:nth-child(2) {
+                margin-left: 150px;
+            }
+            .board_view .info dl:nth-child(4) {
+                margin-left: 15px;
+            }   
+            .board_wrap {
+                width:380px;
+             }    
+            
+        }
 </style>
 
 <body>
-    <div class="board_wrap">
-        <div class="board_title">
-            <strong>자유게시판</strong>
-        </div>
+<div class="board_title" style="color:white;" data-aos="fade-right" data-aos-delay="600"> 자유게시판</div>
+      
+
+    
+<div class="background_all row " data-aos="fade-right" data-aos-delay="800" >
+    <div class="board_wrap col-12">
         
         <div class="board_view_wrap">
             <div class="board_view">
@@ -102,7 +238,7 @@
                     </dl>
                     <dl>
                         <dt>작성일</dt>
-                        <dd><%=data.date%></dd>
+                        <dd><%=data.date.toLocaleDateString()%></dd>
                     </dl>
                     <dl>
                         <dt>조회</dt>
@@ -140,25 +276,26 @@
             </div>
         </div>
     </div>
-
-        <!-- 라이브리 시티 설치 코드 -->
-    <div id="lv-container" data-id="city" data-uid="MTAyMC81NzgxMC8zNDI3Mw==">
-        <script type="text/javascript">
-    (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-
-        if (typeof LivereTower === 'function') { return; }
-
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-
-        e.parentNode.insertBefore(j, e);
-    })(document, 'script');
-        </script>
-    <noscript> 라이브리 댓글 작성을 위해 JavaScript를 활성화 해주세요</noscript>
-    </div>
-    <!-- 시티 설치 코드 끝 -->
+</div>
+<!-- <div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ddddddd-6.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> -->
 
 
     <script type="text/javascript">
