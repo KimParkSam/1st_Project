@@ -15,7 +15,7 @@ function register() {
         if( data ) {
             alert( "작성 완료" );
             document.location.href='/board';
-        }                                    //mp3파일이들어오면 작성완료
+        }                                    
     })
     // .then((rep) => {
     //     if( rep.data ) {
