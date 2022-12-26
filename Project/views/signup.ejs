@@ -57,23 +57,31 @@
             overflow: hidden;
             
         }
-
         }
-
+        @media (max-width : 570px) {
+            .outline_line.signup {
+            display: flex;
+            justify-content: center;        
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 0px;
+            overflow: hidden;
+            
+        }
+        }
         /* 배경이미지 돌리는 법 */
-        .outline_line::before {
+        /* .outline_line.signup::before {
             content: "";
             position: absolute;
             width: 200%;
             height: 200%;
-            z-index: -3;
-            /* background: linear-gradient( -45deg, rgba(243, 145, 202, 0.7)0%, rgba(172,76,254,0.7)25%, rgba(112,111,255,0.7)50%, rgba(103, 169, 255, 0.7)75%, rgba(60, 202, 253, 0.7)100% );
-            transform: rotate(-0deg); */
-            background-size: 85%;
-            background-image: url(../static/img/bg_blend.png)0 0 no-repeat;
+            background: url(../static/img/bg_overay.png;)0 0 no-repeat;
+            background-size: 100%;
             background-blend-mode: overlay;
             opacity: 0.8;
-        }
+        } */
 
         @media (max-width : 380px) {
             .outline_line::before {
@@ -83,7 +91,6 @@
             height: 100%;
             z-index: -3;
             background: linear-gradient( -45deg, rgba(243, 145, 202, 0.7)0%, rgba(172,76,254,0.7)25%, rgba(112,111,255,0.7)50%, rgba(103, 169, 255, 0.7)75%, rgba(60, 202, 253, 0.7)100% );
-            transform: rotate(-0deg);
             background-position: 40% 230%;
             background-blend-mode: overlay;
             opacity: 0.8;
@@ -91,14 +98,6 @@
         }
 
 /* 
-        .outline_line:first-child {
-            background: url(../static/img/bg_overay.png)0 0 no-repeat;
-            background-size: 620px 550px;
-            background-position: 40% 230%;
-            z-index: 1;
-            background-blend-mode: overlay;
-        } */
-
         @media (max-width : 380px) {
             .outline_line:first-child{
             background: url(../static/img/bg_overay.png)0 0 no-repeat;
@@ -107,8 +106,7 @@
             z-index: 1;
             background-blend-mode: overlay;
         }
-
-        }
+        } */
 
 
         /* 회원가입 폼 */
@@ -248,7 +246,17 @@
         .form-check label {
             margin-left: 10px;
         }
+
+        .mb-3 {
+            padding : 0 0rem;
+        }
         
+        @media (max-width : 400px) {
+            .mb-3 {
+            padding : 0 1rem;
+        }
+        }
+
     </style>
 </head>
 
@@ -266,30 +274,30 @@
                 </div>
                 <div class="txt_field" id="id_check_sucess" style="text-align: center; font-size: 13px;"></div>
     
-                <div class="txt_field">
+                <div class="txt_field mb-3" >
                     <input type="text" class="form-control" id="check_input_name" name="name" oninput="nickValidity(this)"
                         placeholder="닉네임을 입력해주세요" title="대소문자, 한글, 숫자, 2글자 이상 10글자 이하" pattern="^([a-zA-Z0-9가-힣]{2,10})$"
                         required>
                     <div class="txt_field" id="name_check_sucess" style="text-align: center; font-size: 13px;"></div>
                 </div>
-                <div class="txt_field">
+                <div class="txt_field mb-3">
                     <input type="password" class="form-control" name="pw" oninput="pwValidity(this)"
                         placeholder="비밀번호를 입력해주세요" title="최소 5 자, 최소 하나의 문자, 하나의 숫자 및 하나의 특수 문자"
                         pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@!%*#?&])[A-Za-z\d@!%*#?&]{5,}$" required>
                 </div>
-                <div class="txt_field">
+                <div class="txt_field mb-3">
                     <input type="password" class="form-control" name="rePw" placeholder="비밀번호를 확인해주세요"
                         oninput="rePwValidity(this)" title="비밀번호가 일치하지 않습니다."
                         pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@!%*#?&])[A-Za-z\d@!%*#?&]{5,}$" required>
                 </div>
-                <div class="txt_field" id="pw_check_sucess" style="text-align: center; font-size: 13px;"></div>
-                <div class="txt_field">
+                <div class="txt_field mb-3" id="pw_check_sucess" style="text-align: center; font-size: 13px;"></div>
+                <div class="txt_field mb-3">
                     <input type="email" class="form-control" name="e_mail" id="check_input_mail"
                         oninput="mailValidity(this)" placeholder="이메일을 입력해주세요" title="이메일 양식에 맞게 입력해주세요" required>
                 </div>
-                <div class="txt_field" id="mail_check_sucess" style="text-align: center; font-size: 13px;"></div>
+                <div class="txt_field mb-3" id="mail_check_sucess" style="text-align: center; font-size: 13px;"></div>
     
-                <form class="checkbox_group">
+                <form class="checkbox_group mb-3">
                     <div class="form-check" style="color:white;">
                         <input class="form-check-input" type="checkbox" name="chk" id="agreeValidity" onclick="agree_check()">
                         <label class="form-check-label" for="flexCheckDefault2">
@@ -297,10 +305,10 @@
                         </label>
                     </div>
     
-                </form class="form">
-                <div class="txt_field" id="agree_check_sucess" style="text-align: center; font-size: 13px;"></div>
+                </form class="form ">
+                <div class="txt_field " id="agree_check_sucess" style="text-align: center; font-size: 13px;"></div>
     
-                <button type="button" style="color:white; margin-bottom: 20px;" id="singup_bt2"
+                <button type="button" class="txt_field mb-3" style="color:white; margin-bottom: 20px;" id="singup_bt2"
                     onclick="register()">회원가입</button>
         </div>
         </form>
