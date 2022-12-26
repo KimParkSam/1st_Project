@@ -222,27 +222,22 @@ table > tfoot > tr > td > ul > li {
     thead > tr > td:nth-child(2) > span {
         width: 100%;
     }
-
-
-    /* 페이지 번호 */
-    tfoot > tr > td:nth-child(3) {
-        padding-right: 150px;
-    } 
 }
 
 
 @media (max-width: 768px) {
-    thead > tr > td:nth-child(2) {
+    /* 지난주 랭킹, 차트 지속기간 */
+    thead > tr > td:nth-child(2),
+    thead > tr > td:nth-child(6) {
         display: none !important;
     }
-    tbody > tr > td:nth-child(2) {
+    tbody > tr > td:nth-child(2),
+    tbody > tr > td:nth-child(6) {
         display: none !important;
     }
-    tfoot > tr > td:nth-child(2) {
+    tfoot > tr > td:nth-child(2),
+    tfoot > tr > td:nth-child(5) {
         display: none !important;
     }
-    tfoot > tr > td:nth-child(3) {
-        padding-right: 30px !important;
-    } 
 }
 
