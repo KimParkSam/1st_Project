@@ -168,3 +168,7 @@ table > tfoot > tr > td > ul > li {
     }
 }
 
+
+#allChart_Graph {
+    background-color: black !important;
+}

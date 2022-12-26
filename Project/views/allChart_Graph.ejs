@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', event => {
                         "<%= result.graph.results[0].data[10].ratio %>",
                         "<%= result.graph.results[0].data[11].ratio %>",
                     ],
-                    borderColor: 'green',
+                    borderColor: 'green'
                 },
                 {
                     label: '지니',
@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded', event => {
                         "<%= result.graph.results[1].data[10].ratio %>",
                         "<%= result.graph.results[1].data[11].ratio %>",
                     ],
-                    borderColor: 'blue',
+                    borderColor: 'blue'
                 },
                 {
                     label: '유튜브',
@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', event => {
                         "<%= result.graph.results[2].data[10].ratio %>",
                         "<%= result.graph.results[2].data[11].ratio %>",
                     ],
-                    borderColor: 'red',
+                    borderColor: 'red'
                 }
             ]
         },
@@ -68,7 +68,7 @@ window.addEventListener('DOMContentLoaded', event => {
             responsive: true,
             plugins: {
                 legend: {
-                    position: 'bottom',
+                    position: 'bottom'
                 },
                 title: {
                     display: true,
@@ -79,5 +79,6 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
-</script>
 
+Chart.defaults.color = "white";
+</script>

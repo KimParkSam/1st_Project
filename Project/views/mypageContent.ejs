@@ -34,7 +34,7 @@
     <p>나의 좋아요 리스트</p>
     <div class="love_img" id="love_img">
         <% for( var i=0; i <=3; i ++ ) { %>
-            <a href="#" onclick="like_modal()"><img src="<%=result.likesing[i].album_img%>"></a>
+            <a href="#"><img src="<%=result.likesing[i].album_img%>"></a>
             <% } %>
                 <!-- 좋아요 리스트 모달 -->
                 <!-- Modal -->
@@ -51,16 +51,16 @@
                             <div class="modal-body">
                                 <div class="list_info">
                                     <% for (var i=0; i < result.likesing.length; i ++ ) { %>
-                                        <li><img src="<%=result.likesing[i].album_img%>">
-                                            <span>
-                                                <%=result.likesing[i].singer%>
-                                            </span>
-                                            <span>
-                                                <%=result.likesing[i].title%>
-                                            </span>
-                                            <span><img style="width: 30px; height: 30px;" class="like_btn" src="../static/res/image/full_heart.png"></span>
-                                        </li>
+                                        <% if(result.likesing[i].title !== '정보 없음') { %>
+                                            <li type="none">
+                                                <span><img src="<%=result.likesing[i].album_img%>"></span>
+                                                <span style="font-weight: bold;"><%=result.likesing[i].title%></span>
+                                                <span> - </span>
+                                                <span><%=result.likesing[i].singer%></span>
+                                                <span><img src='./static/res/image/full_heart.png' class="like_btn" style='width: 30px; height: 30px; cursor: pointer;' onclick='Mypage_likeSingEvent(this, "<%= result.isLogin %>")'></span>
+                                            </li>
                                         <% } %>
+                                    <% } %>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
@@ -77,12 +77,21 @@
     <div class="mypage item4">
         <p>My post</p>
         <p>나의 게시글</p>
-        <div class="list-group">
+        <div class="list-group" id="mypage_board_list">
             <% for(var i=0; i < result.Board.length ; i++) { %>
-                <a href="/board/read?number=<%=result.Board[i].number%>" class="list-group-item list-group-item-action">
-                    <span><%=result.Board[i].title%></span>
-                    <span><%=result.Board[i].date%></span>
-                </a>
+                <% result.Board[i].date = new Date(result.Board[i].date); %>
+
+                    <% if(result.Board[i].number !== '정보 없음') { %> 
+                        <a href="/board/read?number=<%= result.Board[i].number %>" class="list-group-item list-group-item-action">
+                            <span><%= result.Board[i].title %></span>
+                            <span><%= result.Board[i].date.toLocaleDateString() %></span>
+                        </a>
+                    <% } else { %>
+                        <a class="list-group-item list-group-item-action">
+                            <span>-</span>
+                            <span>-</span>
+                        </a>
+                    <% } %>
             <% } %>
         </div>
     </div>
