@@ -40,17 +40,17 @@ exports.main = (req, res) => {
                                         res.render("index", {result});
 
                                     } else {
-                                        res.status(503).render('503');
+                                        res.status(500).render('500');
                                     }
                                 });
                             });
                         } else {
-                            res.status(503).render('503');
+                            res.status(500).render('500');
                         }
                     });
                 });
             } else {
-                res.status(503).render('503');
+                res.status(500).render('500');
             }
         });
     });
