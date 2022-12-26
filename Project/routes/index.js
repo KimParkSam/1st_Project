@@ -5,6 +5,7 @@ const controllerChart = require("../controller/Cchart");
 const controllerLikeSing = require("../controller/ClikeSing");
 const controllerBoard = require("../controller/Cboard");
 const controllerCrawling = require("../controller/Ccrawling");
+const controllerManager = require("../controller/Cmanager");
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
@@ -109,12 +110,16 @@ router.get("/genieMovieChart/:num", controllerChart.genieMovieChartMainType);
 router.post("/Chart/likeSingRegister", controllerLikeSing.LikeSingRegister);
 router.post("/Chart/likeSingDelete", controllerLikeSing.LikeSingDelete);
 
+
+// 관리자 페이지 - 크롤링 수동 요청
+router.get("/manager", controllerManager.manager);
+router.post("/manager/login", controllerManager.manager_login);
 // 크롤링 요청 페이지
-// router.get("/crawling/melon", controllerCrawling.melonCrawlingPage);
-// router.get("/crawling/melonday", controllerCrawling.melonDayCrawlingPage);
-// router.get("/crawling/genie", controllerCrawling.genieCrawlingPage);
-// router.get("/crawling/geniemovie", controllerCrawling.genieMovieCrawlingPage);
-// router.get("/crawling/youtube", controllerCrawling.youtubeCrawlingPage);
-// router.get("/crawling/youtubemovie", controllerCrawling.youtubeMovieCrawlingPage);
+router.post("/crawling/melon", controllerCrawling.melonCrawlingPage);
+router.post("/crawling/melonday", controllerCrawling.melonDayCrawlingPage);
+router.post("/crawling/genie", controllerCrawling.genieCrawlingPage);
+router.post("/crawling/geniemovie", controllerCrawling.genieMovieCrawlingPage);
+router.post("/crawling/youtube", controllerCrawling.youtubeCrawlingPage);
+router.post("/crawling/youtubemovie", controllerCrawling.youtubeMovieCrawlingPage);
 
 module.exports = router;
