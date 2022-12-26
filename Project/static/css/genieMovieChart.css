@@ -206,8 +206,8 @@ table > tfoot > tr > td > ul > li {
     }
 
     /* 페이지 번호 */
-    tfoot > tr > td:nth-child(3) {
-        padding-right: 100px;
+    tfoot > tr > td:nth-child(4) {
+        padding-left: 20%;
     } 
 
 }
@@ -242,18 +242,18 @@ table > tfoot > tr > td > ul > li {
     }
 }
 
-
 @media (max-width: 768px) {
-    thead > tr > td:nth-child(2) {
+    /* 랭킹 변화, 앨범 명 */
+    thead > tr > td:nth-child(2),
+    thead > tr > td:nth-child(6) {
         display: none !important;
     }
-    tbody > tr > td:nth-child(2) {
+    tbody > tr > td:nth-child(2),
+    tbody > tr > td:nth-child(6) {
         display: none !important;
     }
-    tfoot > tr > td:nth-child(2) {
+    tfoot > tr > td:nth-child(2),
+    tfoot > tr > td:nth-child(5) {
         display: none !important;
     }
-    tfoot > tr > td:nth-child(3) {
-        padding-right: 50px !important;
-    } 
 }
