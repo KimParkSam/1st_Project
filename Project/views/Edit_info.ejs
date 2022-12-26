@@ -30,16 +30,15 @@
             justify-content: center;
             align-items: center;
             background: rgb(0, 0, 0);
-            /* border: 5px solid blue; */
-            /* background-image: linear-gradient(to bottom, rgba(98, 23, 146, 0) 0%, rgba(92, 23, 146, 0.2) 50%, rgba(92, 23, 146, 0.4) 100%); */
+            background-image: linear-gradient(to bottom, rgba(98, 23, 146, 0) 0%, rgba(92, 23, 146, 0.2) 50%, rgba(92, 23, 146, 0.4) 100%);
             height: 100vh;
         }
 
         /* 홈 버튼 */
         .home {
             position: absolute;
-            margin-top: 660px;
-            opacity: 0.8;
+            margin-top: 670px;
+            opacity: 0.9;
             z-index: 6;
         }
 
@@ -61,8 +60,17 @@
 
         @media (max-width : 380px) {
             .home button {
-            margin-top: 1200px;
-            width: 60px;
+            margin-top: 1600%;
+            width: 70px;
+            font-size: 10px;
+            z-index: 6;
+            }
+        }
+
+        @media (width : 380px) {
+            .home button {
+            margin-top: 2000%;
+            width: 70px;
             font-size: 10px;
             z-index: 6;
             }
@@ -70,54 +78,60 @@
 
 
 
+
         /* 회원 정보 수정 바디 */
         /* 웹 크기 */
         @media (min-width : 380px) {
             .outline_line.Edit_info {
+                position: relative;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                position: relative;
-                min-width: 400px;
-                min-height: 1000px; 
+                width: 500px;
+                height: 780px;
                 border-radius: 60px;
-                background-image: url(../static/img/bg_img.jpg) 0 0 repeat;
+                background: linear-gradient( -45deg, rgba(233, 127, 148, 0.7)0%, rgba(172,76,254,0.7)25%, rgba(112,111,255,0.7)50%, rgba(103,142,255,0.7)75%, rgba(33,194,255,0.7)100% );
                 overflow: hidden;
             }
         }
 
-        /* 폰 크기 */
         @media (max-width : 380px) {
             .outline_line.Edit_info {
-                background-color: rgb(47, 100, 100);
-                width: 300px;
-                height: 600px;
+                background: linear-gradient( -45deg, rgba(233, 127, 148, 0.7)0%, rgba(172,76,254,0.7)35%, rgba(112,111,255,0.7)50%, rgba(103,142,255,0.7)70%, rgba(33,194,255,0.7)100% );
+                width: 100%;
+                height: 100%;
+                background-position: 50% 500%;
+                margin: 0 0;
             }
         }
 
-        /* 배경이미지 돌리는 법 */
-        .outline_line::before {
-            content: "";
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            top: -50%;
-            left: -70%;
-            z-index: -3;
-            background: url(../static/img/bg_img.jpg) 0 0 repeat;
-            transform: rotate(-270deg);
-            background-size: 180%;
-            opacity: 0.7;
+        @media (width : 380px) {
+            .outline_line.Edit_info {
+                background: linear-gradient( -45deg, rgba(233, 127, 148, 0.7)0%, rgba(172,76,254,0.7)35%, rgba(112,111,255,0.7)50%, rgba(103,142,255,0.7)70%, rgba(33,194,255,0.7)100% );
+                width: 100%;
+                height: 100%;
+                border-radius: 0px;
+                background-position: 50% 500%;
+                margin: 0 0;
+            }
         }
 
+
+        /* 배경이미지 돌리는 법 */
+        .outline_line::before {
+            background: url(../static/img/bg_blend.png) 0 repeat fixed;
+            background-blend-mode: overlay;    
+        }
+
+
         /* 오버레이 이미지 */
-        .outline_line:first-child {
+        /* .outline_line:first-child {
             background: url(../static/img/bg_overay.png)0 0 repeat;
             background-size: 100%;
             background-position: 100% 250%;
             z-index: 1;
             background-blend-mode: overlay;
-        }
+        } */
 
         /* 회원 수정 폼 */
         .center {
@@ -129,7 +143,7 @@
         .center h1 {
             color: white;
             text-align: center;
-            font-size: 30px;
+            font-size: 25px;
             /* margin-top: 10%; */
             /* padding: 0 0 20px 0; */
         }
@@ -139,25 +153,29 @@
             color: white;
             text-align: center;
             font-size: 18px;
-            margin-top: 10%;
+            margin-top: 30%;
             }
         }
 
         form .txt_field {
             position: relative;
-            margin: 7% 5%;
+            margin: 5% 5%;
             height: 100%;
         }
 
         /* 인풋창 */
         .txt_field input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             min-width: 40%;
-            width: 320px;
-            height: 50px;
+            width: 300px;
+            height: 48px;
             margin: 0 auto;
-            padding-left: 30px;
+            padding-left: 35px;
             /* padding-left: 40px; */
             /* font-size: 18px; */
+            font-size: 15px;
             background-color: rgba(186, 186, 186, 0.3);
             border-radius: 45px;
             border: none;
@@ -165,9 +183,10 @@
 
         @media (max-width : 380px) {
             .txt_field input {
-                width: 200px;
-                height: 40px;
-                font-size: 10px;
+                width: 250px;
+                height: 45px;
+                padding-left: 25px;
+                font-size: 13px;
                 z-index: 6;
             }
         }
@@ -180,9 +199,9 @@
 
         /* 수정 버튼 */
         #Edit_btn {
-            width: 320px;
-            height: 50px;
-            margin-left: 25%;
+            width: 300px;
+            height: 48px;
+            margin-left: 20%;
             background-color: #FE2983;
             border: none;
             font-size: 15px;
@@ -193,20 +212,21 @@
 
         @media (max-width : 380px) {
             #Edit_btn {
-                width: 200px;
-                height: 40px;
+                width: 250px;
+                height: 45px;
                 font-size: 13px;
                 font-weight: medium;
-                margin-left: 15%;
+                margin-left: 17%;
                 margin-top: -0%;
             }
         }
 
         /* 회원 탈퇴 버튼 */
         #secession_btn {
-            width: 320px;
-            height: 50px;
-            margin-left: 25%;
+            width: 300px;
+            height: 48px;
+            margin-left: 20%;
+            margin-top: 5px;
             border: none;
             box-shadow: 0 0 0 3px #FE2983 inset;
             background-color: rgba(0, 0, 0, 0);
@@ -217,11 +237,11 @@
 
         @media (max-width : 380px) {
             #secession_btn {
-                width: 200px;
-                height: 40px;
+                width: 250px;
+                height: 45px;
                 font-size: 13px;
                 font-weight: medium;
-                margin-left: 15%;
+                margin-left: 17%;
                 margin-top: -0%;
             }
         };
