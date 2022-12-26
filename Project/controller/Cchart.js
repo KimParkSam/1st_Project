@@ -50,27 +50,27 @@ exports.allChart = (req, res) => {
 
                                                     });
                                                 } else {
-                                                    res.status(503).render('503');
+                                                    res.status(500).render('500');
                                                 }
                                             });
                                         } else {
-                                            res.status(503).render('503');
+                                            res.status(500).render('500');
                                         }
                                     });
                                 } else {
-                                    res.status(503).render('503');
+                                    res.status(500).render('500');
                                 }
                             });
                         } else {
-                            res.status(503).render('503');
+                            res.status(500).render('500');
                         }
                     });
                 } else {
-                    res.status(503).render('503');
+                    res.status(500).render('500');
                 }
             });
         } else {
-            res.status(503).render('503');
+            res.status(500).render('500');
         }
     });
 }
@@ -107,7 +107,7 @@ exports.youtubeRealChartMain = (req, res) => {
                     res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
                 }
             } else {
-                res.status(503).render('503');
+                res.status(500).render('500');
             }
         });
     });
@@ -144,7 +144,7 @@ exports.youtubeRealChartMainType = (req, res) => {
                 }
 
             } else {
-                res.status(503).render('503');
+                res.status(500).render('500');
             }
         });
     });
@@ -177,7 +177,7 @@ exports.youtubeMovieChart = (req, res) => {
                 }
 
             } else {
-                res.status(503).render('503');
+                res.status(500).render('500');
             }
         });
     });
@@ -215,7 +215,7 @@ exports.youtubeMovieChartType = (req, res) => {
                 }
 
             } else {
-                res.status(503).render('503');
+                res.status(500).render('500');
             }
         });
     });
@@ -249,7 +249,7 @@ exports.melonRealChartMain = (req, res) => {
                 }
 
             } else {
-                res.status(503).render('503');
+                res.status(500).render('500');
             }
         });
     });
@@ -287,7 +287,7 @@ exports.melonRealChartMainType = (req, res) => {
                 }
 
             } else {
-                res.status(503).render('503');
+                res.status(500).render('500');
             }
         });
     });
@@ -322,7 +322,7 @@ exports.melonDayChartMain = (req, res) => {
                 }
 
             } else {
-                res.status(503).render('503');
+                res.status(500).render('500');
             }
         });
     });
@@ -360,7 +360,7 @@ exports.melonDayChartMainType = (req, res) => {
                 }
 
             } else {
-                res.status(503).render('503');
+                res.status(500).render('500');
             }
         });
     });
@@ -398,7 +398,7 @@ exports.genieRealChartMain = (req, res) => {
                 }
 
             } else {
-                res.status(503).render('503');
+                res.status(500).render('500');
             }
         });
     });
@@ -436,7 +436,7 @@ exports.genieRealChartMainType = (req, res) => {
                 }
 
             } else {
-                res.status(503).render('503');
+                res.status(500).render('500');
             }
         });
     });
@@ -473,7 +473,7 @@ exports.genieMovieChartMain = (req, res) => {
                 }
 
             } else {
-                res.status(503).render('503');
+                res.status(500).render('500');
             }
         });
     });
@@ -511,7 +511,7 @@ exports.genieMovieChartMainType = (req, res) => {
                 }
 
             } else {
-                res.status(503).render('503');
+                res.status(500).render('500');
             }
         });
     });
