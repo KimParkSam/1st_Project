@@ -313,23 +313,26 @@ window.addEventListener('DOMContentLoaded', event => {
             if(flag) {
                 chooseMsg = confirm('좋아요를 삭제하시겠습니까?');
                 // 좋아요 삭제
-                axios({
-                    method: 'post',
-                    url: '/Chart/likeSingDelete',
-                    data: {
-                        likeTitle: likeParent.children[3].textContent,
-                        likeSinger: likeParent.children[4].textContent,
-                        likeImg: likeParent.children[2].querySelector('img').src,
-                        flag: flag
-                    }
-                }).then((response) => {
-                    // console.log('b', response);
-                    img.src='./static/res/image/empty_heart.png';
-                    img.style='width: 30px; cursor: pointer;';
-                    img.setAttribute("onclick",`likeSingEvent(this, 0, ${status})`);
-                    e.parentElement.append(img);
-                    e.remove();
-                });
+                // OK 버튼 클릭
+                if(chooseMsg) {
+                    axios({
+                        method: 'post',
+                        url: '/Chart/likeSingDelete',
+                        data: {
+                            likeTitle: likeParent.children[3].textContent,
+                            likeSinger: likeParent.children[4].textContent,
+                            likeImg: likeParent.children[2].querySelector('img').src,
+                            flag: flag
+                        }
+                    }).then((response) => {
+                        // console.log('b', response);
+                        img.src='./static/res/image/empty_heart.png';
+                        img.style='width: 30px; cursor: pointer;';
+                        img.setAttribute("onclick",`likeSingEvent(this, 0, ${status})`);
+                        e.parentElement.append(img);
+                        e.remove();
+                    });
+                }
 
             } else {
                 chooseMsg = confirm('좋아요를 등록하시겠습니까?');
