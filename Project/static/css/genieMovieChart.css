@@ -243,7 +243,7 @@ table > tfoot > tr > td > ul > li {
 }
 
 @media (max-width: 768px) {
-    /* 랭킹 변화, 앨범 명 */
+    /* 지난주 랭킹, 차트 지속기간 */
     thead > tr > td:nth-child(2),
     thead > tr > td:nth-child(6) {
         display: none !important;
@@ -252,8 +252,9 @@ table > tfoot > tr > td > ul > li {
     tbody > tr > td:nth-child(6) {
         display: none !important;
     }
-    tfoot > tr > td:nth-child(2),
-    tfoot > tr > td:nth-child(5) {
+
+    tfoot > tr > td:nth-child(1),
+    tfoot > tr > td:nth-child(2) {
         display: none !important;
     }
 }

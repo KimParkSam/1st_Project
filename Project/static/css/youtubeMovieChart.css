@@ -237,8 +237,9 @@ table > tfoot > tr > td > ul > li {
     tbody > tr > td:nth-child(6) {
         display: none !important;
     }
-    tfoot > tr > td:nth-child(2),
-    tfoot > tr > td:nth-child(5) {
+
+    tfoot > tr > td:nth-child(1),
+    tfoot > tr > td:nth-child(2) {
         display: none !important;
     }
 }
