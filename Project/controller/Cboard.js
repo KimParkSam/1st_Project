@@ -151,7 +151,6 @@ exports.update_number = (req,res) => {
 exports.update = (req, res) => {
     console.log( "user+_update");
     console.log('test', req.file);
-    console.log('test2', req.file.filename.toString('utf8'));
     let data = {
         title: req.body.title,
         id : req.body.id,
