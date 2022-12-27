@@ -134,6 +134,29 @@
                 });
         }
 
+        function toggleNav(){
+            if(document.body.clientWidth < 991) {
+                $("#layoutSidenav #fullpage").on('click', ()=>{
+                    if( $("body").hasClass("sb-sidenav-toggled") ) {
+                        $("#sidebarToggle").click();
+                    }
+                })
+            }
+        }
+
+        $(window).ready(()=>{
+            toggleNav();
+        })
+
+
+        $(window).resize(()=>{
+            toggleNav();
+        })
+
+        console.log($($("#layoutSidenav #fullpage")));
+
+        
+
     </script>
 
 </body>
