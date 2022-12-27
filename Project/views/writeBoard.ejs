@@ -102,11 +102,11 @@
 
         <div id="layoutSidenav_content">
             <!-- 본문 데이터 -->
-            <div class="board_title" style="color:white;" data-aos="fade-right" data-aos-delay="600"> 자유게시판</div>
+            <div class="board_title" style="color:white;"> </div>
             <div class="background_all row" data-aos="fade-right" data-aos-delay="800">
                 <div class="board_wrap ">
-
-                <form id="form_write"> 
+                    <div style="color: white;" class="board_t" data-aos="fade-right" data-aos-delay="600">자유게시판</div>
+                <form id="form_write" data-aos="fade-right" data-aos-delay="800"> 
                     <div class="board_write_wrap">
                         <div class="board_write">
                             <div class="title">
@@ -125,12 +125,12 @@
                                 <textarea id='form_content' name="content" placeholder="내용 입력"></textarea>
                             </div>
                         </div>
-                        <h5> 파일업로드</h5>
-                        <input type="file" name="boardfile">
+                        <!-- <h5> 파일업로드</h5> -->
+                        <input type="file" id="board_file" name="boardfile" data-aos="fade-right" data-aos-delay="800">
                     </div>
                 </form>
 
-                <div class="bt_wrap">
+                <div class="bt_wrap" data-aos="fade-right" data-aos-delay="800">
                     <button type="button" class="btn btn-outline-secondary"  id="btn_w" onclick="register();">등록</button>
                     <button type="button" class="btn btn-outline-secondary"  id="btn_c" onclick="document.location.href='/board'">취소</button>
                 </div>
