@@ -131,3 +131,16 @@ exports.update = (req, res) => {
     })
 }
 
+
+
+
+
+// 파일 있으면 코드 실행
+// if(req.file) {
+//     User.update({
+//         user_img : req.file.filename
+//     },
+//     { where :  { id : `${req.session.user}` } }
+//     );
+//     res.send({ path : req.file.filename });
+// }

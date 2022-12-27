@@ -30,8 +30,10 @@
   
    .board_title { 
       
-       padding:50px;
-    
+       padding:250px;
+       padding-top:80px;
+       padding-bottom:160px;
+        
        color: white;
        /* padding-right: 100rem; */
        font-weight: bold;
