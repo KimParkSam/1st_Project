@@ -150,7 +150,7 @@
     crawling_youtube = () => {
         axios({
             method: 'post',
-            url: '/crawling/youtubue',
+            url: '/crawling/youtube',
         }).then((response) => {
             const crawling_text = document.getElementById('crawling_text');
             if(response.data) {
