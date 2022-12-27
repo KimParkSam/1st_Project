@@ -105,11 +105,12 @@
 
         <div id="layoutSidenav_content">
             <!-- 본문 데이터 -->
-            <div class="board_title" style="color:white;" data-aos="fade-right" data-aos-delay="600"> 자유게시판</div>
-            <div class="background_all row " data-aos="fade-right" data-aos-delay="800" >
+            <!-- <div class="board_title" style="color:white;" data-aos="fade-right" data-aos-delay="600"> 자유게시판</div> -->
+            <div class="background_all row ">
+                
                 <div class="board_wrap col-12">
-                    
-                    <div class="board_view_wrap">
+                    <div style="color: white;" class="board_t" data-aos="fade-right" data-aos-delay="600">자유게시판</div>
+                    <div class="board_view_wrap" data-aos="fade-right" data-aos-delay="800">
                         <div class="board_view">
                             <div class="title">
                                 <%=data.title%>
@@ -137,7 +138,7 @@
                             
                             <% if ( data.filename != null ) { %>
                                     <% if ( data.filename.includes(".png") || data.filename.includes(".jpg")) { %>
-                                <div class="img"><img src="/static/board/<%=data.filename%>" width="500">  
+                                <div class="img"><img src="/static/board/<%=data.filename%>" width="70%">  
                                     <% } %>
                                 <% } %>
                                 </div>
@@ -150,7 +151,7 @@
                             <% } %>
                             <!-- 만약에, data의 파일이름이 null이 아니면, data의 파일을 보여주는 페이지를 열리게 하는 링크 코드+ a링크 사이에 data.filename을 써서 파일 이름을 바로 보여준다 -->
                         </div>
-                        <div class="bt_wrap">
+                        <div class="bt_wrap" data-aos="fade-right" data-aos-delay="800">
                             <% 
                                 if ( result.id == data.id && result.isLogin ) { 
                             %>
@@ -167,6 +168,7 @@
         </div>
     </div>
 
+    
     <script type="text/javascript">
         AOS.init({
             duration: 1000
