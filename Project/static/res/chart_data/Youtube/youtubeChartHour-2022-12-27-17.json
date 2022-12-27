@@ -11,16 +11,6 @@
 			"link": "https://www.youtube.com/watch?v=pSUydWEqKwE"
 		},
 		{
-			"title": "Event Horizon (사건의 지평선)",
-			"rank": "2",
-			"lastWeekRank": "지난주 #1",
-			"albumImg": "https://i.ytimg.com/vi/j1uXcHwLhHM/mqdefault.jpg",
-			"singer": "윤하",
-			"chartDuration": "36주",
-			"views": "4.42M",
-			"link": "https://www.youtube.com/watch?v=j1uXcHwLhHM"
-		},
-		{
 			"title": "Hype Boy",
 			"rank": "3",
 			"lastWeekRank": "지난주 #3",
@@ -29,6 +19,16 @@
 			"chartDuration": "22주",
 			"views": "3.62M",
 			"link": "https://www.youtube.com/watch?v=11cta61wi0g"
+		},
+		{
+			"title": "Event Horizon (사건의 지평선)",
+			"rank": "2",
+			"lastWeekRank": "지난주 #1",
+			"albumImg": "https://i.ytimg.com/vi/j1uXcHwLhHM/mqdefault.jpg",
+			"singer": "윤하",
+			"chartDuration": "36주",
+			"views": "4.42M",
+			"link": "https://www.youtube.com/watch?v=j1uXcHwLhHM"
 		},
 		{
 			"title": "Candy",

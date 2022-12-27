@@ -55,8 +55,8 @@ exports.melonCrawlingFunction = (cb) => {
                 const rank = $(list).find("td:nth-child(2) > div > span.rank").text();
                 let rankVariance = $(list).find("td:nth-child(3) > div > span").attr('title');
                 const albumImg = $(list).find("td:nth-child(4) > div > a > img").attr('src');
-                const title = $(list).find("td:nth-child(6) > div > div > div.ellipsis.rank01 > span > a").text();
-                const singer = $(list).find("td:nth-child(6) > div > div > div.ellipsis.rank02 > a").text();
+                let title = $(list).find("td:nth-child(6) > div > div > div.ellipsis.rank01 > span > a").text();
+                let singer = $(list).find("td:nth-child(6) > div > div > div.ellipsis.rank02 > a").text();
                 const albumTitle = $(list).find("td:nth-child(7) > div > div > div > a").text();
                 // 좋아요 수를 불러오는데 앞에 불필요한 텍스트를 자르고 숫자만 가져온다.  \n총 건수\n123,451 => slic함수로 123,451만 가져온다.
                 const likeCount = $(list).find("td:nth-child(8) > div > button > span.cnt").text().slice(5);
@@ -76,6 +76,14 @@ exports.melonCrawlingFunction = (cb) => {
                 } else if(rankVariance.includes("순위 진입") === true) {
                     rankVariance = rankVariance.replace("순위 진입", "NEW");
                 }
+
+                // ' 기호나 & 기호가 있으면 좋아요 함수가 제대로 안먹는 현상 발견
+                // replace로 ' 는 삭제하고 &는 and 텍스트로 변경
+                title = title.replaceAll("'", "");
+                title = title.replaceAll("&", "and");
+                singer = singer.replaceAll("'", "");
+                singer = singer.replaceAll("&", "and");
+
 
                 // 데이터 저장 변수 설정 및 데이터 저장
                 let obj = {
@@ -170,8 +178,8 @@ exports.melonDayCrawlingFunction = (cb) => {
                 const rank = $(list).find("td:nth-child(2) > div > span.rank").text();
                 let rankVariance = $(list).find("td:nth-child(3) > div > span").attr('title');
                 const albumImg = $(list).find("td:nth-child(4) > div > a > img").attr('src');
-                const title = $(list).find("td:nth-child(6) > div > div > div.ellipsis.rank01 > span > a").text();
-                const singer = $(list).find("td:nth-child(6) > div > div > div.ellipsis.rank02 > a").text();
+                let title = $(list).find("td:nth-child(6) > div > div > div.ellipsis.rank01 > span > a").text();
+                let singer = $(list).find("td:nth-child(6) > div > div > div.ellipsis.rank02 > a").text();
                 const albumTitle = $(list).find("td:nth-child(7) > div > div > div > a").text();
                 // 좋아요 수를 불러오는데 앞에 불필요한 텍스트를 자르고 숫자만 가져온다.  \n총 건수\n123,451 => slic함수로 123,451만 가져온다.
                 const likeCount = $(list).find("td:nth-child(8) > div > button > span.cnt").text().slice(5);
@@ -191,6 +199,13 @@ exports.melonDayCrawlingFunction = (cb) => {
                 // console.log({
                 //    index, title, rank, rankVariance, albumImg, title, singer, albumTitle, likeCount
                 // });
+
+                // ' 기호나 & 기호가 있으면 좋아요 함수가 제대로 안먹는 현상 발견
+                // replace로 ' 는 삭제하고 &는 and 텍스트로 변경
+                title = title.replaceAll("'", "");
+                title = title.replaceAll("&", "and");
+                singer = singer.replaceAll("'", "");
+                singer = singer.replaceAll("&", "and");
 
                 // 데이터 저장 변수 설정 및 데이터 저장
                 let obj = {

@@ -114,6 +114,7 @@ router.get("/genieMovieChart/:num", controllerChart.genieMovieChartMainType);
 // 차트 페이지 - 좋아요 기능 (모든 차트보기 제외)
 router.post("/Chart/likeSingRegister", controllerLikeSing.LikeSingRegister);
 router.post("/Chart/likeSingDelete", controllerLikeSing.LikeSingDelete);
+router.post("/Chart/likeSing_ReSearch", controllerLikeSing.LikeSing_ReSearch);
 
 
 // 관리자 페이지 - 크롤링 수동 요청

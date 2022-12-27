@@ -6,18 +6,13 @@ likeDataMove = () => {
 
     // 처음 사용자가 좋아요 데이터가 없으면 차트 페이지의 js에서 에러 발생
     if('<%= result.likeSing.data.length %>' === 0) {
-        if('<%= result.isLogin %>') {
-            statusLogin = true;
-        } else {
-            statusLogin = false;
-        }
-
         obj = {
             "albumImg": '',
             "title": '',
-            "singer": '',
-            "statusLogin": statusLogin
+            "singer": ''
         }
+        
+
         temp.push(obj);
     } else {
         '<% for(let i = 0; i < result.likeSing.data.length; i++) { %>'
@@ -25,17 +20,10 @@ likeDataMove = () => {
             title = '<%= result.likeSing.data[i].title %>';
             singer = '<%= result.likeSing.data[i].singer %>';
 
-            if('<%= result.isLogin %>') {
-                statusLogin = true;
-            } else {
-                statusLogin = false;
-            }
-
             obj = {
                 "albumImg": albumImg,
                 "title": title,
-                "singer": singer,
-                "statusLogin": statusLogin
+                "singer": singer
             }
             
             temp.push(obj);

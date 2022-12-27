@@ -46,8 +46,8 @@ exports.youtubeCrawlingFunction = (cb) => {
             const rank = $(list).find("div.index-cell.style-scope.ytmc-chart-table > div.current-rank.style-scope.ytmc-chart-table > div.rank.style-scope.ytmc-chart-table").text();
             const lastWeekRank = $(list).find("div.index-cell.style-scope.ytmc-chart-table > div.previous-rank.style-scope.ytmc-chart-table > span").text();
             const albumImg = $(list).find("div.thumbnail-cell.style-scope.ytmc-chart-table > img").attr('src');
-            const title = $(list).find("div.title-cell.style-scope.ytmc-chart-table > div.entity-title.style-scope.ytmc-chart-table > ytmc-ellipsis-text > div > span").text();
-            const singer = $(list).find("div.title-cell.style-scope.ytmc-chart-table > div.entity-subtitle.style-scope.ytmc-chart-table > ytmc-artists-list > div > span").text();
+            let title = $(list).find("div.title-cell.style-scope.ytmc-chart-table > div.entity-title.style-scope.ytmc-chart-table > ytmc-ellipsis-text > div > span").text();
+            let singer = $(list).find("div.title-cell.style-scope.ytmc-chart-table > div.entity-subtitle.style-scope.ytmc-chart-table > ytmc-artists-list > div > span").text();
             const chartDuration = $(list).find("div.chart-period-cell.style-scope.ytmc-chart-table > div > span").text();
             const views = $(list).find("div.views-cell.style-scope.ytmc-chart-table > div > span").text();
             let link = $(list).find("div.thumbnail-cell.style-scope.ytmc-chart-table > img").attr('endpoint');
@@ -63,6 +63,13 @@ exports.youtubeCrawlingFunction = (cb) => {
             // console.log({
             //    index, title, rank, lastWeekRank, albumImg, title, singer, chartDuration, views, link
             // });
+
+            // ' 기호나 & 기호가 있으면 좋아요 함수가 제대로 안먹는 현상 발견
+            // replace로 ' 는 삭제하고 &는 and 텍스트로 변경
+            title = title.replaceAll("'", "");
+            title = title.replaceAll("&", "and");
+            singer = singer.replaceAll("'", "");
+            singer = singer.replaceAll("&", "and");
 
             // 데이터 저장 변수 설정 및 데이터 저장
             let obj = {
@@ -149,8 +156,8 @@ exports.youtubeMovieCrawlingFunction = (cb) => {
             const rank = $(list).find("div.index-cell.style-scope.ytmc-chart-table > div.current-rank.style-scope.ytmc-chart-table > div.rank.style-scope.ytmc-chart-table").text();
             const lastWeekRank = $(list).find("div.index-cell.style-scope.ytmc-chart-table > div.previous-rank.style-scope.ytmc-chart-table > span").text();
             const albumImg = $(list).find("div.thumbnail-cell.style-scope.ytmc-chart-table > img").attr('src');
-            const title = $(list).find("div.title-cell.style-scope.ytmc-chart-table > div.entity-title.style-scope.ytmc-chart-table > ytmc-ellipsis-text > div > span").text();
-            const singer = $(list).find("div.title-cell.style-scope.ytmc-chart-table > div.entity-subtitle.style-scope.ytmc-chart-table > ytmc-artists-list > div > span").text();
+            let title = $(list).find("div.title-cell.style-scope.ytmc-chart-table > div.entity-title.style-scope.ytmc-chart-table > ytmc-ellipsis-text > div > span").text();
+            let singer = $(list).find("div.title-cell.style-scope.ytmc-chart-table > div.entity-subtitle.style-scope.ytmc-chart-table > ytmc-artists-list > div > span").text();
             const chartDuration = $(list).find("div.chart-period-cell.style-scope.ytmc-chart-table > div > span").text();
             const views = $(list).find("div.views-cell.style-scope.ytmc-chart-table > div > span").text();
             let link = $(list).find("div.thumbnail-cell.style-scope.ytmc-chart-table > img").attr('endpoint');
@@ -166,6 +173,14 @@ exports.youtubeMovieCrawlingFunction = (cb) => {
             // console.log({
             //    index, title, rank, lastWeekRank, albumImg, title, singer, chartDuration, views, link
             // });
+
+            // ' 기호나 & 기호가 있으면 좋아요 함수가 제대로 안먹는 현상 발견
+            // replace로 ' 는 삭제하고 &는 and 텍스트로 변경
+            title = title.replaceAll("'", "");
+            title = title.replaceAll("&", "and");
+            singer = singer.replaceAll("'", "");
+            singer = singer.replaceAll("&", "and");
+
 
             // 데이터 저장 변수 설정 및 데이터 저장
             let obj = {
