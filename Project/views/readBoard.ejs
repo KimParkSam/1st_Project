@@ -8,7 +8,130 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+     <!-- 기본 Head 태그 CDN 참조 파일 -->
+     <%- include('Head_CDN') %>
+
+     <!-- basicBoard 데이터 변환용 파일 - 게시판 리스트 출력 용 -->
+   
+ 
+     <!-- basicBoard 전용 스크립트 파일 -->
+     <script type="text/javascript" ></script>
+ 
+     <!-- basicBoard 전용 CSS -->
+     <!-- <link href="/static/css/basicBoard.css" rel="stylesheet" /> -->
+
 </head>
+
+
+<body class="sb-nav-fixed">
+    <section>
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand--> <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-lg-0  ps-3" id="sidebarToggle" href="#!">
+                <i class="bi bi-justify main-color"></i></button>
+            <a class="navbar-brand ps-4" href="/">KSP</a>
+
+
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+
+                <!-- 로그아웃 때 보이는 버튼 -->
+                <div id="default-btn">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href = '/login'">로그인</button>
+                </div>
+
+                <!-- 로그인 때 보이는 버x튼 -->
+                <ul class="navbar-nav logout-btn d-none dropstart">
+                    <li class="nav-item dropdown">
+                        <a  href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical main-color"></i></a>
+
+                        <ul id='loginCheck' class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/mypage">마이페이지</a></li>
+                            <li><a class="dropdown-item" href="/Edit_info">회원정보 수정</a></li>
+                            <li><a class="dropdown-item" onclick="user_logout()">로그아웃</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </ul>
+        </nav>
+    </section>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark">
+                <div class="sb-sidenav-menu bg-dark">
+                    <div class="nav">
+                        <br>
+                        <a class="nav-link" href="/allChart">&nbsp&nbsp<i style="margin-top: 5px;" class="bi bi-disc-fill main-color"></i>&nbsp&nbsp&nbsp차트 모아보기</a>
+                        <br>
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <img src="static/res/image/logo_youtube.png" width="35px">
+                            &nbspYouTube
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/youtubeRealChart">실시간 음원순위</a>
+                                <a class="nav-link" href="/youtubeMovieChart">뮤직비디오 순위</a>
+                            </nav>
+                        </div>
+
+                        <br>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
+                            <img src="static/res/image/logo_melon.png" width="35px">
+                            &nbspMelon
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/melonRealChart">실시간 음원순위</a>
+                                <a class="nav-link" href="/melonDayChart">일간 순위</a>
+                            </nav>
+                        </div>
+                        <br>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
+                            <img src="static/res/image/logo_genie.png" width="35px">
+                            &nbspGenie
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/genieRealChart">실시간 음원순위</a>
+                                <a class="nav-link" href="/genieMovieChart">뮤직비디오 순위</a>
+                            </nav>
+                        </div>
+                        <br>
+
+                        <a class="nav-link" href="/board">&nbsp&nbsp<i style="margin-top: 5px;" class="bi bi-chat-square-text main-color"></i>&nbsp&nbsp&nbsp자유 게시판</a>
+
+                    </div>
+                </div>
+                <!-- <div class="sb-sidenav-footer">
+                    <div class="small">music</div>
+                    음악플레이어
+                </div> -->
+
+            </nav>
+        </div>
+<!-- 
+        <div id="layoutSidenav_content">
+            본문 데이터
+            <%- include('indexContent') %>
+        </div> -->
+    </div>
+
+    <script type="text/javascript">
+        AOS.init({
+            duration: 1000
+        });
+    </script>
+
+
+
+
 <style>
        .background_all {
         
@@ -22,24 +145,23 @@
 
         
     body {
-   
-   background-image: linear-gradient(to bottom, rgb(0 0 0) 0%, rgb(1 2 24) 50%, rgb(8 0 14 / 83%) 100%);
-   height: 100%;
-   background-attachment:fixed;
+    
+        background-image: linear-gradient(to bottom, rgb(0 0 0) 0%, rgb(1 2 24) 50%, rgb(8 0 14 / 83%) 100%);
+        height: 100%;
+        background-attachment:fixed;
+    }
 
-
-
- }
    .row {
-     --bs-gutter-x: 0rem;
-   }
+       --bs-gutter-x: 0rem;
+    }
 
    .board_wrap {
-    width: 1100px;
-    margin: auto;
+        width: 1100px;
+        margin: auto;
+        margin-top: 30px;
     
     
-  }
+    }
   
    .board_title { 
       
@@ -52,166 +174,177 @@
        text-align:left !important;
     
     
-   }
+    }
       
       
-        div.board_view{
-            border-top: 1px solid white;
-        }
+    div.board_view{
+        border-top: 1px solid white;
+    }
 
-        div.title ,dl,dd {
-            color:white;
-        }
-        .board_view {
-            width: 100%;
-            border-top: 2px solid #000;
-        }
+    div.title ,dl,dd {
+        color:white;
+    }
+    .board_view {
+        width: 100%;
+        border-top: 2px solid #000;
+    }
 
-        .board_view .title {
-            padding: 20px 50px;
-            border-bottom: 1px dashed #ddd;
-            font-size: 2rem;
-        }
+    .board_view .title {
+        padding: 20px 50px;
+        border-bottom: 1px dashed #ddd;
+        font-size: 1.5rem;
+    }
 
-        .board_view .info {
-            padding: 50px;
-            border-bottom: 1px solid #999;
-            font-size: 1px;
-            padding-top:20px;
-            padding-bottom:0px;
-        }
+    .board_view .info {
+        padding: 50px;
+        border-bottom: 1px solid #999;
+        font-size: 1px;
+        padding-top:20px;
+        padding-bottom:0px;
+    }
 
-        .board_view .info dl {
-            position: relative;
-            display: inline-block;
-            padding: 0 20px;
-        }
+    .board_view .info dl {
+        position: relative;
+        display: inline-block;
+        padding: 0 20px;
+    }
 
-        .board_view .info dl:first-child {
-            padding-left: 0;
-        }
+    .board_view .info dl:first-child {
+        padding-left: 0;
+    }
 
-        .board_view .info dl::before {
-            content: "";
-            position: absolute;
-            top: 1px;
-            left: 0;
-            display: block;
-            width: 1px;
-            height: 30px;
-            background: #ddd;
-        }
+    .board_view .info dl::before {
+        content: "";
+        position: absolute;
+        top: 1px;
+        left: 0;
+        display: block;
+        width: 1px;
+        height: 30px;
+        background: #ddd;
+    }
 
-        .board_view .info dl:first-child::before {
-            display: none;
-        }
+    .board_view .info dl:first-child::before {
+        display: none;
+    }
 
-        .board_view .info dl dt,
-        .board_view .info dl dd {
-            display: inline-block;
-            font-size: 1.4rem;
-           
-        }
+    .board_view .info dl dt,
+    .board_view .info dl dd {
+        display: inline-block;
+        font-size: 1.0rem;
+        
+    }
 
-        .board_view .info dl dd {
-            margin-left: 10px;
-            color: #777;
-        }
+    .board_view .info dl dd {
+        margin-left: 10px;
+        color: #777;
+    }
 
-        .board_view .cont {
-            padding: 60px;
-            border-bottom: 1px solid white;
-            line-height: 160%;
-            font-size: 2rem;
-            color:white;
-        }
+    .board_view .cont {
+        padding-left:35px;
+        padding: 50px;
+        border-bottom: 1px solid white;
+        line-height: 160%;
+        font-size: 1.5rem;
+        color:white;
+    }
 
-        .bt_wrap {
-            margin-top: 30px;
-            text-align: center;
-            font-size:30px;
-           
-        }
-        .btn-outline-secondary {
-            --bs-btn-color: white;
-            --bs-btn-border-color:#FE2983;
-            --bs-btn-hover-bg:#FE2983;
-            --bs-btn-hover-border-color:#FE2983;
-        }
+    .bt_wrap {
+        margin-top: 30px;
+        text-align: center;
+        font-size:30px;
+        
+    }
+    .btn-outline-secondary {
+        --bs-btn-color: white;
+        --bs-btn-border-color:#FE2983;
+        --bs-btn-hover-bg:#FE2983;
+        --bs-btn-hover-border-color:#FE2983;
+    }
 
-        #lv-ad-57 {
-            min-width: 70%;
-        }
-        #container {
-            width: 60%;
-        }
-        div.reaction-items.counts-visible
-        {width:50%;
-         height: 20px;
-        }
-        div.reactions__container{
-            margin-top:100px;
-        }
-        /* #reactions .reaction-items .reaction-item .reaction-item__button--refresh, #reactions-promotion .reaction-items .reaction-item .reaction-item__button--refresh
-         {
-            background-color: transparent;} */
-         .form-refresh .textarea-wrapper {
-             border-radius: 20px;
-             background-color: transparent;
-            }
+    #lv-ad-57 {
+        min-width: 70%;
+    }
+    #container {
+        width: 60%;
+    }
+    div.reaction-items.counts-visible
+    {width:50%;
+        height: 20px;
+    }
+    div.reactions__container{
+        margin-top:100px;
+    }
+    /* #reactions .reaction-items .reaction-item .reaction-item__button--refresh, #reactions-promotion .reaction-items .reaction-item .reaction-item__button--refresh
+        {
+        background-color: transparent;} */
+    .form-refresh .textarea-wrapper {
+        border-radius: 20px;
+        background-color: transparent;
+    }
 
-            @media (max-width: 540px) {
-                /* .board_wrap {
-                width: 100%;
-                min-width: 320px;
-                padding: 0 30px;
-                box-sizing: border-box;
-            }
+    @media (max-width: 540px) {
+        /* .board_wrap {
+        width: 100%;
+        min-width: 320px;
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
 
 
-             .board_view .info dl {
-                padding: 0;
-                width: 50%;
-            }
+    .board_view .info dl {
+        padding: 0;
+        width: 50%;
+    }
 
-            .board_view .info dl:nth-child(-n+2) {
-                margin-bottom: 5px;
-            } */
+    .board_view .info dl:nth-child(-n+2) {
+        margin-bottom: 5px;
+    } */
 
-            .board_view .info dl::before {
-                display: none;
-            }
+    .board_view .info dl::before {
+        display: none;
+    }
 
-            /* .board_view .info dl dt,
-            .board_view .info dl dd {
-                font-size: 1.2rem;
-            } */
-             .board_view .info dl {
-                padding: 0;
-                
-            }
+    /* .board_view .info dl dt,
+    .board_view .info dl dd {
+        font-size: 1.2rem;
+    } */
+    .board_view .info dl {
+        padding: 0;
+        
+    }
 
-            .board_view .info  {
-                padding-left: 15px;
-                padding-top: 20px;
-                padding-bottom:0px;
-                padding-right:0px;
-            }
+    .board_view .title {
+
+    padding: 20px 30px;
+    }
+
+    .board_view .info  {
+        padding-left: 30px;
+        padding-top: 20px;
+        padding-bottom:0px;
+        padding-right:0px;
+    }
+    
+    /* dl{
+        margin-left:20px;
+    } */
+    .board_view .info dl:nth-child(2) {
+        margin-left: 150px;
+    }
+    .board_view .info dl:nth-child(4) {
+        margin-left: 50px;
+    }   
+    .board_wrap {
+        width:380px;
+    }    
+    
+    
+    .board_view .cont {
+        padding-left: 35px;
             
-            /* dl{
-                margin-left:20px;
-            } */
-            .board_view .info dl:nth-child(2) {
-                margin-left: 150px;
-            }
-            .board_view .info dl:nth-child(4) {
-                margin-left: 15px;
-            }   
-            .board_wrap {
-                width:380px;
-             }    
-            
-        }
+    }
+}
 </style>
 
 <body>
