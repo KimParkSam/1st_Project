@@ -21,6 +21,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     
                     if(likeSingData[index].title == data[i].title && likeSingData[index].singer == data[i].singer) {
                         heart_falg[i] = '1';
+                        continue;
                     } else {
                         heart_falg[i] = '0';
                     }
@@ -38,6 +39,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     
                     if(likeSingData[index].title == data[i].title && likeSingData[index].singer == data[i].singer) {
                         heart_falg[i] = '1';
+                        continue;
                     } else {
                         heart_falg[i] = '0';
                     }
