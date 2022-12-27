@@ -59,8 +59,8 @@ exports.genieCrawlingFunction = (cb) => {
                 const rankVariance = $(list).find("td.number > span > span > span").text();
                 const albumImg = $(list).find("td:nth-child(3) > a > img").attr('src');
                 // title의 경우 더미 값이 추가 되지만 rank랑은 조금 다르게 가져와진다. trim 함수로 띄어쓰기를 제거하여 원하는 값만 가져온다.
-                const title = $(list).find("td.info > a.title.ellipsis").text().trim();
-                const singer = $(list).find("td.info > a.artist.ellipsis").text();
+                let title = $(list).find("td.info > a.title.ellipsis").text().trim();
+                let singer = $(list).find("td.info > a.artist.ellipsis").text();
                 const albumTitle = $(list).find("td.info > a.albumtitle.ellipsis").text();
                 let detailLink = $(list).find("td.link > a").attr('onclick');
                 
@@ -83,6 +83,13 @@ exports.genieCrawlingFunction = (cb) => {
                 //     // 2번째 실행 시 index가 다시 0부터 올라와서 콘솔창에서 보면 헷갈릴 수도 있습니다.
                 //     index, title, rank, rankVariance, albumImg, title, singer, albumTitle, detailLink
                 // });
+
+                // ' 기호나 & 기호가 있으면 좋아요 함수가 제대로 안먹는 현상 발견
+                // replace로 ' 는 삭제하고 &는 and 텍스트로 변경
+                title = title.replaceAll("'", "");
+                title = title.replaceAll("&", "and");
+                singer = singer.replaceAll("'", "");
+                singer = singer.replaceAll("&", "and");
 
                 // 데이터 저장 변수 설정 및 데이터 저장
                 let obj = {
@@ -214,8 +221,8 @@ exports.genieMovieCrawlingFunction = (cb) => {
                 const rankVariance = $(list).find("td.number > span > span > span").text();
                 const albumImg = $(list).find("td:nth-child(2) > a > img").attr('src');
                 // title의 경우 더미 값이 추가 되지만 rank랑은 조금 다르게 가져와진다. trim 함수로 띄어쓰기를 제거하여 원하는 값만 가져온다.
-                const title = $(list).find("td.info > a.title.ellipsis").attr('title');
-                const singer = $(list).find("td.info > a.artist.ellipsis").text();
+                let title = $(list).find("td.info > a.title.ellipsis").attr('title');
+                let singer = $(list).find("td.info > a.artist.ellipsis").text();
                 const albumTitle = $(list).find("td.info > a.albumtitle.ellipsis").text();
                 let detailLink = $(list).find("td.info > a.title.ellipsis").attr('onclick');
                 
@@ -238,6 +245,13 @@ exports.genieMovieCrawlingFunction = (cb) => {
                 //     // 2번째 실행 시 index가 다시 0부터 올라와서 콘솔창에서 보면 헷갈릴 수도 있습니다.
                 //     index, title, rank, rankVariance, albumImg, title, singer, albumTitle, detailLink
                 // });
+
+                // ' 기호나 & 기호가 있으면 좋아요 함수가 제대로 안먹는 현상 발견
+                // replace로 ' 는 삭제하고 &는 and 텍스트로 변경
+                title = title.replaceAll("'", "");
+                title = title.replaceAll("&", "and");
+                singer = singer.replaceAll("'", "");
+                singer = singer.replaceAll("&", "and");
 
                 // 데이터 저장 변수 설정 및 데이터 저장
                 let obj = {

@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     
                     if(likeSingData[index].title == data[i].title && likeSingData[index].singer == data[i].singer) {
                         heart_falg[i] = '1';
-                        continue;
+                        break;
                     } else {
                         heart_falg[i] = '0';
                     }
@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     
                     if(likeSingData[index].title == data[i].title && likeSingData[index].singer == data[i].singer) {
                         heart_falg[i] = '1';
-                        continue;
+                        break;
                     } else {
                         heart_falg[i] = '0';
                     }
@@ -65,10 +65,10 @@ window.addEventListener('DOMContentLoaded', event => {
                     <td class="table-dark">${data[i].totalNumPlay}</td>`;
 
                     if(heart_falg[i] == '1') {
-                        temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1, ${likeSingData[0].statusLogin})'></td>
+                        temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
                         </tr>`;
                     } else {
-                        temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0, ${likeSingData[0].statusLogin})'></td>
+                        temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0)'></td>
                         </tr>`;
                     }
             }
@@ -87,10 +87,10 @@ window.addEventListener('DOMContentLoaded', event => {
                     <td class="table-dark">${data[i].totalNumPlay}</td>`;
 
                     if(heart_falg[i] == '1') {
-                        temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1, ${likeSingData[0].statusLogin})'></td>
+                        temp += `<td class="table-dark"><img src='./static/res/image/full_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 1)'></td>
                         </tr>`;
                     } else {
-                        temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0, ${likeSingData[0].statusLogin})'></td>
+                        temp += `<td class="table-dark"><img src='./static/res/image/empty_heart.png' style='width: 30px; cursor: pointer;' onclick='likeSingEvent(this, 0)'></td>
                         </tr>`;
                     }
             }
@@ -204,15 +204,23 @@ window.addEventListener('DOMContentLoaded', event => {
     // 그러나 widnow를 이용하여 함수를 작성하면 정상적으로 작동한다.
     // 하단 페이지 버튼 클릭 시 실행되는 함수
     window.pageBtnMove = (btnId, viewCount) => {
-        // console.log(btnId);
+        axios({
+            method: 'post',
+            url: '/Chart/likeSing_ReSearch'
+        }).then((response) => {
+            // console.log(response.data.result.likesing);
+            likeSingData = response.data.result.likesing;
+            // console.log(btnId);
 
-        // 페이지 번호 클릭 후 새로운 데이터 출력
-        tableData(ejsDataGenieMovie, viewCount, btnId);
+            // 페이지 번호 클릭 후 새로운 데이터 출력
+            tableData(ejsDataGenieMovie, viewCount, btnId);
 
-        // 페이지 하단 번호 변경 작업
-        let info = pageAlgo(ejsDataGenieMovie.length, 3, viewCount, btnId);
-        pageBtn(info);
-        rankColorChange();
+            // 페이지 하단 번호 변경 작업
+            let info = pageAlgo(ejsDataGenieMovie.length, 3, viewCount, btnId);
+            pageBtn(info);
+            rankColorChange();
+        });
+        
     }
 
     // 외부 JS 파일에서 작성하면 ejs 파일의 태그에서 이벤트를 인식 못하는 에러가 발생한다.
@@ -223,16 +231,25 @@ window.addEventListener('DOMContentLoaded', event => {
         viewCount = document.querySelectorAll('select')[1].value;
         // console.log(viewCount);
 
-        // 페이지 출력 갯수 수정 후 새로운 데이터 출력
-        // btnId = 1은 데이터 갱신 이후 1페이지로 보여지기 위한 작업
-        tableData(ejsDataGenieMovie, viewCount, 1);
+        axios({
+            method: 'post',
+            url: '/Chart/likeSing_ReSearch'
+        }).then((response) => {
+            // console.log(response.data.result.likesing);
+            likeSingData = response.data.result.likesing;
 
-        // 페이지 하단 번호 변경 작업
-        // btnId = 1은 데이터 갱신 이후 1페이지로 보여지기 위한 작업
-        let info = pageAlgo(ejsDataGenieMovie.length, 3, viewCount, 1);
-        pageBtn(info);
-        // console.log(ejsDataGenieMovie);
-        rankColorChange();
+            // 페이지 출력 갯수 수정 후 새로운 데이터 출력
+            // btnId = 1은 데이터 갱신 이후 1페이지로 보여지기 위한 작업
+            tableData(ejsDataGenieMovie, viewCount, 1);
+
+            // 페이지 하단 번호 변경 작업
+            // btnId = 1은 데이터 갱신 이후 1페이지로 보여지기 위한 작업
+            let info = pageAlgo(ejsDataGenieMovie.length, 3, viewCount, 1);
+            pageBtn(info);
+            // console.log(ejsDataGenieMovie);
+            rankColorChange();
+        });
+
     }
 
     // 유튜브 실시간 차트 시간 변경
@@ -253,6 +270,7 @@ window.addEventListener('DOMContentLoaded', event => {
             // console.log(response.data.fileHour);
             // console.log(response.data.data);
             ejsDataGenieMovie = response.data.result.genieMoviedata.data;
+            likeSingData = response.data.result.likeSing.data;
 
             // ejs 파일의 html 태그 가져오기
             // container.innerHTML = geniechartrealpage;
@@ -285,83 +303,77 @@ window.addEventListener('DOMContentLoaded', event => {
             // tableData(ejsDataGenieMovie, viewCount, 1);
             // let info = pageAlgo(ejsDataGenieMovie.length, 3, viewCount, 1);
             // pageBtn(info);
-            viewCountChange(ejsDataGenieMovie);
+            viewCountChange();
             rankColorChange();
         });
     }
 
-    window.likeSingEvent = (e, flag, status) => {
+    window.likeSingEvent = (e, flag) => {
         // e 이벤트 대상
         // flag 좋아요 등록 / 삭제 체크
-        // status 세션 유무 체크
-        
-        if(status === true) {
-            // console.log(e.src);
-            // console.log(flag);
-            // console.log(e.parentElement.parentElement);
-            const likeParent = e.parentElement.parentElement;
-            // console.log(likeParent);
 
-            // 타이틀
-            // console.log(likeParent.children[3].textContent);
-            // 가수
-            // console.log(likeParent.children[4].textContent);
-            // 앨범 이미지
-            // console.log(likeParent.children[2].querySelector('img').src);
+        // console.log(e.src);
+        // console.log(flag);
+        // console.log(e.parentElement.parentElement);
+        const likeParent = e.parentElement.parentElement;
+        // console.log(likeParent);
 
-            const img = document.createElement('img');
+        // 타이틀
+        // console.log(likeParent.children[3].textContent);
+        // 가수
+        // console.log(likeParent.children[4].textContent);
+        // 앨범 이미지
+        // console.log(likeParent.children[2].querySelector('img').src);
 
-            let chooseMsg;
-            if(flag) {
-                chooseMsg = confirm('좋아요를 삭제하시겠습니까?');
-                if(chooseMsg) {
-                    // 좋아요 삭제
-                    axios({
-                        method: 'post',
-                        url: '/Chart/likeSingDelete',
-                        data: {
-                            likeTitle: likeParent.children[3].textContent,
-                            likeSinger: likeParent.children[4].textContent,
-                            likeImg: likeParent.children[2].querySelector('img').src,
-                            flag: flag
-                        }
-                    }).then((response) => {
-                        // console.log('b', response);
-                        img.src='./static/res/image/empty_heart.png';
-                        img.style='width: 30px; cursor: pointer;';
-                        img.setAttribute("onclick",`likeSingEvent(this, 0, ${status})`);
-                        e.parentElement.append(img);
-                        e.remove();
-                    });
-                }
+        const img = document.createElement('img');
 
-            } else {
-                chooseMsg = confirm('좋아요를 등록하시겠습니까?');
-                // OK 버튼 클릭
-                if(chooseMsg) {    
-                    // 좋아요 등록
-                    axios({
-                        method: 'post',
-                        url: '/Chart/likeSingRegister',
-                        data: {
-                            likeTitle: likeParent.children[3].textContent,
-                            likeSinger: likeParent.children[4].textContent,
-                            likeImg: likeParent.children[2].querySelector('img').src,
-                            flag: flag
-                        }
-                    }).then((response) => {
-                        // console.log('a', response);
-                        img.src='./static/res/image/full_heart.png';
-                        img.style='width: 30px; cursor: pointer;';
-                        img.setAttribute("onclick",`likeSingEvent(this, 1, ${status})`);
-                        e.parentElement.append(img);
-                        e.remove();
-                    });
-                }
+        let chooseMsg;
+        if(flag) {
+            chooseMsg = confirm('좋아요를 삭제하시겠습니까?');
+            if(chooseMsg) {
+                // 좋아요 삭제
+                axios({
+                    method: 'post',
+                    url: '/Chart/likeSingDelete',
+                    data: {
+                        likeTitle: likeParent.children[3].textContent,
+                        likeSinger: likeParent.children[4].textContent,
+                        likeImg: likeParent.children[2].querySelector('img').src,
+                        flag: flag
+                    }
+                }).then((response) => {
+                    // console.log('b', response);
+                    img.src='./static/res/image/empty_heart.png';
+                    img.style='width: 30px; cursor: pointer;';
+                    img.setAttribute("onclick",`likeSingEvent(this, 0)`);
+                    e.parentElement.append(img);
+                    e.remove();
+                });
             }
+
         } else {
-            alert('로그인 후 이용가능합니다.');
-            document.location.href='/login';
+            chooseMsg = confirm('좋아요를 등록하시겠습니까?');
+            // OK 버튼 클릭
+            if(chooseMsg) {    
+                // 좋아요 등록
+                axios({
+                    method: 'post',
+                    url: '/Chart/likeSingRegister',
+                    data: {
+                        likeTitle: likeParent.children[3].textContent,
+                        likeSinger: likeParent.children[4].textContent,
+                        likeImg: likeParent.children[2].querySelector('img').src,
+                        flag: flag
+                    }
+                }).then((response) => {
+                    // console.log('a', response);
+                    img.src='./static/res/image/full_heart.png';
+                    img.style='width: 30px; cursor: pointer;';
+                    img.setAttribute("onclick",`likeSingEvent(this, 1)`);
+                    e.parentElement.append(img);
+                    e.remove();
+                });
+            }
         }
 
     }

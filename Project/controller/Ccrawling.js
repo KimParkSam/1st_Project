@@ -66,8 +66,8 @@ exports.crawling_schedule = () => {
         });
     });
 
-    // ex) 00시 4분 마다 실행
-    schedule.scheduleJob('0 4 0 * * *', () => {
+    // ex) 매시 4분 마다 실행
+    schedule.scheduleJob('0 4 * * * *', () => {
         console.log(new Date() + ' scheduler running!');
         console.log('유튜브 뮤직비디오 크롤링');
         youtubeCrawling.youtubeMovieCrawlingFunction((result) => {
@@ -81,8 +81,8 @@ exports.crawling_schedule = () => {
         });
     });
 
-    // ex) 00시 5분 마다 실행
-    schedule.scheduleJob('0 5 0 * * *', () => {
+    // ex) 매시 5분 마다 실행
+    schedule.scheduleJob('0 5 * * * *', () => {
         console.log(new Date() + ' scheduler running!');
         console.log('지니 뮤직비디오 크롤링');
         genieCrawling.genieMovieCrawlingFunction((result) => {

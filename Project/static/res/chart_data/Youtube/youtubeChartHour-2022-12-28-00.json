@@ -11,16 +11,6 @@
 			"link": "https://www.youtube.com/watch?v=pSUydWEqKwE"
 		},
 		{
-			"title": "Hype Boy",
-			"rank": "3",
-			"lastWeekRank": "지난주 #3",
-			"albumImg": "https://i.ytimg.com/vi/11cta61wi0g/mqdefault.jpg",
-			"singer": "NewJeans",
-			"chartDuration": "22주",
-			"views": "3.62M",
-			"link": "https://www.youtube.com/watch?v=11cta61wi0g"
-		},
-		{
 			"title": "Event Horizon (사건의 지평선)",
 			"rank": "2",
 			"lastWeekRank": "지난주 #1",
@@ -29,6 +19,16 @@
 			"chartDuration": "36주",
 			"views": "4.42M",
 			"link": "https://www.youtube.com/watch?v=j1uXcHwLhHM"
+		},
+		{
+			"title": "Hype Boy",
+			"rank": "3",
+			"lastWeekRank": "지난주 #3",
+			"albumImg": "https://i.ytimg.com/vi/11cta61wi0g/mqdefault.jpg",
+			"singer": "NewJeans",
+			"chartDuration": "22주",
+			"views": "3.62M",
+			"link": "https://www.youtube.com/watch?v=11cta61wi0g"
 		},
 		{
 			"title": "Candy",
@@ -135,7 +135,7 @@
 			"rank": "14",
 			"lastWeekRank": "지난주 #23",
 			"albumImg": "https://i.ytimg.com/vi/iTgcp1oDk2M/mqdefault.jpg",
-			"singer": "Red Velvet & aespa",
+			"singer": "Red Velvet and aespa",
 			"chartDuration": "2주",
 			"views": "1.21M",
 			"link": "https://www.youtube.com/watch?v=iTgcp1oDk2M"
@@ -185,13 +185,13 @@
 			"rank": "19",
 			"lastWeekRank": "지난주 #16",
 			"albumImg": "https://i.ytimg.com/vi/bsT_OK4DdrM/mqdefault.jpg",
-			"singer": "BE'O (비오)",
+			"singer": "BEO (비오)",
 			"chartDuration": "12주",
 			"views": "1.05M",
 			"link": "https://www.youtube.com/watch?v=bsT_OK4DdrM"
 		},
 		{
-			"title": "Holiday (Live) (feat. lIlBOI & 기리보이(Giriboy))",
+			"title": "Holiday (Live) (feat. lIlBOI and 기리보이(Giriboy))",
 			"rank": "20",
 			"lastWeekRank": "--",
 			"albumImg": "https://i.ytimg.com/vi/5sG2f8G2gWo/mqdefault.jpg",
@@ -235,7 +235,7 @@
 			"rank": "24",
 			"lastWeekRank": "지난주 #39",
 			"albumImg": "https://i.ytimg.com/vi/Uq9gPaIzbe8/mqdefault.jpg",
-			"singer": "Sam Smith(샘 스미스) & 킴 페트라스",
+			"singer": "Sam Smith(샘 스미스) and 킴 페트라스",
 			"chartDuration": "11주",
 			"views": "978K",
 			"link": "https://www.youtube.com/watch?v=Uq9gPaIzbe8"
@@ -291,7 +291,7 @@
 			"link": "https://www.youtube.com/watch?v=K4xLi8IF1FM"
 		},
 		{
-			"title": "BINGO (Live) (feat. 미노이 & 죠지)",
+			"title": "BINGO (Live) (feat. 미노이 and 죠지)",
 			"rank": "30",
 			"lastWeekRank": "--",
 			"albumImg": "https://i.ytimg.com/vi/b67TS-VXV0o/mqdefault.jpg",
@@ -355,7 +355,7 @@
 			"rank": "36",
 			"lastWeekRank": "지난주 #18",
 			"albumImg": "https://i.ytimg.com/vi/51VYdvLknXg/mqdefault.jpg",
-			"singer": "그루비룸, lIlBOI, 블라세 (Blase), 노윤하, Polodared, 칠린호미 & Fleeky Bang",
+			"singer": "그루비룸, lIlBOI, 블라세 (Blase), 노윤하, Polodared, 칠린호미 and Fleeky Bang",
 			"chartDuration": "3주",
 			"views": "751K",
 			"link": "https://www.youtube.com/watch?v=51VYdvLknXg"
@@ -381,7 +381,7 @@
 			"link": "https://www.youtube.com/watch?v=azaZt7eccnc"
 		},
 		{
-			"title": "COMPASS (feat. 언에듀케이티드 키드(UNEDUCATED KID) & 수퍼비)",
+			"title": "COMPASS (feat. 언에듀케이티드 키드(UNEDUCATED KID) and 수퍼비)",
 			"rank": "39",
 			"lastWeekRank": "--",
 			"albumImg": "https://i.ytimg.com/vi/5xeZr2Xyq6I/mqdefault.jpg",
@@ -445,7 +445,7 @@
 			"rank": "45",
 			"lastWeekRank": "지난주 #44",
 			"albumImg": "https://i.ytimg.com/vi/YF4zktyi4YY/mqdefault.jpg",
-			"singer": "--, 서동현 & TOIL",
+			"singer": "--, 서동현 and TOIL",
 			"chartDuration": "13주",
 			"views": "598K",
 			"link": "https://www.youtube.com/watch?v=YF4zktyi4YY"
@@ -485,7 +485,7 @@
 			"rank": "49",
 			"lastWeekRank": "지난주 #40",
 			"albumImg": "https://i.ytimg.com/vi/Ua3aNDJE_Cg/mqdefault.jpg",
-			"singer": "크리스토퍼 & 청하",
+			"singer": "크리스토퍼 and 청하",
 			"chartDuration": "8주",
 			"views": "571K",
 			"link": "https://www.youtube.com/watch?v=Ua3aNDJE_Cg"
@@ -501,7 +501,7 @@
 			"link": "https://www.youtube.com/watch?v=VQZXXciZb_c"
 		},
 		{
-			"title": "I'm Not The Only One",
+			"title": "Im Not The Only One",
 			"rank": "51",
 			"lastWeekRank": "지난주 #60",
 			"albumImg": "https://i.ytimg.com/vi/nCkpzqqog4k/mqdefault.jpg",
@@ -534,11 +534,11 @@
 			"title": "뱃놀이",
 			"rank": "54",
 			"lastWeekRank": "지난주 #51",
-			"albumImg": "https://i.ytimg.com/vi/MReLmgu_qzk/mqdefault.jpg",
+			"albumImg": "https://i.ytimg.com/vi/HpgGJyEE_20/mqdefault.jpg",
 			"singer": "정동원",
 			"chartDuration": "3주",
 			"views": "551K",
-			"link": "https://www.youtube.com/watch?v=MReLmgu_qzk"
+			"link": "https://www.youtube.com/watch?v=HpgGJyEE_20"
 		},
 		{
 			"title": "흰눈",
@@ -585,7 +585,7 @@
 			"rank": "59",
 			"lastWeekRank": "지난주 #68",
 			"albumImg": "https://i.ytimg.com/vi/29Snr9dRMcU/mqdefault.jpg",
-			"singer": "SG워너비 & 브라운 아이드 걸스",
+			"singer": "SG워너비 and 브라운 아이드 걸스",
 			"chartDuration": "10주",
 			"views": "485K",
 			"link": "https://www.youtube.com/watch?v=29Snr9dRMcU"
@@ -735,7 +735,7 @@
 			"rank": "74",
 			"lastWeekRank": "--",
 			"albumImg": "https://i.ytimg.com/vi/6ByjXKSdGTM/mqdefault.jpg",
-			"singer": "영탁 & --",
+			"singer": "영탁 and --",
 			"chartDuration": "1주",
 			"views": "409K",
 			"link": "https://www.youtube.com/watch?v=6ByjXKSdGTM"
@@ -745,7 +745,7 @@
 			"rank": "75",
 			"lastWeekRank": "지난주 #63",
 			"albumImg": "https://i.ytimg.com/vi/u18be_kRmC0/mqdefault.jpg",
-			"singer": "RM & 조유진",
+			"singer": "RM and 조유진",
 			"chartDuration": "3주",
 			"views": "405K",
 			"link": "https://www.youtube.com/watch?v=u18be_kRmC0"
@@ -795,7 +795,7 @@
 			"rank": "80",
 			"lastWeekRank": "지난주 #54",
 			"albumImg": "https://i.ytimg.com/vi/vswVFvRvrRU/mqdefault.jpg",
-			"singer": "이영지, 토이고 (toigo), 제이켠, 잠비노 (Jambino) & XINSAYNE",
+			"singer": "이영지, 토이고 (toigo), 제이켠, 잠비노 (Jambino) and XINSAYNE",
 			"chartDuration": "3주",
 			"views": "362K",
 			"link": "https://www.youtube.com/watch?v=vswVFvRvrRU"
@@ -855,7 +855,7 @@
 			"rank": "86",
 			"lastWeekRank": "--",
 			"albumImg": "https://i.ytimg.com/vi/Tw0YmRVZOnU/mqdefault.jpg",
-			"singer": "--, --, --, --, -- & 영탁",
+			"singer": "--, --, --, --, -- and 영탁",
 			"chartDuration": "1주",
 			"views": "332K",
 			"link": "https://www.youtube.com/watch?v=Tw0YmRVZOnU"
@@ -921,11 +921,11 @@
 			"link": "https://www.youtube.com/watch?v=gdj6a0hv0Uk"
 		},
 		{
-			"title": "Because It's Christmas (크리스마스니까)",
+			"title": "Because Its Christmas (크리스마스니까)",
 			"rank": "93",
 			"lastWeekRank": "--",
 			"albumImg": "https://i.ytimg.com/vi/JkRKxxLiDNI/mqdefault.jpg",
-			"singer": "성시경, 박효신, 이석훈, 서인국 & 빅스(VIXX)",
+			"singer": "성시경, 박효신, 이석훈, 서인국 and 빅스(VIXX)",
 			"chartDuration": "18주",
 			"views": "294K",
 			"link": "https://www.youtube.com/watch?v=JkRKxxLiDNI"
