@@ -425,6 +425,7 @@ body {
     /* padding-left: 5%; */
     /* border: 1px solid #fec529; */
     width: 700px;
+    margin-top: 5%;
     grid-column: 2 / 4;
     grid-row: 3 / span 2;
 }
@@ -513,7 +514,6 @@ body {
         display: inline-block;
         width: 100%;
         max-width: 70px !important;
-
     }
 
     .list_info > li > span:nth-child(5) {
@@ -522,6 +522,26 @@ body {
     }
 }
 
+@media (min-width : 700px){
+    .list_info > li > span:nth-child(2) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        width: 100%;
+        max-width: 250px !important;
+    }
+
+    .list_info > li > span:nth-child(4) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        width: 100%;
+        max-width: 100px !important;
+    }
+
+}
 
 #mypage_board_list > a {
     display: flex;
