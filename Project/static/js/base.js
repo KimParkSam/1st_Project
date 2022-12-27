@@ -14,5 +14,9 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
+    mypage_move = () => {
+        document.location.href="/mypage";
+    }
+
 });
 

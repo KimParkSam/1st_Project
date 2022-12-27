@@ -143,8 +143,10 @@ exports.mypage = async (req, res) => {
         // console.log(result2.user_img);
 
         // 프로필 이미지 파일이 없으면 기본 이미지 설정
+        result['user_img'] = result2.user_img;
         if(!result2.user_img) {
             result2.user_img = 'd_img.png';
+            result['user_img'] = 'd_img.png';
         }
 
         LikeSing.findAll({
@@ -183,7 +185,7 @@ exports.mypage = async (req, res) => {
                 // console.log(result.likesing[0].title);
                 // res.render('mypage', { data : result2, result});
 
-            }
+            }            
 
         }).then(() => {
             Board.findAll({
@@ -238,4 +240,22 @@ exports.upload_file = (req, res) => {
         res.send({ path : req.file.filename });
     }
 };
+
+
+
+
+exports.user_profile_img = (userSession, cb) => {
+    // 유저 name 체크
+    User.findOne({
+        where : { id : `${userSession}`}
+    })
+    .then((rows) => {
+        // 프로필 이미지 파일이 없으면 기본 이미지 설정
+        if(!rows.user_img) {
+            rows.user_img = 'd_img.png';
+        }
+
+        cb(rows);
+    });
+}
 
