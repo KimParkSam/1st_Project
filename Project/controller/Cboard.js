@@ -1,4 +1,5 @@
 const { Board } = require("../model/indexBoard");
+const CuserFunction = require('./Cuser');
 const fs =require("fs").promises;
 
 exports.index = (req,res) => {
@@ -9,13 +10,20 @@ exports.index = (req,res) => {
         order: [["number", "ASC"]],
     })
     .then((result2) => {
-        // 세션 체크용
+        // 세션 체크
         if(req.session.user) {
             result["isLogin"] = true;
+            CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                result['user_img'] = userProfile.user_img;
+                res.render("basicBoard", {data: result2, result });
+            });
         } else {
             result["isLogin"] = false;
+            // res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+            res.render("basicBoard", {data: result2, result });
         }
-        res.render("basicBoard", {data: result2, result });
+
+        // res.render("basicBoard", {data: result2, result });
     })
     
 }
@@ -32,7 +40,20 @@ exports.write = (req,res) => {
         result["isLogin"] = false;
     }
 
-    res.render("writeBoard", {result});
+    // 세션 체크
+    if(req.session.user) {
+        result["isLogin"] = true;
+        CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+            result['user_img'] = userProfile.user_img;
+            res.render("writeBoard", {result});
+        });
+    } else {
+        result["isLogin"] = false;
+        // res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+        res.render("writeBoard", {result});
+    }
+
+    // res.render("writeBoard", {result});
 }
 
 exports.write_data = (req, res) => {
@@ -64,15 +85,21 @@ exports.read = (req,res) => {
         } 
     })
     .then((result3) => {
+        // res.render("readBoard", {data: result3, result });
+
+        // 세션 체크
         if(req.session.user) {
             result["isLogin"] = true;
+            CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                result['user_img'] = userProfile.user_img;
+                res.render("readBoard", {data: result3, result });
+            });
         } else {
             result["isLogin"] = false;
+            // res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+            res.render("readBoard", {data: result3, result });
         }
-        console.log( result );
-
-        res.render("readBoard", {data: result3, result });
-    })
+    });
 }
 
 exports.delete = (req, res) => {
@@ -96,14 +123,28 @@ exports.update_number = (req,res) => {
         } 
     })
     .then((result4) => {
+        // if(req.session.user) {
+        //     result["isLogin"] = true;
+        // } else {
+        //     result["isLogin"] = false;
+        // }
+        // console.log(result)
+        // res.render("updateBoard", {data: result4, result });
+        //업데이트보드에 데이터를 결과로 뿌려준다
+
+
+        // 세션 체크
         if(req.session.user) {
             result["isLogin"] = true;
+            CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                result['user_img'] = userProfile.user_img;
+                res.render("updateBoard", {data: result4, result });
+            });
         } else {
             result["isLogin"] = false;
+            // res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+            res.render("updateBoard", {data: result4, result });
         }
-        console.log(result)
-        res.render("updateBoard", {data: result4, result });
-        //업데이트보드에 데이터를 결과로 뿌려준다
     })
 }
 

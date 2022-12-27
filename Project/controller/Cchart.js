@@ -4,7 +4,7 @@ const melonFileFunction = require('./musicFileFunction/melonFileFunction');
 const genieFileFunction = require('./musicFileFunction/genieFileFunction');
 const ClikeSingFunction = require('./ClikeSing');
 const CgraphFunction = require('./Cgraph');
-const { LikeSing } = require('../model/indexLikeSing');
+const CuserFunction = require('./Cuser');
 
 
 // 차트 모아보기
@@ -42,7 +42,10 @@ exports.allChart = (req, res) => {
                                                         // 세션 체크
                                                         if(req.session.user) {
                                                             result["isLogin"] = true;
-                                                            res.render('allChart', {result});
+                                                            CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                                                                result['user_img'] = userProfile.user_img;
+                                                                res.render("allChart", {result});
+                                                            });
                                                         } else {
                                                             result["isLogin"] = false;
                                                             res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
@@ -100,12 +103,16 @@ exports.youtubeRealChartMain = (req, res) => {
                     result["isLogin"] = true;
                     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                         result['likeSing'] = {data: rows};
-                        res.render('youtubeRealChart', {result});
+                        CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                            result['user_img'] = userProfile.user_img;
+                            res.render("youtubeRealChart", {result});
+                        });
                     });
                 } else {
                     result["isLogin"] = false;
                     res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
                 }
+
             } else {
                 res.status(500).render('500');
             }
@@ -131,12 +138,28 @@ exports.youtubeRealChartMainType = (req, res) => {
                 // res.render('youtubeRealChart', {data: data, filelist: filelist, fileHour: req.params.num});
                 // res.send({data: data, filelist: filelist, fileHour: req.params.num});
                 // res.send({result});
+
+                // 세션 체크
+                // if(req.session.user) {
+                //     result["isLogin"] = true;
+                //     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                //         result['likeSing'] = {data: rows};
+                //         res.send({result});
+                //     });
+                // } else {
+                //     result["isLogin"] = false;
+                //     res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+                // }
+
                 // 세션 체크
                 if(req.session.user) {
                     result["isLogin"] = true;
                     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                         result['likeSing'] = {data: rows};
-                        res.send({result});
+                        CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                            result['user_img'] = userProfile.user_img;
+                            res.send({result});
+                        });
                     });
                 } else {
                     result["isLogin"] = false;
@@ -169,7 +192,10 @@ exports.youtubeMovieChart = (req, res) => {
                     result["isLogin"] = true;
                     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                         result['likeSing'] = {data: rows};
-                        res.render('youtubeMovieChart', {result});
+                        CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                            result['user_img'] = userProfile.user_img;
+                            res.render("youtubeMovieChart", {result});
+                        });
                     });
                 } else {
                     result["isLogin"] = false;
@@ -202,17 +228,34 @@ exports.youtubeMovieChartType = (req, res) => {
                 // res.send({data: data, filelist: filelist, fileHour: req.params.num});
                 // res.send({result});
 
+                // // 세션 체크
+                // if(req.session.user) {
+                //     result["isLogin"] = true;
+                //     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                //         result['likeSing'] = {data: rows};
+                //         res.send({result});
+                //     });
+                // } else {
+                //     result["isLogin"] = false;
+                //     res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+                // }
+
                 // 세션 체크
                 if(req.session.user) {
                     result["isLogin"] = true;
                     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                         result['likeSing'] = {data: rows};
-                        res.send({result});
+                        CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                            result['user_img'] = userProfile.user_img;
+                            res.send({result});
+                        });
                     });
                 } else {
                     result["isLogin"] = false;
                     res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
                 }
+
+                
 
             } else {
                 res.status(500).render('500');
@@ -241,7 +284,10 @@ exports.melonRealChartMain = (req, res) => {
                     result["isLogin"] = true;
                     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                         result['likeSing'] = {data: rows};
-                        res.render('melonRealChart', {result});
+                        CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                            result['user_img'] = userProfile.user_img;
+                            res.render("melonRealChart", {result});
+                        });
                     });
                 } else {
                     result["isLogin"] = false;
@@ -274,12 +320,27 @@ exports.melonRealChartMainType = (req, res) => {
                 // res.send({data: data, filelist: filelist, fileHour: req.params.num});
                 // res.send({result});
 
+                // // 세션 체크
+                // if(req.session.user) {
+                //     result["isLogin"] = true;
+                //     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                //         result['likeSing'] = {data: rows};
+                //         res.send({result});
+                //     });
+                // } else {
+                //     result["isLogin"] = false;
+                //     res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+                // }
+
                 // 세션 체크
                 if(req.session.user) {
                     result["isLogin"] = true;
                     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                         result['likeSing'] = {data: rows};
-                        res.send({result});
+                        CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                            result['user_img'] = userProfile.user_img;
+                            res.send({result});
+                        });
                     });
                 } else {
                     result["isLogin"] = false;
@@ -314,7 +375,10 @@ exports.melonDayChartMain = (req, res) => {
                     result["isLogin"] = true;
                     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                         result['likeSing'] = {data: rows};
-                        res.render('melonDayChart', {result});
+                        CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                            result['user_img'] = userProfile.user_img;
+                            res.render("melonDayChart", {result});
+                        });
                     });
                 } else {
                     result["isLogin"] = false;
@@ -347,12 +411,27 @@ exports.melonDayChartMainType = (req, res) => {
                 // res.send({data: data, filelist: filelist, fileHour: req.params.num});
                 // res.send({result});
 
+                // // 세션 체크
+                // if(req.session.user) {
+                //     result["isLogin"] = true;
+                //     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                //         result['likeSing'] = {data: rows};
+                //         res.send({result});
+                //     });
+                // } else {
+                //     result["isLogin"] = false;
+                //     res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+                // }
+
                 // 세션 체크
                 if(req.session.user) {
                     result["isLogin"] = true;
                     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                         result['likeSing'] = {data: rows};
-                        res.send({result});
+                        CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                            result['user_img'] = userProfile.user_img;
+                            res.send({result});
+                        });
                     });
                 } else {
                     result["isLogin"] = false;
@@ -390,7 +469,10 @@ exports.genieRealChartMain = (req, res) => {
                     result["isLogin"] = true;
                     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                         result['likeSing'] = {data: rows};
-                        res.render('genieRealChart', {result});
+                        CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                            result['user_img'] = userProfile.user_img;
+                            res.render("genieRealChart", {result});
+                        });
                     });
                 } else {
                     result["isLogin"] = false;
@@ -423,12 +505,27 @@ exports.genieRealChartMainType = (req, res) => {
                 // res.send({data: data, filelist: filelist, fileHour: req.params.num});
                 // res.send({result});
 
+                // // 세션 체크
+                // if(req.session.user) {
+                //     result["isLogin"] = true;
+                //     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                //         result['likeSing'] = {data: rows};
+                //         res.send({result});
+                //     });
+                // } else {
+                //     result["isLogin"] = false;
+                //     res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+                // }
+
                 // 세션 체크
                 if(req.session.user) {
                     result["isLogin"] = true;
                     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                         result['likeSing'] = {data: rows};
-                        res.send({result});
+                        CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                            result['user_img'] = userProfile.user_img;
+                            res.send({result});
+                        });
                     });
                 } else {
                     result["isLogin"] = false;
@@ -465,7 +562,10 @@ exports.genieMovieChartMain = (req, res) => {
                     result["isLogin"] = true;
                     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                         result['likeSing'] = {data: rows};
-                        res.render('genieMovieChart', {result});
+                        CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                            result['user_img'] = userProfile.user_img;
+                            res.render("genieMovieChart", {result});
+                        });
                     });
                 } else {
                     result["isLogin"] = false;
@@ -498,12 +598,27 @@ exports.genieMovieChartMainType = (req, res) => {
                 // res.send({data: data, filelist: filelist, fileHour: req.params.num});
                 // res.send({result});
 
+                // // 세션 체크
+                // if(req.session.user) {
+                //     result["isLogin"] = true;
+                //     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
+                //         result['likeSing'] = {data: rows};
+                //         res.send({result});
+                //     });
+                // } else {
+                //     result["isLogin"] = false;
+                //     res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+                // }
+
                 // 세션 체크
                 if(req.session.user) {
                     result["isLogin"] = true;
                     ClikeSingFunction.LikeSingSearch(req.session.user, (rows) => {
                         result['likeSing'] = {data: rows};
-                        res.send({result});
+                        CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                            result['user_img'] = userProfile.user_img;
+                            res.send({result});
+                        });
                     });
                 } else {
                     result["isLogin"] = false;

@@ -1,7 +1,7 @@
 const youtubeFileFunction = require('./musicFileFunction/youtubeFileFunction');
 const melonFileFunction = require('./musicFileFunction/melonFileFunction');
 const genieFileFunction = require('./musicFileFunction/genieFileFunction');
-// const fs = require('fs').promises;
+const CuserFunction = require('./Cuser');
 
 exports.main = (req, res) => {
     let result = {id : req.session.user};
@@ -33,12 +33,16 @@ exports.main = (req, res) => {
                                         // 세션 체크
                                         if(req.session.user) {
                                             result["isLogin"] = true;
+                                            CuserFunction.user_profile_img(req.session.user, (userProfile) => {
+                                                // console.log('qwe ', userProfile.user_img);
+                                                result['user_img'] = userProfile.user_img;
+                                                res.render("index", {result});
+                                            });
                                         } else {
                                             result["isLogin"] = false;
+                                            result['user_img'] = 'd_img.png';
+                                            res.render("index", {result});
                                         }
-
-                                        res.render("index", {result});
-
                                     } else {
                                         res.status(500).render('500');
                                     }
