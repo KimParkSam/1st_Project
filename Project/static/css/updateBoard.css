@@ -1,3 +1,7 @@
+<style>
+
+  
+
     .background_all {
         
         justify-content: center;
@@ -6,13 +10,12 @@
         width: 100%;
         height: 100%;
 
-    
     }
 
-      
+        
     body {
-    
-        background-image: linear-gradient(to bottom, rgba(98, 23, 146, 0) 0%, rgb(12, 0, 26) 50%, rgba(22, 1, 39, 0.83) 100%);
+   
+        background-image: linear-gradient(to bottom, rgb(0 0 0) 0%, rgb(1 2 24) 50%, rgba(7, 0, 12, 0.89) 100%);
         height: 100%;
         background-attachment:fixed;
 
@@ -20,26 +23,25 @@
 
     }
 
-   .board_wrap {
+    .board_wrap {
         width: 1100px;
         margin: auto;
-        margin-top: 0px;
         
-    
+        
     }
-  
-   .board_title { 
-      
-       padding:50px;
     
-       color: white;
-       /* padding-right: 100rem; */
-       font-weight: bold;
-       font-size: 1.5rem;
-       text-align:left !important;
-    
-    
-   }
+    .board_title { 
+        
+        padding:50px;
+        
+        color: white;
+        /* padding-right: 100rem; */
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-align:left !important;
+        
+        
+    }
 
     .board_write {
         border-top: 2px solid white;
@@ -84,7 +86,7 @@
     .board_write .info d1,
     .board_write .info dt {
         width: 100px;
-    }
+    }s
 
     .board_write .title dd {
         width: calc(100% - 100px);
@@ -134,23 +136,35 @@
         margin:0px;
     }
 
+
     .bt_wrap {
-    margin-top: 30px;
-    text-align: center;
-    font-size:30px;
-    }
-    .fileupload {
-    margin-top: 30px;
+       text-align: center;
+       font-size:30px;
+     }
+    #btn {
+        background: #FE2983;
+        color:white;
+     }
+     
+    .btn-outline-secondary {
+        --bs-btn-color:#FE2983;
+        --bs-btn-border-color: #FE2983;
+        --bs-btn-hover-bg:#FE2983;
+        --bs-btn-hover-border-color: #FE2983;
+     }
+
+    .d-none {
+       display:none;
     }
 
+    @media (max-width: 540px) {
+        .board_wrap {width:350px;
+         }
 
-   @media (max-width: 540px) {
-    .board_wrap {width:350px;
+        .background_all{
+         height: 70%;
+         width: auto;
+         }
     }
-    /* div.board_wrap {
-        margin:unset;} */
-    .background_all{
-      height: 70%;
-      width: auto;
-    }
-}
+
+</style>
