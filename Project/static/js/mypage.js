@@ -21,6 +21,7 @@ window.addEventListener('DOMContentLoaded', event => {
         .then((reuslt) => {
             console.log(reuslt);
             document.getElementById('profile_img').src = "static/profile_img/" + reuslt.path;
+            document.getElementById('profile_img_mypage').src = "static/profile_img/" + reuslt.path;
         });
       });        
      });
