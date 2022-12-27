@@ -30,5 +30,5 @@ app.listen(port, () => {
     console.log("server open: ", port);
     // 임시 사용 중지
     // 크롤링 자동 스케줄
-    controllerCrawling.crawling_schedule();
+    // controllerCrawling.crawling_schedule();
 });
