@@ -12,7 +12,7 @@
 
 <body class="sb-nav-fixed">
     <section>
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="position: fixed;">
             <!-- Navbar Brand--> <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-lg-0  ps-3" id="sidebarToggle" href="#!">
                 <i class="bi bi-justify main-color"></i></button>
@@ -29,7 +29,9 @@
                     <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href = '/login'">로그인</button>
                 </div>
 
-                <!-- 로그인 때 보이는 버x튼 -->
+                <!-- 로그인 후 보이는 프로필 이미지 -->
+                <img id='profile_img' class='d-none' src="/static/profile_img/<%= result.user_img %>" style="width: 20px; height: 20px; border-radius: 10px; margin-right: 5%; cursor: pointer;" onclick="mypage_move()">
+                <!-- 로그인 때 보이는 버튼 -->
                 <ul class="navbar-nav logout-btn d-none dropstart">
                     <li class="nav-item dropdown">
                         <a  href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical main-color"></i></a>
@@ -95,15 +97,11 @@
 
                     </div>
                 </div>
-                <!-- <div class="sb-sidenav-footer">
-                    <div class="small">music</div>
-                    음악플레이어
-                </div> -->
-
             </nav>
         </div>
 
         <div id="layoutSidenav_content">
+            <!-- 본문 데이터 -->
             <!-- 본문 데이터 -->
             <!-- <div class="board_title" style="color:white;" data-aos="fade-right" data-aos-delay="600"> 자유게시판</div> -->
             <div class="background_all row ">
@@ -152,14 +150,10 @@
                             <!-- 만약에, data의 파일이름이 null이 아니면, data의 파일을 보여주는 페이지를 열리게 하는 링크 코드+ a링크 사이에 data.filename을 써서 파일 이름을 바로 보여준다 -->
                         </div>
                         <div class="bt_wrap" data-aos="fade-right" data-aos-delay="800">
-                            <% 
-                                if ( result.id == data.id && result.isLogin ) { 
-                            %>
+                            <% if ( result.id == data.id && result.isLogin ) {  %>
                                 <button type="button" class="btn btn-outline-secondary"  id="btn_correct" onclick="document.location.href='/board/update?number=<%=data.number%>'">수정</button>
                                 <button type="button" class="btn btn-outline-secondary"  id="btn_delete" onclick="delete_Board();">삭제</button>
-                            <%
-                                }
-                            %>
+                            <% } %>
                             <button type="button" class="btn btn-outline-secondary"  id="btn_cancel" onclick="document.location.href='/board'">목록</button>
                         </div>
                     </div>
@@ -168,7 +162,6 @@
         </div>
     </div>
 
-    
     <script type="text/javascript">
         AOS.init({
             duration: 1000
@@ -177,8 +170,9 @@
         // 로그인 값 true => 기본 버튼 가리고 / 로그 아웃 버튼 보임
         if ("<%=result.isLogin%>" == "true") {
             $('#default-btn').addClass("d-none");
-
+            
             $(".logout-btn").removeClass("d-none");
+            $('#profile_img').removeClass("d-none");
         };
 
         // 로그 아웃 버튼
