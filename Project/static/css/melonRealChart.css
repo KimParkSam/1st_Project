@@ -253,8 +253,8 @@ table > tfoot > tr > td > ul > li {
         display: none !important;
     }
 
-    tfoot > tr > td:nth-child(1),
-    tfoot > tr > td:nth-child(2) {
+    tfoot > tr > td:nth-child(2),
+    tfoot > tr > td:nth-child(5) {
         display: none !important;
     }
 }
