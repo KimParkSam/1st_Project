@@ -390,6 +390,8 @@ window.addEventListener('DOMContentLoaded', event => {
                 tr_list[i].children[1].children[0].style.color = '#ED3023';
             } else if(tr_list[i].children[1].children[0].textContent.includes('하강') === true) {
                 tr_list[i].children[1].children[0].style.color = '#0096FF';
+            } else if(tr_list[i].children[1].children[0].textContent.includes('NEW') === true) {
+                tr_list[i].children[1].children[0].style.color = '#00CD3C';
             } else {
                 tr_list[i].children[1].children[0].style.color = 'grey';
             }
