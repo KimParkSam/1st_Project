@@ -122,6 +122,13 @@ exports.user_delete = async (req, res) => {
     let result = await User.destroy(
     { where : { id : `${req.session.user}` }}
     );
+    await LikeSing.destroy(
+        { where : { user_id : `${req.session.user}` }}
+    );
+    await Board.destroy(
+        { where : { id : `${req.session.user}` }}
+    );
+
     req.session.destroy(function (err){
         if(err) throw err ;
         res.send(true);
