@@ -107,8 +107,8 @@
             <div class="background_all row ">
                 
                 <div class="board_wrap col-12">
-                    <div style="color: white;" class="board_t" data-aos="fade-right" data-aos-delay="600">자유게시판</div>
-                    <div class="board_view_wrap" data-aos="fade-right" data-aos-delay="800">
+                    <div style="color: white;" class="board_t">자유게시판</div>
+                    <div class="board_view_wrap">
                         <div class="board_view">
                             <div class="title">
                                 <%=data.title%>
@@ -149,7 +149,7 @@
                             <% } %>
                             <!-- 만약에, data의 파일이름이 null이 아니면, data의 파일을 보여주는 페이지를 열리게 하는 링크 코드+ a링크 사이에 data.filename을 써서 파일 이름을 바로 보여준다 -->
                         </div>
-                        <div class="bt_wrap" data-aos="fade-right" data-aos-delay="800">
+                        <div class="bt_wrap">
                             <% if ( result.id == data.id && result.isLogin ) {  %>
                                 <button type="button" class="btn btn-outline-secondary"  id="btn_correct" onclick="document.location.href='/board/update?number=<%=data.number%>'">수정</button>
                                 <button type="button" class="btn btn-outline-secondary"  id="btn_delete" onclick="delete_Board();">삭제</button>
@@ -163,7 +163,7 @@
             <!-- test -->
 
                <!-- 라이브리 시티 설치 코드 -->
-                <div id="lv-container" data-id="city" data-uid="MTAyMC81NzgxMC8zNDI3Mw==" data-aos="fade-right" data-aos-delay="800">
+                <div id="lv-container" data-id="city" data-uid="MTAyMC81NzgxMC8zNDI3Mw==">
                     <script type="text/javascript">
                 (function(d, s) {
                     var j, e = d.getElementsByTagName(s)[0];
