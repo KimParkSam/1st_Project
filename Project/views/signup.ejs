@@ -265,7 +265,7 @@
     
                 <div class="txt_field mb-3" >
                     <input type="text" class="form-control" id="check_input_name" name="name" oninput="nickValidity(this)"
-                        placeholder="닉네임을 입력해주세요" title="대소문자, 한글, 숫자, 2글자 이상 10글자 이하" pattern="^([a-zA-Z0-9가-힣]{2,10})$"
+                        placeholder="닉네임을 입력해주세요" title="대소문자, 숫자, 2글자 이상 10글자 이하" pattern="^([a-zA-Z0-9가-힣]{2,10})$"
                         required>
                     <div class="txt_field" id="name_check_sucess" style="text-align: center; font-size: 13px;"></div>
                 </div>
@@ -414,7 +414,7 @@
     //닉네임 유효성 검사 name
     function nickValidity(e) {
         if (!e.checkValidity()) {
-            $('#name_check_sucess').html('<p style="color:red;"> 대소문자, 한글, 숫자, 2글자 이상 10글자 이하 </p>');
+            $('#name_check_sucess').html('<p style="color:red;"> 대소문자, 숫자, 2글자 이상 10글자 이하 </p>');
             return false;
         }
         $('#name_check_sucess').html('');

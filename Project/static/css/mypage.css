@@ -493,6 +493,7 @@ body {
 @media (max-width : 700px) {
     .modal-body {
         padding: 2px;
+        margin-left: 10%;
     }
 
     .list_info > li > span:nth-child(2) {
@@ -510,7 +511,7 @@ body {
         white-space: nowrap;
         display: inline-block;
         width: 100%;
-        max-width: 70px !important;
+        max-width: 100px !important;
     }
 
     .list_info > li > span:nth-child(5) {
@@ -578,7 +579,8 @@ body {
 
 @media (max-width : 700px) {
     #mypage_board_list > a > span:nth-child(1) {
-        width: 10%;
+        width: 50%;
+        text-align: left;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

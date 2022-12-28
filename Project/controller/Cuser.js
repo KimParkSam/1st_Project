@@ -261,7 +261,6 @@ exports.user_profile_img = (userSession, cb) => {
         if(!rows.user_img) {
             rows.user_img = 'd_img.png';
         }
-
         cb(rows);
     });
 }
