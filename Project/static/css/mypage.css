@@ -6,6 +6,10 @@ body {
     height: 100vh;
 }
 
+#layoutSidenav_content {
+    overflow: hidden;
+}
+
 /* 마이페이지 바디 */
 .outline_line.mypage.container {
     color: white;
