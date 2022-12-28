@@ -219,7 +219,7 @@ exports.genieMovieCrawlingFunction = (cb) => {
             await lists.each((index, list) => {
                 // 각 리스트의 하위 노드중 호텔 이름에 해당하는 요소를 Selector로 가져와 텍스트값을 가져온다.
                 let rank = $(list).find("td.number").text();
-                const rankVariance = $(list).find("td.number > span > span > span").text();
+                let rankVariance = $(list).find("td.number > span > span > span").text();
                 const albumImg = $(list).find("td:nth-child(2) > a > img").attr('src');
                 // title의 경우 더미 값이 추가 되지만 rank랑은 조금 다르게 가져와진다. trim 함수로 띄어쓰기를 제거하여 원하는 값만 가져온다.
                 let title = $(list).find("td.info > a.title.ellipsis").attr('title');
