@@ -5,7 +5,9 @@ window.addEventListener('DOMContentLoaded', event => {
         "attention",
         "shutDown",
         "antifragile",
-        "dreamers"
+        "nxde",
+        "stayThisWay",
+        "ditto"
     ];
 
     function randomValueFromArray(array) {
