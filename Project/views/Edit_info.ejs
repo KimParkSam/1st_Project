@@ -59,7 +59,7 @@
             position: absolute;
             margin-top: 550px;
             opacity: 0.9;
-            z-index: 6;
+            z-index: 1;
         }
 
 
@@ -262,6 +262,7 @@
 
         .mb-3 {
             padding: 0 3rem;
+            z-index: 2;
         }
 
         @media(max-width : 700px) {
@@ -291,7 +292,6 @@
 
                 <!--닉네임 조회 -->
                 <div class="txt_field mb-3">
-
                     <input type="text" class="form-control" id="check_input_name" name="name"
                         oninput="nickValidity(this)" placeholder="닉네임을 입력해주세요" title="대소문자, 한글, 숫자, 2글자 이상 10글자 이하"
                         pattern="^([a-zA-Z0-9가-힣]{2,10})$" value="<%=data.name%>">
@@ -355,8 +355,8 @@
                 // 2. pw가 만약 값이 있으면, data객체의 "pw"값에 입력값을 보낸다.
                 // 3. pw가 만약 값이 없으면, data객체에 값을 보내지 않는다 => 수정되지 않는다.
                 var data = { name: form.name.value };
-                if (form.pw.value != "") data["pw"] = form.pw.value;
-
+                if (form.pw.value != "") {data["pw"] = form.pw.value;} 
+               
                 axios({
                     method: 'patch',
                     url: '/Edit_info_update',
