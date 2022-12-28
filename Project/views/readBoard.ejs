@@ -30,7 +30,7 @@
                 </div>
 
                 <!-- 로그인 후 보이는 프로필 이미지 -->
-                <img id='profile_img' class='d-none' src="/static/profile_img/<%= result.user_img %>" style="width: 20px; height: 20px; border-radius: 10px; margin-right: 5%; cursor: pointer;" onclick="mypage_move()">
+                <img id='profile_img' class='d-none' src="/static/profile_img/<%= result.user_img%>" style="width: 20px; height: 20px; border-radius: 10px; margin-right: 5%; cursor: pointer;" onclick="mypage_move()">
                 <!-- 로그인 때 보이는 버튼 -->
                 <ul class="navbar-nav logout-btn d-none dropstart">
                     <li class="nav-item dropdown">
@@ -136,11 +136,11 @@
                             
                             <% if ( data.filename != null ) { %>
                                     <% if ( data.filename.includes(".png") || data.filename.includes(".jpg")) { %>
-                                <div class="img"><img src="/static/board/<%=data.filename%>" width="70%">  
-                                    <% } %>
-                                <% } %>
+                                <div class="img" style="width: 50%;"><img src="/static/board/<%=data.filename%>" width="70%">  
                                 </div>
-                                
+                                    <% } %>
+                            <% } %>
+                        
                             </div>
                             <!-- 만약에 data의 파일이름이 null이 아니고, date의 파일네임에 png가 들어있거나또는 data의 파일네임에 jpg가 들어있으면 div class=img 태그를 보여줘라! -->
 
@@ -159,8 +159,30 @@
                     </div>
                 </div>
             </div>
+
+            <!-- test -->
+
+               <!-- 라이브리 시티 설치 코드 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC81NzgxMC8zNDI3Mw==" data-aos="fade-right" data-aos-delay="800">
+                    <script type="text/javascript">
+                (function(d, s) {
+                    var j, e = d.getElementsByTagName(s)[0];
+                    if (typeof LivereTower === 'function') { return; }
+                    j = d.createElement(s);
+                    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                    j.async = true;
+                    e.parentNode.insertBefore(j, e);
+                })(document, 'script');
+                    </script>
+                <noscript> 라이브리 댓글 작성을 위해 JavaScript를 활성화 해주세요</noscript>
+                </div>
+                <!-- 시티 설치 코드 끝 -->
+                        
         </div>
     </div>
+
+
+    
 
     <script type="text/javascript">
         AOS.init({
@@ -214,6 +236,6 @@
         }
 
     </script>
-
+    
 </body>
 </html>
