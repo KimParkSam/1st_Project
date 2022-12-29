@@ -142,8 +142,8 @@ exports.update_number = (req,res) => {
             });
         } else {
             result["isLogin"] = false;
-            // res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
-            res.render("updateBoard", {data: result4, result });
+            res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
+            // res.render("updateBoard", {data: result4, result });
         }
     })
 }
