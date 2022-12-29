@@ -102,7 +102,8 @@ exports.Edit_info = async (req, res) => {
     if(result) {
         res.render('Edit_info', { data : result });
     } else {
-        res.send('false');
+        // res.send('false');
+        res.send("<script>alert('로그인 후 이용가능합니다.');location.href='/login';</script>");
     }
 }
 
