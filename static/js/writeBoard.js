@@ -5,7 +5,7 @@ function register() {
     var form_content = document.getElementById('form_content');
     // console.log('title', form.title.value);
     // console.log('id', form.id.value);
-    console.log(form_content.value.trim());
+    // console.log(form_content.value.trim());
     if(form.title.value.trim() == '') {
         alert('제목을 입력하여 주세요.');
     } else if(form_content.value.trim() == '') {
