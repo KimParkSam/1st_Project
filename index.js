@@ -3,11 +3,15 @@ const session = require('express-session');
 const controllerCrawling = require("./controller/Ccrawling");
 const app = express();
 const port = 8080;
+const cors = require('cors');
 
 app.set("view engine", "ejs");
 app.use("/static", express.static(__dirname+"/static"));
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
+app.use(cors({
+    origin: '*', // 모든 출처 허용 옵션. true 를 써도 된다.
+}));
 
 app.use(session({
     // 임의의 문자열을 가지고 세션을 암호화를 하겠다.
